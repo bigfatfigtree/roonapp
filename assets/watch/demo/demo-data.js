@@ -1,14 +1,11 @@
 // Roon interactive demo — baked sample-family data.
 // Captured 2026-10-30 (populate-media + go-live bake): throwaway instances of the
 // current app server on hermetic COPIES of db.json; real app/data/db.json md5
-// 0ebba7678e251db5fd26291b87828d2d verified unchanged before/after. Sample family
+// bcc64fb10949849981e8a7b769a08747 verified unchanged before/after both stages. Sample family
 // fam_b44fd40e9d36256d3b. Keys are "METHOD path?sortedquery" — 256 keys, all HTTP 200.
 // Stage 1 (capture.py): previous-bake key replay + Playwright UI journey.
 // Stage 2 (supplement.py): id-dependent keys re-enumerated from the reseeded
 // store (all thread details, comments, per-person/per-month feeds, film years).
-// Stage 3 (film_thread_supplement.py): film keys with the followed Gardens
-// thread as the closing segment (film/<year>?thread=<id>), captured the
-// same way, for the Rooney-in-action showcase deep links.
 // Bake transforms: "/media/..." URLs rewritten to relative "media/...";
 // capture-origin URLs made relative; prompt replyToken fields stripped;
 // guest-link token + url fields stripped (signed credentials, same class);
@@ -313,7 +310,7 @@ window.ROON_DEMO_DATA = {
     "endDate": "2021-06-26T15:00:00.000Z",
     "season": "Summer",
     "year": 2021,
-    "narrative": "Between June 5, 2021 and June 26, 2021, your family kept 4 memories here.\nIn these memories: Rooney, Grandma June.\nIn your own words:\n- June 5, 2021: Rooney, three, all curls\n- June 5, 2021: June shows Rooney how peas climb\n- June 12, 2021: Grandma June's garden, first summer\n- June 26, 2021: Tomato rows in Grandma's garden",
+    "narrative": "Between June 5, 2021 and June 26, 2021, your family kept 4 memories here.\nIn these memories: Taylor, Grandma June.\nIn your own words:\n- June 5, 2021: Taylor, three, all curls\n- June 5, 2021: June shows Taylor how peas climb\n- June 12, 2021: Grandma June's garden, first summer\n- June 26, 2021: Tomato rows in Grandma's garden",
     "memoryIds": [
      "mem_54bc7a84815e545002",
      "mem_fc2c9720b282443477",
@@ -333,7 +330,7 @@ window.ROON_DEMO_DATA = {
     "endDate": "2022-04-16T15:00:00.000Z",
     "season": "Spring",
     "year": 2022,
-    "narrative": "Between April 9, 2022 and April 16, 2022, your family kept 4 memories here.\nIn these memories: Milo, Rooney.\nIn your own words:\n- April 9, 2022: Milo, one and a half, all cheeks\n- April 9, 2022: Sharing the good crayons\n- April 10, 2022: The birthday countdown begins\n- April 16, 2022: Rooney's fourth birthday, the cake with claws",
+    "narrative": "Between April 9, 2022 and April 16, 2022, your family kept 4 memories here.\nIn these memories: Milo, Taylor.\nIn your own words:\n- April 9, 2022: Milo, one and a half, all cheeks\n- April 9, 2022: Sharing the good crayons\n- April 10, 2022: The birthday countdown begins\n- April 16, 2022: Taylor's fourth birthday, the cake with claws",
     "memoryIds": [
      "mem_a371734fd704a21023",
      "mem_2624af56c403e9b350",
@@ -353,7 +350,7 @@ window.ROON_DEMO_DATA = {
     "endDate": "2022-08-05T15:00:00.000Z",
     "season": "Summer",
     "year": 2022,
-    "narrative": "Between June 11, 2022 and August 5, 2022, your family kept 8 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- June 11, 2022: Rooney waters the pavement, calls it rain\n- June 11, 2022: Grandma June braids his curls, very serious work\n- June 15, 2022: First week on the bike, wobbles and all\n- June 18, 2022: First bike, bell and all\n- July 10, 2022: Rooney found a dinosaur book at the library and would not put it down. She named every dinosaur on the walk home.\n- July 22, 2022: Rooney drew a dinosaur with a spiky back and a lopsided smile. It went straight on the fridge and never came down.\n- July 23, 2022: Rooney and the roaring dinosaur\n- August 5, 2022: Milo learned to roar from Rooney and did it at the dinner table, at bath time, and once at the grocery store.",
+    "narrative": "Between June 11, 2022 and August 5, 2022, your family kept 8 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- June 11, 2022: Taylor waters the pavement, calls it rain\n- June 11, 2022: Grandma June braids his curls, very serious work\n- June 15, 2022: First week on the bike, wobbles and all\n- June 18, 2022: First bike, bell and all\n- July 10, 2022: Taylor found a dinosaur book at the library and would not put it down. She named every dinosaur on the walk home.\n- July 22, 2022: Taylor drew a dinosaur with a spiky back and a lopsided smile. It went straight on the fridge and never came down.\n- July 23, 2022: Taylor and the roaring dinosaur\n- August 5, 2022: Milo learned to roar from Taylor and did it at the dinner table, at bath time, and once at the grocery store.",
     "memoryIds": [
      "mem_2f6e011eab75e67503",
      "mem_cdc89eb41ae2bae21e",
@@ -377,7 +374,7 @@ window.ROON_DEMO_DATA = {
     "endDate": "2023-04-15T15:00:00.000Z",
     "season": "Spring",
     "year": 2023,
-    "narrative": "Between April 8, 2023 and April 15, 2023, your family kept 2 memories here.\nIn these memories: Grandma June, Rooney, Milo.\nIn your own words:\n- April 8, 2023: Grandma June's porch, waiting on the spring\n- April 15, 2023: Rooney's birthday, five candles",
+    "narrative": "Between April 8, 2023 and April 15, 2023, your family kept 2 memories here.\nIn these memories: Grandma June, Taylor, Milo.\nIn your own words:\n- April 8, 2023: Grandma June's porch, waiting on the spring\n- April 15, 2023: Taylor's birthday, five candles",
     "memoryIds": [
      "mem_12c0caecfb0c0da7de",
      "mem_ca71de709a423445c4"
@@ -395,7 +392,7 @@ window.ROON_DEMO_DATA = {
     "endDate": "2023-07-29T15:00:00.000Z",
     "season": "Summer",
     "year": 2023,
-    "narrative": "Between June 10, 2023 and July 29, 2023, your family kept 13 memories here.\nIn these memories: Rooney, Grandma June, Milo.\nIn your own words:\n- June 10, 2023: Rooney on the blue bike, no hands (almost)\n- June 17, 2023: The garden gate, painted blue\n- June 24, 2023: The dinosaur she drew at four, still up\n- June 25, 2023: First ocean trip, straight to the water\n- July 2, 2023: Ocean morning, before the crowds\n- July 8, 2023: Grandma June in the garden, gloves on\n- July 14, 2023: The dinosaur phase returned. Rooney taught Milo the names this time, in order, and corrected him gently.\n- July 14, 2023: Pool afternoon · sample photo\n- July 16, 2023: Toy dinosaurs, lined up by size\n- July 22, 2023: Filming in the park · sample photo\n- July 22, 2023: Park day, filmed · sample video\n- July 29, 2023: Grandma June made a dinosaur cake nobody was allowed to cut for a full hour because it was too good to ruin.\n- July 29, 2023: Cake, approved · sample photo",
+    "narrative": "Between June 10, 2023 and July 29, 2023, your family kept 13 memories here.\nIn these memories: Taylor, Grandma June, Milo.\nIn your own words:\n- June 10, 2023: Taylor on the blue bike, no hands (almost)\n- June 17, 2023: The garden gate, painted blue\n- June 24, 2023: The dinosaur she drew at four, still up\n- June 25, 2023: First ocean trip, straight to the water\n- July 2, 2023: Ocean morning, before the crowds\n- July 8, 2023: Grandma June in the garden, gloves on\n- July 14, 2023: The dinosaur phase returned. Taylor taught Milo the names this time, in order, and corrected him gently.\n- July 14, 2023: Pool afternoon · sample photo\n- July 16, 2023: Toy dinosaurs, lined up by size\n- July 22, 2023: Filming in the park · sample photo\n- July 22, 2023: Park day, filmed · sample video\n- July 29, 2023: Grandma June made a dinosaur cake nobody was allowed to cut for a full hour because it was too good to ruin.\n- July 29, 2023: Cake, approved · sample photo",
     "memoryIds": [
      "mem_639c875daf7b901106",
      "mem_4b70ed96ef67b29f65",
@@ -424,7 +421,7 @@ window.ROON_DEMO_DATA = {
     "endDate": "2023-10-14T15:00:00.000Z",
     "season": "Fall",
     "year": 2023,
-    "narrative": "Between September 2, 2023 and October 14, 2023, your family kept 3 memories here.\nIn these memories: Milo, Rooney.\nIn your own words:\n- September 2, 2023: Milo and the biggest leaf\n- September 9, 2023: Milo turns three, cake first\n- October 14, 2023: Pumpkin carving, Milo supervises",
+    "narrative": "Between September 2, 2023 and October 14, 2023, your family kept 3 memories here.\nIn these memories: Milo, Taylor.\nIn your own words:\n- September 2, 2023: Milo and the biggest leaf\n- September 9, 2023: Milo turns three, cake first\n- October 14, 2023: Pumpkin carving, Milo supervises",
     "memoryIds": [
      "mem_4a762c2bc960377d50",
      "mem_8d9e6c485794b4baed",
@@ -443,7 +440,7 @@ window.ROON_DEMO_DATA = {
     "endDate": "2023-12-25T15:00:00.000Z",
     "season": "Winter",
     "year": 2023,
-    "narrative": "Between December 16, 2023 and December 25, 2023, your family kept 2 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- December 16, 2023: The tree goes up, Milo directs\n- December 25, 2023: Christmas morning, matching pajamas",
+    "narrative": "Between December 16, 2023 and December 25, 2023, your family kept 2 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- December 16, 2023: The tree goes up, Milo directs\n- December 25, 2023: Christmas morning, matching pajamas",
     "memoryIds": [
      "mem_4e9bdea78284d98733",
      "mem_94fab9ff114312377c"
@@ -461,7 +458,7 @@ window.ROON_DEMO_DATA = {
     "endDate": "2024-04-13T15:00:00.000Z",
     "season": "Spring",
     "year": 2024,
-    "narrative": "Between April 6, 2024 and April 13, 2024, your family kept 2 memories here.\nIn these memories: Rooney, Grandma June.\nIn your own words:\n- April 6, 2024: Planting peas with Grandma June\n- April 13, 2024: Birthday breakfast in bed for Rooney",
+    "narrative": "Between April 6, 2024 and April 13, 2024, your family kept 2 memories here.\nIn these memories: Taylor, Grandma June.\nIn your own words:\n- April 6, 2024: Planting peas with Grandma June\n- April 13, 2024: Birthday breakfast in bed for Taylor",
     "memoryIds": [
      "mem_e18ef9b9ba986dc720",
      "mem_6fcc2eced27e195091"
@@ -479,7 +476,7 @@ window.ROON_DEMO_DATA = {
     "endDate": "2024-08-11T15:00:00.000Z",
     "season": "Summer",
     "year": 2024,
-    "narrative": "Between June 8, 2024 and August 11, 2024, your family kept 8 memories here.\nIn these memories: Rooney, Grandma June, Milo.\nIn your own words:\n- June 8, 2024: Rooney's sunflower, taller than her\n- June 15, 2024: Milo waters the garden his own way\n- June 22, 2024: Milo's first bike ride, Rooney running behind\n- July 6, 2024: Face to face with the museum dinosaur\n- July 18, 2024: Rooney, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.\n- July 20, 2024: First ocean day, straight into the waves\n- July 27, 2024: The garden, taller than Milo\n- August 11, 2024: Ocean hair, don't care",
+    "narrative": "Between June 8, 2024 and August 11, 2024, your family kept 8 memories here.\nIn these memories: Taylor, Grandma June, Milo.\nIn your own words:\n- June 8, 2024: Taylor's sunflower, taller than her\n- June 15, 2024: Milo waters the garden his own way\n- June 22, 2024: Milo's first bike ride, Taylor running behind\n- July 6, 2024: Face to face with the museum dinosaur\n- July 18, 2024: Taylor, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.\n- July 20, 2024: First ocean day, straight into the waves\n- July 27, 2024: The garden, taller than Milo\n- August 11, 2024: Ocean hair, don't care",
     "memoryIds": [
      "mem_70fd69ae3146cad340",
      "mem_01399d6dba81c181c9",
@@ -503,7 +500,7 @@ window.ROON_DEMO_DATA = {
     "endDate": "2024-10-30T15:00:00.000Z",
     "season": "Fall",
     "year": 2024,
-    "narrative": "Between September 1, 2024 and October 30, 2024, your family kept 3 memories here.\nIn these memories: Milo, Rooney, Grandma June.\nIn your own words:\n- September 1, 2024: First day of preschool for Milo\n- September 7, 2024: Milo's fourth birthday, balloons everywhere\n- October 30, 2024: Nothing happened. Pancakes, a lost shoe, a song in the car. These are the days we would give anything to have back.",
+    "narrative": "Between September 1, 2024 and October 30, 2024, your family kept 3 memories here.\nIn these memories: Milo, Taylor, Grandma June.\nIn your own words:\n- September 1, 2024: First day of preschool for Milo\n- September 7, 2024: Milo's fourth birthday, balloons everywhere\n- October 30, 2024: Nothing happened. Pancakes, a lost shoe, a song in the car. These are the days we would give anything to have back.",
     "memoryIds": [
      "mem_4836287c77ee44c79c",
      "mem_74b4de13459ab5e92c",
@@ -516,13 +513,13 @@ window.ROON_DEMO_DATA = {
    {
     "id": "ch_1769fa00b0d12b9042",
     "familyId": "fam_b44fd40e9d36256d3b",
-    "title": "Winter 2024 with Rooney",
+    "title": "Winter 2024 with Taylor",
     "userRenamed": false,
     "startDate": "2024-12-24T15:00:00.000Z",
     "endDate": "2024-12-24T15:00:00.000Z",
     "season": "Winter",
     "year": 2024,
-    "narrative": "Between December 24, 2024 and December 24, 2024, your family kept 1 memory here.\nIn these memories: Rooney, Milo.\nIn your own words:\n- December 24, 2024: Christmas Eve, cookies for Santa",
+    "narrative": "Between December 24, 2024 and December 24, 2024, your family kept 1 memory here.\nIn these memories: Taylor, Milo.\nIn your own words:\n- December 24, 2024: Christmas Eve, cookies for Santa",
     "memoryIds": [
      "mem_f2aab3298ef0e8a8e2"
     ],
@@ -539,7 +536,7 @@ window.ROON_DEMO_DATA = {
     "endDate": "2025-04-12T15:00:00.000Z",
     "season": "Spring",
     "year": 2025,
-    "narrative": "Between April 5, 2025 and April 12, 2025, your family kept 2 memories here.\nIn these memories: Rooney, Milo.\nIn your own words:\n- April 5, 2025: Rooney reads to the whole class\n- April 12, 2025: Seven: a birthday crown and big plans",
+    "narrative": "Between April 5, 2025 and April 12, 2025, your family kept 2 memories here.\nIn these memories: Taylor, Milo.\nIn your own words:\n- April 5, 2025: Taylor reads to the whole class\n- April 12, 2025: Seven: a birthday crown and big plans",
     "memoryIds": [
      "mem_66e690fc8ee0883d1f",
      "mem_2a0a0b17b2d2264708"
@@ -551,13 +548,13 @@ window.ROON_DEMO_DATA = {
    {
     "id": "ch_0eee7456d81132d561",
     "familyId": "fam_b44fd40e9d36256d3b",
-    "title": "Summer 2025 with Rooney",
+    "title": "Summer 2025 with Taylor",
     "userRenamed": false,
     "startDate": "2025-06-14T15:00:00.000Z",
     "endDate": "2025-08-16T15:00:00.000Z",
     "season": "Summer",
     "year": 2025,
-    "narrative": "Between June 14, 2025 and August 16, 2025, your family kept 6 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- June 14, 2025: First splash day of summer\n- June 21, 2025: Grandma's garden, sixth summer\n- July 12, 2025: Two bikes, one summer\n- July 19, 2025: The ocean, one year on\n- August 2, 2025: Pool noodles and big jumps\n- August 16, 2025: Grandma June teaches Rooney to shell peas",
+    "narrative": "Between June 14, 2025 and August 16, 2025, your family kept 6 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- June 14, 2025: First splash day of summer\n- June 21, 2025: Grandma's garden, sixth summer\n- July 12, 2025: Two bikes, one summer\n- July 19, 2025: The ocean, one year on\n- August 2, 2025: Pool noodles and big jumps\n- August 16, 2025: Grandma June teaches Taylor to shell peas",
     "memoryIds": [
      "mem_903bad6961b6d2995b",
      "mem_2470198b42e1c9e540",
@@ -573,13 +570,13 @@ window.ROON_DEMO_DATA = {
    {
     "id": "ch_5c6ef2069c6229d0cd",
     "familyId": "fam_b44fd40e9d36256d3b",
-    "title": "Fall 2025 with Rooney",
+    "title": "Fall 2025 with Taylor",
     "userRenamed": false,
     "startDate": "2025-09-13T15:00:00.000Z",
     "endDate": "2025-11-15T15:00:00.000Z",
     "season": "Fall",
     "year": 2025,
-    "narrative": "Between September 13, 2025 and November 15, 2025, your family kept 5 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- September 13, 2025: Back to school, second grade\n- September 27, 2025: Rooney started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.\n- October 5, 2025: Grandma June at the head of the table\n- November 8, 2025: Rooney's first lost tooth\n- November 15, 2025: Milo, five, missing the same one",
+    "narrative": "Between September 13, 2025 and November 15, 2025, your family kept 5 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- September 13, 2025: Back to school, second grade\n- September 27, 2025: Taylor started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.\n- October 5, 2025: Grandma June at the head of the table\n- November 8, 2025: Taylor's first lost tooth\n- November 15, 2025: Milo, five, missing the same one",
     "memoryIds": [
      "mem_f328007bb8e20b0224",
      "mem_6aabc3425a294b31aa",
@@ -866,7 +863,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_979e2268db43b1f51b-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_979e2268db43b1f51b-web.jpg",
      "poster": null,
-     "caption": "Grandma June teaches Rooney to shell peas",
+     "caption": "Grandma June teaches Taylor to shell peas",
      "storyText": "",
      "takenAt": "2025-08-16T15:00:00.000Z",
      "peopleIds": [
@@ -882,7 +879,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from August 16, 2025, with Grandma June and Rooney. Moment 15 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A photo from August 16, 2025, with Grandma June and Taylor. Moment 15 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -899,12 +896,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 15,
         "count": 15,
         "fromYear": 2021,
@@ -926,7 +923,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2025-04-12T15:00:00.000Z",
      "season": "Spring",
      "year": 2025,
-     "narrative": "Between April 5, 2025 and April 12, 2025, your family kept 2 memories here.\nIn these memories: Rooney, Milo.\nIn your own words:\n- April 5, 2025: Rooney reads to the whole class\n- April 12, 2025: Seven: a birthday crown and big plans",
+     "narrative": "Between April 5, 2025 and April 12, 2025, your family kept 2 memories here.\nIn these memories: Taylor, Milo.\nIn your own words:\n- April 5, 2025: Taylor reads to the whole class\n- April 12, 2025: Seven: a birthday crown and big plans",
      "memoryIds": [
       "mem_66e690fc8ee0883d1f",
       "mem_2a0a0b17b2d2264708"
@@ -937,7 +934,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_66e690fc8ee0883d1f-web.jpg",
     "commentary": {
-     "text": "\"The Spring of Birthdays\" covers April 5, 2025 to April 12, 2025 and holds 2 memories. In these memories: Rooney and Milo.",
+     "text": "\"The Spring of Birthdays\" covers April 5, 2025 to April 12, 2025 and holds 2 memories. In these memories: Taylor and Milo.",
      "basedOn": [
       {
        "type": "chapter",
@@ -949,7 +946,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo"
        ]
       }
@@ -980,7 +977,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from August 2, 2025, with Milo and Rooney. Moment 25 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from August 2, 2025, with Milo and Taylor. Moment 25 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -997,12 +994,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Milo",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 25,
         "count": 26,
         "fromYear": 2022,
@@ -1038,7 +1035,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 19, 2025, with Rooney, Milo and Grandma June. Moment 24 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 19, 2025, with Taylor, Milo and Grandma June. Moment 24 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -1054,14 +1051,14 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 24,
         "count": 26,
         "fromYear": 2022,
@@ -1096,7 +1093,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 12, 2025, with Rooney and Milo. Moment 23 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 12, 2025, with Taylor and Milo. Moment 23 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -1112,13 +1109,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 23,
         "count": 26,
         "fromYear": 2022,
@@ -1134,13 +1131,13 @@ window.ROON_DEMO_DATA = {
     "chapter": {
      "id": "ch_1769fa00b0d12b9042",
      "familyId": "fam_b44fd40e9d36256d3b",
-     "title": "Winter 2024 with Rooney",
+     "title": "Winter 2024 with Taylor",
      "userRenamed": false,
      "startDate": "2024-12-24T15:00:00.000Z",
      "endDate": "2024-12-24T15:00:00.000Z",
      "season": "Winter",
      "year": 2024,
-     "narrative": "Between December 24, 2024 and December 24, 2024, your family kept 1 memory here.\nIn these memories: Rooney, Milo.\nIn your own words:\n- December 24, 2024: Christmas Eve, cookies for Santa",
+     "narrative": "Between December 24, 2024 and December 24, 2024, your family kept 1 memory here.\nIn these memories: Taylor, Milo.\nIn your own words:\n- December 24, 2024: Christmas Eve, cookies for Santa",
      "memoryIds": [
       "mem_f2aab3298ef0e8a8e2"
      ],
@@ -1150,11 +1147,11 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_f2aab3298ef0e8a8e2-web.jpg",
     "commentary": {
-     "text": "\"Winter 2024 with Rooney\" covers December 24, 2024 to December 24, 2024 and holds 1 memory. In these memories: Rooney and Milo.",
+     "text": "\"Winter 2024 with Taylor\" covers December 24, 2024 to December 24, 2024 and holds 1 memory. In these memories: Taylor and Milo.",
      "basedOn": [
       {
        "type": "chapter",
-       "title": "Winter 2024 with Rooney",
+       "title": "Winter 2024 with Taylor",
        "startDate": "2024-12-24T15:00:00.000Z",
        "endDate": "2024-12-24T15:00:00.000Z",
        "count": 1
@@ -1162,7 +1159,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo"
        ]
       }
@@ -1193,7 +1190,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 21, 2025, with Grandma June and Rooney. Moment 7 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
+      "text": "A photo from June 21, 2025, with Grandma June and Taylor. Moment 7 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -1210,7 +1207,7 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -1250,7 +1247,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 14, 2025, with Rooney and Milo. Moment 22 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from June 14, 2025, with Taylor and Milo. Moment 22 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -1266,13 +1263,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 22,
         "count": 26,
         "fromYear": 2022,
@@ -1307,7 +1304,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 12, 2025, with Rooney and Milo. Moment 21 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from April 12, 2025, with Taylor and Milo. Moment 21 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -1323,13 +1320,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 21,
         "count": 26,
         "fromYear": 2022,
@@ -1351,7 +1348,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2024-10-30T15:00:00.000Z",
      "season": "Fall",
      "year": 2024,
-     "narrative": "Between September 1, 2024 and October 30, 2024, your family kept 3 memories here.\nIn these memories: Milo, Rooney, Grandma June.\nIn your own words:\n- September 1, 2024: First day of preschool for Milo\n- September 7, 2024: Milo's fourth birthday, balloons everywhere\n- October 30, 2024: Nothing happened. Pancakes, a lost shoe, a song in the car. These are the days we would give anything to have back.",
+     "narrative": "Between September 1, 2024 and October 30, 2024, your family kept 3 memories here.\nIn these memories: Milo, Taylor, Grandma June.\nIn your own words:\n- September 1, 2024: First day of preschool for Milo\n- September 7, 2024: Milo's fourth birthday, balloons everywhere\n- October 30, 2024: Nothing happened. Pancakes, a lost shoe, a song in the car. These are the days we would give anything to have back.",
      "memoryIds": [
       "mem_4836287c77ee44c79c",
       "mem_74b4de13459ab5e92c",
@@ -1363,7 +1360,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_4836287c77ee44c79c-web.jpg",
     "commentary": {
-     "text": "\"Fall 2024 with Milo\" covers September 1, 2024 to October 30, 2024 and holds 3 memories. In these memories: Milo, Rooney and Grandma June.",
+     "text": "\"Fall 2024 with Milo\" covers September 1, 2024 to October 30, 2024 and holds 3 memories. In these memories: Milo, Taylor and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -1376,7 +1373,7 @@ window.ROON_DEMO_DATA = {
        "type": "people",
        "names": [
         "Milo",
-        "Rooney",
+        "Taylor",
         "Grandma June"
        ]
       }
@@ -1391,7 +1388,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_66e690fc8ee0883d1f-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_66e690fc8ee0883d1f-web.jpg",
      "poster": null,
-     "caption": "Rooney reads to the whole class",
+     "caption": "Taylor reads to the whole class",
      "storyText": "",
      "takenAt": "2025-04-05T15:00:00.000Z",
      "peopleIds": [
@@ -1406,7 +1403,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 5, 2025, with Rooney. Memory 1 of 2 in \"The Spring of Birthdays\" (April 5, 2025 to April 12, 2025).",
+      "text": "A photo from April 5, 2025, with Taylor. Memory 1 of 2 in \"The Spring of Birthdays\" (April 5, 2025 to April 12, 2025).",
       "basedOn": [
        {
         "type": "date",
@@ -1422,7 +1419,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -1462,7 +1459,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from December 24, 2024, with Rooney and Milo. Moment 20 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from December 24, 2024, with Taylor and Milo. Moment 20 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -1478,13 +1475,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 20,
         "count": 26,
         "fromYear": 2022,
@@ -1501,7 +1498,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -1546,7 +1543,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -1591,13 +1588,13 @@ window.ROON_DEMO_DATA = {
     "chapter": {
      "id": "ch_1769fa00b0d12b9042",
      "familyId": "fam_b44fd40e9d36256d3b",
-     "title": "Winter 2024 with Rooney",
+     "title": "Winter 2024 with Taylor",
      "userRenamed": false,
      "startDate": "2024-12-24T15:00:00.000Z",
      "endDate": "2024-12-24T15:00:00.000Z",
      "season": "Winter",
      "year": 2024,
-     "narrative": "Between December 24, 2024 and December 24, 2024, your family kept 1 memory here.\nIn these memories: Rooney, Milo.\nIn your own words:\n- December 24, 2024: Christmas Eve, cookies for Santa",
+     "narrative": "Between December 24, 2024 and December 24, 2024, your family kept 1 memory here.\nIn these memories: Taylor, Milo.\nIn your own words:\n- December 24, 2024: Christmas Eve, cookies for Santa",
      "memoryIds": [
       "mem_f2aab3298ef0e8a8e2"
      ],
@@ -1607,11 +1604,11 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_f2aab3298ef0e8a8e2-web.jpg",
     "commentary": {
-     "text": "\"Winter 2024 with Rooney\" covers December 24, 2024 to December 24, 2024 and holds 1 memory. In these memories: Rooney and Milo.",
+     "text": "\"Winter 2024 with Taylor\" covers December 24, 2024 to December 24, 2024 and holds 1 memory. In these memories: Taylor and Milo.",
      "basedOn": [
       {
        "type": "chapter",
-       "title": "Winter 2024 with Rooney",
+       "title": "Winter 2024 with Taylor",
        "startDate": "2024-12-24T15:00:00.000Z",
        "endDate": "2024-12-24T15:00:00.000Z",
        "count": 1
@@ -1619,7 +1616,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo"
        ]
       }
@@ -1650,7 +1647,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from December 24, 2024, with Rooney and Milo. Moment 20 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from December 24, 2024, with Taylor and Milo. Moment 20 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -1666,13 +1663,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 20,
         "count": 26,
         "fromYear": 2022,
@@ -1694,7 +1691,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2024-10-30T15:00:00.000Z",
      "season": "Fall",
      "year": 2024,
-     "narrative": "Between September 1, 2024 and October 30, 2024, your family kept 3 memories here.\nIn these memories: Milo, Rooney, Grandma June.\nIn your own words:\n- September 1, 2024: First day of preschool for Milo\n- September 7, 2024: Milo's fourth birthday, balloons everywhere\n- October 30, 2024: Nothing happened. Pancakes, a lost shoe, a song in the car. These are the days we would give anything to have back.",
+     "narrative": "Between September 1, 2024 and October 30, 2024, your family kept 3 memories here.\nIn these memories: Milo, Taylor, Grandma June.\nIn your own words:\n- September 1, 2024: First day of preschool for Milo\n- September 7, 2024: Milo's fourth birthday, balloons everywhere\n- October 30, 2024: Nothing happened. Pancakes, a lost shoe, a song in the car. These are the days we would give anything to have back.",
      "memoryIds": [
       "mem_4836287c77ee44c79c",
       "mem_74b4de13459ab5e92c",
@@ -1706,7 +1703,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_4836287c77ee44c79c-web.jpg",
     "commentary": {
-     "text": "\"Fall 2024 with Milo\" covers September 1, 2024 to October 30, 2024 and holds 3 memories. In these memories: Milo, Rooney and Grandma June.",
+     "text": "\"Fall 2024 with Milo\" covers September 1, 2024 to October 30, 2024 and holds 3 memories. In these memories: Milo, Taylor and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -1719,7 +1716,7 @@ window.ROON_DEMO_DATA = {
        "type": "people",
        "names": [
         "Milo",
-        "Rooney",
+        "Taylor",
         "Grandma June"
        ]
       }
@@ -1751,7 +1748,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from September 7, 2024, with Milo, Rooney and Grandma June. Moment 18 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from September 7, 2024, with Milo, Taylor and Grandma June. Moment 18 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -1768,13 +1765,13 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Milo",
-         "Rooney",
+         "Taylor",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 18,
         "count": 26,
         "fromYear": 2022,
@@ -1851,7 +1848,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2024-08-11T15:00:00.000Z",
      "season": "Summer",
      "year": 2024,
-     "narrative": "Between June 8, 2024 and August 11, 2024, your family kept 8 memories here.\nIn these memories: Rooney, Grandma June, Milo.\nIn your own words:\n- June 8, 2024: Rooney's sunflower, taller than her\n- June 15, 2024: Milo waters the garden his own way\n- June 22, 2024: Milo's first bike ride, Rooney running behind\n- July 6, 2024: Face to face with the museum dinosaur\n- July 18, 2024: Rooney, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.\n- July 20, 2024: First ocean day, straight into the waves\n- July 27, 2024: The garden, taller than Milo\n- August 11, 2024: Ocean hair, don't care",
+     "narrative": "Between June 8, 2024 and August 11, 2024, your family kept 8 memories here.\nIn these memories: Taylor, Grandma June, Milo.\nIn your own words:\n- June 8, 2024: Taylor's sunflower, taller than her\n- June 15, 2024: Milo waters the garden his own way\n- June 22, 2024: Milo's first bike ride, Taylor running behind\n- July 6, 2024: Face to face with the museum dinosaur\n- July 18, 2024: Taylor, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.\n- July 20, 2024: First ocean day, straight into the waves\n- July 27, 2024: The garden, taller than Milo\n- August 11, 2024: Ocean hair, don't care",
      "memoryIds": [
       "mem_70fd69ae3146cad340",
       "mem_01399d6dba81c181c9",
@@ -1868,7 +1865,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_70fd69ae3146cad340-web.jpg",
     "commentary": {
-     "text": "\"The Summer of Dinosaurs\" covers June 8, 2024 to August 11, 2024 and holds 8 memories. In these memories: Rooney, Grandma June and Milo.",
+     "text": "\"The Summer of Dinosaurs\" covers June 8, 2024 to August 11, 2024 and holds 8 memories. In these memories: Taylor, Grandma June and Milo.",
      "basedOn": [
       {
        "type": "chapter",
@@ -1880,7 +1877,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Grandma June",
         "Milo"
        ]
@@ -1913,7 +1910,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 27, 2024, with Grandma June, Milo and Rooney. Moment 6 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
+      "text": "A photo from July 27, 2024, with Grandma June, Milo and Taylor. Moment 6 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -1931,7 +1928,7 @@ window.ROON_DEMO_DATA = {
         "names": [
          "Grandma June",
          "Milo",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -1971,7 +1968,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 20, 2024, with Rooney and Milo. Moment 16 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 20, 2024, with Taylor and Milo. Moment 16 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -1987,13 +1984,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 16,
         "count": 26,
         "fromYear": 2022,
@@ -2013,7 +2010,7 @@ window.ROON_DEMO_DATA = {
      "originalSrc": null,
      "poster": null,
      "caption": "Three summers of dinosaurs",
-     "storyText": "Rooney, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.",
+     "storyText": "Taylor, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.",
      "takenAt": "2024-07-18T15:00:00.000Z",
      "peopleIds": [
       "per_47f6d75809a92fae04",
@@ -2028,7 +2025,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from July 18, 2024, with Rooney and Milo. Moment 15 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A piece of writing from July 18, 2024, with Taylor and Milo. Moment 15 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -2044,13 +2041,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 15,
         "count": 26,
         "fromYear": 2022,
@@ -2072,7 +2069,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2023-12-25T15:00:00.000Z",
      "season": "Winter",
      "year": 2023,
-     "narrative": "Between December 16, 2023 and December 25, 2023, your family kept 2 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- December 16, 2023: The tree goes up, Milo directs\n- December 25, 2023: Christmas morning, matching pajamas",
+     "narrative": "Between December 16, 2023 and December 25, 2023, your family kept 2 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- December 16, 2023: The tree goes up, Milo directs\n- December 25, 2023: Christmas morning, matching pajamas",
      "memoryIds": [
       "mem_4e9bdea78284d98733",
       "mem_94fab9ff114312377c"
@@ -2083,7 +2080,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_4e9bdea78284d98733-web.jpg",
     "commentary": {
-     "text": "\"The Winter of Christmas\" covers December 16, 2023 to December 25, 2023 and holds 2 memories. In these memories: Rooney, Milo and Grandma June.",
+     "text": "\"The Winter of Christmas\" covers December 16, 2023 to December 25, 2023 and holds 2 memories. In these memories: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -2095,7 +2092,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -2127,7 +2124,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 6, 2024, with Rooney and Milo. Moment 14 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 6, 2024, with Taylor and Milo. Moment 14 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -2143,13 +2140,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 14,
         "count": 26,
         "fromYear": 2022,
@@ -2168,7 +2165,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_46c968b69840a936d2-s-milo-first-ride-2024.mp4",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_46c968b69840a936d2-s-milo-first-ride-2024.mp4",
      "poster": "media/fam_b44fd40e9d36256d3b/mem_46c968b69840a936d2-poster.jpg",
-     "caption": "Milo's first bike ride, Rooney running behind",
+     "caption": "Milo's first bike ride, Taylor running behind",
      "storyText": "",
      "takenAt": "2024-06-22T15:00:00.000Z",
      "peopleIds": [
@@ -2184,7 +2181,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A video from June 22, 2024, with Milo and Rooney. Moment 13 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A video from June 22, 2024, with Milo and Taylor. Moment 13 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -2201,12 +2198,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Milo",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 13,
         "count": 26,
         "fromYear": 2022,
@@ -2223,7 +2220,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -2287,7 +2284,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 14, 2025, with Rooney and Milo. Moment 22 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from June 14, 2025, with Taylor and Milo. Moment 22 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -2303,13 +2300,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 22,
         "count": 26,
         "fromYear": 2022,
@@ -2325,13 +2322,13 @@ window.ROON_DEMO_DATA = {
     "chapter": {
      "id": "ch_1769fa00b0d12b9042",
      "familyId": "fam_b44fd40e9d36256d3b",
-     "title": "Winter 2024 with Rooney",
+     "title": "Winter 2024 with Taylor",
      "userRenamed": false,
      "startDate": "2024-12-24T15:00:00.000Z",
      "endDate": "2024-12-24T15:00:00.000Z",
      "season": "Winter",
      "year": 2024,
-     "narrative": "Between December 24, 2024 and December 24, 2024, your family kept 1 memory here.\nIn these memories: Rooney, Milo.\nIn your own words:\n- December 24, 2024: Christmas Eve, cookies for Santa",
+     "narrative": "Between December 24, 2024 and December 24, 2024, your family kept 1 memory here.\nIn these memories: Taylor, Milo.\nIn your own words:\n- December 24, 2024: Christmas Eve, cookies for Santa",
      "memoryIds": [
       "mem_f2aab3298ef0e8a8e2"
      ],
@@ -2341,11 +2338,11 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_f2aab3298ef0e8a8e2-web.jpg",
     "commentary": {
-     "text": "\"Winter 2024 with Rooney\" covers December 24, 2024 to December 24, 2024 and holds 1 memory. In these memories: Rooney and Milo.",
+     "text": "\"Winter 2024 with Taylor\" covers December 24, 2024 to December 24, 2024 and holds 1 memory. In these memories: Taylor and Milo.",
      "basedOn": [
       {
        "type": "chapter",
-       "title": "Winter 2024 with Rooney",
+       "title": "Winter 2024 with Taylor",
        "startDate": "2024-12-24T15:00:00.000Z",
        "endDate": "2024-12-24T15:00:00.000Z",
        "count": 1
@@ -2353,7 +2350,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo"
        ]
       }
@@ -2384,7 +2381,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 12, 2025, with Rooney and Milo. Moment 21 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from April 12, 2025, with Taylor and Milo. Moment 21 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -2400,13 +2397,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 21,
         "count": 26,
         "fromYear": 2022,
@@ -2425,7 +2422,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_66e690fc8ee0883d1f-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_66e690fc8ee0883d1f-web.jpg",
      "poster": null,
-     "caption": "Rooney reads to the whole class",
+     "caption": "Taylor reads to the whole class",
      "storyText": "",
      "takenAt": "2025-04-05T15:00:00.000Z",
      "peopleIds": [
@@ -2440,7 +2437,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 5, 2025, with Rooney. Memory 1 of 2 in \"The Spring of Birthdays\" (April 5, 2025 to April 12, 2025).",
+      "text": "A photo from April 5, 2025, with Taylor. Memory 1 of 2 in \"The Spring of Birthdays\" (April 5, 2025 to April 12, 2025).",
       "basedOn": [
        {
         "type": "date",
@@ -2456,7 +2453,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -2496,7 +2493,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from December 24, 2024, with Rooney and Milo. Moment 20 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from December 24, 2024, with Taylor and Milo. Moment 20 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -2512,13 +2509,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 20,
         "count": 26,
         "fromYear": 2022,
@@ -2540,7 +2537,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2024-10-30T15:00:00.000Z",
      "season": "Fall",
      "year": 2024,
-     "narrative": "Between September 1, 2024 and October 30, 2024, your family kept 3 memories here.\nIn these memories: Milo, Rooney, Grandma June.\nIn your own words:\n- September 1, 2024: First day of preschool for Milo\n- September 7, 2024: Milo's fourth birthday, balloons everywhere\n- October 30, 2024: Nothing happened. Pancakes, a lost shoe, a song in the car. These are the days we would give anything to have back.",
+     "narrative": "Between September 1, 2024 and October 30, 2024, your family kept 3 memories here.\nIn these memories: Milo, Taylor, Grandma June.\nIn your own words:\n- September 1, 2024: First day of preschool for Milo\n- September 7, 2024: Milo's fourth birthday, balloons everywhere\n- October 30, 2024: Nothing happened. Pancakes, a lost shoe, a song in the car. These are the days we would give anything to have back.",
      "memoryIds": [
       "mem_4836287c77ee44c79c",
       "mem_74b4de13459ab5e92c",
@@ -2552,7 +2549,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_4836287c77ee44c79c-web.jpg",
     "commentary": {
-     "text": "\"Fall 2024 with Milo\" covers September 1, 2024 to October 30, 2024 and holds 3 memories. In these memories: Milo, Rooney and Grandma June.",
+     "text": "\"Fall 2024 with Milo\" covers September 1, 2024 to October 30, 2024 and holds 3 memories. In these memories: Milo, Taylor and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -2565,7 +2562,7 @@ window.ROON_DEMO_DATA = {
        "type": "people",
        "names": [
         "Milo",
-        "Rooney",
+        "Taylor",
         "Grandma June"
        ]
       }
@@ -2597,7 +2594,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from September 7, 2024, with Milo, Rooney and Grandma June. Moment 18 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from September 7, 2024, with Milo, Taylor and Grandma June. Moment 18 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -2614,13 +2611,13 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Milo",
-         "Rooney",
+         "Taylor",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 18,
         "count": 26,
         "fromYear": 2022,
@@ -2642,7 +2639,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2024-08-11T15:00:00.000Z",
      "season": "Summer",
      "year": 2024,
-     "narrative": "Between June 8, 2024 and August 11, 2024, your family kept 8 memories here.\nIn these memories: Rooney, Grandma June, Milo.\nIn your own words:\n- June 8, 2024: Rooney's sunflower, taller than her\n- June 15, 2024: Milo waters the garden his own way\n- June 22, 2024: Milo's first bike ride, Rooney running behind\n- July 6, 2024: Face to face with the museum dinosaur\n- July 18, 2024: Rooney, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.\n- July 20, 2024: First ocean day, straight into the waves\n- July 27, 2024: The garden, taller than Milo\n- August 11, 2024: Ocean hair, don't care",
+     "narrative": "Between June 8, 2024 and August 11, 2024, your family kept 8 memories here.\nIn these memories: Taylor, Grandma June, Milo.\nIn your own words:\n- June 8, 2024: Taylor's sunflower, taller than her\n- June 15, 2024: Milo waters the garden his own way\n- June 22, 2024: Milo's first bike ride, Taylor running behind\n- July 6, 2024: Face to face with the museum dinosaur\n- July 18, 2024: Taylor, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.\n- July 20, 2024: First ocean day, straight into the waves\n- July 27, 2024: The garden, taller than Milo\n- August 11, 2024: Ocean hair, don't care",
      "memoryIds": [
       "mem_70fd69ae3146cad340",
       "mem_01399d6dba81c181c9",
@@ -2659,7 +2656,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_70fd69ae3146cad340-web.jpg",
     "commentary": {
-     "text": "\"The Summer of Dinosaurs\" covers June 8, 2024 to August 11, 2024 and holds 8 memories. In these memories: Rooney, Grandma June and Milo.",
+     "text": "\"The Summer of Dinosaurs\" covers June 8, 2024 to August 11, 2024 and holds 8 memories. In these memories: Taylor, Grandma June and Milo.",
      "basedOn": [
       {
        "type": "chapter",
@@ -2671,7 +2668,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Grandma June",
         "Milo"
        ]
@@ -2702,7 +2699,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from August 11, 2024, with Rooney. Moment 4 of 5 in the thread \"Oceans, summer after summer\", which runs from 2023 to 2025.",
+      "text": "A photo from August 11, 2024, with Taylor. Moment 4 of 5 in the thread \"Oceans, summer after summer\", which runs from 2023 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -2718,7 +2715,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -2759,7 +2756,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 27, 2024, with Grandma June, Milo and Rooney. Moment 6 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
+      "text": "A photo from July 27, 2024, with Grandma June, Milo and Taylor. Moment 6 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -2777,7 +2774,7 @@ window.ROON_DEMO_DATA = {
         "names": [
          "Grandma June",
          "Milo",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -2817,7 +2814,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 20, 2024, with Rooney and Milo. Moment 16 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 20, 2024, with Taylor and Milo. Moment 16 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -2833,13 +2830,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 16,
         "count": 26,
         "fromYear": 2022,
@@ -2861,7 +2858,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2024-04-13T15:00:00.000Z",
      "season": "Spring",
      "year": 2024,
-     "narrative": "Between April 6, 2024 and April 13, 2024, your family kept 2 memories here.\nIn these memories: Rooney, Grandma June.\nIn your own words:\n- April 6, 2024: Planting peas with Grandma June\n- April 13, 2024: Birthday breakfast in bed for Rooney",
+     "narrative": "Between April 6, 2024 and April 13, 2024, your family kept 2 memories here.\nIn these memories: Taylor, Grandma June.\nIn your own words:\n- April 6, 2024: Planting peas with Grandma June\n- April 13, 2024: Birthday breakfast in bed for Taylor",
      "memoryIds": [
       "mem_e18ef9b9ba986dc720",
       "mem_6fcc2eced27e195091"
@@ -2872,7 +2869,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_e18ef9b9ba986dc720-web.jpg",
     "commentary": {
-     "text": "\"The Spring of Birthdays\" covers April 6, 2024 to April 13, 2024 and holds 2 memories. In these memories: Rooney and Grandma June.",
+     "text": "\"The Spring of Birthdays\" covers April 6, 2024 to April 13, 2024 and holds 2 memories. In these memories: Taylor and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -2884,7 +2881,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Grandma June"
        ]
       }
@@ -2897,7 +2894,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -2942,7 +2939,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -3006,7 +3003,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 6, 2024, with Rooney and Grandma June. Moment 9 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A photo from April 6, 2024, with Taylor and Grandma June. Moment 9 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -3022,13 +3019,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 9,
         "count": 15,
         "fromYear": 2021,
@@ -3050,7 +3047,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2023-12-25T15:00:00.000Z",
      "season": "Winter",
      "year": 2023,
-     "narrative": "Between December 16, 2023 and December 25, 2023, your family kept 2 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- December 16, 2023: The tree goes up, Milo directs\n- December 25, 2023: Christmas morning, matching pajamas",
+     "narrative": "Between December 16, 2023 and December 25, 2023, your family kept 2 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- December 16, 2023: The tree goes up, Milo directs\n- December 25, 2023: Christmas morning, matching pajamas",
      "memoryIds": [
       "mem_4e9bdea78284d98733",
       "mem_94fab9ff114312377c"
@@ -3061,7 +3058,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_4e9bdea78284d98733-web.jpg",
     "commentary": {
-     "text": "\"The Winter of Christmas\" covers December 16, 2023 to December 25, 2023 and holds 2 memories. In these memories: Rooney, Milo and Grandma June.",
+     "text": "\"The Winter of Christmas\" covers December 16, 2023 to December 25, 2023 and holds 2 memories. In these memories: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -3073,7 +3070,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -3106,7 +3103,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from December 25, 2023, with Rooney, Milo and Grandma June. Moment 12 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from December 25, 2023, with Taylor, Milo and Grandma June. Moment 12 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -3122,14 +3119,14 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 12,
         "count": 26,
         "fromYear": 2022,
@@ -3165,7 +3162,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from December 16, 2023, with Rooney, Milo and Grandma June. Moment 11 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from December 16, 2023, with Taylor, Milo and Grandma June. Moment 11 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -3181,14 +3178,14 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 11,
         "count": 26,
         "fromYear": 2022,
@@ -3223,7 +3220,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from July 29, 2023, with Rooney and Grandma June. Moment 6 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A piece of writing from July 29, 2023, with Taylor and Grandma June. Moment 6 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -3239,13 +3236,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 6,
         "count": 15,
         "fromYear": 2021,
@@ -3267,7 +3264,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2023-04-15T15:00:00.000Z",
      "season": "Spring",
      "year": 2023,
-     "narrative": "Between April 8, 2023 and April 15, 2023, your family kept 2 memories here.\nIn these memories: Grandma June, Rooney, Milo.\nIn your own words:\n- April 8, 2023: Grandma June's porch, waiting on the spring\n- April 15, 2023: Rooney's birthday, five candles",
+     "narrative": "Between April 8, 2023 and April 15, 2023, your family kept 2 memories here.\nIn these memories: Grandma June, Taylor, Milo.\nIn your own words:\n- April 8, 2023: Grandma June's porch, waiting on the spring\n- April 15, 2023: Taylor's birthday, five candles",
      "memoryIds": [
       "mem_12c0caecfb0c0da7de",
       "mem_ca71de709a423445c4"
@@ -3278,7 +3275,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_12c0caecfb0c0da7de-web.jpg",
     "commentary": {
-     "text": "\"The Spring of Birthdays\" covers April 8, 2023 to April 15, 2023 and holds 2 memories. In these memories: Grandma June, Rooney and Milo.",
+     "text": "\"The Spring of Birthdays\" covers April 8, 2023 to April 15, 2023 and holds 2 memories. In these memories: Grandma June, Taylor and Milo.",
      "basedOn": [
       {
        "type": "chapter",
@@ -3291,7 +3288,7 @@ window.ROON_DEMO_DATA = {
        "type": "people",
        "names": [
         "Grandma June",
-        "Rooney",
+        "Taylor",
         "Milo"
        ]
       }
@@ -3322,7 +3319,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 8, 2023, with Grandma June and Rooney. Moment 4 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
+      "text": "A photo from July 8, 2023, with Grandma June and Taylor. Moment 4 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -3339,7 +3336,7 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -3379,7 +3376,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 2, 2023, with Grandma June and Rooney. Moment 4 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A photo from July 2, 2023, with Grandma June and Taylor. Moment 4 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -3396,12 +3393,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 4,
         "count": 15,
         "fromYear": 2021,
@@ -3478,7 +3475,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2021-06-26T15:00:00.000Z",
      "season": "Summer",
      "year": 2021,
-     "narrative": "Between June 5, 2021 and June 26, 2021, your family kept 4 memories here.\nIn these memories: Rooney, Grandma June.\nIn your own words:\n- June 5, 2021: Rooney, three, all curls\n- June 5, 2021: June shows Rooney how peas climb\n- June 12, 2021: Grandma June's garden, first summer\n- June 26, 2021: Tomato rows in Grandma's garden",
+     "narrative": "Between June 5, 2021 and June 26, 2021, your family kept 4 memories here.\nIn these memories: Taylor, Grandma June.\nIn your own words:\n- June 5, 2021: Taylor, three, all curls\n- June 5, 2021: June shows Taylor how peas climb\n- June 12, 2021: Grandma June's garden, first summer\n- June 26, 2021: Tomato rows in Grandma's garden",
      "memoryIds": [
       "mem_54bc7a84815e545002",
       "mem_fc2c9720b282443477",
@@ -3491,7 +3488,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_54bc7a84815e545002-web.jpg",
     "commentary": {
-     "text": "\"The Summer of Gardens\" covers June 5, 2021 to June 26, 2021 and holds 4 memories. In these memories: Rooney and Grandma June.",
+     "text": "\"The Summer of Gardens\" covers June 5, 2021 to June 26, 2021 and holds 4 memories. In these memories: Taylor and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -3503,7 +3500,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Grandma June"
        ]
       }
@@ -3518,7 +3515,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_ca71de709a423445c4-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_ca71de709a423445c4-web.jpg",
      "poster": null,
-     "caption": "Rooney's birthday, five candles",
+     "caption": "Taylor's birthday, five candles",
      "storyText": "",
      "takenAt": "2023-04-15T15:00:00.000Z",
      "peopleIds": [
@@ -3535,7 +3532,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 15, 2023, with Rooney, Milo and Grandma June. Moment 3 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from April 15, 2023, with Taylor, Milo and Grandma June. Moment 3 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -3551,14 +3548,14 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 3,
         "count": 26,
         "fromYear": 2022,
@@ -3593,7 +3590,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 8, 2023, with Grandma June and Rooney. Moment 2 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A photo from April 8, 2023, with Grandma June and Taylor. Moment 2 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -3610,12 +3607,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 2,
         "count": 15,
         "fromYear": 2021,
@@ -3632,7 +3629,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -3683,7 +3680,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2021-06-26T15:00:00.000Z",
      "season": "Summer",
      "year": 2021,
-     "narrative": "Between June 5, 2021 and June 26, 2021, your family kept 4 memories here.\nIn these memories: Rooney, Grandma June.\nIn your own words:\n- June 5, 2021: Rooney, three, all curls\n- June 5, 2021: June shows Rooney how peas climb\n- June 12, 2021: Grandma June's garden, first summer\n- June 26, 2021: Tomato rows in Grandma's garden",
+     "narrative": "Between June 5, 2021 and June 26, 2021, your family kept 4 memories here.\nIn these memories: Taylor, Grandma June.\nIn your own words:\n- June 5, 2021: Taylor, three, all curls\n- June 5, 2021: June shows Taylor how peas climb\n- June 12, 2021: Grandma June's garden, first summer\n- June 26, 2021: Tomato rows in Grandma's garden",
      "memoryIds": [
       "mem_54bc7a84815e545002",
       "mem_fc2c9720b282443477",
@@ -3696,7 +3693,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_54bc7a84815e545002-web.jpg",
     "commentary": {
-     "text": "\"The Summer of Gardens\" covers June 5, 2021 to June 26, 2021 and holds 4 memories. In these memories: Rooney and Grandma June.",
+     "text": "\"The Summer of Gardens\" covers June 5, 2021 to June 26, 2021 and holds 4 memories. In these memories: Taylor and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -3708,7 +3705,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Grandma June"
        ]
       }
@@ -3833,7 +3830,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_54bc7a84815e545002-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_54bc7a84815e545002-web.jpg",
      "poster": null,
-     "caption": "Rooney, three, all curls",
+     "caption": "Taylor, three, all curls",
      "storyText": "",
      "takenAt": "2021-06-05T15:00:00.000Z",
      "peopleIds": [
@@ -3848,7 +3845,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 5, 2021, with Rooney. Memory 1 of 4 in \"The Summer of Gardens\" (June 5, 2021 to June 26, 2021).",
+      "text": "A photo from June 5, 2021, with Taylor. Memory 1 of 4 in \"The Summer of Gardens\" (June 5, 2021 to June 26, 2021).",
       "basedOn": [
        {
         "type": "date",
@@ -3864,7 +3861,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -3888,7 +3885,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_fc2c9720b282443477-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_fc2c9720b282443477-web.jpg",
      "poster": null,
-     "caption": "June shows Rooney how peas climb",
+     "caption": "June shows Taylor how peas climb",
      "storyText": "",
      "takenAt": "2021-06-05T15:00:00.000Z",
      "peopleIds": [
@@ -3904,7 +3901,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 5, 2021, with Grandma June and Rooney. Moment 1 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A photo from June 5, 2021, with Grandma June and Taylor. Moment 1 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -3921,12 +3918,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 1,
         "count": 15,
         "fromYear": 2021,
@@ -3943,7 +3940,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -3988,7 +3985,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -4039,7 +4036,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2021-06-26T15:00:00.000Z",
      "season": "Summer",
      "year": 2021,
-     "narrative": "Between June 5, 2021 and June 26, 2021, your family kept 4 memories here.\nIn these memories: Rooney, Grandma June.\nIn your own words:\n- June 5, 2021: Rooney, three, all curls\n- June 5, 2021: June shows Rooney how peas climb\n- June 12, 2021: Grandma June's garden, first summer\n- June 26, 2021: Tomato rows in Grandma's garden",
+     "narrative": "Between June 5, 2021 and June 26, 2021, your family kept 4 memories here.\nIn these memories: Taylor, Grandma June.\nIn your own words:\n- June 5, 2021: Taylor, three, all curls\n- June 5, 2021: June shows Taylor how peas climb\n- June 12, 2021: Grandma June's garden, first summer\n- June 26, 2021: Tomato rows in Grandma's garden",
      "memoryIds": [
       "mem_54bc7a84815e545002",
       "mem_fc2c9720b282443477",
@@ -4052,7 +4049,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_54bc7a84815e545002-web.jpg",
     "commentary": {
-     "text": "\"The Summer of Gardens\" covers June 5, 2021 to June 26, 2021 and holds 4 memories. In these memories: Rooney and Grandma June.",
+     "text": "\"The Summer of Gardens\" covers June 5, 2021 to June 26, 2021 and holds 4 memories. In these memories: Taylor and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -4064,7 +4061,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Grandma June"
        ]
       }
@@ -4079,7 +4076,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_54bc7a84815e545002-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_54bc7a84815e545002-web.jpg",
      "poster": null,
-     "caption": "Rooney, three, all curls",
+     "caption": "Taylor, three, all curls",
      "storyText": "",
      "takenAt": "2021-06-05T15:00:00.000Z",
      "peopleIds": [
@@ -4094,7 +4091,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 5, 2021, with Rooney. Memory 1 of 4 in \"The Summer of Gardens\" (June 5, 2021 to June 26, 2021).",
+      "text": "A photo from June 5, 2021, with Taylor. Memory 1 of 4 in \"The Summer of Gardens\" (June 5, 2021 to June 26, 2021).",
       "basedOn": [
        {
         "type": "date",
@@ -4110,7 +4107,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -4134,7 +4131,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_fc2c9720b282443477-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_fc2c9720b282443477-web.jpg",
      "poster": null,
-     "caption": "June shows Rooney how peas climb",
+     "caption": "June shows Taylor how peas climb",
      "storyText": "",
      "takenAt": "2021-06-05T15:00:00.000Z",
      "peopleIds": [
@@ -4150,7 +4147,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 5, 2021, with Grandma June and Rooney. Moment 1 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A photo from June 5, 2021, with Grandma June and Taylor. Moment 1 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -4167,12 +4164,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 1,
         "count": 15,
         "fromYear": 2021,
@@ -4189,7 +4186,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -4240,7 +4237,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2021-06-26T15:00:00.000Z",
      "season": "Summer",
      "year": 2021,
-     "narrative": "Between June 5, 2021 and June 26, 2021, your family kept 4 memories here.\nIn these memories: Rooney, Grandma June.\nIn your own words:\n- June 5, 2021: Rooney, three, all curls\n- June 5, 2021: June shows Rooney how peas climb\n- June 12, 2021: Grandma June's garden, first summer\n- June 26, 2021: Tomato rows in Grandma's garden",
+     "narrative": "Between June 5, 2021 and June 26, 2021, your family kept 4 memories here.\nIn these memories: Taylor, Grandma June.\nIn your own words:\n- June 5, 2021: Taylor, three, all curls\n- June 5, 2021: June shows Taylor how peas climb\n- June 12, 2021: Grandma June's garden, first summer\n- June 26, 2021: Tomato rows in Grandma's garden",
      "memoryIds": [
       "mem_54bc7a84815e545002",
       "mem_fc2c9720b282443477",
@@ -4253,7 +4250,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_54bc7a84815e545002-web.jpg",
     "commentary": {
-     "text": "\"The Summer of Gardens\" covers June 5, 2021 to June 26, 2021 and holds 4 memories. In these memories: Rooney and Grandma June.",
+     "text": "\"The Summer of Gardens\" covers June 5, 2021 to June 26, 2021 and holds 4 memories. In these memories: Taylor and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -4265,7 +4262,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Grandma June"
        ]
       }
@@ -4390,7 +4387,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_fc2c9720b282443477-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_fc2c9720b282443477-web.jpg",
      "poster": null,
-     "caption": "June shows Rooney how peas climb",
+     "caption": "June shows Taylor how peas climb",
      "storyText": "",
      "takenAt": "2021-06-05T15:00:00.000Z",
      "peopleIds": [
@@ -4406,7 +4403,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 5, 2021, with Grandma June and Rooney. Moment 1 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A photo from June 5, 2021, with Grandma June and Taylor. Moment 1 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -4423,12 +4420,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 1,
         "count": 15,
         "fromYear": 2021,
@@ -4445,7 +4442,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -4496,7 +4493,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2022-04-16T15:00:00.000Z",
      "season": "Spring",
      "year": 2022,
-     "narrative": "Between April 9, 2022 and April 16, 2022, your family kept 4 memories here.\nIn these memories: Milo, Rooney.\nIn your own words:\n- April 9, 2022: Milo, one and a half, all cheeks\n- April 9, 2022: Sharing the good crayons\n- April 10, 2022: The birthday countdown begins\n- April 16, 2022: Rooney's fourth birthday, the cake with claws",
+     "narrative": "Between April 9, 2022 and April 16, 2022, your family kept 4 memories here.\nIn these memories: Milo, Taylor.\nIn your own words:\n- April 9, 2022: Milo, one and a half, all cheeks\n- April 9, 2022: Sharing the good crayons\n- April 10, 2022: The birthday countdown begins\n- April 16, 2022: Taylor's fourth birthday, the cake with claws",
      "memoryIds": [
       "mem_a371734fd704a21023",
       "mem_2624af56c403e9b350",
@@ -4509,7 +4506,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_a371734fd704a21023-web.jpg",
     "commentary": {
-     "text": "\"The Spring of Birthdays\" covers April 9, 2022 to April 16, 2022 and holds 4 memories. In these memories: Milo and Rooney.",
+     "text": "\"The Spring of Birthdays\" covers April 9, 2022 to April 16, 2022 and holds 4 memories. In these memories: Milo and Taylor.",
      "basedOn": [
       {
        "type": "chapter",
@@ -4522,7 +4519,7 @@ window.ROON_DEMO_DATA = {
        "type": "people",
        "names": [
         "Milo",
-        "Rooney"
+        "Taylor"
        ]
       }
      ]
@@ -4536,7 +4533,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_af4b52e146f5edf5f2-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_af4b52e146f5edf5f2-web.jpg",
      "poster": null,
-     "caption": "Rooney's fourth birthday, the cake with claws",
+     "caption": "Taylor's fourth birthday, the cake with claws",
      "storyText": "",
      "takenAt": "2022-04-16T15:00:00.000Z",
      "peopleIds": [
@@ -4551,7 +4548,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 16, 2022, with Rooney. Moment 2 of 6 in the thread \"Birthdays, spring after spring\", which runs from 2022 to 2025.",
+      "text": "A photo from April 16, 2022, with Taylor. Moment 2 of 6 in the thread \"Birthdays, spring after spring\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -4567,7 +4564,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -4606,7 +4603,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A video from April 10, 2022, with Rooney. Moment 1 of 6 in the thread \"Birthdays, spring after spring\", which runs from 2022 to 2025.",
+      "text": "A video from April 10, 2022, with Taylor. Moment 1 of 6 in the thread \"Birthdays, spring after spring\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -4622,7 +4619,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -4662,7 +4659,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 9, 2022, with Rooney and Milo. Moment 1 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from April 9, 2022, with Taylor and Milo. Moment 1 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -4678,13 +4675,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 1,
         "count": 26,
         "fromYear": 2022,
@@ -4756,7 +4753,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -4807,7 +4804,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2022-04-16T15:00:00.000Z",
      "season": "Spring",
      "year": 2022,
-     "narrative": "Between April 9, 2022 and April 16, 2022, your family kept 4 memories here.\nIn these memories: Milo, Rooney.\nIn your own words:\n- April 9, 2022: Milo, one and a half, all cheeks\n- April 9, 2022: Sharing the good crayons\n- April 10, 2022: The birthday countdown begins\n- April 16, 2022: Rooney's fourth birthday, the cake with claws",
+     "narrative": "Between April 9, 2022 and April 16, 2022, your family kept 4 memories here.\nIn these memories: Milo, Taylor.\nIn your own words:\n- April 9, 2022: Milo, one and a half, all cheeks\n- April 9, 2022: Sharing the good crayons\n- April 10, 2022: The birthday countdown begins\n- April 16, 2022: Taylor's fourth birthday, the cake with claws",
      "memoryIds": [
       "mem_a371734fd704a21023",
       "mem_2624af56c403e9b350",
@@ -4820,7 +4817,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_a371734fd704a21023-web.jpg",
     "commentary": {
-     "text": "\"The Spring of Birthdays\" covers April 9, 2022 to April 16, 2022 and holds 4 memories. In these memories: Milo and Rooney.",
+     "text": "\"The Spring of Birthdays\" covers April 9, 2022 to April 16, 2022 and holds 4 memories. In these memories: Milo and Taylor.",
      "basedOn": [
       {
        "type": "chapter",
@@ -4833,7 +4830,7 @@ window.ROON_DEMO_DATA = {
        "type": "people",
        "names": [
         "Milo",
-        "Rooney"
+        "Taylor"
        ]
       }
      ]
@@ -4863,7 +4860,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 9, 2022, with Rooney and Milo. Moment 1 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from April 9, 2022, with Taylor and Milo. Moment 1 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -4879,13 +4876,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 1,
         "count": 26,
         "fromYear": 2022,
@@ -4957,7 +4954,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -5008,7 +5005,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2022-04-16T15:00:00.000Z",
      "season": "Spring",
      "year": 2022,
-     "narrative": "Between April 9, 2022 and April 16, 2022, your family kept 4 memories here.\nIn these memories: Milo, Rooney.\nIn your own words:\n- April 9, 2022: Milo, one and a half, all cheeks\n- April 9, 2022: Sharing the good crayons\n- April 10, 2022: The birthday countdown begins\n- April 16, 2022: Rooney's fourth birthday, the cake with claws",
+     "narrative": "Between April 9, 2022 and April 16, 2022, your family kept 4 memories here.\nIn these memories: Milo, Taylor.\nIn your own words:\n- April 9, 2022: Milo, one and a half, all cheeks\n- April 9, 2022: Sharing the good crayons\n- April 10, 2022: The birthday countdown begins\n- April 16, 2022: Taylor's fourth birthday, the cake with claws",
      "memoryIds": [
       "mem_a371734fd704a21023",
       "mem_2624af56c403e9b350",
@@ -5021,7 +5018,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_a371734fd704a21023-web.jpg",
     "commentary": {
-     "text": "\"The Spring of Birthdays\" covers April 9, 2022 to April 16, 2022 and holds 4 memories. In these memories: Milo and Rooney.",
+     "text": "\"The Spring of Birthdays\" covers April 9, 2022 to April 16, 2022 and holds 4 memories. In these memories: Milo and Taylor.",
      "basedOn": [
       {
        "type": "chapter",
@@ -5034,7 +5031,7 @@ window.ROON_DEMO_DATA = {
        "type": "people",
        "names": [
         "Milo",
-        "Rooney"
+        "Taylor"
        ]
       }
      ]
@@ -5048,7 +5045,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_af4b52e146f5edf5f2-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_af4b52e146f5edf5f2-web.jpg",
      "poster": null,
-     "caption": "Rooney's fourth birthday, the cake with claws",
+     "caption": "Taylor's fourth birthday, the cake with claws",
      "storyText": "",
      "takenAt": "2022-04-16T15:00:00.000Z",
      "peopleIds": [
@@ -5063,7 +5060,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 16, 2022, with Rooney. Moment 2 of 6 in the thread \"Birthdays, spring after spring\", which runs from 2022 to 2025.",
+      "text": "A photo from April 16, 2022, with Taylor. Moment 2 of 6 in the thread \"Birthdays, spring after spring\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -5079,7 +5076,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -5118,7 +5115,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A video from April 10, 2022, with Rooney. Moment 1 of 6 in the thread \"Birthdays, spring after spring\", which runs from 2022 to 2025.",
+      "text": "A video from April 10, 2022, with Taylor. Moment 1 of 6 in the thread \"Birthdays, spring after spring\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -5134,7 +5131,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -5174,7 +5171,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 9, 2022, with Rooney and Milo. Moment 1 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from April 9, 2022, with Taylor and Milo. Moment 1 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -5190,13 +5187,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 1,
         "count": 26,
         "fromYear": 2022,
@@ -5213,7 +5210,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -5258,7 +5255,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -5321,7 +5318,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 18, 2022, with Rooney. Moment 2 of 5 in the thread \"Bikes, summer after summer\", which runs from 2022 to 2025.",
+      "text": "A photo from June 18, 2022, with Taylor. Moment 2 of 5 in the thread \"Bikes, summer after summer\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -5337,7 +5334,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -5376,7 +5373,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A video from June 15, 2022, with Rooney. Moment 1 of 5 in the thread \"Bikes, summer after summer\", which runs from 2022 to 2025.",
+      "text": "A video from June 15, 2022, with Taylor. Moment 1 of 5 in the thread \"Bikes, summer after summer\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -5392,7 +5389,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -5473,7 +5470,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_2f6e011eab75e67503-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_2f6e011eab75e67503-web.jpg",
      "poster": null,
-     "caption": "Rooney waters the pavement, calls it rain",
+     "caption": "Taylor waters the pavement, calls it rain",
      "storyText": "",
      "takenAt": "2022-06-11T15:00:00.000Z",
      "peopleIds": [
@@ -5488,7 +5485,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 11, 2022, with Rooney. Memory 1 of 8 in \"The Summer of Dinosaurs\" (June 11, 2022 to August 5, 2022).",
+      "text": "A photo from June 11, 2022, with Taylor. Memory 1 of 8 in \"The Summer of Dinosaurs\" (June 11, 2022 to August 5, 2022).",
       "basedOn": [
        {
         "type": "date",
@@ -5504,7 +5501,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -5526,7 +5523,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -5629,7 +5626,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -5692,7 +5689,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 18, 2022, with Rooney. Moment 2 of 5 in the thread \"Bikes, summer after summer\", which runs from 2022 to 2025.",
+      "text": "A photo from June 18, 2022, with Taylor. Moment 2 of 5 in the thread \"Bikes, summer after summer\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -5708,7 +5705,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -5747,7 +5744,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A video from June 15, 2022, with Rooney. Moment 1 of 5 in the thread \"Bikes, summer after summer\", which runs from 2022 to 2025.",
+      "text": "A video from June 15, 2022, with Taylor. Moment 1 of 5 in the thread \"Bikes, summer after summer\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -5763,7 +5760,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -5787,7 +5784,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_2f6e011eab75e67503-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_2f6e011eab75e67503-web.jpg",
      "poster": null,
-     "caption": "Rooney waters the pavement, calls it rain",
+     "caption": "Taylor waters the pavement, calls it rain",
      "storyText": "",
      "takenAt": "2022-06-11T15:00:00.000Z",
      "peopleIds": [
@@ -5802,7 +5799,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 11, 2022, with Rooney. Memory 1 of 8 in \"The Summer of Dinosaurs\" (June 11, 2022 to August 5, 2022).",
+      "text": "A photo from June 11, 2022, with Taylor. Memory 1 of 8 in \"The Summer of Dinosaurs\" (June 11, 2022 to August 5, 2022).",
       "basedOn": [
        {
         "type": "date",
@@ -5818,7 +5815,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -5840,7 +5837,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -5943,7 +5940,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -5991,7 +5988,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_18e4fe2a9092efba17-s-roaring-dinosaur-2022.mp4",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_18e4fe2a9092efba17-s-roaring-dinosaur-2022.mp4",
      "poster": "media/fam_b44fd40e9d36256d3b/mem_18e4fe2a9092efba17-poster.jpg",
-     "caption": "Rooney and the roaring dinosaur",
+     "caption": "Taylor and the roaring dinosaur",
      "storyText": "",
      "takenAt": "2022-07-23T15:00:00.000Z",
      "peopleIds": [
@@ -6006,7 +6003,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A video from July 23, 2022, with Rooney. Moment 3 of 9 in the thread \"Dinosaurs, summer after summer\", which runs from 2022 to 2024.",
+      "text": "A video from July 23, 2022, with Taylor. Moment 3 of 9 in the thread \"Dinosaurs, summer after summer\", which runs from 2022 to 2024.",
       "basedOn": [
        {
         "type": "date",
@@ -6022,7 +6019,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -6047,7 +6044,7 @@ window.ROON_DEMO_DATA = {
      "originalSrc": null,
      "poster": null,
      "caption": "Dinosaur drawing on the fridge",
-     "storyText": "Rooney drew a dinosaur with a spiky back and a lopsided smile. It went straight on the fridge and never came down.",
+     "storyText": "Taylor drew a dinosaur with a spiky back and a lopsided smile. It went straight on the fridge and never came down.",
      "takenAt": "2022-07-22T15:00:00.000Z",
      "peopleIds": [
       "per_47f6d75809a92fae04"
@@ -6061,7 +6058,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from July 22, 2022, with Rooney. Moment 2 of 9 in the thread \"Dinosaurs, summer after summer\", which runs from 2022 to 2024.",
+      "text": "A piece of writing from July 22, 2022, with Taylor. Moment 2 of 9 in the thread \"Dinosaurs, summer after summer\", which runs from 2022 to 2024.",
       "basedOn": [
        {
         "type": "date",
@@ -6077,7 +6074,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -6102,7 +6099,7 @@ window.ROON_DEMO_DATA = {
      "originalSrc": null,
      "poster": null,
      "caption": "Dinosaur phase begins",
-     "storyText": "Rooney found a dinosaur book at the library and would not put it down. She named every dinosaur on the walk home.",
+     "storyText": "Taylor found a dinosaur book at the library and would not put it down. She named every dinosaur on the walk home.",
      "takenAt": "2022-07-10T15:00:00.000Z",
      "peopleIds": [
       "per_47f6d75809a92fae04"
@@ -6116,7 +6113,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from July 10, 2022, with Rooney. Moment 1 of 9 in the thread \"Dinosaurs, summer after summer\", which runs from 2022 to 2024.",
+      "text": "A piece of writing from July 10, 2022, with Taylor. Moment 1 of 9 in the thread \"Dinosaurs, summer after summer\", which runs from 2022 to 2024.",
       "basedOn": [
        {
         "type": "date",
@@ -6132,7 +6129,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -6154,7 +6151,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -6199,7 +6196,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -6244,7 +6241,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -6292,7 +6289,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_18e4fe2a9092efba17-s-roaring-dinosaur-2022.mp4",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_18e4fe2a9092efba17-s-roaring-dinosaur-2022.mp4",
      "poster": "media/fam_b44fd40e9d36256d3b/mem_18e4fe2a9092efba17-poster.jpg",
-     "caption": "Rooney and the roaring dinosaur",
+     "caption": "Taylor and the roaring dinosaur",
      "storyText": "",
      "takenAt": "2022-07-23T15:00:00.000Z",
      "peopleIds": [
@@ -6307,7 +6304,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A video from July 23, 2022, with Rooney. Moment 3 of 9 in the thread \"Dinosaurs, summer after summer\", which runs from 2022 to 2024.",
+      "text": "A video from July 23, 2022, with Taylor. Moment 3 of 9 in the thread \"Dinosaurs, summer after summer\", which runs from 2022 to 2024.",
       "basedOn": [
        {
         "type": "date",
@@ -6323,7 +6320,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -6348,7 +6345,7 @@ window.ROON_DEMO_DATA = {
      "originalSrc": null,
      "poster": null,
      "caption": "Dinosaur drawing on the fridge",
-     "storyText": "Rooney drew a dinosaur with a spiky back and a lopsided smile. It went straight on the fridge and never came down.",
+     "storyText": "Taylor drew a dinosaur with a spiky back and a lopsided smile. It went straight on the fridge and never came down.",
      "takenAt": "2022-07-22T15:00:00.000Z",
      "peopleIds": [
       "per_47f6d75809a92fae04"
@@ -6362,7 +6359,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from July 22, 2022, with Rooney. Moment 2 of 9 in the thread \"Dinosaurs, summer after summer\", which runs from 2022 to 2024.",
+      "text": "A piece of writing from July 22, 2022, with Taylor. Moment 2 of 9 in the thread \"Dinosaurs, summer after summer\", which runs from 2022 to 2024.",
       "basedOn": [
        {
         "type": "date",
@@ -6378,7 +6375,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -6403,7 +6400,7 @@ window.ROON_DEMO_DATA = {
      "originalSrc": null,
      "poster": null,
      "caption": "Dinosaur phase begins",
-     "storyText": "Rooney found a dinosaur book at the library and would not put it down. She named every dinosaur on the walk home.",
+     "storyText": "Taylor found a dinosaur book at the library and would not put it down. She named every dinosaur on the walk home.",
      "takenAt": "2022-07-10T15:00:00.000Z",
      "peopleIds": [
       "per_47f6d75809a92fae04"
@@ -6417,7 +6414,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from July 10, 2022, with Rooney. Moment 1 of 9 in the thread \"Dinosaurs, summer after summer\", which runs from 2022 to 2024.",
+      "text": "A piece of writing from July 10, 2022, with Taylor. Moment 1 of 9 in the thread \"Dinosaurs, summer after summer\", which runs from 2022 to 2024.",
       "basedOn": [
        {
         "type": "date",
@@ -6433,7 +6430,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -6455,7 +6452,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -6500,7 +6497,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -6545,7 +6542,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -6590,7 +6587,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -6641,7 +6638,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2022-08-05T15:00:00.000Z",
      "season": "Summer",
      "year": 2022,
-     "narrative": "Between June 11, 2022 and August 5, 2022, your family kept 8 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- June 11, 2022: Rooney waters the pavement, calls it rain\n- June 11, 2022: Grandma June braids his curls, very serious work\n- June 15, 2022: First week on the bike, wobbles and all\n- June 18, 2022: First bike, bell and all\n- July 10, 2022: Rooney found a dinosaur book at the library and would not put it down. She named every dinosaur on the walk home.\n- July 22, 2022: Rooney drew a dinosaur with a spiky back and a lopsided smile. It went straight on the fridge and never came down.\n- July 23, 2022: Rooney and the roaring dinosaur\n- August 5, 2022: Milo learned to roar from Rooney and did it at the dinner table, at bath time, and once at the grocery store.",
+     "narrative": "Between June 11, 2022 and August 5, 2022, your family kept 8 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- June 11, 2022: Taylor waters the pavement, calls it rain\n- June 11, 2022: Grandma June braids his curls, very serious work\n- June 15, 2022: First week on the bike, wobbles and all\n- June 18, 2022: First bike, bell and all\n- July 10, 2022: Taylor found a dinosaur book at the library and would not put it down. She named every dinosaur on the walk home.\n- July 22, 2022: Taylor drew a dinosaur with a spiky back and a lopsided smile. It went straight on the fridge and never came down.\n- July 23, 2022: Taylor and the roaring dinosaur\n- August 5, 2022: Milo learned to roar from Taylor and did it at the dinner table, at bath time, and once at the grocery store.",
      "memoryIds": [
       "mem_2f6e011eab75e67503",
       "mem_cdc89eb41ae2bae21e",
@@ -6658,7 +6655,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_2f6e011eab75e67503-web.jpg",
     "commentary": {
-     "text": "\"The Summer of Dinosaurs\" covers June 11, 2022 to August 5, 2022 and holds 8 memories. In these memories: Rooney, Milo and Grandma June.",
+     "text": "\"The Summer of Dinosaurs\" covers June 11, 2022 to August 5, 2022 and holds 8 memories. In these memories: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -6670,7 +6667,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -6687,7 +6684,7 @@ window.ROON_DEMO_DATA = {
      "originalSrc": null,
      "poster": null,
      "caption": "Milo roars back",
-     "storyText": "Milo learned to roar from Rooney and did it at the dinner table, at bath time, and once at the grocery store.",
+     "storyText": "Milo learned to roar from Taylor and did it at the dinner table, at bath time, and once at the grocery store.",
      "takenAt": "2022-08-05T15:00:00.000Z",
      "peopleIds": [
       "per_47f6d75809a92fae04",
@@ -6702,7 +6699,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from August 5, 2022, with Rooney and Milo. Moment 2 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A piece of writing from August 5, 2022, with Taylor and Milo. Moment 2 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -6718,13 +6715,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 2,
         "count": 26,
         "fromYear": 2022,
@@ -6741,7 +6738,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -6786,7 +6783,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -6835,7 +6832,7 @@ window.ROON_DEMO_DATA = {
      "originalSrc": null,
      "poster": null,
      "caption": "Milo roars back",
-     "storyText": "Milo learned to roar from Rooney and did it at the dinner table, at bath time, and once at the grocery store.",
+     "storyText": "Milo learned to roar from Taylor and did it at the dinner table, at bath time, and once at the grocery store.",
      "takenAt": "2022-08-05T15:00:00.000Z",
      "peopleIds": [
       "per_47f6d75809a92fae04",
@@ -6850,7 +6847,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from August 5, 2022, with Rooney and Milo. Moment 2 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A piece of writing from August 5, 2022, with Taylor and Milo. Moment 2 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -6866,13 +6863,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 2,
         "count": 26,
         "fromYear": 2022,
@@ -6889,7 +6886,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -6940,7 +6937,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2022-08-05T15:00:00.000Z",
      "season": "Summer",
      "year": 2022,
-     "narrative": "Between June 11, 2022 and August 5, 2022, your family kept 8 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- June 11, 2022: Rooney waters the pavement, calls it rain\n- June 11, 2022: Grandma June braids his curls, very serious work\n- June 15, 2022: First week on the bike, wobbles and all\n- June 18, 2022: First bike, bell and all\n- July 10, 2022: Rooney found a dinosaur book at the library and would not put it down. She named every dinosaur on the walk home.\n- July 22, 2022: Rooney drew a dinosaur with a spiky back and a lopsided smile. It went straight on the fridge and never came down.\n- July 23, 2022: Rooney and the roaring dinosaur\n- August 5, 2022: Milo learned to roar from Rooney and did it at the dinner table, at bath time, and once at the grocery store.",
+     "narrative": "Between June 11, 2022 and August 5, 2022, your family kept 8 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- June 11, 2022: Taylor waters the pavement, calls it rain\n- June 11, 2022: Grandma June braids his curls, very serious work\n- June 15, 2022: First week on the bike, wobbles and all\n- June 18, 2022: First bike, bell and all\n- July 10, 2022: Taylor found a dinosaur book at the library and would not put it down. She named every dinosaur on the walk home.\n- July 22, 2022: Taylor drew a dinosaur with a spiky back and a lopsided smile. It went straight on the fridge and never came down.\n- July 23, 2022: Taylor and the roaring dinosaur\n- August 5, 2022: Milo learned to roar from Taylor and did it at the dinner table, at bath time, and once at the grocery store.",
      "memoryIds": [
       "mem_2f6e011eab75e67503",
       "mem_cdc89eb41ae2bae21e",
@@ -6957,7 +6954,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_2f6e011eab75e67503-web.jpg",
     "commentary": {
-     "text": "\"The Summer of Dinosaurs\" covers June 11, 2022 to August 5, 2022 and holds 8 memories. In these memories: Rooney, Milo and Grandma June.",
+     "text": "\"The Summer of Dinosaurs\" covers June 11, 2022 to August 5, 2022 and holds 8 memories. In these memories: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -6969,7 +6966,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -6986,7 +6983,7 @@ window.ROON_DEMO_DATA = {
      "originalSrc": null,
      "poster": null,
      "caption": "Milo roars back",
-     "storyText": "Milo learned to roar from Rooney and did it at the dinner table, at bath time, and once at the grocery store.",
+     "storyText": "Milo learned to roar from Taylor and did it at the dinner table, at bath time, and once at the grocery store.",
      "takenAt": "2022-08-05T15:00:00.000Z",
      "peopleIds": [
       "per_47f6d75809a92fae04",
@@ -7001,7 +6998,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from August 5, 2022, with Rooney and Milo. Moment 2 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A piece of writing from August 5, 2022, with Taylor and Milo. Moment 2 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -7017,13 +7014,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 2,
         "count": 26,
         "fromYear": 2022,
@@ -7040,7 +7037,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -7085,7 +7082,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -7130,7 +7127,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -7175,7 +7172,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -7226,7 +7223,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2023-04-15T15:00:00.000Z",
      "season": "Spring",
      "year": 2023,
-     "narrative": "Between April 8, 2023 and April 15, 2023, your family kept 2 memories here.\nIn these memories: Grandma June, Rooney, Milo.\nIn your own words:\n- April 8, 2023: Grandma June's porch, waiting on the spring\n- April 15, 2023: Rooney's birthday, five candles",
+     "narrative": "Between April 8, 2023 and April 15, 2023, your family kept 2 memories here.\nIn these memories: Grandma June, Taylor, Milo.\nIn your own words:\n- April 8, 2023: Grandma June's porch, waiting on the spring\n- April 15, 2023: Taylor's birthday, five candles",
      "memoryIds": [
       "mem_12c0caecfb0c0da7de",
       "mem_ca71de709a423445c4"
@@ -7237,7 +7234,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_12c0caecfb0c0da7de-web.jpg",
     "commentary": {
-     "text": "\"The Spring of Birthdays\" covers April 8, 2023 to April 15, 2023 and holds 2 memories. In these memories: Grandma June, Rooney and Milo.",
+     "text": "\"The Spring of Birthdays\" covers April 8, 2023 to April 15, 2023 and holds 2 memories. In these memories: Grandma June, Taylor and Milo.",
      "basedOn": [
       {
        "type": "chapter",
@@ -7250,7 +7247,7 @@ window.ROON_DEMO_DATA = {
        "type": "people",
        "names": [
         "Grandma June",
-        "Rooney",
+        "Taylor",
         "Milo"
        ]
       }
@@ -7265,7 +7262,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_ca71de709a423445c4-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_ca71de709a423445c4-web.jpg",
      "poster": null,
-     "caption": "Rooney's birthday, five candles",
+     "caption": "Taylor's birthday, five candles",
      "storyText": "",
      "takenAt": "2023-04-15T15:00:00.000Z",
      "peopleIds": [
@@ -7282,7 +7279,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 15, 2023, with Rooney, Milo and Grandma June. Moment 3 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from April 15, 2023, with Taylor, Milo and Grandma June. Moment 3 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -7298,14 +7295,14 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 3,
         "count": 26,
         "fromYear": 2022,
@@ -7340,7 +7337,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 8, 2023, with Grandma June and Rooney. Moment 2 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A photo from April 8, 2023, with Grandma June and Taylor. Moment 2 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -7357,12 +7354,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 2,
         "count": 15,
         "fromYear": 2021,
@@ -7379,7 +7376,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -7430,7 +7427,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2023-04-15T15:00:00.000Z",
      "season": "Spring",
      "year": 2023,
-     "narrative": "Between April 8, 2023 and April 15, 2023, your family kept 2 memories here.\nIn these memories: Grandma June, Rooney, Milo.\nIn your own words:\n- April 8, 2023: Grandma June's porch, waiting on the spring\n- April 15, 2023: Rooney's birthday, five candles",
+     "narrative": "Between April 8, 2023 and April 15, 2023, your family kept 2 memories here.\nIn these memories: Grandma June, Taylor, Milo.\nIn your own words:\n- April 8, 2023: Grandma June's porch, waiting on the spring\n- April 15, 2023: Taylor's birthday, five candles",
      "memoryIds": [
       "mem_12c0caecfb0c0da7de",
       "mem_ca71de709a423445c4"
@@ -7441,7 +7438,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_12c0caecfb0c0da7de-web.jpg",
     "commentary": {
-     "text": "\"The Spring of Birthdays\" covers April 8, 2023 to April 15, 2023 and holds 2 memories. In these memories: Grandma June, Rooney and Milo.",
+     "text": "\"The Spring of Birthdays\" covers April 8, 2023 to April 15, 2023 and holds 2 memories. In these memories: Grandma June, Taylor and Milo.",
      "basedOn": [
       {
        "type": "chapter",
@@ -7454,7 +7451,7 @@ window.ROON_DEMO_DATA = {
        "type": "people",
        "names": [
         "Grandma June",
-        "Rooney",
+        "Taylor",
         "Milo"
        ]
       }
@@ -7469,7 +7466,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_ca71de709a423445c4-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_ca71de709a423445c4-web.jpg",
      "poster": null,
-     "caption": "Rooney's birthday, five candles",
+     "caption": "Taylor's birthday, five candles",
      "storyText": "",
      "takenAt": "2023-04-15T15:00:00.000Z",
      "peopleIds": [
@@ -7486,7 +7483,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 15, 2023, with Rooney, Milo and Grandma June. Moment 3 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from April 15, 2023, with Taylor, Milo and Grandma June. Moment 3 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -7502,14 +7499,14 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 3,
         "count": 26,
         "fromYear": 2022,
@@ -7526,7 +7523,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -7577,7 +7574,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2023-04-15T15:00:00.000Z",
      "season": "Spring",
      "year": 2023,
-     "narrative": "Between April 8, 2023 and April 15, 2023, your family kept 2 memories here.\nIn these memories: Grandma June, Rooney, Milo.\nIn your own words:\n- April 8, 2023: Grandma June's porch, waiting on the spring\n- April 15, 2023: Rooney's birthday, five candles",
+     "narrative": "Between April 8, 2023 and April 15, 2023, your family kept 2 memories here.\nIn these memories: Grandma June, Taylor, Milo.\nIn your own words:\n- April 8, 2023: Grandma June's porch, waiting on the spring\n- April 15, 2023: Taylor's birthday, five candles",
      "memoryIds": [
       "mem_12c0caecfb0c0da7de",
       "mem_ca71de709a423445c4"
@@ -7588,7 +7585,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_12c0caecfb0c0da7de-web.jpg",
     "commentary": {
-     "text": "\"The Spring of Birthdays\" covers April 8, 2023 to April 15, 2023 and holds 2 memories. In these memories: Grandma June, Rooney and Milo.",
+     "text": "\"The Spring of Birthdays\" covers April 8, 2023 to April 15, 2023 and holds 2 memories. In these memories: Grandma June, Taylor and Milo.",
      "basedOn": [
       {
        "type": "chapter",
@@ -7601,7 +7598,7 @@ window.ROON_DEMO_DATA = {
        "type": "people",
        "names": [
         "Grandma June",
-        "Rooney",
+        "Taylor",
         "Milo"
        ]
       }
@@ -7616,7 +7613,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_ca71de709a423445c4-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_ca71de709a423445c4-web.jpg",
      "poster": null,
-     "caption": "Rooney's birthday, five candles",
+     "caption": "Taylor's birthday, five candles",
      "storyText": "",
      "takenAt": "2023-04-15T15:00:00.000Z",
      "peopleIds": [
@@ -7633,7 +7630,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 15, 2023, with Rooney, Milo and Grandma June. Moment 3 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from April 15, 2023, with Taylor, Milo and Grandma June. Moment 3 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -7649,14 +7646,14 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 3,
         "count": 26,
         "fromYear": 2022,
@@ -7691,7 +7688,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 8, 2023, with Grandma June and Rooney. Moment 2 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A photo from April 8, 2023, with Grandma June and Taylor. Moment 2 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -7708,12 +7705,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 2,
         "count": 15,
         "fromYear": 2021,
@@ -7730,7 +7727,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -7781,7 +7778,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2023-04-15T15:00:00.000Z",
      "season": "Spring",
      "year": 2023,
-     "narrative": "Between April 8, 2023 and April 15, 2023, your family kept 2 memories here.\nIn these memories: Grandma June, Rooney, Milo.\nIn your own words:\n- April 8, 2023: Grandma June's porch, waiting on the spring\n- April 15, 2023: Rooney's birthday, five candles",
+     "narrative": "Between April 8, 2023 and April 15, 2023, your family kept 2 memories here.\nIn these memories: Grandma June, Taylor, Milo.\nIn your own words:\n- April 8, 2023: Grandma June's porch, waiting on the spring\n- April 15, 2023: Taylor's birthday, five candles",
      "memoryIds": [
       "mem_12c0caecfb0c0da7de",
       "mem_ca71de709a423445c4"
@@ -7792,7 +7789,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_12c0caecfb0c0da7de-web.jpg",
     "commentary": {
-     "text": "\"The Spring of Birthdays\" covers April 8, 2023 to April 15, 2023 and holds 2 memories. In these memories: Grandma June, Rooney and Milo.",
+     "text": "\"The Spring of Birthdays\" covers April 8, 2023 to April 15, 2023 and holds 2 memories. In these memories: Grandma June, Taylor and Milo.",
      "basedOn": [
       {
        "type": "chapter",
@@ -7805,7 +7802,7 @@ window.ROON_DEMO_DATA = {
        "type": "people",
        "names": [
         "Grandma June",
-        "Rooney",
+        "Taylor",
         "Milo"
        ]
       }
@@ -7820,7 +7817,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_ca71de709a423445c4-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_ca71de709a423445c4-web.jpg",
      "poster": null,
-     "caption": "Rooney's birthday, five candles",
+     "caption": "Taylor's birthday, five candles",
      "storyText": "",
      "takenAt": "2023-04-15T15:00:00.000Z",
      "peopleIds": [
@@ -7837,7 +7834,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 15, 2023, with Rooney, Milo and Grandma June. Moment 3 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from April 15, 2023, with Taylor, Milo and Grandma June. Moment 3 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -7853,14 +7850,14 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 3,
         "count": 26,
         "fromYear": 2022,
@@ -7895,7 +7892,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 8, 2023, with Grandma June and Rooney. Moment 2 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A photo from April 8, 2023, with Grandma June and Taylor. Moment 2 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -7912,12 +7909,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 2,
         "count": 15,
         "fromYear": 2021,
@@ -7934,7 +7931,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -7998,7 +7995,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A video from June 25, 2023, with Rooney and Milo. Moment 4 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A video from June 25, 2023, with Taylor and Milo. Moment 4 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -8014,13 +8011,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 4,
         "count": 26,
         "fromYear": 2022,
@@ -8054,7 +8051,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 24, 2023, with Rooney. Moment 4 of 9 in the thread \"Dinosaurs, summer after summer\", which runs from 2022 to 2024.",
+      "text": "A photo from June 24, 2023, with Taylor. Moment 4 of 9 in the thread \"Dinosaurs, summer after summer\", which runs from 2022 to 2024.",
       "basedOn": [
        {
         "type": "date",
@@ -8070,7 +8067,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -8149,7 +8146,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_639c875daf7b901106-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_639c875daf7b901106-web.jpg",
      "poster": null,
-     "caption": "Rooney on the blue bike, no hands (almost)",
+     "caption": "Taylor on the blue bike, no hands (almost)",
      "storyText": "",
      "takenAt": "2023-06-10T15:00:00.000Z",
      "peopleIds": [
@@ -8164,7 +8161,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 10, 2023, with Rooney. Moment 3 of 5 in the thread \"Bikes, summer after summer\", which runs from 2022 to 2025.",
+      "text": "A photo from June 10, 2023, with Taylor. Moment 3 of 5 in the thread \"Bikes, summer after summer\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -8180,7 +8177,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -8202,7 +8199,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -8266,7 +8263,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A video from June 25, 2023, with Rooney and Milo. Moment 4 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A video from June 25, 2023, with Taylor and Milo. Moment 4 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -8282,13 +8279,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 4,
         "count": 26,
         "fromYear": 2022,
@@ -8305,7 +8302,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -8369,7 +8366,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A video from June 25, 2023, with Rooney and Milo. Moment 4 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A video from June 25, 2023, with Taylor and Milo. Moment 4 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -8385,13 +8382,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 4,
         "count": 26,
         "fromYear": 2022,
@@ -8425,7 +8422,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 24, 2023, with Rooney. Moment 4 of 9 in the thread \"Dinosaurs, summer after summer\", which runs from 2022 to 2024.",
+      "text": "A photo from June 24, 2023, with Taylor. Moment 4 of 9 in the thread \"Dinosaurs, summer after summer\", which runs from 2022 to 2024.",
       "basedOn": [
        {
         "type": "date",
@@ -8441,7 +8438,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -8465,7 +8462,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_639c875daf7b901106-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_639c875daf7b901106-web.jpg",
      "poster": null,
-     "caption": "Rooney on the blue bike, no hands (almost)",
+     "caption": "Taylor on the blue bike, no hands (almost)",
      "storyText": "",
      "takenAt": "2023-06-10T15:00:00.000Z",
      "peopleIds": [
@@ -8480,7 +8477,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 10, 2023, with Rooney. Moment 3 of 5 in the thread \"Bikes, summer after summer\", which runs from 2022 to 2025.",
+      "text": "A photo from June 10, 2023, with Taylor. Moment 3 of 5 in the thread \"Bikes, summer after summer\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -8496,7 +8493,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -8518,7 +8515,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -8619,7 +8616,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -8670,7 +8667,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2023-07-29T15:00:00.000Z",
      "season": "Summer",
      "year": 2023,
-     "narrative": "Between June 10, 2023 and July 29, 2023, your family kept 13 memories here.\nIn these memories: Rooney, Grandma June, Milo.\nIn your own words:\n- June 10, 2023: Rooney on the blue bike, no hands (almost)\n- June 17, 2023: The garden gate, painted blue\n- June 24, 2023: The dinosaur she drew at four, still up\n- June 25, 2023: First ocean trip, straight to the water\n- July 2, 2023: Ocean morning, before the crowds\n- July 8, 2023: Grandma June in the garden, gloves on\n- July 14, 2023: The dinosaur phase returned. Rooney taught Milo the names this time, in order, and corrected him gently.\n- July 14, 2023: Pool afternoon · sample photo\n- July 16, 2023: Toy dinosaurs, lined up by size\n- July 22, 2023: Filming in the park · sample photo\n- July 22, 2023: Park day, filmed · sample video\n- July 29, 2023: Grandma June made a dinosaur cake nobody was allowed to cut for a full hour because it was too good to ruin.\n- July 29, 2023: Cake, approved · sample photo",
+     "narrative": "Between June 10, 2023 and July 29, 2023, your family kept 13 memories here.\nIn these memories: Taylor, Grandma June, Milo.\nIn your own words:\n- June 10, 2023: Taylor on the blue bike, no hands (almost)\n- June 17, 2023: The garden gate, painted blue\n- June 24, 2023: The dinosaur she drew at four, still up\n- June 25, 2023: First ocean trip, straight to the water\n- July 2, 2023: Ocean morning, before the crowds\n- July 8, 2023: Grandma June in the garden, gloves on\n- July 14, 2023: The dinosaur phase returned. Taylor taught Milo the names this time, in order, and corrected him gently.\n- July 14, 2023: Pool afternoon · sample photo\n- July 16, 2023: Toy dinosaurs, lined up by size\n- July 22, 2023: Filming in the park · sample photo\n- July 22, 2023: Park day, filmed · sample video\n- July 29, 2023: Grandma June made a dinosaur cake nobody was allowed to cut for a full hour because it was too good to ruin.\n- July 29, 2023: Cake, approved · sample photo",
      "memoryIds": [
       "mem_639c875daf7b901106",
       "mem_4b70ed96ef67b29f65",
@@ -8692,7 +8689,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_639c875daf7b901106-web.jpg",
     "commentary": {
-     "text": "\"The Summer of Dinosaurs\" covers June 10, 2023 to July 29, 2023 and holds 13 memories. In these memories: Rooney, Grandma June and Milo.",
+     "text": "\"The Summer of Dinosaurs\" covers June 10, 2023 to July 29, 2023 and holds 13 memories. In these memories: Taylor, Grandma June and Milo.",
      "basedOn": [
       {
        "type": "chapter",
@@ -8704,7 +8701,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Grandma June",
         "Milo"
        ]
@@ -8736,7 +8733,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from July 29, 2023, with Rooney and Grandma June. Moment 6 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A piece of writing from July 29, 2023, with Taylor and Grandma June. Moment 6 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -8752,13 +8749,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 6,
         "count": 15,
         "fromYear": 2021,
@@ -8793,7 +8790,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 29, 2023, with Rooney and Milo. Moment 8 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 29, 2023, with Taylor and Milo. Moment 8 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -8809,13 +8806,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 8,
         "count": 26,
         "fromYear": 2022,
@@ -8849,7 +8846,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 22, 2023, with Rooney. Memory 10 of 13 in \"The Summer of Dinosaurs\" (June 10, 2023 to July 29, 2023).",
+      "text": "A photo from July 22, 2023, with Taylor. Memory 10 of 13 in \"The Summer of Dinosaurs\" (June 10, 2023 to July 29, 2023).",
       "basedOn": [
        {
         "type": "date",
@@ -8865,7 +8862,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -8893,7 +8890,7 @@ window.ROON_DEMO_DATA = {
      ]
     },
     "commentary": {
-     "text": "Drawn from 2 memories kept on July 14, 2023: 1 photo, 1 piece of writing. Recorded in them: Rooney and Milo.",
+     "text": "Drawn from 2 memories kept on July 14, 2023: 1 photo, 1 piece of writing. Recorded in them: Taylor and Milo.",
      "basedOn": [
       {
        "type": "noticing_evidence",
@@ -8915,7 +8912,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo"
        ]
       }
@@ -8946,7 +8943,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A video from July 22, 2023, with Rooney and Milo. Moment 7 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A video from July 22, 2023, with Taylor and Milo. Moment 7 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -8962,13 +8959,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 7,
         "count": 26,
         "fromYear": 2022,
@@ -9003,7 +9000,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 16, 2023, with Rooney and Milo. Moment 6 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 16, 2023, with Taylor and Milo. Moment 6 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -9019,13 +9016,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 6,
         "count": 26,
         "fromYear": 2022,
@@ -9045,7 +9042,7 @@ window.ROON_DEMO_DATA = {
      "originalSrc": null,
      "poster": null,
      "caption": "Dinosaur summer, again",
-     "storyText": "The dinosaur phase returned. Rooney taught Milo the names this time, in order, and corrected him gently.",
+     "storyText": "The dinosaur phase returned. Taylor taught Milo the names this time, in order, and corrected him gently.",
      "takenAt": "2023-07-14T15:00:00.000Z",
      "peopleIds": [
       "per_47f6d75809a92fae04",
@@ -9060,7 +9057,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from July 14, 2023, with Rooney and Milo. Moment 5 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A piece of writing from July 14, 2023, with Taylor and Milo. Moment 5 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -9076,13 +9073,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 5,
         "count": 26,
         "fromYear": 2022,
@@ -9116,7 +9113,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 14, 2023, with Rooney. Memory 8 of 13 in \"The Summer of Dinosaurs\" (June 10, 2023 to July 29, 2023).",
+      "text": "A photo from July 14, 2023, with Taylor. Memory 8 of 13 in \"The Summer of Dinosaurs\" (June 10, 2023 to July 29, 2023).",
       "basedOn": [
        {
         "type": "date",
@@ -9132,7 +9129,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -9172,7 +9169,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 8, 2023, with Grandma June and Rooney. Moment 4 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
+      "text": "A photo from July 8, 2023, with Grandma June and Taylor. Moment 4 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -9189,7 +9186,7 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -9229,7 +9226,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 2, 2023, with Grandma June and Rooney. Moment 4 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A photo from July 2, 2023, with Grandma June and Taylor. Moment 4 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -9246,12 +9243,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 4,
         "count": 15,
         "fromYear": 2021,
@@ -9268,7 +9265,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -9313,7 +9310,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -9377,7 +9374,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 29, 2023, with Rooney and Milo. Moment 8 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 29, 2023, with Taylor and Milo. Moment 8 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -9393,13 +9390,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 8,
         "count": 26,
         "fromYear": 2022,
@@ -9434,7 +9431,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A video from July 22, 2023, with Rooney and Milo. Moment 7 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A video from July 22, 2023, with Taylor and Milo. Moment 7 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -9450,13 +9447,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 7,
         "count": 26,
         "fromYear": 2022,
@@ -9491,7 +9488,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 16, 2023, with Rooney and Milo. Moment 6 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 16, 2023, with Taylor and Milo. Moment 6 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -9507,13 +9504,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 6,
         "count": 26,
         "fromYear": 2022,
@@ -9533,7 +9530,7 @@ window.ROON_DEMO_DATA = {
      "originalSrc": null,
      "poster": null,
      "caption": "Dinosaur summer, again",
-     "storyText": "The dinosaur phase returned. Rooney taught Milo the names this time, in order, and corrected him gently.",
+     "storyText": "The dinosaur phase returned. Taylor taught Milo the names this time, in order, and corrected him gently.",
      "takenAt": "2023-07-14T15:00:00.000Z",
      "peopleIds": [
       "per_47f6d75809a92fae04",
@@ -9548,7 +9545,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from July 14, 2023, with Rooney and Milo. Moment 5 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A piece of writing from July 14, 2023, with Taylor and Milo. Moment 5 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -9564,13 +9561,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 5,
         "count": 26,
         "fromYear": 2022,
@@ -9587,7 +9584,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -9638,7 +9635,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2023-07-29T15:00:00.000Z",
      "season": "Summer",
      "year": 2023,
-     "narrative": "Between June 10, 2023 and July 29, 2023, your family kept 13 memories here.\nIn these memories: Rooney, Grandma June, Milo.\nIn your own words:\n- June 10, 2023: Rooney on the blue bike, no hands (almost)\n- June 17, 2023: The garden gate, painted blue\n- June 24, 2023: The dinosaur she drew at four, still up\n- June 25, 2023: First ocean trip, straight to the water\n- July 2, 2023: Ocean morning, before the crowds\n- July 8, 2023: Grandma June in the garden, gloves on\n- July 14, 2023: The dinosaur phase returned. Rooney taught Milo the names this time, in order, and corrected him gently.\n- July 14, 2023: Pool afternoon · sample photo\n- July 16, 2023: Toy dinosaurs, lined up by size\n- July 22, 2023: Filming in the park · sample photo\n- July 22, 2023: Park day, filmed · sample video\n- July 29, 2023: Grandma June made a dinosaur cake nobody was allowed to cut for a full hour because it was too good to ruin.\n- July 29, 2023: Cake, approved · sample photo",
+     "narrative": "Between June 10, 2023 and July 29, 2023, your family kept 13 memories here.\nIn these memories: Taylor, Grandma June, Milo.\nIn your own words:\n- June 10, 2023: Taylor on the blue bike, no hands (almost)\n- June 17, 2023: The garden gate, painted blue\n- June 24, 2023: The dinosaur she drew at four, still up\n- June 25, 2023: First ocean trip, straight to the water\n- July 2, 2023: Ocean morning, before the crowds\n- July 8, 2023: Grandma June in the garden, gloves on\n- July 14, 2023: The dinosaur phase returned. Taylor taught Milo the names this time, in order, and corrected him gently.\n- July 14, 2023: Pool afternoon · sample photo\n- July 16, 2023: Toy dinosaurs, lined up by size\n- July 22, 2023: Filming in the park · sample photo\n- July 22, 2023: Park day, filmed · sample video\n- July 29, 2023: Grandma June made a dinosaur cake nobody was allowed to cut for a full hour because it was too good to ruin.\n- July 29, 2023: Cake, approved · sample photo",
      "memoryIds": [
       "mem_639c875daf7b901106",
       "mem_4b70ed96ef67b29f65",
@@ -9660,7 +9657,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_639c875daf7b901106-web.jpg",
     "commentary": {
-     "text": "\"The Summer of Dinosaurs\" covers June 10, 2023 to July 29, 2023 and holds 13 memories. In these memories: Rooney, Grandma June and Milo.",
+     "text": "\"The Summer of Dinosaurs\" covers June 10, 2023 to July 29, 2023 and holds 13 memories. In these memories: Taylor, Grandma June and Milo.",
      "basedOn": [
       {
        "type": "chapter",
@@ -9672,7 +9669,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Grandma June",
         "Milo"
        ]
@@ -9704,7 +9701,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from July 29, 2023, with Rooney and Grandma June. Moment 6 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A piece of writing from July 29, 2023, with Taylor and Grandma June. Moment 6 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -9720,13 +9717,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 6,
         "count": 15,
         "fromYear": 2021,
@@ -9761,7 +9758,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 29, 2023, with Rooney and Milo. Moment 8 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 29, 2023, with Taylor and Milo. Moment 8 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -9777,13 +9774,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 8,
         "count": 26,
         "fromYear": 2022,
@@ -9817,7 +9814,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 22, 2023, with Rooney. Memory 10 of 13 in \"The Summer of Dinosaurs\" (June 10, 2023 to July 29, 2023).",
+      "text": "A photo from July 22, 2023, with Taylor. Memory 10 of 13 in \"The Summer of Dinosaurs\" (June 10, 2023 to July 29, 2023).",
       "basedOn": [
        {
         "type": "date",
@@ -9833,7 +9830,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -9873,7 +9870,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A video from July 22, 2023, with Rooney and Milo. Moment 7 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A video from July 22, 2023, with Taylor and Milo. Moment 7 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -9889,13 +9886,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 7,
         "count": 26,
         "fromYear": 2022,
@@ -9930,7 +9927,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 16, 2023, with Rooney and Milo. Moment 6 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 16, 2023, with Taylor and Milo. Moment 6 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -9946,13 +9943,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 6,
         "count": 26,
         "fromYear": 2022,
@@ -9972,7 +9969,7 @@ window.ROON_DEMO_DATA = {
      "originalSrc": null,
      "poster": null,
      "caption": "Dinosaur summer, again",
-     "storyText": "The dinosaur phase returned. Rooney taught Milo the names this time, in order, and corrected him gently.",
+     "storyText": "The dinosaur phase returned. Taylor taught Milo the names this time, in order, and corrected him gently.",
      "takenAt": "2023-07-14T15:00:00.000Z",
      "peopleIds": [
       "per_47f6d75809a92fae04",
@@ -9987,7 +9984,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from July 14, 2023, with Rooney and Milo. Moment 5 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A piece of writing from July 14, 2023, with Taylor and Milo. Moment 5 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -10003,13 +10000,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 5,
         "count": 26,
         "fromYear": 2022,
@@ -10043,7 +10040,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 14, 2023, with Rooney. Memory 8 of 13 in \"The Summer of Dinosaurs\" (June 10, 2023 to July 29, 2023).",
+      "text": "A photo from July 14, 2023, with Taylor. Memory 8 of 13 in \"The Summer of Dinosaurs\" (June 10, 2023 to July 29, 2023).",
       "basedOn": [
        {
         "type": "date",
@@ -10059,7 +10056,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -10099,7 +10096,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 8, 2023, with Grandma June and Rooney. Moment 4 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
+      "text": "A photo from July 8, 2023, with Grandma June and Taylor. Moment 4 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -10116,7 +10113,7 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -10156,7 +10153,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 2, 2023, with Grandma June and Rooney. Moment 4 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A photo from July 2, 2023, with Grandma June and Taylor. Moment 4 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -10173,12 +10170,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 4,
         "count": 15,
         "fromYear": 2021,
@@ -10195,7 +10192,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -10240,7 +10237,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -10285,7 +10282,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -10349,7 +10346,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from July 29, 2023, with Rooney and Grandma June. Moment 6 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A piece of writing from July 29, 2023, with Taylor and Grandma June. Moment 6 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -10365,13 +10362,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 6,
         "count": 15,
         "fromYear": 2021,
@@ -10406,7 +10403,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 8, 2023, with Grandma June and Rooney. Moment 4 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
+      "text": "A photo from July 8, 2023, with Grandma June and Taylor. Moment 4 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -10423,7 +10420,7 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -10463,7 +10460,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 2, 2023, with Grandma June and Rooney. Moment 4 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A photo from July 2, 2023, with Grandma June and Taylor. Moment 4 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -10480,12 +10477,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 4,
         "count": 15,
         "fromYear": 2021,
@@ -10502,7 +10499,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -10566,7 +10563,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from September 9, 2023, with Milo and Rooney. Moment 9 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from September 9, 2023, with Milo and Taylor. Moment 9 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -10583,12 +10580,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Milo",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 9,
         "count": 26,
         "fromYear": 2022,
@@ -10660,7 +10657,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -10724,7 +10721,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from September 9, 2023, with Milo and Rooney. Moment 9 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from September 9, 2023, with Milo and Taylor. Moment 9 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -10741,12 +10738,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Milo",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 9,
         "count": 26,
         "fromYear": 2022,
@@ -10818,7 +10815,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -10882,7 +10879,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from September 9, 2023, with Milo and Rooney. Moment 9 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from September 9, 2023, with Milo and Taylor. Moment 9 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -10899,12 +10896,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Milo",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 9,
         "count": 26,
         "fromYear": 2022,
@@ -10921,7 +10918,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -10966,7 +10963,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -11017,7 +11014,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2023-10-14T15:00:00.000Z",
      "season": "Fall",
      "year": 2023,
-     "narrative": "Between September 2, 2023 and October 14, 2023, your family kept 3 memories here.\nIn these memories: Milo, Rooney.\nIn your own words:\n- September 2, 2023: Milo and the biggest leaf\n- September 9, 2023: Milo turns three, cake first\n- October 14, 2023: Pumpkin carving, Milo supervises",
+     "narrative": "Between September 2, 2023 and October 14, 2023, your family kept 3 memories here.\nIn these memories: Milo, Taylor.\nIn your own words:\n- September 2, 2023: Milo and the biggest leaf\n- September 9, 2023: Milo turns three, cake first\n- October 14, 2023: Pumpkin carving, Milo supervises",
      "memoryIds": [
       "mem_4a762c2bc960377d50",
       "mem_8d9e6c485794b4baed",
@@ -11029,7 +11026,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_4a762c2bc960377d50-web.jpg",
     "commentary": {
-     "text": "\"Fall 2023 with Milo\" covers September 2, 2023 to October 14, 2023 and holds 3 memories. In these memories: Milo and Rooney.",
+     "text": "\"Fall 2023 with Milo\" covers September 2, 2023 to October 14, 2023 and holds 3 memories. In these memories: Milo and Taylor.",
      "basedOn": [
       {
        "type": "chapter",
@@ -11042,7 +11039,7 @@ window.ROON_DEMO_DATA = {
        "type": "people",
        "names": [
         "Milo",
-        "Rooney"
+        "Taylor"
        ]
       }
      ]
@@ -11072,7 +11069,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from October 14, 2023, with Rooney and Milo. Moment 10 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from October 14, 2023, with Taylor and Milo. Moment 10 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -11088,13 +11085,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 10,
         "count": 26,
         "fromYear": 2022,
@@ -11111,7 +11108,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -11162,7 +11159,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2023-10-14T15:00:00.000Z",
      "season": "Fall",
      "year": 2023,
-     "narrative": "Between September 2, 2023 and October 14, 2023, your family kept 3 memories here.\nIn these memories: Milo, Rooney.\nIn your own words:\n- September 2, 2023: Milo and the biggest leaf\n- September 9, 2023: Milo turns three, cake first\n- October 14, 2023: Pumpkin carving, Milo supervises",
+     "narrative": "Between September 2, 2023 and October 14, 2023, your family kept 3 memories here.\nIn these memories: Milo, Taylor.\nIn your own words:\n- September 2, 2023: Milo and the biggest leaf\n- September 9, 2023: Milo turns three, cake first\n- October 14, 2023: Pumpkin carving, Milo supervises",
      "memoryIds": [
       "mem_4a762c2bc960377d50",
       "mem_8d9e6c485794b4baed",
@@ -11174,7 +11171,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_4a762c2bc960377d50-web.jpg",
     "commentary": {
-     "text": "\"Fall 2023 with Milo\" covers September 2, 2023 to October 14, 2023 and holds 3 memories. In these memories: Milo and Rooney.",
+     "text": "\"Fall 2023 with Milo\" covers September 2, 2023 to October 14, 2023 and holds 3 memories. In these memories: Milo and Taylor.",
      "basedOn": [
       {
        "type": "chapter",
@@ -11187,7 +11184,7 @@ window.ROON_DEMO_DATA = {
        "type": "people",
        "names": [
         "Milo",
-        "Rooney"
+        "Taylor"
        ]
       }
      ]
@@ -11217,7 +11214,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from October 14, 2023, with Rooney and Milo. Moment 10 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from October 14, 2023, with Taylor and Milo. Moment 10 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -11233,13 +11230,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 10,
         "count": 26,
         "fromYear": 2022,
@@ -11256,7 +11253,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -11307,7 +11304,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2023-10-14T15:00:00.000Z",
      "season": "Fall",
      "year": 2023,
-     "narrative": "Between September 2, 2023 and October 14, 2023, your family kept 3 memories here.\nIn these memories: Milo, Rooney.\nIn your own words:\n- September 2, 2023: Milo and the biggest leaf\n- September 9, 2023: Milo turns three, cake first\n- October 14, 2023: Pumpkin carving, Milo supervises",
+     "narrative": "Between September 2, 2023 and October 14, 2023, your family kept 3 memories here.\nIn these memories: Milo, Taylor.\nIn your own words:\n- September 2, 2023: Milo and the biggest leaf\n- September 9, 2023: Milo turns three, cake first\n- October 14, 2023: Pumpkin carving, Milo supervises",
      "memoryIds": [
       "mem_4a762c2bc960377d50",
       "mem_8d9e6c485794b4baed",
@@ -11319,7 +11316,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_4a762c2bc960377d50-web.jpg",
     "commentary": {
-     "text": "\"Fall 2023 with Milo\" covers September 2, 2023 to October 14, 2023 and holds 3 memories. In these memories: Milo and Rooney.",
+     "text": "\"Fall 2023 with Milo\" covers September 2, 2023 to October 14, 2023 and holds 3 memories. In these memories: Milo and Taylor.",
      "basedOn": [
       {
        "type": "chapter",
@@ -11332,7 +11329,7 @@ window.ROON_DEMO_DATA = {
        "type": "people",
        "names": [
         "Milo",
-        "Rooney"
+        "Taylor"
        ]
       }
      ]
@@ -11362,7 +11359,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from October 14, 2023, with Rooney and Milo. Moment 10 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from October 14, 2023, with Taylor and Milo. Moment 10 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -11378,13 +11375,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 10,
         "count": 26,
         "fromYear": 2022,
@@ -11401,7 +11398,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -11446,7 +11443,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -11497,7 +11494,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2023-12-25T15:00:00.000Z",
      "season": "Winter",
      "year": 2023,
-     "narrative": "Between December 16, 2023 and December 25, 2023, your family kept 2 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- December 16, 2023: The tree goes up, Milo directs\n- December 25, 2023: Christmas morning, matching pajamas",
+     "narrative": "Between December 16, 2023 and December 25, 2023, your family kept 2 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- December 16, 2023: The tree goes up, Milo directs\n- December 25, 2023: Christmas morning, matching pajamas",
      "memoryIds": [
       "mem_4e9bdea78284d98733",
       "mem_94fab9ff114312377c"
@@ -11508,7 +11505,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_4e9bdea78284d98733-web.jpg",
     "commentary": {
-     "text": "\"The Winter of Christmas\" covers December 16, 2023 to December 25, 2023 and holds 2 memories. In these memories: Rooney, Milo and Grandma June.",
+     "text": "\"The Winter of Christmas\" covers December 16, 2023 to December 25, 2023 and holds 2 memories. In these memories: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -11520,7 +11517,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -11553,7 +11550,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from December 25, 2023, with Rooney, Milo and Grandma June. Moment 12 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from December 25, 2023, with Taylor, Milo and Grandma June. Moment 12 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -11569,14 +11566,14 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 12,
         "count": 26,
         "fromYear": 2022,
@@ -11612,7 +11609,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from December 16, 2023, with Rooney, Milo and Grandma June. Moment 11 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from December 16, 2023, with Taylor, Milo and Grandma June. Moment 11 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -11628,14 +11625,14 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 11,
         "count": 26,
         "fromYear": 2022,
@@ -11652,7 +11649,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -11703,7 +11700,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2023-12-25T15:00:00.000Z",
      "season": "Winter",
      "year": 2023,
-     "narrative": "Between December 16, 2023 and December 25, 2023, your family kept 2 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- December 16, 2023: The tree goes up, Milo directs\n- December 25, 2023: Christmas morning, matching pajamas",
+     "narrative": "Between December 16, 2023 and December 25, 2023, your family kept 2 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- December 16, 2023: The tree goes up, Milo directs\n- December 25, 2023: Christmas morning, matching pajamas",
      "memoryIds": [
       "mem_4e9bdea78284d98733",
       "mem_94fab9ff114312377c"
@@ -11714,7 +11711,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_4e9bdea78284d98733-web.jpg",
     "commentary": {
-     "text": "\"The Winter of Christmas\" covers December 16, 2023 to December 25, 2023 and holds 2 memories. In these memories: Rooney, Milo and Grandma June.",
+     "text": "\"The Winter of Christmas\" covers December 16, 2023 to December 25, 2023 and holds 2 memories. In these memories: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -11726,7 +11723,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -11759,7 +11756,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from December 25, 2023, with Rooney, Milo and Grandma June. Moment 12 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from December 25, 2023, with Taylor, Milo and Grandma June. Moment 12 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -11775,14 +11772,14 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 12,
         "count": 26,
         "fromYear": 2022,
@@ -11818,7 +11815,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from December 16, 2023, with Rooney, Milo and Grandma June. Moment 11 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from December 16, 2023, with Taylor, Milo and Grandma June. Moment 11 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -11834,14 +11831,14 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 11,
         "count": 26,
         "fromYear": 2022,
@@ -11858,7 +11855,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -11909,7 +11906,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2023-12-25T15:00:00.000Z",
      "season": "Winter",
      "year": 2023,
-     "narrative": "Between December 16, 2023 and December 25, 2023, your family kept 2 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- December 16, 2023: The tree goes up, Milo directs\n- December 25, 2023: Christmas morning, matching pajamas",
+     "narrative": "Between December 16, 2023 and December 25, 2023, your family kept 2 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- December 16, 2023: The tree goes up, Milo directs\n- December 25, 2023: Christmas morning, matching pajamas",
      "memoryIds": [
       "mem_4e9bdea78284d98733",
       "mem_94fab9ff114312377c"
@@ -11920,7 +11917,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_4e9bdea78284d98733-web.jpg",
     "commentary": {
-     "text": "\"The Winter of Christmas\" covers December 16, 2023 to December 25, 2023 and holds 2 memories. In these memories: Rooney, Milo and Grandma June.",
+     "text": "\"The Winter of Christmas\" covers December 16, 2023 to December 25, 2023 and holds 2 memories. In these memories: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -11932,7 +11929,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -11965,7 +11962,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from December 25, 2023, with Rooney, Milo and Grandma June. Moment 12 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from December 25, 2023, with Taylor, Milo and Grandma June. Moment 12 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -11981,14 +11978,14 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 12,
         "count": 26,
         "fromYear": 2022,
@@ -12024,7 +12021,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from December 16, 2023, with Rooney, Milo and Grandma June. Moment 11 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from December 16, 2023, with Taylor, Milo and Grandma June. Moment 11 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -12040,14 +12037,14 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 11,
         "count": 26,
         "fromYear": 2022,
@@ -12064,7 +12061,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -12115,7 +12112,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2023-12-25T15:00:00.000Z",
      "season": "Winter",
      "year": 2023,
-     "narrative": "Between December 16, 2023 and December 25, 2023, your family kept 2 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- December 16, 2023: The tree goes up, Milo directs\n- December 25, 2023: Christmas morning, matching pajamas",
+     "narrative": "Between December 16, 2023 and December 25, 2023, your family kept 2 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- December 16, 2023: The tree goes up, Milo directs\n- December 25, 2023: Christmas morning, matching pajamas",
      "memoryIds": [
       "mem_4e9bdea78284d98733",
       "mem_94fab9ff114312377c"
@@ -12126,7 +12123,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_4e9bdea78284d98733-web.jpg",
     "commentary": {
-     "text": "\"The Winter of Christmas\" covers December 16, 2023 to December 25, 2023 and holds 2 memories. In these memories: Rooney, Milo and Grandma June.",
+     "text": "\"The Winter of Christmas\" covers December 16, 2023 to December 25, 2023 and holds 2 memories. In these memories: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -12138,7 +12135,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -12171,7 +12168,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from December 25, 2023, with Rooney, Milo and Grandma June. Moment 12 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from December 25, 2023, with Taylor, Milo and Grandma June. Moment 12 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -12187,14 +12184,14 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 12,
         "count": 26,
         "fromYear": 2022,
@@ -12230,7 +12227,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from December 16, 2023, with Rooney, Milo and Grandma June. Moment 11 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from December 16, 2023, with Taylor, Milo and Grandma June. Moment 11 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -12246,14 +12243,14 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 11,
         "count": 26,
         "fromYear": 2022,
@@ -12270,7 +12267,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -12321,7 +12318,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2024-04-13T15:00:00.000Z",
      "season": "Spring",
      "year": 2024,
-     "narrative": "Between April 6, 2024 and April 13, 2024, your family kept 2 memories here.\nIn these memories: Rooney, Grandma June.\nIn your own words:\n- April 6, 2024: Planting peas with Grandma June\n- April 13, 2024: Birthday breakfast in bed for Rooney",
+     "narrative": "Between April 6, 2024 and April 13, 2024, your family kept 2 memories here.\nIn these memories: Taylor, Grandma June.\nIn your own words:\n- April 6, 2024: Planting peas with Grandma June\n- April 13, 2024: Birthday breakfast in bed for Taylor",
      "memoryIds": [
       "mem_e18ef9b9ba986dc720",
       "mem_6fcc2eced27e195091"
@@ -12332,7 +12329,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_e18ef9b9ba986dc720-web.jpg",
     "commentary": {
-     "text": "\"The Spring of Birthdays\" covers April 6, 2024 to April 13, 2024 and holds 2 memories. In these memories: Rooney and Grandma June.",
+     "text": "\"The Spring of Birthdays\" covers April 6, 2024 to April 13, 2024 and holds 2 memories. In these memories: Taylor and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -12344,7 +12341,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Grandma June"
        ]
       }
@@ -12359,7 +12356,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_6fcc2eced27e195091-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_6fcc2eced27e195091-web.jpg",
      "poster": null,
-     "caption": "Birthday breakfast in bed for Rooney",
+     "caption": "Birthday breakfast in bed for Taylor",
      "storyText": "",
      "takenAt": "2024-04-13T15:00:00.000Z",
      "peopleIds": [
@@ -12374,7 +12371,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 13, 2024, with Rooney. Moment 4 of 6 in the thread \"Birthdays, spring after spring\", which runs from 2022 to 2025.",
+      "text": "A photo from April 13, 2024, with Taylor. Moment 4 of 6 in the thread \"Birthdays, spring after spring\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -12390,7 +12387,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -12430,7 +12427,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 6, 2024, with Rooney and Grandma June. Moment 9 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A photo from April 6, 2024, with Taylor and Grandma June. Moment 9 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -12446,13 +12443,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 9,
         "count": 15,
         "fromYear": 2021,
@@ -12469,7 +12466,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -12514,7 +12511,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -12565,7 +12562,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2024-04-13T15:00:00.000Z",
      "season": "Spring",
      "year": 2024,
-     "narrative": "Between April 6, 2024 and April 13, 2024, your family kept 2 memories here.\nIn these memories: Rooney, Grandma June.\nIn your own words:\n- April 6, 2024: Planting peas with Grandma June\n- April 13, 2024: Birthday breakfast in bed for Rooney",
+     "narrative": "Between April 6, 2024 and April 13, 2024, your family kept 2 memories here.\nIn these memories: Taylor, Grandma June.\nIn your own words:\n- April 6, 2024: Planting peas with Grandma June\n- April 13, 2024: Birthday breakfast in bed for Taylor",
      "memoryIds": [
       "mem_e18ef9b9ba986dc720",
       "mem_6fcc2eced27e195091"
@@ -12576,7 +12573,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_e18ef9b9ba986dc720-web.jpg",
     "commentary": {
-     "text": "\"The Spring of Birthdays\" covers April 6, 2024 to April 13, 2024 and holds 2 memories. In these memories: Rooney and Grandma June.",
+     "text": "\"The Spring of Birthdays\" covers April 6, 2024 to April 13, 2024 and holds 2 memories. In these memories: Taylor and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -12588,7 +12585,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Grandma June"
        ]
       }
@@ -12603,7 +12600,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_6fcc2eced27e195091-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_6fcc2eced27e195091-web.jpg",
      "poster": null,
-     "caption": "Birthday breakfast in bed for Rooney",
+     "caption": "Birthday breakfast in bed for Taylor",
      "storyText": "",
      "takenAt": "2024-04-13T15:00:00.000Z",
      "peopleIds": [
@@ -12618,7 +12615,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 13, 2024, with Rooney. Moment 4 of 6 in the thread \"Birthdays, spring after spring\", which runs from 2022 to 2025.",
+      "text": "A photo from April 13, 2024, with Taylor. Moment 4 of 6 in the thread \"Birthdays, spring after spring\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -12634,7 +12631,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -12674,7 +12671,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 6, 2024, with Rooney and Grandma June. Moment 9 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A photo from April 6, 2024, with Taylor and Grandma June. Moment 9 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -12690,13 +12687,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 9,
         "count": 15,
         "fromYear": 2021,
@@ -12713,7 +12710,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -12764,7 +12761,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2024-04-13T15:00:00.000Z",
      "season": "Spring",
      "year": 2024,
-     "narrative": "Between April 6, 2024 and April 13, 2024, your family kept 2 memories here.\nIn these memories: Rooney, Grandma June.\nIn your own words:\n- April 6, 2024: Planting peas with Grandma June\n- April 13, 2024: Birthday breakfast in bed for Rooney",
+     "narrative": "Between April 6, 2024 and April 13, 2024, your family kept 2 memories here.\nIn these memories: Taylor, Grandma June.\nIn your own words:\n- April 6, 2024: Planting peas with Grandma June\n- April 13, 2024: Birthday breakfast in bed for Taylor",
      "memoryIds": [
       "mem_e18ef9b9ba986dc720",
       "mem_6fcc2eced27e195091"
@@ -12775,7 +12772,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_e18ef9b9ba986dc720-web.jpg",
     "commentary": {
-     "text": "\"The Spring of Birthdays\" covers April 6, 2024 to April 13, 2024 and holds 2 memories. In these memories: Rooney and Grandma June.",
+     "text": "\"The Spring of Birthdays\" covers April 6, 2024 to April 13, 2024 and holds 2 memories. In these memories: Taylor and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -12787,7 +12784,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Grandma June"
        ]
       }
@@ -12818,7 +12815,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 6, 2024, with Rooney and Grandma June. Moment 9 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A photo from April 6, 2024, with Taylor and Grandma June. Moment 9 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -12834,13 +12831,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 9,
         "count": 15,
         "fromYear": 2021,
@@ -12857,7 +12854,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -12905,7 +12902,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_46c968b69840a936d2-s-milo-first-ride-2024.mp4",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_46c968b69840a936d2-s-milo-first-ride-2024.mp4",
      "poster": "media/fam_b44fd40e9d36256d3b/mem_46c968b69840a936d2-poster.jpg",
-     "caption": "Milo's first bike ride, Rooney running behind",
+     "caption": "Milo's first bike ride, Taylor running behind",
      "storyText": "",
      "takenAt": "2024-06-22T15:00:00.000Z",
      "peopleIds": [
@@ -12921,7 +12918,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A video from June 22, 2024, with Milo and Rooney. Moment 13 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A video from June 22, 2024, with Milo and Taylor. Moment 13 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -12938,12 +12935,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Milo",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 13,
         "count": 26,
         "fromYear": 2022,
@@ -13019,7 +13016,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_70fd69ae3146cad340-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_70fd69ae3146cad340-web.jpg",
      "poster": null,
-     "caption": "Rooney's sunflower, taller than her",
+     "caption": "Taylor's sunflower, taller than her",
      "storyText": "",
      "takenAt": "2024-06-08T15:00:00.000Z",
      "peopleIds": [
@@ -13034,7 +13031,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 8, 2024, with Rooney. Memory 1 of 8 in \"The Summer of Dinosaurs\" (June 8, 2024 to August 11, 2024).",
+      "text": "A photo from June 8, 2024, with Taylor. Memory 1 of 8 in \"The Summer of Dinosaurs\" (June 8, 2024 to August 11, 2024).",
       "basedOn": [
        {
         "type": "date",
@@ -13050,7 +13047,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -13072,7 +13069,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -13120,7 +13117,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_46c968b69840a936d2-s-milo-first-ride-2024.mp4",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_46c968b69840a936d2-s-milo-first-ride-2024.mp4",
      "poster": "media/fam_b44fd40e9d36256d3b/mem_46c968b69840a936d2-poster.jpg",
-     "caption": "Milo's first bike ride, Rooney running behind",
+     "caption": "Milo's first bike ride, Taylor running behind",
      "storyText": "",
      "takenAt": "2024-06-22T15:00:00.000Z",
      "peopleIds": [
@@ -13136,7 +13133,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A video from June 22, 2024, with Milo and Rooney. Moment 13 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A video from June 22, 2024, with Milo and Taylor. Moment 13 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -13153,12 +13150,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Milo",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 13,
         "count": 26,
         "fromYear": 2022,
@@ -13232,7 +13229,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -13280,7 +13277,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_46c968b69840a936d2-s-milo-first-ride-2024.mp4",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_46c968b69840a936d2-s-milo-first-ride-2024.mp4",
      "poster": "media/fam_b44fd40e9d36256d3b/mem_46c968b69840a936d2-poster.jpg",
-     "caption": "Milo's first bike ride, Rooney running behind",
+     "caption": "Milo's first bike ride, Taylor running behind",
      "storyText": "",
      "takenAt": "2024-06-22T15:00:00.000Z",
      "peopleIds": [
@@ -13296,7 +13293,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A video from June 22, 2024, with Milo and Rooney. Moment 13 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A video from June 22, 2024, with Milo and Taylor. Moment 13 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -13313,12 +13310,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Milo",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 13,
         "count": 26,
         "fromYear": 2022,
@@ -13337,7 +13334,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_70fd69ae3146cad340-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_70fd69ae3146cad340-web.jpg",
      "poster": null,
-     "caption": "Rooney's sunflower, taller than her",
+     "caption": "Taylor's sunflower, taller than her",
      "storyText": "",
      "takenAt": "2024-06-08T15:00:00.000Z",
      "peopleIds": [
@@ -13352,7 +13349,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 8, 2024, with Rooney. Memory 1 of 8 in \"The Summer of Dinosaurs\" (June 8, 2024 to August 11, 2024).",
+      "text": "A photo from June 8, 2024, with Taylor. Memory 1 of 8 in \"The Summer of Dinosaurs\" (June 8, 2024 to August 11, 2024).",
       "basedOn": [
        {
         "type": "date",
@@ -13368,7 +13365,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -13390,7 +13387,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -13493,7 +13490,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -13558,7 +13555,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 27, 2024, with Grandma June, Milo and Rooney. Moment 6 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
+      "text": "A photo from July 27, 2024, with Grandma June, Milo and Taylor. Moment 6 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -13576,7 +13573,7 @@ window.ROON_DEMO_DATA = {
         "names": [
          "Grandma June",
          "Milo",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -13616,7 +13613,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 20, 2024, with Rooney and Milo. Moment 16 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 20, 2024, with Taylor and Milo. Moment 16 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -13632,13 +13629,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 16,
         "count": 26,
         "fromYear": 2022,
@@ -13658,7 +13655,7 @@ window.ROON_DEMO_DATA = {
      "originalSrc": null,
      "poster": null,
      "caption": "Three summers of dinosaurs",
-     "storyText": "Rooney, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.",
+     "storyText": "Taylor, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.",
      "takenAt": "2024-07-18T15:00:00.000Z",
      "peopleIds": [
       "per_47f6d75809a92fae04",
@@ -13673,7 +13670,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from July 18, 2024, with Rooney and Milo. Moment 15 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A piece of writing from July 18, 2024, with Taylor and Milo. Moment 15 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -13689,13 +13686,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 15,
         "count": 26,
         "fromYear": 2022,
@@ -13730,7 +13727,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 6, 2024, with Rooney and Milo. Moment 14 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 6, 2024, with Taylor and Milo. Moment 14 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -13746,13 +13743,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 14,
         "count": 26,
         "fromYear": 2022,
@@ -13769,7 +13766,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -13814,7 +13811,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -13879,7 +13876,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 27, 2024, with Grandma June, Milo and Rooney. Moment 6 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
+      "text": "A photo from July 27, 2024, with Grandma June, Milo and Taylor. Moment 6 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -13897,7 +13894,7 @@ window.ROON_DEMO_DATA = {
         "names": [
          "Grandma June",
          "Milo",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -13937,7 +13934,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 20, 2024, with Rooney and Milo. Moment 16 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 20, 2024, with Taylor and Milo. Moment 16 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -13953,13 +13950,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 16,
         "count": 26,
         "fromYear": 2022,
@@ -13979,7 +13976,7 @@ window.ROON_DEMO_DATA = {
      "originalSrc": null,
      "poster": null,
      "caption": "Three summers of dinosaurs",
-     "storyText": "Rooney, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.",
+     "storyText": "Taylor, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.",
      "takenAt": "2024-07-18T15:00:00.000Z",
      "peopleIds": [
       "per_47f6d75809a92fae04",
@@ -13994,7 +13991,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from July 18, 2024, with Rooney and Milo. Moment 15 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A piece of writing from July 18, 2024, with Taylor and Milo. Moment 15 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -14010,13 +14007,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 15,
         "count": 26,
         "fromYear": 2022,
@@ -14051,7 +14048,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 6, 2024, with Rooney and Milo. Moment 14 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 6, 2024, with Taylor and Milo. Moment 14 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -14067,13 +14064,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 14,
         "count": 26,
         "fromYear": 2022,
@@ -14090,7 +14087,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -14155,7 +14152,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 27, 2024, with Grandma June, Milo and Rooney. Moment 6 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
+      "text": "A photo from July 27, 2024, with Grandma June, Milo and Taylor. Moment 6 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -14173,7 +14170,7 @@ window.ROON_DEMO_DATA = {
         "names": [
          "Grandma June",
          "Milo",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -14213,7 +14210,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 20, 2024, with Rooney and Milo. Moment 16 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 20, 2024, with Taylor and Milo. Moment 16 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -14229,13 +14226,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 16,
         "count": 26,
         "fromYear": 2022,
@@ -14255,7 +14252,7 @@ window.ROON_DEMO_DATA = {
      "originalSrc": null,
      "poster": null,
      "caption": "Three summers of dinosaurs",
-     "storyText": "Rooney, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.",
+     "storyText": "Taylor, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.",
      "takenAt": "2024-07-18T15:00:00.000Z",
      "peopleIds": [
       "per_47f6d75809a92fae04",
@@ -14270,7 +14267,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from July 18, 2024, with Rooney and Milo. Moment 15 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A piece of writing from July 18, 2024, with Taylor and Milo. Moment 15 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -14286,13 +14283,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 15,
         "count": 26,
         "fromYear": 2022,
@@ -14327,7 +14324,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 6, 2024, with Rooney and Milo. Moment 14 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 6, 2024, with Taylor and Milo. Moment 14 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -14343,13 +14340,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 14,
         "count": 26,
         "fromYear": 2022,
@@ -14366,7 +14363,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -14411,7 +14408,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -14456,7 +14453,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -14521,7 +14518,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 27, 2024, with Grandma June, Milo and Rooney. Moment 6 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
+      "text": "A photo from July 27, 2024, with Grandma June, Milo and Taylor. Moment 6 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -14539,7 +14536,7 @@ window.ROON_DEMO_DATA = {
         "names": [
          "Grandma June",
          "Milo",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -14561,7 +14558,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -14612,7 +14609,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2024-08-11T15:00:00.000Z",
      "season": "Summer",
      "year": 2024,
-     "narrative": "Between June 8, 2024 and August 11, 2024, your family kept 8 memories here.\nIn these memories: Rooney, Grandma June, Milo.\nIn your own words:\n- June 8, 2024: Rooney's sunflower, taller than her\n- June 15, 2024: Milo waters the garden his own way\n- June 22, 2024: Milo's first bike ride, Rooney running behind\n- July 6, 2024: Face to face with the museum dinosaur\n- July 18, 2024: Rooney, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.\n- July 20, 2024: First ocean day, straight into the waves\n- July 27, 2024: The garden, taller than Milo\n- August 11, 2024: Ocean hair, don't care",
+     "narrative": "Between June 8, 2024 and August 11, 2024, your family kept 8 memories here.\nIn these memories: Taylor, Grandma June, Milo.\nIn your own words:\n- June 8, 2024: Taylor's sunflower, taller than her\n- June 15, 2024: Milo waters the garden his own way\n- June 22, 2024: Milo's first bike ride, Taylor running behind\n- July 6, 2024: Face to face with the museum dinosaur\n- July 18, 2024: Taylor, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.\n- July 20, 2024: First ocean day, straight into the waves\n- July 27, 2024: The garden, taller than Milo\n- August 11, 2024: Ocean hair, don't care",
      "memoryIds": [
       "mem_70fd69ae3146cad340",
       "mem_01399d6dba81c181c9",
@@ -14629,7 +14626,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_70fd69ae3146cad340-web.jpg",
     "commentary": {
-     "text": "\"The Summer of Dinosaurs\" covers June 8, 2024 to August 11, 2024 and holds 8 memories. In these memories: Rooney, Grandma June and Milo.",
+     "text": "\"The Summer of Dinosaurs\" covers June 8, 2024 to August 11, 2024 and holds 8 memories. In these memories: Taylor, Grandma June and Milo.",
      "basedOn": [
       {
        "type": "chapter",
@@ -14641,7 +14638,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Grandma June",
         "Milo"
        ]
@@ -14672,7 +14669,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from August 11, 2024, with Rooney. Moment 4 of 5 in the thread \"Oceans, summer after summer\", which runs from 2023 to 2025.",
+      "text": "A photo from August 11, 2024, with Taylor. Moment 4 of 5 in the thread \"Oceans, summer after summer\", which runs from 2023 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -14688,7 +14685,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -14710,7 +14707,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -14761,7 +14758,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2024-08-11T15:00:00.000Z",
      "season": "Summer",
      "year": 2024,
-     "narrative": "Between June 8, 2024 and August 11, 2024, your family kept 8 memories here.\nIn these memories: Rooney, Grandma June, Milo.\nIn your own words:\n- June 8, 2024: Rooney's sunflower, taller than her\n- June 15, 2024: Milo waters the garden his own way\n- June 22, 2024: Milo's first bike ride, Rooney running behind\n- July 6, 2024: Face to face with the museum dinosaur\n- July 18, 2024: Rooney, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.\n- July 20, 2024: First ocean day, straight into the waves\n- July 27, 2024: The garden, taller than Milo\n- August 11, 2024: Ocean hair, don't care",
+     "narrative": "Between June 8, 2024 and August 11, 2024, your family kept 8 memories here.\nIn these memories: Taylor, Grandma June, Milo.\nIn your own words:\n- June 8, 2024: Taylor's sunflower, taller than her\n- June 15, 2024: Milo waters the garden his own way\n- June 22, 2024: Milo's first bike ride, Taylor running behind\n- July 6, 2024: Face to face with the museum dinosaur\n- July 18, 2024: Taylor, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.\n- July 20, 2024: First ocean day, straight into the waves\n- July 27, 2024: The garden, taller than Milo\n- August 11, 2024: Ocean hair, don't care",
      "memoryIds": [
       "mem_70fd69ae3146cad340",
       "mem_01399d6dba81c181c9",
@@ -14778,7 +14775,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_70fd69ae3146cad340-web.jpg",
     "commentary": {
-     "text": "\"The Summer of Dinosaurs\" covers June 8, 2024 to August 11, 2024 and holds 8 memories. In these memories: Rooney, Grandma June and Milo.",
+     "text": "\"The Summer of Dinosaurs\" covers June 8, 2024 to August 11, 2024 and holds 8 memories. In these memories: Taylor, Grandma June and Milo.",
      "basedOn": [
       {
        "type": "chapter",
@@ -14790,7 +14787,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Grandma June",
         "Milo"
        ]
@@ -14804,7 +14801,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -14855,7 +14852,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2024-08-11T15:00:00.000Z",
      "season": "Summer",
      "year": 2024,
-     "narrative": "Between June 8, 2024 and August 11, 2024, your family kept 8 memories here.\nIn these memories: Rooney, Grandma June, Milo.\nIn your own words:\n- June 8, 2024: Rooney's sunflower, taller than her\n- June 15, 2024: Milo waters the garden his own way\n- June 22, 2024: Milo's first bike ride, Rooney running behind\n- July 6, 2024: Face to face with the museum dinosaur\n- July 18, 2024: Rooney, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.\n- July 20, 2024: First ocean day, straight into the waves\n- July 27, 2024: The garden, taller than Milo\n- August 11, 2024: Ocean hair, don't care",
+     "narrative": "Between June 8, 2024 and August 11, 2024, your family kept 8 memories here.\nIn these memories: Taylor, Grandma June, Milo.\nIn your own words:\n- June 8, 2024: Taylor's sunflower, taller than her\n- June 15, 2024: Milo waters the garden his own way\n- June 22, 2024: Milo's first bike ride, Taylor running behind\n- July 6, 2024: Face to face with the museum dinosaur\n- July 18, 2024: Taylor, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.\n- July 20, 2024: First ocean day, straight into the waves\n- July 27, 2024: The garden, taller than Milo\n- August 11, 2024: Ocean hair, don't care",
      "memoryIds": [
       "mem_70fd69ae3146cad340",
       "mem_01399d6dba81c181c9",
@@ -14872,7 +14869,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_70fd69ae3146cad340-web.jpg",
     "commentary": {
-     "text": "\"The Summer of Dinosaurs\" covers June 8, 2024 to August 11, 2024 and holds 8 memories. In these memories: Rooney, Grandma June and Milo.",
+     "text": "\"The Summer of Dinosaurs\" covers June 8, 2024 to August 11, 2024 and holds 8 memories. In these memories: Taylor, Grandma June and Milo.",
      "basedOn": [
       {
        "type": "chapter",
@@ -14884,7 +14881,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Grandma June",
         "Milo"
        ]
@@ -14915,7 +14912,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from August 11, 2024, with Rooney. Moment 4 of 5 in the thread \"Oceans, summer after summer\", which runs from 2023 to 2025.",
+      "text": "A photo from August 11, 2024, with Taylor. Moment 4 of 5 in the thread \"Oceans, summer after summer\", which runs from 2023 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -14931,7 +14928,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -14953,7 +14950,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -14998,7 +14995,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -15063,7 +15060,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from September 7, 2024, with Milo, Rooney and Grandma June. Moment 18 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from September 7, 2024, with Milo, Taylor and Grandma June. Moment 18 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -15080,13 +15077,13 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Milo",
-         "Rooney",
+         "Taylor",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 18,
         "count": 26,
         "fromYear": 2022,
@@ -15158,7 +15155,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -15223,7 +15220,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from September 7, 2024, with Milo, Rooney and Grandma June. Moment 18 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from September 7, 2024, with Milo, Taylor and Grandma June. Moment 18 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -15240,13 +15237,13 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Milo",
-         "Rooney",
+         "Taylor",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 18,
         "count": 26,
         "fromYear": 2022,
@@ -15318,7 +15315,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -15383,7 +15380,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from September 7, 2024, with Milo, Rooney and Grandma June. Moment 18 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from September 7, 2024, with Milo, Taylor and Grandma June. Moment 18 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -15400,13 +15397,13 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Milo",
-         "Rooney",
+         "Taylor",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 18,
         "count": 26,
         "fromYear": 2022,
@@ -15423,7 +15420,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -15488,7 +15485,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from September 7, 2024, with Milo, Rooney and Grandma June. Moment 18 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from September 7, 2024, with Milo, Taylor and Grandma June. Moment 18 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -15505,13 +15502,13 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Milo",
-         "Rooney",
+         "Taylor",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 18,
         "count": 26,
         "fromYear": 2022,
@@ -15528,7 +15525,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -15593,7 +15590,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from October 30, 2024, with Rooney, Milo and Grandma June. It was kept 2 years ago today.",
+      "text": "A piece of writing from October 30, 2024, with Taylor, Milo and Grandma June. It was kept 2 years ago today.",
       "basedOn": [
        {
         "type": "date",
@@ -15609,7 +15606,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
@@ -15635,7 +15632,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2024-10-30T15:00:00.000Z",
      "season": "Fall",
      "year": 2024,
-     "narrative": "Between September 1, 2024 and October 30, 2024, your family kept 3 memories here.\nIn these memories: Milo, Rooney, Grandma June.\nIn your own words:\n- September 1, 2024: First day of preschool for Milo\n- September 7, 2024: Milo's fourth birthday, balloons everywhere\n- October 30, 2024: Nothing happened. Pancakes, a lost shoe, a song in the car. These are the days we would give anything to have back.",
+     "narrative": "Between September 1, 2024 and October 30, 2024, your family kept 3 memories here.\nIn these memories: Milo, Taylor, Grandma June.\nIn your own words:\n- September 1, 2024: First day of preschool for Milo\n- September 7, 2024: Milo's fourth birthday, balloons everywhere\n- October 30, 2024: Nothing happened. Pancakes, a lost shoe, a song in the car. These are the days we would give anything to have back.",
      "memoryIds": [
       "mem_4836287c77ee44c79c",
       "mem_74b4de13459ab5e92c",
@@ -15647,7 +15644,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_4836287c77ee44c79c-web.jpg",
     "commentary": {
-     "text": "\"Fall 2024 with Milo\" covers September 1, 2024 to October 30, 2024 and holds 3 memories. In these memories: Milo, Rooney and Grandma June.",
+     "text": "\"Fall 2024 with Milo\" covers September 1, 2024 to October 30, 2024 and holds 3 memories. In these memories: Milo, Taylor and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -15660,7 +15657,7 @@ window.ROON_DEMO_DATA = {
        "type": "people",
        "names": [
         "Milo",
-        "Rooney",
+        "Taylor",
         "Grandma June"
        ]
       }
@@ -15673,7 +15670,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -15718,7 +15715,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -15783,7 +15780,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from October 30, 2024, with Rooney, Milo and Grandma June. It was kept 2 years ago today.",
+      "text": "A piece of writing from October 30, 2024, with Taylor, Milo and Grandma June. It was kept 2 years ago today.",
       "basedOn": [
        {
         "type": "date",
@@ -15799,7 +15796,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
@@ -15825,7 +15822,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2024-10-30T15:00:00.000Z",
      "season": "Fall",
      "year": 2024,
-     "narrative": "Between September 1, 2024 and October 30, 2024, your family kept 3 memories here.\nIn these memories: Milo, Rooney, Grandma June.\nIn your own words:\n- September 1, 2024: First day of preschool for Milo\n- September 7, 2024: Milo's fourth birthday, balloons everywhere\n- October 30, 2024: Nothing happened. Pancakes, a lost shoe, a song in the car. These are the days we would give anything to have back.",
+     "narrative": "Between September 1, 2024 and October 30, 2024, your family kept 3 memories here.\nIn these memories: Milo, Taylor, Grandma June.\nIn your own words:\n- September 1, 2024: First day of preschool for Milo\n- September 7, 2024: Milo's fourth birthday, balloons everywhere\n- October 30, 2024: Nothing happened. Pancakes, a lost shoe, a song in the car. These are the days we would give anything to have back.",
      "memoryIds": [
       "mem_4836287c77ee44c79c",
       "mem_74b4de13459ab5e92c",
@@ -15837,7 +15834,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_4836287c77ee44c79c-web.jpg",
     "commentary": {
-     "text": "\"Fall 2024 with Milo\" covers September 1, 2024 to October 30, 2024 and holds 3 memories. In these memories: Milo, Rooney and Grandma June.",
+     "text": "\"Fall 2024 with Milo\" covers September 1, 2024 to October 30, 2024 and holds 3 memories. In these memories: Milo, Taylor and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -15850,7 +15847,7 @@ window.ROON_DEMO_DATA = {
        "type": "people",
        "names": [
         "Milo",
-        "Rooney",
+        "Taylor",
         "Grandma June"
        ]
       }
@@ -15863,7 +15860,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -15928,7 +15925,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from October 30, 2024, with Rooney, Milo and Grandma June. It was kept 2 years ago today.",
+      "text": "A piece of writing from October 30, 2024, with Taylor, Milo and Grandma June. It was kept 2 years ago today.",
       "basedOn": [
        {
         "type": "date",
@@ -15944,7 +15941,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
@@ -15970,7 +15967,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2024-10-30T15:00:00.000Z",
      "season": "Fall",
      "year": 2024,
-     "narrative": "Between September 1, 2024 and October 30, 2024, your family kept 3 memories here.\nIn these memories: Milo, Rooney, Grandma June.\nIn your own words:\n- September 1, 2024: First day of preschool for Milo\n- September 7, 2024: Milo's fourth birthday, balloons everywhere\n- October 30, 2024: Nothing happened. Pancakes, a lost shoe, a song in the car. These are the days we would give anything to have back.",
+     "narrative": "Between September 1, 2024 and October 30, 2024, your family kept 3 memories here.\nIn these memories: Milo, Taylor, Grandma June.\nIn your own words:\n- September 1, 2024: First day of preschool for Milo\n- September 7, 2024: Milo's fourth birthday, balloons everywhere\n- October 30, 2024: Nothing happened. Pancakes, a lost shoe, a song in the car. These are the days we would give anything to have back.",
      "memoryIds": [
       "mem_4836287c77ee44c79c",
       "mem_74b4de13459ab5e92c",
@@ -15982,7 +15979,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_4836287c77ee44c79c-web.jpg",
     "commentary": {
-     "text": "\"Fall 2024 with Milo\" covers September 1, 2024 to October 30, 2024 and holds 3 memories. In these memories: Milo, Rooney and Grandma June.",
+     "text": "\"Fall 2024 with Milo\" covers September 1, 2024 to October 30, 2024 and holds 3 memories. In these memories: Milo, Taylor and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -15995,7 +15992,7 @@ window.ROON_DEMO_DATA = {
        "type": "people",
        "names": [
         "Milo",
-        "Rooney",
+        "Taylor",
         "Grandma June"
        ]
       }
@@ -16008,7 +16005,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -16053,7 +16050,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -16098,7 +16095,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -16163,7 +16160,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from October 30, 2024, with Rooney, Milo and Grandma June. It was kept 2 years ago today.",
+      "text": "A piece of writing from October 30, 2024, with Taylor, Milo and Grandma June. It was kept 2 years ago today.",
       "basedOn": [
        {
         "type": "date",
@@ -16179,7 +16176,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
@@ -16205,7 +16202,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2024-10-30T15:00:00.000Z",
      "season": "Fall",
      "year": 2024,
-     "narrative": "Between September 1, 2024 and October 30, 2024, your family kept 3 memories here.\nIn these memories: Milo, Rooney, Grandma June.\nIn your own words:\n- September 1, 2024: First day of preschool for Milo\n- September 7, 2024: Milo's fourth birthday, balloons everywhere\n- October 30, 2024: Nothing happened. Pancakes, a lost shoe, a song in the car. These are the days we would give anything to have back.",
+     "narrative": "Between September 1, 2024 and October 30, 2024, your family kept 3 memories here.\nIn these memories: Milo, Taylor, Grandma June.\nIn your own words:\n- September 1, 2024: First day of preschool for Milo\n- September 7, 2024: Milo's fourth birthday, balloons everywhere\n- October 30, 2024: Nothing happened. Pancakes, a lost shoe, a song in the car. These are the days we would give anything to have back.",
      "memoryIds": [
       "mem_4836287c77ee44c79c",
       "mem_74b4de13459ab5e92c",
@@ -16217,7 +16214,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_4836287c77ee44c79c-web.jpg",
     "commentary": {
-     "text": "\"Fall 2024 with Milo\" covers September 1, 2024 to October 30, 2024 and holds 3 memories. In these memories: Milo, Rooney and Grandma June.",
+     "text": "\"Fall 2024 with Milo\" covers September 1, 2024 to October 30, 2024 and holds 3 memories. In these memories: Milo, Taylor and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -16230,7 +16227,7 @@ window.ROON_DEMO_DATA = {
        "type": "people",
        "names": [
         "Milo",
-        "Rooney",
+        "Taylor",
         "Grandma June"
        ]
       }
@@ -16243,7 +16240,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -16288,13 +16285,13 @@ window.ROON_DEMO_DATA = {
     "chapter": {
      "id": "ch_1769fa00b0d12b9042",
      "familyId": "fam_b44fd40e9d36256d3b",
-     "title": "Winter 2024 with Rooney",
+     "title": "Winter 2024 with Taylor",
      "userRenamed": false,
      "startDate": "2024-12-24T15:00:00.000Z",
      "endDate": "2024-12-24T15:00:00.000Z",
      "season": "Winter",
      "year": 2024,
-     "narrative": "Between December 24, 2024 and December 24, 2024, your family kept 1 memory here.\nIn these memories: Rooney, Milo.\nIn your own words:\n- December 24, 2024: Christmas Eve, cookies for Santa",
+     "narrative": "Between December 24, 2024 and December 24, 2024, your family kept 1 memory here.\nIn these memories: Taylor, Milo.\nIn your own words:\n- December 24, 2024: Christmas Eve, cookies for Santa",
      "memoryIds": [
       "mem_f2aab3298ef0e8a8e2"
      ],
@@ -16304,11 +16301,11 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_f2aab3298ef0e8a8e2-web.jpg",
     "commentary": {
-     "text": "\"Winter 2024 with Rooney\" covers December 24, 2024 to December 24, 2024 and holds 1 memory. In these memories: Rooney and Milo.",
+     "text": "\"Winter 2024 with Taylor\" covers December 24, 2024 to December 24, 2024 and holds 1 memory. In these memories: Taylor and Milo.",
      "basedOn": [
       {
        "type": "chapter",
-       "title": "Winter 2024 with Rooney",
+       "title": "Winter 2024 with Taylor",
        "startDate": "2024-12-24T15:00:00.000Z",
        "endDate": "2024-12-24T15:00:00.000Z",
        "count": 1
@@ -16316,7 +16313,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo"
        ]
       }
@@ -16347,7 +16344,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from December 24, 2024, with Rooney and Milo. Moment 20 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from December 24, 2024, with Taylor and Milo. Moment 20 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -16363,13 +16360,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 20,
         "count": 26,
         "fromYear": 2022,
@@ -16386,7 +16383,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -16431,13 +16428,13 @@ window.ROON_DEMO_DATA = {
     "chapter": {
      "id": "ch_1769fa00b0d12b9042",
      "familyId": "fam_b44fd40e9d36256d3b",
-     "title": "Winter 2024 with Rooney",
+     "title": "Winter 2024 with Taylor",
      "userRenamed": false,
      "startDate": "2024-12-24T15:00:00.000Z",
      "endDate": "2024-12-24T15:00:00.000Z",
      "season": "Winter",
      "year": 2024,
-     "narrative": "Between December 24, 2024 and December 24, 2024, your family kept 1 memory here.\nIn these memories: Rooney, Milo.\nIn your own words:\n- December 24, 2024: Christmas Eve, cookies for Santa",
+     "narrative": "Between December 24, 2024 and December 24, 2024, your family kept 1 memory here.\nIn these memories: Taylor, Milo.\nIn your own words:\n- December 24, 2024: Christmas Eve, cookies for Santa",
      "memoryIds": [
       "mem_f2aab3298ef0e8a8e2"
      ],
@@ -16447,11 +16444,11 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_f2aab3298ef0e8a8e2-web.jpg",
     "commentary": {
-     "text": "\"Winter 2024 with Rooney\" covers December 24, 2024 to December 24, 2024 and holds 1 memory. In these memories: Rooney and Milo.",
+     "text": "\"Winter 2024 with Taylor\" covers December 24, 2024 to December 24, 2024 and holds 1 memory. In these memories: Taylor and Milo.",
      "basedOn": [
       {
        "type": "chapter",
-       "title": "Winter 2024 with Rooney",
+       "title": "Winter 2024 with Taylor",
        "startDate": "2024-12-24T15:00:00.000Z",
        "endDate": "2024-12-24T15:00:00.000Z",
        "count": 1
@@ -16459,7 +16456,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo"
        ]
       }
@@ -16490,7 +16487,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from December 24, 2024, with Rooney and Milo. Moment 20 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from December 24, 2024, with Taylor and Milo. Moment 20 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -16506,13 +16503,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 20,
         "count": 26,
         "fromYear": 2022,
@@ -16529,7 +16526,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -16574,13 +16571,13 @@ window.ROON_DEMO_DATA = {
     "chapter": {
      "id": "ch_1769fa00b0d12b9042",
      "familyId": "fam_b44fd40e9d36256d3b",
-     "title": "Winter 2024 with Rooney",
+     "title": "Winter 2024 with Taylor",
      "userRenamed": false,
      "startDate": "2024-12-24T15:00:00.000Z",
      "endDate": "2024-12-24T15:00:00.000Z",
      "season": "Winter",
      "year": 2024,
-     "narrative": "Between December 24, 2024 and December 24, 2024, your family kept 1 memory here.\nIn these memories: Rooney, Milo.\nIn your own words:\n- December 24, 2024: Christmas Eve, cookies for Santa",
+     "narrative": "Between December 24, 2024 and December 24, 2024, your family kept 1 memory here.\nIn these memories: Taylor, Milo.\nIn your own words:\n- December 24, 2024: Christmas Eve, cookies for Santa",
      "memoryIds": [
       "mem_f2aab3298ef0e8a8e2"
      ],
@@ -16590,11 +16587,11 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_f2aab3298ef0e8a8e2-web.jpg",
     "commentary": {
-     "text": "\"Winter 2024 with Rooney\" covers December 24, 2024 to December 24, 2024 and holds 1 memory. In these memories: Rooney and Milo.",
+     "text": "\"Winter 2024 with Taylor\" covers December 24, 2024 to December 24, 2024 and holds 1 memory. In these memories: Taylor and Milo.",
      "basedOn": [
       {
        "type": "chapter",
-       "title": "Winter 2024 with Rooney",
+       "title": "Winter 2024 with Taylor",
        "startDate": "2024-12-24T15:00:00.000Z",
        "endDate": "2024-12-24T15:00:00.000Z",
        "count": 1
@@ -16602,7 +16599,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo"
        ]
       }
@@ -16633,7 +16630,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from December 24, 2024, with Rooney and Milo. Moment 20 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from December 24, 2024, with Taylor and Milo. Moment 20 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -16649,13 +16646,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 20,
         "count": 26,
         "fromYear": 2022,
@@ -16672,7 +16669,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -16717,7 +16714,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -16768,7 +16765,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2025-04-12T15:00:00.000Z",
      "season": "Spring",
      "year": 2025,
-     "narrative": "Between April 5, 2025 and April 12, 2025, your family kept 2 memories here.\nIn these memories: Rooney, Milo.\nIn your own words:\n- April 5, 2025: Rooney reads to the whole class\n- April 12, 2025: Seven: a birthday crown and big plans",
+     "narrative": "Between April 5, 2025 and April 12, 2025, your family kept 2 memories here.\nIn these memories: Taylor, Milo.\nIn your own words:\n- April 5, 2025: Taylor reads to the whole class\n- April 12, 2025: Seven: a birthday crown and big plans",
      "memoryIds": [
       "mem_66e690fc8ee0883d1f",
       "mem_2a0a0b17b2d2264708"
@@ -16779,7 +16776,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_66e690fc8ee0883d1f-web.jpg",
     "commentary": {
-     "text": "\"The Spring of Birthdays\" covers April 5, 2025 to April 12, 2025 and holds 2 memories. In these memories: Rooney and Milo.",
+     "text": "\"The Spring of Birthdays\" covers April 5, 2025 to April 12, 2025 and holds 2 memories. In these memories: Taylor and Milo.",
      "basedOn": [
       {
        "type": "chapter",
@@ -16791,7 +16788,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo"
        ]
       }
@@ -16822,7 +16819,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 12, 2025, with Rooney and Milo. Moment 21 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from April 12, 2025, with Taylor and Milo. Moment 21 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -16838,13 +16835,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 21,
         "count": 26,
         "fromYear": 2022,
@@ -16863,7 +16860,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_66e690fc8ee0883d1f-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_66e690fc8ee0883d1f-web.jpg",
      "poster": null,
-     "caption": "Rooney reads to the whole class",
+     "caption": "Taylor reads to the whole class",
      "storyText": "",
      "takenAt": "2025-04-05T15:00:00.000Z",
      "peopleIds": [
@@ -16878,7 +16875,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 5, 2025, with Rooney. Memory 1 of 2 in \"The Spring of Birthdays\" (April 5, 2025 to April 12, 2025).",
+      "text": "A photo from April 5, 2025, with Taylor. Memory 1 of 2 in \"The Spring of Birthdays\" (April 5, 2025 to April 12, 2025).",
       "basedOn": [
        {
         "type": "date",
@@ -16894,7 +16891,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -16916,7 +16913,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -16967,7 +16964,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2025-04-12T15:00:00.000Z",
      "season": "Spring",
      "year": 2025,
-     "narrative": "Between April 5, 2025 and April 12, 2025, your family kept 2 memories here.\nIn these memories: Rooney, Milo.\nIn your own words:\n- April 5, 2025: Rooney reads to the whole class\n- April 12, 2025: Seven: a birthday crown and big plans",
+     "narrative": "Between April 5, 2025 and April 12, 2025, your family kept 2 memories here.\nIn these memories: Taylor, Milo.\nIn your own words:\n- April 5, 2025: Taylor reads to the whole class\n- April 12, 2025: Seven: a birthday crown and big plans",
      "memoryIds": [
       "mem_66e690fc8ee0883d1f",
       "mem_2a0a0b17b2d2264708"
@@ -16978,7 +16975,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_66e690fc8ee0883d1f-web.jpg",
     "commentary": {
-     "text": "\"The Spring of Birthdays\" covers April 5, 2025 to April 12, 2025 and holds 2 memories. In these memories: Rooney and Milo.",
+     "text": "\"The Spring of Birthdays\" covers April 5, 2025 to April 12, 2025 and holds 2 memories. In these memories: Taylor and Milo.",
      "basedOn": [
       {
        "type": "chapter",
@@ -16990,7 +16987,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo"
        ]
       }
@@ -17021,7 +17018,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 12, 2025, with Rooney and Milo. Moment 21 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from April 12, 2025, with Taylor and Milo. Moment 21 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -17037,13 +17034,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 21,
         "count": 26,
         "fromYear": 2022,
@@ -17060,7 +17057,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -17111,7 +17108,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2025-04-12T15:00:00.000Z",
      "season": "Spring",
      "year": 2025,
-     "narrative": "Between April 5, 2025 and April 12, 2025, your family kept 2 memories here.\nIn these memories: Rooney, Milo.\nIn your own words:\n- April 5, 2025: Rooney reads to the whole class\n- April 12, 2025: Seven: a birthday crown and big plans",
+     "narrative": "Between April 5, 2025 and April 12, 2025, your family kept 2 memories here.\nIn these memories: Taylor, Milo.\nIn your own words:\n- April 5, 2025: Taylor reads to the whole class\n- April 12, 2025: Seven: a birthday crown and big plans",
      "memoryIds": [
       "mem_66e690fc8ee0883d1f",
       "mem_2a0a0b17b2d2264708"
@@ -17122,7 +17119,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_66e690fc8ee0883d1f-web.jpg",
     "commentary": {
-     "text": "\"The Spring of Birthdays\" covers April 5, 2025 to April 12, 2025 and holds 2 memories. In these memories: Rooney and Milo.",
+     "text": "\"The Spring of Birthdays\" covers April 5, 2025 to April 12, 2025 and holds 2 memories. In these memories: Taylor and Milo.",
      "basedOn": [
       {
        "type": "chapter",
@@ -17134,7 +17131,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo"
        ]
       }
@@ -17165,7 +17162,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 12, 2025, with Rooney and Milo. Moment 21 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from April 12, 2025, with Taylor and Milo. Moment 21 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -17181,13 +17178,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 21,
         "count": 26,
         "fromYear": 2022,
@@ -17206,7 +17203,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_66e690fc8ee0883d1f-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_66e690fc8ee0883d1f-web.jpg",
      "poster": null,
-     "caption": "Rooney reads to the whole class",
+     "caption": "Taylor reads to the whole class",
      "storyText": "",
      "takenAt": "2025-04-05T15:00:00.000Z",
      "peopleIds": [
@@ -17221,7 +17218,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 5, 2025, with Rooney. Memory 1 of 2 in \"The Spring of Birthdays\" (April 5, 2025 to April 12, 2025).",
+      "text": "A photo from April 5, 2025, with Taylor. Memory 1 of 2 in \"The Spring of Birthdays\" (April 5, 2025 to April 12, 2025).",
       "basedOn": [
        {
         "type": "date",
@@ -17237,7 +17234,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -17259,7 +17256,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -17304,7 +17301,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -17368,7 +17365,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 21, 2025, with Grandma June and Rooney. Moment 7 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
+      "text": "A photo from June 21, 2025, with Grandma June and Taylor. Moment 7 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -17385,7 +17382,7 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -17425,7 +17422,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 14, 2025, with Rooney and Milo. Moment 22 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from June 14, 2025, with Taylor and Milo. Moment 22 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -17441,13 +17438,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 22,
         "count": 26,
         "fromYear": 2022,
@@ -17464,7 +17461,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -17528,7 +17525,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 14, 2025, with Rooney and Milo. Moment 22 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from June 14, 2025, with Taylor and Milo. Moment 22 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -17544,13 +17541,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 22,
         "count": 26,
         "fromYear": 2022,
@@ -17567,7 +17564,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -17631,7 +17628,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 21, 2025, with Grandma June and Rooney. Moment 7 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
+      "text": "A photo from June 21, 2025, with Grandma June and Taylor. Moment 7 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -17648,7 +17645,7 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -17688,7 +17685,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 14, 2025, with Rooney and Milo. Moment 22 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from June 14, 2025, with Taylor and Milo. Moment 22 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -17704,13 +17701,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 22,
         "count": 26,
         "fromYear": 2022,
@@ -17727,7 +17724,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -17791,7 +17788,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 21, 2025, with Grandma June and Rooney. Moment 7 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
+      "text": "A photo from June 21, 2025, with Grandma June and Taylor. Moment 7 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -17808,7 +17805,7 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -17830,7 +17827,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -17895,7 +17892,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 19, 2025, with Rooney, Milo and Grandma June. Moment 24 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 19, 2025, with Taylor, Milo and Grandma June. Moment 24 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -17911,14 +17908,14 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 24,
         "count": 26,
         "fromYear": 2022,
@@ -17953,7 +17950,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 12, 2025, with Rooney and Milo. Moment 23 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 12, 2025, with Taylor and Milo. Moment 23 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -17969,13 +17966,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 23,
         "count": 26,
         "fromYear": 2022,
@@ -17992,7 +17989,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -18057,7 +18054,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 19, 2025, with Rooney, Milo and Grandma June. Moment 24 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 19, 2025, with Taylor, Milo and Grandma June. Moment 24 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -18073,14 +18070,14 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 24,
         "count": 26,
         "fromYear": 2022,
@@ -18115,7 +18112,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 12, 2025, with Rooney and Milo. Moment 23 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 12, 2025, with Taylor and Milo. Moment 23 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -18131,13 +18128,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 23,
         "count": 26,
         "fromYear": 2022,
@@ -18154,7 +18151,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -18219,7 +18216,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 19, 2025, with Rooney, Milo and Grandma June. Moment 24 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 19, 2025, with Taylor, Milo and Grandma June. Moment 24 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -18235,14 +18232,14 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 24,
         "count": 26,
         "fromYear": 2022,
@@ -18277,7 +18274,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 12, 2025, with Rooney and Milo. Moment 23 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 12, 2025, with Taylor and Milo. Moment 23 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -18293,13 +18290,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 23,
         "count": 26,
         "fromYear": 2022,
@@ -18316,7 +18313,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -18381,7 +18378,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 19, 2025, with Rooney, Milo and Grandma June. Moment 24 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 19, 2025, with Taylor, Milo and Grandma June. Moment 24 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -18397,14 +18394,14 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 24,
         "count": 26,
         "fromYear": 2022,
@@ -18421,7 +18418,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -18466,13 +18463,13 @@ window.ROON_DEMO_DATA = {
     "chapter": {
      "id": "ch_0eee7456d81132d561",
      "familyId": "fam_b44fd40e9d36256d3b",
-     "title": "Summer 2025 with Rooney",
+     "title": "Summer 2025 with Taylor",
      "userRenamed": false,
      "startDate": "2025-06-14T15:00:00.000Z",
      "endDate": "2025-08-16T15:00:00.000Z",
      "season": "Summer",
      "year": 2025,
-     "narrative": "Between June 14, 2025 and August 16, 2025, your family kept 6 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- June 14, 2025: First splash day of summer\n- June 21, 2025: Grandma's garden, sixth summer\n- July 12, 2025: Two bikes, one summer\n- July 19, 2025: The ocean, one year on\n- August 2, 2025: Pool noodles and big jumps\n- August 16, 2025: Grandma June teaches Rooney to shell peas",
+     "narrative": "Between June 14, 2025 and August 16, 2025, your family kept 6 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- June 14, 2025: First splash day of summer\n- June 21, 2025: Grandma's garden, sixth summer\n- July 12, 2025: Two bikes, one summer\n- July 19, 2025: The ocean, one year on\n- August 2, 2025: Pool noodles and big jumps\n- August 16, 2025: Grandma June teaches Taylor to shell peas",
      "memoryIds": [
       "mem_903bad6961b6d2995b",
       "mem_2470198b42e1c9e540",
@@ -18487,11 +18484,11 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_903bad6961b6d2995b-web.jpg",
     "commentary": {
-     "text": "\"Summer 2025 with Rooney\" covers June 14, 2025 to August 16, 2025 and holds 6 memories. In these memories: Rooney, Milo and Grandma June.",
+     "text": "\"Summer 2025 with Taylor\" covers June 14, 2025 to August 16, 2025 and holds 6 memories. In these memories: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
-       "title": "Summer 2025 with Rooney",
+       "title": "Summer 2025 with Taylor",
        "startDate": "2025-06-14T15:00:00.000Z",
        "endDate": "2025-08-16T15:00:00.000Z",
        "count": 6
@@ -18499,7 +18496,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -18515,7 +18512,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_979e2268db43b1f51b-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_979e2268db43b1f51b-web.jpg",
      "poster": null,
-     "caption": "Grandma June teaches Rooney to shell peas",
+     "caption": "Grandma June teaches Taylor to shell peas",
      "storyText": "",
      "takenAt": "2025-08-16T15:00:00.000Z",
      "peopleIds": [
@@ -18531,7 +18528,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from August 16, 2025, with Grandma June and Rooney. Moment 15 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A photo from August 16, 2025, with Grandma June and Taylor. Moment 15 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -18548,12 +18545,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 15,
         "count": 15,
         "fromYear": 2021,
@@ -18588,7 +18585,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from August 2, 2025, with Milo and Rooney. Moment 25 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from August 2, 2025, with Milo and Taylor. Moment 25 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -18605,12 +18602,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Milo",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 25,
         "count": 26,
         "fromYear": 2022,
@@ -18627,7 +18624,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -18672,13 +18669,13 @@ window.ROON_DEMO_DATA = {
     "chapter": {
      "id": "ch_0eee7456d81132d561",
      "familyId": "fam_b44fd40e9d36256d3b",
-     "title": "Summer 2025 with Rooney",
+     "title": "Summer 2025 with Taylor",
      "userRenamed": false,
      "startDate": "2025-06-14T15:00:00.000Z",
      "endDate": "2025-08-16T15:00:00.000Z",
      "season": "Summer",
      "year": 2025,
-     "narrative": "Between June 14, 2025 and August 16, 2025, your family kept 6 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- June 14, 2025: First splash day of summer\n- June 21, 2025: Grandma's garden, sixth summer\n- July 12, 2025: Two bikes, one summer\n- July 19, 2025: The ocean, one year on\n- August 2, 2025: Pool noodles and big jumps\n- August 16, 2025: Grandma June teaches Rooney to shell peas",
+     "narrative": "Between June 14, 2025 and August 16, 2025, your family kept 6 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- June 14, 2025: First splash day of summer\n- June 21, 2025: Grandma's garden, sixth summer\n- July 12, 2025: Two bikes, one summer\n- July 19, 2025: The ocean, one year on\n- August 2, 2025: Pool noodles and big jumps\n- August 16, 2025: Grandma June teaches Taylor to shell peas",
      "memoryIds": [
       "mem_903bad6961b6d2995b",
       "mem_2470198b42e1c9e540",
@@ -18693,11 +18690,11 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_903bad6961b6d2995b-web.jpg",
     "commentary": {
-     "text": "\"Summer 2025 with Rooney\" covers June 14, 2025 to August 16, 2025 and holds 6 memories. In these memories: Rooney, Milo and Grandma June.",
+     "text": "\"Summer 2025 with Taylor\" covers June 14, 2025 to August 16, 2025 and holds 6 memories. In these memories: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
-       "title": "Summer 2025 with Rooney",
+       "title": "Summer 2025 with Taylor",
        "startDate": "2025-06-14T15:00:00.000Z",
        "endDate": "2025-08-16T15:00:00.000Z",
        "count": 6
@@ -18705,7 +18702,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -18737,7 +18734,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from August 2, 2025, with Milo and Rooney. Moment 25 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from August 2, 2025, with Milo and Taylor. Moment 25 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -18754,12 +18751,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Milo",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 25,
         "count": 26,
         "fromYear": 2022,
@@ -18776,7 +18773,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -18821,13 +18818,13 @@ window.ROON_DEMO_DATA = {
     "chapter": {
      "id": "ch_0eee7456d81132d561",
      "familyId": "fam_b44fd40e9d36256d3b",
-     "title": "Summer 2025 with Rooney",
+     "title": "Summer 2025 with Taylor",
      "userRenamed": false,
      "startDate": "2025-06-14T15:00:00.000Z",
      "endDate": "2025-08-16T15:00:00.000Z",
      "season": "Summer",
      "year": 2025,
-     "narrative": "Between June 14, 2025 and August 16, 2025, your family kept 6 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- June 14, 2025: First splash day of summer\n- June 21, 2025: Grandma's garden, sixth summer\n- July 12, 2025: Two bikes, one summer\n- July 19, 2025: The ocean, one year on\n- August 2, 2025: Pool noodles and big jumps\n- August 16, 2025: Grandma June teaches Rooney to shell peas",
+     "narrative": "Between June 14, 2025 and August 16, 2025, your family kept 6 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- June 14, 2025: First splash day of summer\n- June 21, 2025: Grandma's garden, sixth summer\n- July 12, 2025: Two bikes, one summer\n- July 19, 2025: The ocean, one year on\n- August 2, 2025: Pool noodles and big jumps\n- August 16, 2025: Grandma June teaches Taylor to shell peas",
      "memoryIds": [
       "mem_903bad6961b6d2995b",
       "mem_2470198b42e1c9e540",
@@ -18842,11 +18839,11 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_903bad6961b6d2995b-web.jpg",
     "commentary": {
-     "text": "\"Summer 2025 with Rooney\" covers June 14, 2025 to August 16, 2025 and holds 6 memories. In these memories: Rooney, Milo and Grandma June.",
+     "text": "\"Summer 2025 with Taylor\" covers June 14, 2025 to August 16, 2025 and holds 6 memories. In these memories: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
-       "title": "Summer 2025 with Rooney",
+       "title": "Summer 2025 with Taylor",
        "startDate": "2025-06-14T15:00:00.000Z",
        "endDate": "2025-08-16T15:00:00.000Z",
        "count": 6
@@ -18854,7 +18851,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -18870,7 +18867,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_979e2268db43b1f51b-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_979e2268db43b1f51b-web.jpg",
      "poster": null,
-     "caption": "Grandma June teaches Rooney to shell peas",
+     "caption": "Grandma June teaches Taylor to shell peas",
      "storyText": "",
      "takenAt": "2025-08-16T15:00:00.000Z",
      "peopleIds": [
@@ -18886,7 +18883,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from August 16, 2025, with Grandma June and Rooney. Moment 15 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A photo from August 16, 2025, with Grandma June and Taylor. Moment 15 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -18903,12 +18900,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 15,
         "count": 15,
         "fromYear": 2021,
@@ -18943,7 +18940,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from August 2, 2025, with Milo and Rooney. Moment 25 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from August 2, 2025, with Milo and Taylor. Moment 25 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -18960,12 +18957,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Milo",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 25,
         "count": 26,
         "fromYear": 2022,
@@ -18982,7 +18979,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -19027,13 +19024,13 @@ window.ROON_DEMO_DATA = {
     "chapter": {
      "id": "ch_0eee7456d81132d561",
      "familyId": "fam_b44fd40e9d36256d3b",
-     "title": "Summer 2025 with Rooney",
+     "title": "Summer 2025 with Taylor",
      "userRenamed": false,
      "startDate": "2025-06-14T15:00:00.000Z",
      "endDate": "2025-08-16T15:00:00.000Z",
      "season": "Summer",
      "year": 2025,
-     "narrative": "Between June 14, 2025 and August 16, 2025, your family kept 6 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- June 14, 2025: First splash day of summer\n- June 21, 2025: Grandma's garden, sixth summer\n- July 12, 2025: Two bikes, one summer\n- July 19, 2025: The ocean, one year on\n- August 2, 2025: Pool noodles and big jumps\n- August 16, 2025: Grandma June teaches Rooney to shell peas",
+     "narrative": "Between June 14, 2025 and August 16, 2025, your family kept 6 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- June 14, 2025: First splash day of summer\n- June 21, 2025: Grandma's garden, sixth summer\n- July 12, 2025: Two bikes, one summer\n- July 19, 2025: The ocean, one year on\n- August 2, 2025: Pool noodles and big jumps\n- August 16, 2025: Grandma June teaches Taylor to shell peas",
      "memoryIds": [
       "mem_903bad6961b6d2995b",
       "mem_2470198b42e1c9e540",
@@ -19048,11 +19045,11 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_903bad6961b6d2995b-web.jpg",
     "commentary": {
-     "text": "\"Summer 2025 with Rooney\" covers June 14, 2025 to August 16, 2025 and holds 6 memories. In these memories: Rooney, Milo and Grandma June.",
+     "text": "\"Summer 2025 with Taylor\" covers June 14, 2025 to August 16, 2025 and holds 6 memories. In these memories: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
-       "title": "Summer 2025 with Rooney",
+       "title": "Summer 2025 with Taylor",
        "startDate": "2025-06-14T15:00:00.000Z",
        "endDate": "2025-08-16T15:00:00.000Z",
        "count": 6
@@ -19060,7 +19057,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -19076,7 +19073,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_979e2268db43b1f51b-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_979e2268db43b1f51b-web.jpg",
      "poster": null,
-     "caption": "Grandma June teaches Rooney to shell peas",
+     "caption": "Grandma June teaches Taylor to shell peas",
      "storyText": "",
      "takenAt": "2025-08-16T15:00:00.000Z",
      "peopleIds": [
@@ -19092,7 +19089,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from August 16, 2025, with Grandma June and Rooney. Moment 15 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A photo from August 16, 2025, with Grandma June and Taylor. Moment 15 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -19109,12 +19106,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 15,
         "count": 15,
         "fromYear": 2021,
@@ -19131,7 +19128,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -19180,7 +19177,7 @@ window.ROON_DEMO_DATA = {
      "originalSrc": null,
      "poster": null,
      "caption": "The lunchbox note era",
-     "storyText": "Rooney started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.",
+     "storyText": "Taylor started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.",
      "takenAt": "2025-09-27T15:00:00.000Z",
      "peopleIds": [
       "per_47f6d75809a92fae04",
@@ -19195,7 +19192,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from September 27, 2025, with Rooney and Milo. Moment 26 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A piece of writing from September 27, 2025, with Taylor and Milo. Moment 26 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -19211,13 +19208,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 26,
         "count": 26,
         "fromYear": 2022,
@@ -19251,7 +19248,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from September 13, 2025, with Rooney. Memory 1 of 5 in \"Fall 2025 with Rooney\" (September 13, 2025 to November 15, 2025).",
+      "text": "A photo from September 13, 2025, with Taylor. Memory 1 of 5 in \"Fall 2025 with Taylor\" (September 13, 2025 to November 15, 2025).",
       "basedOn": [
        {
         "type": "date",
@@ -19267,12 +19264,12 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "chapter",
-        "title": "Fall 2025 with Rooney",
+        "title": "Fall 2025 with Taylor",
         "position": 1,
         "count": 5,
         "startDate": "2025-09-13T15:00:00.000Z",
@@ -19289,7 +19286,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -19338,7 +19335,7 @@ window.ROON_DEMO_DATA = {
      "originalSrc": null,
      "poster": null,
      "caption": "The lunchbox note era",
-     "storyText": "Rooney started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.",
+     "storyText": "Taylor started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.",
      "takenAt": "2025-09-27T15:00:00.000Z",
      "peopleIds": [
       "per_47f6d75809a92fae04",
@@ -19353,7 +19350,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from September 27, 2025, with Rooney and Milo. Moment 26 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A piece of writing from September 27, 2025, with Taylor and Milo. Moment 26 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -19369,13 +19366,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 26,
         "count": 26,
         "fromYear": 2022,
@@ -19392,7 +19389,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -19441,7 +19438,7 @@ window.ROON_DEMO_DATA = {
      "originalSrc": null,
      "poster": null,
      "caption": "The lunchbox note era",
-     "storyText": "Rooney started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.",
+     "storyText": "Taylor started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.",
      "takenAt": "2025-09-27T15:00:00.000Z",
      "peopleIds": [
       "per_47f6d75809a92fae04",
@@ -19456,7 +19453,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from September 27, 2025, with Rooney and Milo. Moment 26 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A piece of writing from September 27, 2025, with Taylor and Milo. Moment 26 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -19472,13 +19469,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 26,
         "count": 26,
         "fromYear": 2022,
@@ -19512,7 +19509,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from September 13, 2025, with Rooney. Memory 1 of 5 in \"Fall 2025 with Rooney\" (September 13, 2025 to November 15, 2025).",
+      "text": "A photo from September 13, 2025, with Taylor. Memory 1 of 5 in \"Fall 2025 with Taylor\" (September 13, 2025 to November 15, 2025).",
       "basedOn": [
        {
         "type": "date",
@@ -19528,12 +19525,12 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "chapter",
-        "title": "Fall 2025 with Rooney",
+        "title": "Fall 2025 with Taylor",
         "position": 1,
         "count": 5,
         "startDate": "2025-09-13T15:00:00.000Z",
@@ -19550,7 +19547,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -19595,7 +19592,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -19698,7 +19695,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -19801,7 +19798,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -19846,7 +19843,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -19949,7 +19946,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -19994,13 +19991,13 @@ window.ROON_DEMO_DATA = {
     "chapter": {
      "id": "ch_5c6ef2069c6229d0cd",
      "familyId": "fam_b44fd40e9d36256d3b",
-     "title": "Fall 2025 with Rooney",
+     "title": "Fall 2025 with Taylor",
      "userRenamed": false,
      "startDate": "2025-09-13T15:00:00.000Z",
      "endDate": "2025-11-15T15:00:00.000Z",
      "season": "Fall",
      "year": 2025,
-     "narrative": "Between September 13, 2025 and November 15, 2025, your family kept 5 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- September 13, 2025: Back to school, second grade\n- September 27, 2025: Rooney started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.\n- October 5, 2025: Grandma June at the head of the table\n- November 8, 2025: Rooney's first lost tooth\n- November 15, 2025: Milo, five, missing the same one",
+     "narrative": "Between September 13, 2025 and November 15, 2025, your family kept 5 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- September 13, 2025: Back to school, second grade\n- September 27, 2025: Taylor started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.\n- October 5, 2025: Grandma June at the head of the table\n- November 8, 2025: Taylor's first lost tooth\n- November 15, 2025: Milo, five, missing the same one",
      "memoryIds": [
       "mem_f328007bb8e20b0224",
       "mem_6aabc3425a294b31aa",
@@ -20014,11 +20011,11 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_f328007bb8e20b0224-web.jpg",
     "commentary": {
-     "text": "\"Fall 2025 with Rooney\" covers September 13, 2025 to November 15, 2025 and holds 5 memories. In these memories: Rooney, Milo and Grandma June.",
+     "text": "\"Fall 2025 with Taylor\" covers September 13, 2025 to November 15, 2025 and holds 5 memories. In these memories: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
-       "title": "Fall 2025 with Rooney",
+       "title": "Fall 2025 with Taylor",
        "startDate": "2025-09-13T15:00:00.000Z",
        "endDate": "2025-11-15T15:00:00.000Z",
        "count": 5
@@ -20026,7 +20023,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -20057,7 +20054,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from November 15, 2025, with Milo. Memory 5 of 5 in \"Fall 2025 with Rooney\" (September 13, 2025 to November 15, 2025).",
+      "text": "A photo from November 15, 2025, with Milo. Memory 5 of 5 in \"Fall 2025 with Taylor\" (September 13, 2025 to November 15, 2025).",
       "basedOn": [
        {
         "type": "date",
@@ -20078,7 +20075,7 @@ window.ROON_DEMO_DATA = {
        },
        {
         "type": "chapter",
-        "title": "Fall 2025 with Rooney",
+        "title": "Fall 2025 with Taylor",
         "position": 5,
         "count": 5,
         "startDate": "2025-09-13T15:00:00.000Z",
@@ -20097,7 +20094,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_9384517751ca8103e4-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_9384517751ca8103e4-web.jpg",
      "poster": null,
-     "caption": "Rooney's first lost tooth",
+     "caption": "Taylor's first lost tooth",
      "storyText": "",
      "takenAt": "2025-11-08T15:00:00.000Z",
      "peopleIds": [
@@ -20112,7 +20109,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from November 8, 2025, with Rooney. Memory 4 of 5 in \"Fall 2025 with Rooney\" (September 13, 2025 to November 15, 2025).",
+      "text": "A photo from November 8, 2025, with Taylor. Memory 4 of 5 in \"Fall 2025 with Taylor\" (September 13, 2025 to November 15, 2025).",
       "basedOn": [
        {
         "type": "date",
@@ -20128,12 +20125,12 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "chapter",
-        "title": "Fall 2025 with Rooney",
+        "title": "Fall 2025 with Taylor",
         "position": 4,
         "count": 5,
         "startDate": "2025-09-13T15:00:00.000Z",
@@ -20150,7 +20147,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -20195,13 +20192,13 @@ window.ROON_DEMO_DATA = {
     "chapter": {
      "id": "ch_5c6ef2069c6229d0cd",
      "familyId": "fam_b44fd40e9d36256d3b",
-     "title": "Fall 2025 with Rooney",
+     "title": "Fall 2025 with Taylor",
      "userRenamed": false,
      "startDate": "2025-09-13T15:00:00.000Z",
      "endDate": "2025-11-15T15:00:00.000Z",
      "season": "Fall",
      "year": 2025,
-     "narrative": "Between September 13, 2025 and November 15, 2025, your family kept 5 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- September 13, 2025: Back to school, second grade\n- September 27, 2025: Rooney started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.\n- October 5, 2025: Grandma June at the head of the table\n- November 8, 2025: Rooney's first lost tooth\n- November 15, 2025: Milo, five, missing the same one",
+     "narrative": "Between September 13, 2025 and November 15, 2025, your family kept 5 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- September 13, 2025: Back to school, second grade\n- September 27, 2025: Taylor started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.\n- October 5, 2025: Grandma June at the head of the table\n- November 8, 2025: Taylor's first lost tooth\n- November 15, 2025: Milo, five, missing the same one",
      "memoryIds": [
       "mem_f328007bb8e20b0224",
       "mem_6aabc3425a294b31aa",
@@ -20215,11 +20212,11 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_f328007bb8e20b0224-web.jpg",
     "commentary": {
-     "text": "\"Fall 2025 with Rooney\" covers September 13, 2025 to November 15, 2025 and holds 5 memories. In these memories: Rooney, Milo and Grandma June.",
+     "text": "\"Fall 2025 with Taylor\" covers September 13, 2025 to November 15, 2025 and holds 5 memories. In these memories: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
-       "title": "Fall 2025 with Rooney",
+       "title": "Fall 2025 with Taylor",
        "startDate": "2025-09-13T15:00:00.000Z",
        "endDate": "2025-11-15T15:00:00.000Z",
        "count": 5
@@ -20227,7 +20224,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -20258,7 +20255,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from November 15, 2025, with Milo. Memory 5 of 5 in \"Fall 2025 with Rooney\" (September 13, 2025 to November 15, 2025).",
+      "text": "A photo from November 15, 2025, with Milo. Memory 5 of 5 in \"Fall 2025 with Taylor\" (September 13, 2025 to November 15, 2025).",
       "basedOn": [
        {
         "type": "date",
@@ -20279,7 +20276,7 @@ window.ROON_DEMO_DATA = {
        },
        {
         "type": "chapter",
-        "title": "Fall 2025 with Rooney",
+        "title": "Fall 2025 with Taylor",
         "position": 5,
         "count": 5,
         "startDate": "2025-09-13T15:00:00.000Z",
@@ -20296,7 +20293,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -20341,13 +20338,13 @@ window.ROON_DEMO_DATA = {
     "chapter": {
      "id": "ch_5c6ef2069c6229d0cd",
      "familyId": "fam_b44fd40e9d36256d3b",
-     "title": "Fall 2025 with Rooney",
+     "title": "Fall 2025 with Taylor",
      "userRenamed": false,
      "startDate": "2025-09-13T15:00:00.000Z",
      "endDate": "2025-11-15T15:00:00.000Z",
      "season": "Fall",
      "year": 2025,
-     "narrative": "Between September 13, 2025 and November 15, 2025, your family kept 5 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- September 13, 2025: Back to school, second grade\n- September 27, 2025: Rooney started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.\n- October 5, 2025: Grandma June at the head of the table\n- November 8, 2025: Rooney's first lost tooth\n- November 15, 2025: Milo, five, missing the same one",
+     "narrative": "Between September 13, 2025 and November 15, 2025, your family kept 5 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- September 13, 2025: Back to school, second grade\n- September 27, 2025: Taylor started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.\n- October 5, 2025: Grandma June at the head of the table\n- November 8, 2025: Taylor's first lost tooth\n- November 15, 2025: Milo, five, missing the same one",
      "memoryIds": [
       "mem_f328007bb8e20b0224",
       "mem_6aabc3425a294b31aa",
@@ -20361,11 +20358,11 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_f328007bb8e20b0224-web.jpg",
     "commentary": {
-     "text": "\"Fall 2025 with Rooney\" covers September 13, 2025 to November 15, 2025 and holds 5 memories. In these memories: Rooney, Milo and Grandma June.",
+     "text": "\"Fall 2025 with Taylor\" covers September 13, 2025 to November 15, 2025 and holds 5 memories. In these memories: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
-       "title": "Fall 2025 with Rooney",
+       "title": "Fall 2025 with Taylor",
        "startDate": "2025-09-13T15:00:00.000Z",
        "endDate": "2025-11-15T15:00:00.000Z",
        "count": 5
@@ -20373,7 +20370,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -20389,7 +20386,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_9384517751ca8103e4-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_9384517751ca8103e4-web.jpg",
      "poster": null,
-     "caption": "Rooney's first lost tooth",
+     "caption": "Taylor's first lost tooth",
      "storyText": "",
      "takenAt": "2025-11-08T15:00:00.000Z",
      "peopleIds": [
@@ -20404,7 +20401,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from November 8, 2025, with Rooney. Memory 4 of 5 in \"Fall 2025 with Rooney\" (September 13, 2025 to November 15, 2025).",
+      "text": "A photo from November 8, 2025, with Taylor. Memory 4 of 5 in \"Fall 2025 with Taylor\" (September 13, 2025 to November 15, 2025).",
       "basedOn": [
        {
         "type": "date",
@@ -20420,12 +20417,12 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "chapter",
-        "title": "Fall 2025 with Rooney",
+        "title": "Fall 2025 with Taylor",
         "position": 4,
         "count": 5,
         "startDate": "2025-09-13T15:00:00.000Z",
@@ -20442,7 +20439,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -20487,7 +20484,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -20570,12 +20567,12 @@ window.ROON_DEMO_DATA = {
      "excludedIds": [],
      "sample": true,
      "createdAt": "2026-10-30T20:42:09.043Z",
-     "updatedAt": "2026-10-30T22:10:52.650Z",
+     "updatedAt": "2026-10-30T22:33:05.693Z",
      "growthCount": 7
     },
     "threadId": "thr_b9e51c83f33adac898",
     "commentary": {
-     "text": "Assembled from 7 moments kept from 2021 to 2025: 6 photos, 1 video. Recorded in them: Grandma June, Rooney and Milo.",
+     "text": "Assembled from 7 moments kept from 2021 to 2025: 6 photos, 1 video. Recorded in them: Grandma June, Taylor and Milo.",
      "basedOn": [
       {
        "type": "thread",
@@ -20595,7 +20592,7 @@ window.ROON_DEMO_DATA = {
        "type": "people",
        "names": [
         "Grandma June",
-        "Rooney",
+        "Taylor",
         "Milo"
        ]
       }
@@ -20639,7 +20636,7 @@ window.ROON_DEMO_DATA = {
      "excludedIds": [],
      "sample": true,
      "createdAt": "2026-10-30T20:42:09.043Z",
-     "updatedAt": "2026-10-30T22:10:52.650Z",
+     "updatedAt": "2026-10-30T22:33:05.693Z",
      "growthCount": 7
     },
     "newCount": 7,
@@ -20682,7 +20679,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from October 30, 2024, with Rooney, Milo and Grandma June. It was kept 2 years ago today.",
+      "text": "A piece of writing from October 30, 2024, with Taylor, Milo and Grandma June. It was kept 2 years ago today.",
       "basedOn": [
        {
         "type": "date",
@@ -20698,7 +20695,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
@@ -20752,11 +20749,11 @@ window.ROON_DEMO_DATA = {
      "excludedIds": [],
      "sample": true,
      "createdAt": "2026-10-30T20:42:09.043Z",
-     "updatedAt": "2026-10-30T22:10:52.650Z",
+     "updatedAt": "2026-10-30T22:33:05.693Z",
      "growthCount": 9
     },
     "commentary": {
-     "text": "This thread holds 9 moments from 2022 to 2024: 3 photos, 1 video, 5 pieces of writing. In these moments: Rooney, Milo and Grandma June.",
+     "text": "This thread holds 9 moments from 2022 to 2024: 3 photos, 1 video, 5 pieces of writing. In these moments: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "thread",
@@ -20776,7 +20773,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -20820,11 +20817,11 @@ window.ROON_DEMO_DATA = {
      "excludedIds": [],
      "sample": true,
      "createdAt": "2026-10-30T20:42:09.043Z",
-     "updatedAt": "2026-10-30T22:10:52.650Z",
+     "updatedAt": "2026-10-30T22:33:05.693Z",
      "growthCount": 6
     },
     "commentary": {
-     "text": "This thread holds 6 moments from 2022 to 2025: 5 photos, 1 video. In these moments: Rooney, Milo and Grandma June.",
+     "text": "This thread holds 6 moments from 2022 to 2025: 5 photos, 1 video. In these moments: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "thread",
@@ -20843,7 +20840,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -20856,13 +20853,13 @@ window.ROON_DEMO_DATA = {
     "chapter": {
      "id": "ch_5c6ef2069c6229d0cd",
      "familyId": "fam_b44fd40e9d36256d3b",
-     "title": "Fall 2025 with Rooney",
+     "title": "Fall 2025 with Taylor",
      "userRenamed": false,
      "startDate": "2025-09-13T15:00:00.000Z",
      "endDate": "2025-11-15T15:00:00.000Z",
      "season": "Fall",
      "year": 2025,
-     "narrative": "Between September 13, 2025 and November 15, 2025, your family kept 5 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- September 13, 2025: Back to school, second grade\n- September 27, 2025: Rooney started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.\n- October 5, 2025: Grandma June at the head of the table\n- November 8, 2025: Rooney's first lost tooth\n- November 15, 2025: Milo, five, missing the same one",
+     "narrative": "Between September 13, 2025 and November 15, 2025, your family kept 5 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- September 13, 2025: Back to school, second grade\n- September 27, 2025: Taylor started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.\n- October 5, 2025: Grandma June at the head of the table\n- November 8, 2025: Taylor's first lost tooth\n- November 15, 2025: Milo, five, missing the same one",
      "memoryIds": [
       "mem_f328007bb8e20b0224",
       "mem_6aabc3425a294b31aa",
@@ -20876,11 +20873,11 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_f328007bb8e20b0224-web.jpg",
     "commentary": {
-     "text": "\"Fall 2025 with Rooney\" covers September 13, 2025 to November 15, 2025 and holds 5 memories. In these memories: Rooney, Milo and Grandma June.",
+     "text": "\"Fall 2025 with Taylor\" covers September 13, 2025 to November 15, 2025 and holds 5 memories. In these memories: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
-       "title": "Fall 2025 with Rooney",
+       "title": "Fall 2025 with Taylor",
        "startDate": "2025-09-13T15:00:00.000Z",
        "endDate": "2025-11-15T15:00:00.000Z",
        "count": 5
@@ -20888,7 +20885,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -20919,7 +20916,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from November 15, 2025, with Milo. Memory 5 of 5 in \"Fall 2025 with Rooney\" (September 13, 2025 to November 15, 2025).",
+      "text": "A photo from November 15, 2025, with Milo. Memory 5 of 5 in \"Fall 2025 with Taylor\" (September 13, 2025 to November 15, 2025).",
       "basedOn": [
        {
         "type": "date",
@@ -20940,7 +20937,7 @@ window.ROON_DEMO_DATA = {
        },
        {
         "type": "chapter",
-        "title": "Fall 2025 with Rooney",
+        "title": "Fall 2025 with Taylor",
         "position": 5,
         "count": 5,
         "startDate": "2025-09-13T15:00:00.000Z",
@@ -20959,7 +20956,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_9384517751ca8103e4-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_9384517751ca8103e4-web.jpg",
      "poster": null,
-     "caption": "Rooney's first lost tooth",
+     "caption": "Taylor's first lost tooth",
      "storyText": "",
      "takenAt": "2025-11-08T15:00:00.000Z",
      "peopleIds": [
@@ -20974,7 +20971,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from November 8, 2025, with Rooney. Memory 4 of 5 in \"Fall 2025 with Rooney\" (September 13, 2025 to November 15, 2025).",
+      "text": "A photo from November 8, 2025, with Taylor. Memory 4 of 5 in \"Fall 2025 with Taylor\" (September 13, 2025 to November 15, 2025).",
       "basedOn": [
        {
         "type": "date",
@@ -20990,12 +20987,12 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "chapter",
-        "title": "Fall 2025 with Rooney",
+        "title": "Fall 2025 with Taylor",
         "position": 4,
         "count": 5,
         "startDate": "2025-09-13T15:00:00.000Z",
@@ -21068,13 +21065,13 @@ window.ROON_DEMO_DATA = {
     "chapter": {
      "id": "ch_0eee7456d81132d561",
      "familyId": "fam_b44fd40e9d36256d3b",
-     "title": "Summer 2025 with Rooney",
+     "title": "Summer 2025 with Taylor",
      "userRenamed": false,
      "startDate": "2025-06-14T15:00:00.000Z",
      "endDate": "2025-08-16T15:00:00.000Z",
      "season": "Summer",
      "year": 2025,
-     "narrative": "Between June 14, 2025 and August 16, 2025, your family kept 6 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- June 14, 2025: First splash day of summer\n- June 21, 2025: Grandma's garden, sixth summer\n- July 12, 2025: Two bikes, one summer\n- July 19, 2025: The ocean, one year on\n- August 2, 2025: Pool noodles and big jumps\n- August 16, 2025: Grandma June teaches Rooney to shell peas",
+     "narrative": "Between June 14, 2025 and August 16, 2025, your family kept 6 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- June 14, 2025: First splash day of summer\n- June 21, 2025: Grandma's garden, sixth summer\n- July 12, 2025: Two bikes, one summer\n- July 19, 2025: The ocean, one year on\n- August 2, 2025: Pool noodles and big jumps\n- August 16, 2025: Grandma June teaches Taylor to shell peas",
      "memoryIds": [
       "mem_903bad6961b6d2995b",
       "mem_2470198b42e1c9e540",
@@ -21089,11 +21086,11 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_903bad6961b6d2995b-web.jpg",
     "commentary": {
-     "text": "\"Summer 2025 with Rooney\" covers June 14, 2025 to August 16, 2025 and holds 6 memories. In these memories: Rooney, Milo and Grandma June.",
+     "text": "\"Summer 2025 with Taylor\" covers June 14, 2025 to August 16, 2025 and holds 6 memories. In these memories: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
-       "title": "Summer 2025 with Rooney",
+       "title": "Summer 2025 with Taylor",
        "startDate": "2025-06-14T15:00:00.000Z",
        "endDate": "2025-08-16T15:00:00.000Z",
        "count": 6
@@ -21101,7 +21098,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -21118,7 +21115,7 @@ window.ROON_DEMO_DATA = {
      "originalSrc": null,
      "poster": null,
      "caption": "The lunchbox note era",
-     "storyText": "Rooney started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.",
+     "storyText": "Taylor started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.",
      "takenAt": "2025-09-27T15:00:00.000Z",
      "peopleIds": [
       "per_47f6d75809a92fae04",
@@ -21133,7 +21130,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from September 27, 2025, with Rooney and Milo. Moment 26 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A piece of writing from September 27, 2025, with Taylor and Milo. Moment 26 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -21149,13 +21146,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 26,
         "count": 26,
         "fromYear": 2022,
@@ -21189,7 +21186,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from September 13, 2025, with Rooney. Memory 1 of 5 in \"Fall 2025 with Rooney\" (September 13, 2025 to November 15, 2025).",
+      "text": "A photo from September 13, 2025, with Taylor. Memory 1 of 5 in \"Fall 2025 with Taylor\" (September 13, 2025 to November 15, 2025).",
       "basedOn": [
        {
         "type": "date",
@@ -21205,12 +21202,12 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "chapter",
-        "title": "Fall 2025 with Rooney",
+        "title": "Fall 2025 with Taylor",
         "position": 1,
         "count": 5,
         "startDate": "2025-09-13T15:00:00.000Z",
@@ -21227,7 +21224,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -21272,7 +21269,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -21337,7 +21334,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from October 30, 2024, with Rooney, Milo and Grandma June. It was kept 2 years ago today.",
+      "text": "A piece of writing from October 30, 2024, with Taylor, Milo and Grandma June. It was kept 2 years ago today.",
       "basedOn": [
        {
         "type": "date",
@@ -21353,7 +21350,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
@@ -21373,13 +21370,13 @@ window.ROON_DEMO_DATA = {
     "chapter": {
      "id": "ch_5c6ef2069c6229d0cd",
      "familyId": "fam_b44fd40e9d36256d3b",
-     "title": "Fall 2025 with Rooney",
+     "title": "Fall 2025 with Taylor",
      "userRenamed": false,
      "startDate": "2025-09-13T15:00:00.000Z",
      "endDate": "2025-11-15T15:00:00.000Z",
      "season": "Fall",
      "year": 2025,
-     "narrative": "Between September 13, 2025 and November 15, 2025, your family kept 5 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- September 13, 2025: Back to school, second grade\n- September 27, 2025: Rooney started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.\n- October 5, 2025: Grandma June at the head of the table\n- November 8, 2025: Rooney's first lost tooth\n- November 15, 2025: Milo, five, missing the same one",
+     "narrative": "Between September 13, 2025 and November 15, 2025, your family kept 5 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- September 13, 2025: Back to school, second grade\n- September 27, 2025: Taylor started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.\n- October 5, 2025: Grandma June at the head of the table\n- November 8, 2025: Taylor's first lost tooth\n- November 15, 2025: Milo, five, missing the same one",
      "memoryIds": [
       "mem_f328007bb8e20b0224",
       "mem_6aabc3425a294b31aa",
@@ -21393,11 +21390,11 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_f328007bb8e20b0224-web.jpg",
     "commentary": {
-     "text": "\"Fall 2025 with Rooney\" covers September 13, 2025 to November 15, 2025 and holds 5 memories. In these memories: Rooney, Milo and Grandma June.",
+     "text": "\"Fall 2025 with Taylor\" covers September 13, 2025 to November 15, 2025 and holds 5 memories. In these memories: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
-       "title": "Fall 2025 with Rooney",
+       "title": "Fall 2025 with Taylor",
        "startDate": "2025-09-13T15:00:00.000Z",
        "endDate": "2025-11-15T15:00:00.000Z",
        "count": 5
@@ -21405,7 +21402,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -21436,7 +21433,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from November 15, 2025, with Milo. Memory 5 of 5 in \"Fall 2025 with Rooney\" (September 13, 2025 to November 15, 2025).",
+      "text": "A photo from November 15, 2025, with Milo. Memory 5 of 5 in \"Fall 2025 with Taylor\" (September 13, 2025 to November 15, 2025).",
       "basedOn": [
        {
         "type": "date",
@@ -21457,7 +21454,7 @@ window.ROON_DEMO_DATA = {
        },
        {
         "type": "chapter",
-        "title": "Fall 2025 with Rooney",
+        "title": "Fall 2025 with Taylor",
         "position": 5,
         "count": 5,
         "startDate": "2025-09-13T15:00:00.000Z",
@@ -21534,7 +21531,7 @@ window.ROON_DEMO_DATA = {
      "originalSrc": null,
      "poster": null,
      "caption": "The lunchbox note era",
-     "storyText": "Rooney started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.",
+     "storyText": "Taylor started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.",
      "takenAt": "2025-09-27T15:00:00.000Z",
      "peopleIds": [
       "per_47f6d75809a92fae04",
@@ -21549,7 +21546,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from September 27, 2025, with Rooney and Milo. Moment 26 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A piece of writing from September 27, 2025, with Taylor and Milo. Moment 26 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -21565,13 +21562,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 26,
         "count": 26,
         "fromYear": 2022,
@@ -21587,13 +21584,13 @@ window.ROON_DEMO_DATA = {
     "chapter": {
      "id": "ch_0eee7456d81132d561",
      "familyId": "fam_b44fd40e9d36256d3b",
-     "title": "Summer 2025 with Rooney",
+     "title": "Summer 2025 with Taylor",
      "userRenamed": false,
      "startDate": "2025-06-14T15:00:00.000Z",
      "endDate": "2025-08-16T15:00:00.000Z",
      "season": "Summer",
      "year": 2025,
-     "narrative": "Between June 14, 2025 and August 16, 2025, your family kept 6 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- June 14, 2025: First splash day of summer\n- June 21, 2025: Grandma's garden, sixth summer\n- July 12, 2025: Two bikes, one summer\n- July 19, 2025: The ocean, one year on\n- August 2, 2025: Pool noodles and big jumps\n- August 16, 2025: Grandma June teaches Rooney to shell peas",
+     "narrative": "Between June 14, 2025 and August 16, 2025, your family kept 6 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- June 14, 2025: First splash day of summer\n- June 21, 2025: Grandma's garden, sixth summer\n- July 12, 2025: Two bikes, one summer\n- July 19, 2025: The ocean, one year on\n- August 2, 2025: Pool noodles and big jumps\n- August 16, 2025: Grandma June teaches Taylor to shell peas",
      "memoryIds": [
       "mem_903bad6961b6d2995b",
       "mem_2470198b42e1c9e540",
@@ -21608,11 +21605,11 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_903bad6961b6d2995b-web.jpg",
     "commentary": {
-     "text": "\"Summer 2025 with Rooney\" covers June 14, 2025 to August 16, 2025 and holds 6 memories. In these memories: Rooney, Milo and Grandma June.",
+     "text": "\"Summer 2025 with Taylor\" covers June 14, 2025 to August 16, 2025 and holds 6 memories. In these memories: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
-       "title": "Summer 2025 with Rooney",
+       "title": "Summer 2025 with Taylor",
        "startDate": "2025-06-14T15:00:00.000Z",
        "endDate": "2025-08-16T15:00:00.000Z",
        "count": 6
@@ -21620,7 +21617,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -21652,7 +21649,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from August 2, 2025, with Milo and Rooney. Moment 25 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from August 2, 2025, with Milo and Taylor. Moment 25 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -21669,12 +21666,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Milo",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 25,
         "count": 26,
         "fromYear": 2022,
@@ -21710,7 +21707,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 19, 2025, with Rooney, Milo and Grandma June. Moment 24 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 19, 2025, with Taylor, Milo and Grandma June. Moment 24 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -21726,14 +21723,14 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 24,
         "count": 26,
         "fromYear": 2022,
@@ -21768,7 +21765,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 12, 2025, with Rooney and Milo. Moment 23 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 12, 2025, with Taylor and Milo. Moment 23 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -21784,13 +21781,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 23,
         "count": 26,
         "fromYear": 2022,
@@ -21812,7 +21809,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2025-04-12T15:00:00.000Z",
      "season": "Spring",
      "year": 2025,
-     "narrative": "Between April 5, 2025 and April 12, 2025, your family kept 2 memories here.\nIn these memories: Rooney, Milo.\nIn your own words:\n- April 5, 2025: Rooney reads to the whole class\n- April 12, 2025: Seven: a birthday crown and big plans",
+     "narrative": "Between April 5, 2025 and April 12, 2025, your family kept 2 memories here.\nIn these memories: Taylor, Milo.\nIn your own words:\n- April 5, 2025: Taylor reads to the whole class\n- April 12, 2025: Seven: a birthday crown and big plans",
      "memoryIds": [
       "mem_66e690fc8ee0883d1f",
       "mem_2a0a0b17b2d2264708"
@@ -21823,7 +21820,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_66e690fc8ee0883d1f-web.jpg",
     "commentary": {
-     "text": "\"The Spring of Birthdays\" covers April 5, 2025 to April 12, 2025 and holds 2 memories. In these memories: Rooney and Milo.",
+     "text": "\"The Spring of Birthdays\" covers April 5, 2025 to April 12, 2025 and holds 2 memories. In these memories: Taylor and Milo.",
      "basedOn": [
       {
        "type": "chapter",
@@ -21835,7 +21832,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo"
        ]
       }
@@ -21866,7 +21863,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 14, 2025, with Rooney and Milo. Moment 22 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from June 14, 2025, with Taylor and Milo. Moment 22 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -21882,13 +21879,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 22,
         "count": 26,
         "fromYear": 2022,
@@ -21923,7 +21920,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from April 12, 2025, with Rooney and Milo. Moment 21 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from April 12, 2025, with Taylor and Milo. Moment 21 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -21939,13 +21936,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 21,
         "count": 26,
         "fromYear": 2022,
@@ -21962,7 +21959,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -22027,7 +22024,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from October 30, 2024, with Rooney, Milo and Grandma June. It was kept 2 years ago today.",
+      "text": "A piece of writing from October 30, 2024, with Taylor, Milo and Grandma June. It was kept 2 years ago today.",
       "basedOn": [
        {
         "type": "date",
@@ -22043,7 +22040,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
@@ -22063,13 +22060,13 @@ window.ROON_DEMO_DATA = {
     "chapter": {
      "id": "ch_5c6ef2069c6229d0cd",
      "familyId": "fam_b44fd40e9d36256d3b",
-     "title": "Fall 2025 with Rooney",
+     "title": "Fall 2025 with Taylor",
      "userRenamed": false,
      "startDate": "2025-09-13T15:00:00.000Z",
      "endDate": "2025-11-15T15:00:00.000Z",
      "season": "Fall",
      "year": 2025,
-     "narrative": "Between September 13, 2025 and November 15, 2025, your family kept 5 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- September 13, 2025: Back to school, second grade\n- September 27, 2025: Rooney started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.\n- October 5, 2025: Grandma June at the head of the table\n- November 8, 2025: Rooney's first lost tooth\n- November 15, 2025: Milo, five, missing the same one",
+     "narrative": "Between September 13, 2025 and November 15, 2025, your family kept 5 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- September 13, 2025: Back to school, second grade\n- September 27, 2025: Taylor started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.\n- October 5, 2025: Grandma June at the head of the table\n- November 8, 2025: Taylor's first lost tooth\n- November 15, 2025: Milo, five, missing the same one",
      "memoryIds": [
       "mem_f328007bb8e20b0224",
       "mem_6aabc3425a294b31aa",
@@ -22083,11 +22080,11 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_f328007bb8e20b0224-web.jpg",
     "commentary": {
-     "text": "\"Fall 2025 with Rooney\" covers September 13, 2025 to November 15, 2025 and holds 5 memories. In these memories: Rooney, Milo and Grandma June.",
+     "text": "\"Fall 2025 with Taylor\" covers September 13, 2025 to November 15, 2025 and holds 5 memories. In these memories: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
-       "title": "Fall 2025 with Rooney",
+       "title": "Fall 2025 with Taylor",
        "startDate": "2025-09-13T15:00:00.000Z",
        "endDate": "2025-11-15T15:00:00.000Z",
        "count": 5
@@ -22095,7 +22092,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -22111,7 +22108,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_9384517751ca8103e4-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_9384517751ca8103e4-web.jpg",
      "poster": null,
-     "caption": "Rooney's first lost tooth",
+     "caption": "Taylor's first lost tooth",
      "storyText": "",
      "takenAt": "2025-11-08T15:00:00.000Z",
      "peopleIds": [
@@ -22126,7 +22123,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from November 8, 2025, with Rooney. Memory 4 of 5 in \"Fall 2025 with Rooney\" (September 13, 2025 to November 15, 2025).",
+      "text": "A photo from November 8, 2025, with Taylor. Memory 4 of 5 in \"Fall 2025 with Taylor\" (September 13, 2025 to November 15, 2025).",
       "basedOn": [
        {
         "type": "date",
@@ -22142,12 +22139,12 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "chapter",
-        "title": "Fall 2025 with Rooney",
+        "title": "Fall 2025 with Taylor",
         "position": 4,
         "count": 5,
         "startDate": "2025-09-13T15:00:00.000Z",
@@ -22167,7 +22164,7 @@ window.ROON_DEMO_DATA = {
      "originalSrc": null,
      "poster": null,
      "caption": "The lunchbox note era",
-     "storyText": "Rooney started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.",
+     "storyText": "Taylor started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.",
      "takenAt": "2025-09-27T15:00:00.000Z",
      "peopleIds": [
       "per_47f6d75809a92fae04",
@@ -22182,7 +22179,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from September 27, 2025, with Rooney and Milo. Moment 26 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A piece of writing from September 27, 2025, with Taylor and Milo. Moment 26 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -22198,13 +22195,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 26,
         "count": 26,
         "fromYear": 2022,
@@ -22238,7 +22235,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from September 13, 2025, with Rooney. Memory 1 of 5 in \"Fall 2025 with Rooney\" (September 13, 2025 to November 15, 2025).",
+      "text": "A photo from September 13, 2025, with Taylor. Memory 1 of 5 in \"Fall 2025 with Taylor\" (September 13, 2025 to November 15, 2025).",
       "basedOn": [
        {
         "type": "date",
@@ -22254,12 +22251,12 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "chapter",
-        "title": "Fall 2025 with Rooney",
+        "title": "Fall 2025 with Taylor",
         "position": 1,
         "count": 5,
         "startDate": "2025-09-13T15:00:00.000Z",
@@ -22275,13 +22272,13 @@ window.ROON_DEMO_DATA = {
     "chapter": {
      "id": "ch_0eee7456d81132d561",
      "familyId": "fam_b44fd40e9d36256d3b",
-     "title": "Summer 2025 with Rooney",
+     "title": "Summer 2025 with Taylor",
      "userRenamed": false,
      "startDate": "2025-06-14T15:00:00.000Z",
      "endDate": "2025-08-16T15:00:00.000Z",
      "season": "Summer",
      "year": 2025,
-     "narrative": "Between June 14, 2025 and August 16, 2025, your family kept 6 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- June 14, 2025: First splash day of summer\n- June 21, 2025: Grandma's garden, sixth summer\n- July 12, 2025: Two bikes, one summer\n- July 19, 2025: The ocean, one year on\n- August 2, 2025: Pool noodles and big jumps\n- August 16, 2025: Grandma June teaches Rooney to shell peas",
+     "narrative": "Between June 14, 2025 and August 16, 2025, your family kept 6 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- June 14, 2025: First splash day of summer\n- June 21, 2025: Grandma's garden, sixth summer\n- July 12, 2025: Two bikes, one summer\n- July 19, 2025: The ocean, one year on\n- August 2, 2025: Pool noodles and big jumps\n- August 16, 2025: Grandma June teaches Taylor to shell peas",
      "memoryIds": [
       "mem_903bad6961b6d2995b",
       "mem_2470198b42e1c9e540",
@@ -22296,11 +22293,11 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_903bad6961b6d2995b-web.jpg",
     "commentary": {
-     "text": "\"Summer 2025 with Rooney\" covers June 14, 2025 to August 16, 2025 and holds 6 memories. In these memories: Rooney, Milo and Grandma June.",
+     "text": "\"Summer 2025 with Taylor\" covers June 14, 2025 to August 16, 2025 and holds 6 memories. In these memories: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
-       "title": "Summer 2025 with Rooney",
+       "title": "Summer 2025 with Taylor",
        "startDate": "2025-06-14T15:00:00.000Z",
        "endDate": "2025-08-16T15:00:00.000Z",
        "count": 6
@@ -22308,7 +22305,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -22324,7 +22321,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_979e2268db43b1f51b-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_979e2268db43b1f51b-web.jpg",
      "poster": null,
-     "caption": "Grandma June teaches Rooney to shell peas",
+     "caption": "Grandma June teaches Taylor to shell peas",
      "storyText": "",
      "takenAt": "2025-08-16T15:00:00.000Z",
      "peopleIds": [
@@ -22340,7 +22337,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from August 16, 2025, with Grandma June and Rooney. Moment 15 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A photo from August 16, 2025, with Grandma June and Taylor. Moment 15 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -22357,12 +22354,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 15,
         "count": 15,
         "fromYear": 2021,
@@ -22397,7 +22394,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from August 2, 2025, with Milo and Rooney. Moment 25 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from August 2, 2025, with Milo and Taylor. Moment 25 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -22414,12 +22411,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Milo",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 25,
         "count": 26,
         "fromYear": 2022,
@@ -22455,7 +22452,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 19, 2025, with Rooney, Milo and Grandma June. Moment 24 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 19, 2025, with Taylor, Milo and Grandma June. Moment 24 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -22471,14 +22468,14 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 24,
         "count": 26,
         "fromYear": 2022,
@@ -22500,7 +22497,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2025-04-12T15:00:00.000Z",
      "season": "Spring",
      "year": 2025,
-     "narrative": "Between April 5, 2025 and April 12, 2025, your family kept 2 memories here.\nIn these memories: Rooney, Milo.\nIn your own words:\n- April 5, 2025: Rooney reads to the whole class\n- April 12, 2025: Seven: a birthday crown and big plans",
+     "narrative": "Between April 5, 2025 and April 12, 2025, your family kept 2 memories here.\nIn these memories: Taylor, Milo.\nIn your own words:\n- April 5, 2025: Taylor reads to the whole class\n- April 12, 2025: Seven: a birthday crown and big plans",
      "memoryIds": [
       "mem_66e690fc8ee0883d1f",
       "mem_2a0a0b17b2d2264708"
@@ -22511,7 +22508,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_66e690fc8ee0883d1f-web.jpg",
     "commentary": {
-     "text": "\"The Spring of Birthdays\" covers April 5, 2025 to April 12, 2025 and holds 2 memories. In these memories: Rooney and Milo.",
+     "text": "\"The Spring of Birthdays\" covers April 5, 2025 to April 12, 2025 and holds 2 memories. In these memories: Taylor and Milo.",
      "basedOn": [
       {
        "type": "chapter",
@@ -22523,7 +22520,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo"
        ]
       }
@@ -22554,7 +22551,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 12, 2025, with Rooney and Milo. Moment 23 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 12, 2025, with Taylor and Milo. Moment 23 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -22570,13 +22567,13 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 23,
         "count": 26,
         "fromYear": 2022,
@@ -22611,7 +22608,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 21, 2025, with Grandma June and Rooney. Moment 7 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
+      "text": "A photo from June 21, 2025, with Grandma June and Taylor. Moment 7 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -22628,7 +22625,7 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -22650,7 +22647,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -22695,7 +22692,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -22740,7 +22737,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -22817,7 +22814,7 @@ window.ROON_DEMO_DATA = {
      "excludedIds": [],
      "sample": true,
      "createdAt": "2026-10-30T20:42:09.043Z",
-     "updatedAt": "2026-10-30T22:10:52.795Z",
+     "updatedAt": "2026-10-30T22:33:05.773Z",
      "growthCount": 7
     },
     "observation": "\"garden\" appears in memories from 2021, 2023, 2024, 2025 — 7 memories in all.",
@@ -22828,7 +22825,7 @@ window.ROON_DEMO_DATA = {
     },
     "threadId": "thr_b9e51c83f33adac898",
     "commentary": {
-     "text": "Assembled from 7 moments kept from 2021 to 2025: 6 photos, 1 video. Recorded in them: Grandma June, Rooney and Milo.",
+     "text": "Assembled from 7 moments kept from 2021 to 2025: 6 photos, 1 video. Recorded in them: Grandma June, Taylor and Milo.",
      "basedOn": [
       {
        "type": "thread",
@@ -22848,7 +22845,7 @@ window.ROON_DEMO_DATA = {
        "type": "people",
        "names": [
         "Grandma June",
-        "Rooney",
+        "Taylor",
         "Milo"
        ]
       }
@@ -22880,7 +22877,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from October 30, 2024, with Rooney, Milo and Grandma June. It was kept 2 years ago today.",
+      "text": "A piece of writing from October 30, 2024, with Taylor, Milo and Grandma June. It was kept 2 years ago today.",
       "basedOn": [
        {
         "type": "date",
@@ -22896,7 +22893,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
@@ -22973,13 +22970,13 @@ window.ROON_DEMO_DATA = {
     "chapter": {
      "id": "ch_0eee7456d81132d561",
      "familyId": "fam_b44fd40e9d36256d3b",
-     "title": "Summer 2025 with Rooney",
+     "title": "Summer 2025 with Taylor",
      "userRenamed": false,
      "startDate": "2025-06-14T15:00:00.000Z",
      "endDate": "2025-08-16T15:00:00.000Z",
      "season": "Summer",
      "year": 2025,
-     "narrative": "Between June 14, 2025 and August 16, 2025, your family kept 6 memories here.\nIn these memories: Rooney, Milo, Grandma June.\nIn your own words:\n- June 14, 2025: First splash day of summer\n- June 21, 2025: Grandma's garden, sixth summer\n- July 12, 2025: Two bikes, one summer\n- July 19, 2025: The ocean, one year on\n- August 2, 2025: Pool noodles and big jumps\n- August 16, 2025: Grandma June teaches Rooney to shell peas",
+     "narrative": "Between June 14, 2025 and August 16, 2025, your family kept 6 memories here.\nIn these memories: Taylor, Milo, Grandma June.\nIn your own words:\n- June 14, 2025: First splash day of summer\n- June 21, 2025: Grandma's garden, sixth summer\n- July 12, 2025: Two bikes, one summer\n- July 19, 2025: The ocean, one year on\n- August 2, 2025: Pool noodles and big jumps\n- August 16, 2025: Grandma June teaches Taylor to shell peas",
      "memoryIds": [
       "mem_903bad6961b6d2995b",
       "mem_2470198b42e1c9e540",
@@ -22994,11 +22991,11 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_903bad6961b6d2995b-web.jpg",
     "commentary": {
-     "text": "\"Summer 2025 with Rooney\" covers June 14, 2025 to August 16, 2025 and holds 6 memories. In these memories: Rooney, Milo and Grandma June.",
+     "text": "\"Summer 2025 with Taylor\" covers June 14, 2025 to August 16, 2025 and holds 6 memories. In these memories: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
-       "title": "Summer 2025 with Rooney",
+       "title": "Summer 2025 with Taylor",
        "startDate": "2025-06-14T15:00:00.000Z",
        "endDate": "2025-08-16T15:00:00.000Z",
        "count": 6
@@ -23006,7 +23003,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -23022,7 +23019,7 @@ window.ROON_DEMO_DATA = {
      "src": "media/fam_b44fd40e9d36256d3b/mem_979e2268db43b1f51b-web.jpg",
      "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_979e2268db43b1f51b-web.jpg",
      "poster": null,
-     "caption": "Grandma June teaches Rooney to shell peas",
+     "caption": "Grandma June teaches Taylor to shell peas",
      "storyText": "",
      "takenAt": "2025-08-16T15:00:00.000Z",
      "peopleIds": [
@@ -23038,7 +23035,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from August 16, 2025, with Grandma June and Rooney. Moment 15 of 15 in the thread \"Rooney & Grandma June, together\", which runs from 2021 to 2025.",
+      "text": "A photo from August 16, 2025, with Grandma June and Taylor. Moment 15 of 15 in the thread \"Taylor & Grandma June, together\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -23055,12 +23052,12 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
         "type": "thread",
-        "title": "Rooney & Grandma June, together",
+        "title": "Taylor & Grandma June, together",
         "position": 15,
         "count": 15,
         "fromYear": 2021,
@@ -23096,7 +23093,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 19, 2025, with Rooney, Milo and Grandma June. Moment 24 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from July 19, 2025, with Taylor, Milo and Grandma June. Moment 24 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -23112,14 +23109,14 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 24,
         "count": 26,
         "fromYear": 2022,
@@ -23154,7 +23151,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from June 21, 2025, with Grandma June and Rooney. Moment 7 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
+      "text": "A photo from June 21, 2025, with Grandma June and Taylor. Moment 7 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -23171,7 +23168,7 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Grandma June",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -23198,7 +23195,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2024-10-30T15:00:00.000Z",
      "season": "Fall",
      "year": 2024,
-     "narrative": "Between September 1, 2024 and October 30, 2024, your family kept 3 memories here.\nIn these memories: Milo, Rooney, Grandma June.\nIn your own words:\n- September 1, 2024: First day of preschool for Milo\n- September 7, 2024: Milo's fourth birthday, balloons everywhere\n- October 30, 2024: Nothing happened. Pancakes, a lost shoe, a song in the car. These are the days we would give anything to have back.",
+     "narrative": "Between September 1, 2024 and October 30, 2024, your family kept 3 memories here.\nIn these memories: Milo, Taylor, Grandma June.\nIn your own words:\n- September 1, 2024: First day of preschool for Milo\n- September 7, 2024: Milo's fourth birthday, balloons everywhere\n- October 30, 2024: Nothing happened. Pancakes, a lost shoe, a song in the car. These are the days we would give anything to have back.",
      "memoryIds": [
       "mem_4836287c77ee44c79c",
       "mem_74b4de13459ab5e92c",
@@ -23210,7 +23207,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_4836287c77ee44c79c-web.jpg",
     "commentary": {
-     "text": "\"Fall 2024 with Milo\" covers September 1, 2024 to October 30, 2024 and holds 3 memories. In these memories: Milo, Rooney and Grandma June.",
+     "text": "\"Fall 2024 with Milo\" covers September 1, 2024 to October 30, 2024 and holds 3 memories. In these memories: Milo, Taylor and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -23223,7 +23220,7 @@ window.ROON_DEMO_DATA = {
        "type": "people",
        "names": [
         "Milo",
-        "Rooney",
+        "Taylor",
         "Grandma June"
        ]
       }
@@ -23255,7 +23252,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from September 7, 2024, with Milo, Rooney and Grandma June. Moment 18 of 26 in the thread \"Milo & Rooney, together\", which runs from 2022 to 2025.",
+      "text": "A photo from September 7, 2024, with Milo, Taylor and Grandma June. Moment 18 of 26 in the thread \"Milo & Taylor, together\", which runs from 2022 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -23272,13 +23269,13 @@ window.ROON_DEMO_DATA = {
         "type": "people",
         "names": [
          "Milo",
-         "Rooney",
+         "Taylor",
          "Grandma June"
         ]
        },
        {
         "type": "thread",
-        "title": "Milo & Rooney, together",
+        "title": "Milo & Taylor, together",
         "position": 18,
         "count": 26,
         "fromYear": 2022,
@@ -23314,7 +23311,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A photo from July 27, 2024, with Grandma June, Milo and Rooney. Moment 6 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
+      "text": "A photo from July 27, 2024, with Grandma June, Milo and Taylor. Moment 6 of 7 in the thread \"Gardens, summer after summer\", which runs from 2021 to 2025.",
       "basedOn": [
        {
         "type": "date",
@@ -23332,7 +23329,7 @@ window.ROON_DEMO_DATA = {
         "names": [
          "Grandma June",
          "Milo",
-         "Rooney"
+         "Taylor"
         ]
        },
        {
@@ -23416,7 +23413,7 @@ window.ROON_DEMO_DATA = {
      "endDate": "2024-04-13T15:00:00.000Z",
      "season": "Spring",
      "year": 2024,
-     "narrative": "Between April 6, 2024 and April 13, 2024, your family kept 2 memories here.\nIn these memories: Rooney, Grandma June.\nIn your own words:\n- April 6, 2024: Planting peas with Grandma June\n- April 13, 2024: Birthday breakfast in bed for Rooney",
+     "narrative": "Between April 6, 2024 and April 13, 2024, your family kept 2 memories here.\nIn these memories: Taylor, Grandma June.\nIn your own words:\n- April 6, 2024: Planting peas with Grandma June\n- April 13, 2024: Birthday breakfast in bed for Taylor",
      "memoryIds": [
       "mem_e18ef9b9ba986dc720",
       "mem_6fcc2eced27e195091"
@@ -23427,7 +23424,7 @@ window.ROON_DEMO_DATA = {
     },
     "thumb": "media/fam_b44fd40e9d36256d3b/mem_e18ef9b9ba986dc720-web.jpg",
     "commentary": {
-     "text": "\"The Spring of Birthdays\" covers April 6, 2024 to April 13, 2024 and holds 2 memories. In these memories: Rooney and Grandma June.",
+     "text": "\"The Spring of Birthdays\" covers April 6, 2024 to April 13, 2024 and holds 2 memories. In these memories: Taylor and Grandma June.",
      "basedOn": [
       {
        "type": "chapter",
@@ -23439,7 +23436,7 @@ window.ROON_DEMO_DATA = {
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Grandma June"
        ]
       }
@@ -23452,7 +23449,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -23535,12 +23532,12 @@ window.ROON_DEMO_DATA = {
      "excludedIds": [],
      "sample": true,
      "createdAt": "2026-10-30T20:42:09.043Z",
-     "updatedAt": "2026-10-30T22:10:52.813Z",
+     "updatedAt": "2026-10-30T22:33:05.784Z",
      "growthCount": 7
     },
     "threadId": "thr_b9e51c83f33adac898",
     "commentary": {
-     "text": "Assembled from 7 moments kept from 2021 to 2025: 6 photos, 1 video. Recorded in them: Grandma June, Rooney and Milo.",
+     "text": "Assembled from 7 moments kept from 2021 to 2025: 6 photos, 1 video. Recorded in them: Grandma June, Taylor and Milo.",
      "basedOn": [
       {
        "type": "thread",
@@ -23560,7 +23557,7 @@ window.ROON_DEMO_DATA = {
        "type": "people",
        "names": [
         "Grandma June",
-        "Rooney",
+        "Taylor",
         "Milo"
        ]
       }
@@ -23604,7 +23601,7 @@ window.ROON_DEMO_DATA = {
      "excludedIds": [],
      "sample": true,
      "createdAt": "2026-10-30T20:42:09.043Z",
-     "updatedAt": "2026-10-30T22:10:52.813Z",
+     "updatedAt": "2026-10-30T22:33:05.784Z",
      "growthCount": 7
     },
     "newCount": 7,
@@ -23647,7 +23644,7 @@ window.ROON_DEMO_DATA = {
      "reactions": [],
      "commentCount": 0,
      "commentary": {
-      "text": "A piece of writing from October 30, 2024, with Rooney, Milo and Grandma June. It was kept 2 years ago today.",
+      "text": "A piece of writing from October 30, 2024, with Taylor, Milo and Grandma June. It was kept 2 years ago today.",
       "basedOn": [
        {
         "type": "date",
@@ -23663,7 +23660,7 @@ window.ROON_DEMO_DATA = {
        {
         "type": "people",
         "names": [
-         "Rooney",
+         "Taylor",
          "Milo",
          "Grandma June"
         ]
@@ -23681,33 +23678,30 @@ window.ROON_DEMO_DATA = {
    {
     "kind": "proposal",
     "thread": {
-     "id": "thr_5cd11a25d239b68452",
+     "id": "thr_fea6feee44751599b9",
      "familyId": "fam_b44fd40e9d36256d3b",
      "source": "auto",
      "kind": "phase",
-     "key": "phase:dinosaur",
-     "title": "Dinosaurs, summer after summer",
+     "key": "phase:birthday",
+     "title": "Birthdays, spring after spring",
      "titleRenamed": false,
-     "observation": "\"dinosaur\" appears in memories from 2022, 2023, 2024 — 9 memories in all.",
-     "basis": "The word \"dinosaur\" in your captions and writing",
+     "observation": "\"birthday\" appears in memories from 2022, 2023, 2024, 2025 — 5 memories in all.",
+     "basis": "The word \"birthday\" in your captions and writing",
      "match": {
-      "word": "dinosaur"
+      "word": "birthday"
      },
      "memoryIds": [
-      "mem_779944c9856c93722e",
-      "mem_ffd7b0dcc8b461d108",
-      "mem_18e4fe2a9092efba17",
-      "mem_7f07a5581eaf9170f5",
-      "mem_3fe0a5b5bacfbd9083",
-      "mem_d9ce759843bca5c265",
-      "mem_054b85eb18d7bb1571",
-      "mem_54cb15e5afe5f95cb0",
-      "mem_36ea069addf1fb73e6"
+      "mem_e401cb50082a7af781",
+      "mem_af4b52e146f5edf5f2",
+      "mem_ca71de709a423445c4",
+      "mem_6fcc2eced27e195091",
+      "mem_74b4de13459ab5e92c",
+      "mem_2a0a0b17b2d2264708"
      ],
      "evidence": {
-      "count": 9,
+      "count": 6,
       "fromYear": 2022,
-      "toYear": 2024
+      "toYear": 2025
      },
      "status": "proposed",
      "requiresFollowPersonId": null,
@@ -23717,31 +23711,30 @@ window.ROON_DEMO_DATA = {
      "excludedIds": [],
      "sample": true,
      "createdAt": "2026-10-30T20:42:09.043Z",
-     "updatedAt": "2026-10-30T22:10:52.813Z",
-     "growthCount": 9
+     "updatedAt": "2026-10-30T22:33:05.785Z",
+     "growthCount": 6
     },
     "commentary": {
-     "text": "This thread holds 9 moments from 2022 to 2024: 3 photos, 1 video, 5 pieces of writing. In these moments: Rooney, Milo and Grandma June.",
+     "text": "This thread holds 6 moments from 2022 to 2025: 5 photos, 1 video. In these moments: Taylor, Milo and Grandma June.",
      "basedOn": [
       {
        "type": "thread",
-       "title": "Dinosaurs, summer after summer",
-       "count": 9,
+       "title": "Birthdays, spring after spring",
+       "count": 6,
        "fromYear": 2022,
-       "toYear": 2024
+       "toYear": 2025
       },
       {
        "type": "item_types",
        "counts": {
-        "writing": 5,
         "video": 1,
-        "photo": 3
+        "photo": 5
        }
       },
       {
        "type": "people",
        "names": [
-        "Rooney",
+        "Taylor",
         "Milo",
         "Grandma June"
        ]
@@ -23755,7 +23748,7 @@ window.ROON_DEMO_DATA = {
   "storylines": [
    {
     "personId": "per_47f6d75809a92fae04",
-    "name": "Rooney",
+    "name": "Taylor",
     "posture": "growing"
    },
    {
@@ -23804,7 +23797,7 @@ window.ROON_DEMO_DATA = {
     "posterRef": null,
     "src": "media/fam_b44fd40e9d36256d3b/mem_54bc7a84815e545002-web.jpg",
     "takenAt": "2021-06-05T15:00:00.000Z",
-    "caption": "Rooney, three, all curls",
+    "caption": "Taylor, three, all curls",
     "storyText": "",
     "intertitle": "The Summer of Gardens",
     "chapterTitle": "The Summer of Gardens",
@@ -23818,7 +23811,7 @@ window.ROON_DEMO_DATA = {
     "posterRef": null,
     "src": "media/fam_b44fd40e9d36256d3b/mem_fc2c9720b282443477-web.jpg",
     "takenAt": "2021-06-05T15:00:00.000Z",
-    "caption": "June shows Rooney how peas climb",
+    "caption": "June shows Taylor how peas climb",
     "storyText": "",
     "intertitle": "The Summer of Gardens",
     "chapterTitle": "The Summer of Gardens",
@@ -23871,7 +23864,7 @@ window.ROON_DEMO_DATA = {
     "posterRef": null,
     "src": "media/fam_b44fd40e9d36256d3b/mem_54bc7a84815e545002-web.jpg",
     "takenAt": "2021-06-05T15:00:00.000Z",
-    "caption": "Rooney, three, all curls",
+    "caption": "Taylor, three, all curls",
     "storyText": "",
     "intertitle": "The Summer of Gardens",
     "chapterTitle": "The Summer of Gardens",
@@ -23885,7 +23878,7 @@ window.ROON_DEMO_DATA = {
     "posterRef": null,
     "src": "media/fam_b44fd40e9d36256d3b/mem_fc2c9720b282443477-web.jpg",
     "takenAt": "2021-06-05T15:00:00.000Z",
-    "caption": "June shows Rooney how peas climb",
+    "caption": "June shows Taylor how peas climb",
     "storyText": "",
     "intertitle": "The Summer of Gardens",
     "chapterTitle": "The Summer of Gardens",
@@ -24100,7 +24093,7 @@ window.ROON_DEMO_DATA = {
     "posterRef": null,
     "src": "media/fam_b44fd40e9d36256d3b/mem_af4b52e146f5edf5f2-web.jpg",
     "takenAt": "2022-04-16T15:00:00.000Z",
-    "caption": "Rooney's fourth birthday, the cake with claws",
+    "caption": "Taylor's fourth birthday, the cake with claws",
     "storyText": "",
     "intertitle": "The Spring of Birthdays",
     "chapterTitle": "The Spring of Birthdays",
@@ -24114,7 +24107,7 @@ window.ROON_DEMO_DATA = {
     "posterRef": null,
     "src": "media/fam_b44fd40e9d36256d3b/mem_2f6e011eab75e67503-web.jpg",
     "takenAt": "2022-06-11T15:00:00.000Z",
-    "caption": "Rooney waters the pavement, calls it rain",
+    "caption": "Taylor waters the pavement, calls it rain",
     "storyText": "",
     "intertitle": "The Summer of Dinosaurs",
     "chapterTitle": "The Summer of Dinosaurs",
@@ -24174,7 +24167,7 @@ window.ROON_DEMO_DATA = {
     "posterRef": "media/fam_b44fd40e9d36256d3b/mem_18e4fe2a9092efba17-poster.jpg",
     "src": "media/fam_b44fd40e9d36256d3b/mem_18e4fe2a9092efba17-s-roaring-dinosaur-2022.mp4",
     "takenAt": "2022-07-23T15:00:00.000Z",
-    "caption": "Rooney and the roaring dinosaur",
+    "caption": "Taylor and the roaring dinosaur",
     "storyText": "",
     "intertitle": "The Summer of Dinosaurs",
     "chapterTitle": "The Summer of Dinosaurs",
@@ -24245,7 +24238,7 @@ window.ROON_DEMO_DATA = {
     "posterRef": null,
     "src": "media/fam_b44fd40e9d36256d3b/mem_af4b52e146f5edf5f2-web.jpg",
     "takenAt": "2022-04-16T15:00:00.000Z",
-    "caption": "Rooney's fourth birthday, the cake with claws",
+    "caption": "Taylor's fourth birthday, the cake with claws",
     "storyText": "",
     "intertitle": "The Spring of Birthdays",
     "chapterTitle": "The Spring of Birthdays",
@@ -24259,7 +24252,7 @@ window.ROON_DEMO_DATA = {
     "posterRef": null,
     "src": "media/fam_b44fd40e9d36256d3b/mem_2f6e011eab75e67503-web.jpg",
     "takenAt": "2022-06-11T15:00:00.000Z",
-    "caption": "Rooney waters the pavement, calls it rain",
+    "caption": "Taylor waters the pavement, calls it rain",
     "storyText": "",
     "intertitle": "The Summer of Dinosaurs",
     "chapterTitle": "The Summer of Dinosaurs",
@@ -24319,7 +24312,7 @@ window.ROON_DEMO_DATA = {
     "posterRef": "media/fam_b44fd40e9d36256d3b/mem_18e4fe2a9092efba17-poster.jpg",
     "src": "media/fam_b44fd40e9d36256d3b/mem_18e4fe2a9092efba17-s-roaring-dinosaur-2022.mp4",
     "takenAt": "2022-07-23T15:00:00.000Z",
-    "caption": "Rooney and the roaring dinosaur",
+    "caption": "Taylor and the roaring dinosaur",
     "storyText": "",
     "intertitle": "The Summer of Dinosaurs",
     "chapterTitle": "The Summer of Dinosaurs",
@@ -24474,7 +24467,7 @@ window.ROON_DEMO_DATA = {
     "posterRef": null,
     "src": "media/fam_b44fd40e9d36256d3b/mem_ca71de709a423445c4-web.jpg",
     "takenAt": "2023-04-15T15:00:00.000Z",
-    "caption": "Rooney's birthday, five candles",
+    "caption": "Taylor's birthday, five candles",
     "storyText": "",
     "intertitle": "The Spring of Birthdays",
     "chapterTitle": "The Spring of Birthdays",
@@ -24488,7 +24481,7 @@ window.ROON_DEMO_DATA = {
     "posterRef": null,
     "src": "media/fam_b44fd40e9d36256d3b/mem_639c875daf7b901106-web.jpg",
     "takenAt": "2023-06-10T15:00:00.000Z",
-    "caption": "Rooney on the blue bike, no hands (almost)",
+    "caption": "Taylor on the blue bike, no hands (almost)",
     "storyText": "",
     "intertitle": "The Summer of Dinosaurs",
     "chapterTitle": "The Summer of Dinosaurs",
@@ -24741,7 +24734,7 @@ window.ROON_DEMO_DATA = {
     "posterRef": null,
     "src": "media/fam_b44fd40e9d36256d3b/mem_ca71de709a423445c4-web.jpg",
     "takenAt": "2023-04-15T15:00:00.000Z",
-    "caption": "Rooney's birthday, five candles",
+    "caption": "Taylor's birthday, five candles",
     "storyText": "",
     "intertitle": "The Spring of Birthdays",
     "chapterTitle": "The Spring of Birthdays",
@@ -24755,7 +24748,7 @@ window.ROON_DEMO_DATA = {
     "posterRef": null,
     "src": "media/fam_b44fd40e9d36256d3b/mem_639c875daf7b901106-web.jpg",
     "takenAt": "2023-06-10T15:00:00.000Z",
-    "caption": "Rooney on the blue bike, no hands (almost)",
+    "caption": "Taylor on the blue bike, no hands (almost)",
     "storyText": "",
     "intertitle": "The Summer of Dinosaurs",
     "chapterTitle": "The Summer of Dinosaurs",
@@ -25124,7 +25117,7 @@ window.ROON_DEMO_DATA = {
     "posterRef": null,
     "src": "media/fam_b44fd40e9d36256d3b/mem_6fcc2eced27e195091-web.jpg",
     "takenAt": "2024-04-13T15:00:00.000Z",
-    "caption": "Birthday breakfast in bed for Rooney",
+    "caption": "Birthday breakfast in bed for Taylor",
     "storyText": "",
     "intertitle": "The Spring of Birthdays",
     "chapterTitle": "The Spring of Birthdays",
@@ -25138,7 +25131,7 @@ window.ROON_DEMO_DATA = {
     "posterRef": null,
     "src": "media/fam_b44fd40e9d36256d3b/mem_70fd69ae3146cad340-web.jpg",
     "takenAt": "2024-06-08T15:00:00.000Z",
-    "caption": "Rooney's sunflower, taller than her",
+    "caption": "Taylor's sunflower, taller than her",
     "storyText": "",
     "intertitle": "The Summer of Dinosaurs",
     "chapterTitle": "The Summer of Dinosaurs",
@@ -25166,7 +25159,7 @@ window.ROON_DEMO_DATA = {
     "posterRef": "media/fam_b44fd40e9d36256d3b/mem_46c968b69840a936d2-poster.jpg",
     "src": "media/fam_b44fd40e9d36256d3b/mem_46c968b69840a936d2-s-milo-first-ride-2024.mp4",
     "takenAt": "2024-06-22T15:00:00.000Z",
-    "caption": "Milo's first bike ride, Rooney running behind",
+    "caption": "Milo's first bike ride, Taylor running behind",
     "storyText": "",
     "intertitle": "The Summer of Dinosaurs",
     "chapterTitle": "The Summer of Dinosaurs",
@@ -25270,8 +25263,8 @@ window.ROON_DEMO_DATA = {
     "takenAt": "2024-12-24T15:00:00.000Z",
     "caption": "Christmas Eve, cookies for Santa",
     "storyText": "",
-    "intertitle": "Winter 2024 with Rooney",
-    "chapterTitle": "Winter 2024 with Rooney",
+    "intertitle": "Winter 2024 with Taylor",
+    "chapterTitle": "Winter 2024 with Taylor",
     "holdSec": 4.2
    }
   ],
@@ -25303,7 +25296,7 @@ window.ROON_DEMO_DATA = {
     "posterRef": null,
     "src": "media/fam_b44fd40e9d36256d3b/mem_6fcc2eced27e195091-web.jpg",
     "takenAt": "2024-04-13T15:00:00.000Z",
-    "caption": "Birthday breakfast in bed for Rooney",
+    "caption": "Birthday breakfast in bed for Taylor",
     "storyText": "",
     "intertitle": "The Spring of Birthdays",
     "chapterTitle": "The Spring of Birthdays",
@@ -25317,7 +25310,7 @@ window.ROON_DEMO_DATA = {
     "posterRef": null,
     "src": "media/fam_b44fd40e9d36256d3b/mem_70fd69ae3146cad340-web.jpg",
     "takenAt": "2024-06-08T15:00:00.000Z",
-    "caption": "Rooney's sunflower, taller than her",
+    "caption": "Taylor's sunflower, taller than her",
     "storyText": "",
     "intertitle": "The Summer of Dinosaurs",
     "chapterTitle": "The Summer of Dinosaurs",
@@ -25345,7 +25338,7 @@ window.ROON_DEMO_DATA = {
     "posterRef": "media/fam_b44fd40e9d36256d3b/mem_46c968b69840a936d2-poster.jpg",
     "src": "media/fam_b44fd40e9d36256d3b/mem_46c968b69840a936d2-s-milo-first-ride-2024.mp4",
     "takenAt": "2024-06-22T15:00:00.000Z",
-    "caption": "Milo's first bike ride, Rooney running behind",
+    "caption": "Milo's first bike ride, Taylor running behind",
     "storyText": "",
     "intertitle": "The Summer of Dinosaurs",
     "chapterTitle": "The Summer of Dinosaurs",
@@ -25449,8 +25442,8 @@ window.ROON_DEMO_DATA = {
     "takenAt": "2024-12-24T15:00:00.000Z",
     "caption": "Christmas Eve, cookies for Santa",
     "storyText": "",
-    "intertitle": "Winter 2024 with Rooney",
-    "chapterTitle": "Winter 2024 with Rooney",
+    "intertitle": "Winter 2024 with Taylor",
+    "chapterTitle": "Winter 2024 with Taylor",
     "holdSec": 4.2
    },
    {
@@ -25584,7 +25577,7 @@ window.ROON_DEMO_DATA = {
     "posterRef": null,
     "src": "media/fam_b44fd40e9d36256d3b/mem_66e690fc8ee0883d1f-web.jpg",
     "takenAt": "2025-04-05T15:00:00.000Z",
-    "caption": "Rooney reads to the whole class",
+    "caption": "Taylor reads to the whole class",
     "storyText": "",
     "intertitle": "The Spring of Birthdays",
     "chapterTitle": "The Spring of Birthdays",
@@ -25614,8 +25607,8 @@ window.ROON_DEMO_DATA = {
     "takenAt": "2025-06-14T15:00:00.000Z",
     "caption": "First splash day of summer",
     "storyText": "",
-    "intertitle": "Summer 2025 with Rooney",
-    "chapterTitle": "Summer 2025 with Rooney",
+    "intertitle": "Summer 2025 with Taylor",
+    "chapterTitle": "Summer 2025 with Taylor",
     "holdSec": 4.2
    },
    {
@@ -25628,8 +25621,8 @@ window.ROON_DEMO_DATA = {
     "takenAt": "2025-06-21T15:00:00.000Z",
     "caption": "Grandma's garden, sixth summer",
     "storyText": "",
-    "intertitle": "Summer 2025 with Rooney",
-    "chapterTitle": "Summer 2025 with Rooney",
+    "intertitle": "Summer 2025 with Taylor",
+    "chapterTitle": "Summer 2025 with Taylor",
     "holdSec": 4.2
    },
    {
@@ -25642,8 +25635,8 @@ window.ROON_DEMO_DATA = {
     "takenAt": "2025-07-12T15:00:00.000Z",
     "caption": "Two bikes, one summer",
     "storyText": "",
-    "intertitle": "Summer 2025 with Rooney",
-    "chapterTitle": "Summer 2025 with Rooney",
+    "intertitle": "Summer 2025 with Taylor",
+    "chapterTitle": "Summer 2025 with Taylor",
     "holdSec": 4.2
    },
    {
@@ -25656,8 +25649,8 @@ window.ROON_DEMO_DATA = {
     "takenAt": "2025-07-19T15:00:00.000Z",
     "caption": "The ocean, one year on",
     "storyText": "",
-    "intertitle": "Summer 2025 with Rooney",
-    "chapterTitle": "Summer 2025 with Rooney",
+    "intertitle": "Summer 2025 with Taylor",
+    "chapterTitle": "Summer 2025 with Taylor",
     "holdSec": 4.2
    },
    {
@@ -25670,8 +25663,8 @@ window.ROON_DEMO_DATA = {
     "takenAt": "2025-08-02T15:00:00.000Z",
     "caption": "Pool noodles and big jumps",
     "storyText": "",
-    "intertitle": "Summer 2025 with Rooney",
-    "chapterTitle": "Summer 2025 with Rooney",
+    "intertitle": "Summer 2025 with Taylor",
+    "chapterTitle": "Summer 2025 with Taylor",
     "holdSec": 4.2
    },
    {
@@ -25682,10 +25675,10 @@ window.ROON_DEMO_DATA = {
     "posterRef": null,
     "src": "media/fam_b44fd40e9d36256d3b/mem_979e2268db43b1f51b-web.jpg",
     "takenAt": "2025-08-16T15:00:00.000Z",
-    "caption": "Grandma June teaches Rooney to shell peas",
+    "caption": "Grandma June teaches Taylor to shell peas",
     "storyText": "",
-    "intertitle": "Summer 2025 with Rooney",
-    "chapterTitle": "Summer 2025 with Rooney",
+    "intertitle": "Summer 2025 with Taylor",
+    "chapterTitle": "Summer 2025 with Taylor",
     "holdSec": 4.2
    },
    {
@@ -25698,8 +25691,8 @@ window.ROON_DEMO_DATA = {
     "takenAt": "2025-09-13T15:00:00.000Z",
     "caption": "Back to school, second grade",
     "storyText": "",
-    "intertitle": "Fall 2025 with Rooney",
-    "chapterTitle": "Fall 2025 with Rooney",
+    "intertitle": "Fall 2025 with Taylor",
+    "chapterTitle": "Fall 2025 with Taylor",
     "holdSec": 4.2
    },
    {
@@ -25712,8 +25705,8 @@ window.ROON_DEMO_DATA = {
     "takenAt": "2025-10-05T15:00:00.000Z",
     "caption": "Grandma June at the head of the table",
     "storyText": "",
-    "intertitle": "Fall 2025 with Rooney",
-    "chapterTitle": "Fall 2025 with Rooney",
+    "intertitle": "Fall 2025 with Taylor",
+    "chapterTitle": "Fall 2025 with Taylor",
     "holdSec": 4.2
    },
    {
@@ -25724,10 +25717,10 @@ window.ROON_DEMO_DATA = {
     "posterRef": null,
     "src": "media/fam_b44fd40e9d36256d3b/mem_9384517751ca8103e4-web.jpg",
     "takenAt": "2025-11-08T15:00:00.000Z",
-    "caption": "Rooney's first lost tooth",
+    "caption": "Taylor's first lost tooth",
     "storyText": "",
-    "intertitle": "Fall 2025 with Rooney",
-    "chapterTitle": "Fall 2025 with Rooney",
+    "intertitle": "Fall 2025 with Taylor",
+    "chapterTitle": "Fall 2025 with Taylor",
     "holdSec": 4.2
    },
    {
@@ -25740,8 +25733,8 @@ window.ROON_DEMO_DATA = {
     "takenAt": "2025-11-15T15:00:00.000Z",
     "caption": "Milo, five, missing the same one",
     "storyText": "",
-    "intertitle": "Fall 2025 with Rooney",
-    "chapterTitle": "Fall 2025 with Rooney",
+    "intertitle": "Fall 2025 with Taylor",
+    "chapterTitle": "Fall 2025 with Taylor",
     "holdSec": 4.2
    }
   ],
@@ -25759,7 +25752,7 @@ window.ROON_DEMO_DATA = {
     "posterRef": null,
     "src": "media/fam_b44fd40e9d36256d3b/mem_66e690fc8ee0883d1f-web.jpg",
     "takenAt": "2025-04-05T15:00:00.000Z",
-    "caption": "Rooney reads to the whole class",
+    "caption": "Taylor reads to the whole class",
     "storyText": "",
     "intertitle": "The Spring of Birthdays",
     "chapterTitle": "The Spring of Birthdays",
@@ -25789,8 +25782,8 @@ window.ROON_DEMO_DATA = {
     "takenAt": "2025-06-14T15:00:00.000Z",
     "caption": "First splash day of summer",
     "storyText": "",
-    "intertitle": "Summer 2025 with Rooney",
-    "chapterTitle": "Summer 2025 with Rooney",
+    "intertitle": "Summer 2025 with Taylor",
+    "chapterTitle": "Summer 2025 with Taylor",
     "holdSec": 4.2
    },
    {
@@ -25803,8 +25796,8 @@ window.ROON_DEMO_DATA = {
     "takenAt": "2025-06-21T15:00:00.000Z",
     "caption": "Grandma's garden, sixth summer",
     "storyText": "",
-    "intertitle": "Summer 2025 with Rooney",
-    "chapterTitle": "Summer 2025 with Rooney",
+    "intertitle": "Summer 2025 with Taylor",
+    "chapterTitle": "Summer 2025 with Taylor",
     "holdSec": 4.2
    },
    {
@@ -25817,8 +25810,8 @@ window.ROON_DEMO_DATA = {
     "takenAt": "2025-07-12T15:00:00.000Z",
     "caption": "Two bikes, one summer",
     "storyText": "",
-    "intertitle": "Summer 2025 with Rooney",
-    "chapterTitle": "Summer 2025 with Rooney",
+    "intertitle": "Summer 2025 with Taylor",
+    "chapterTitle": "Summer 2025 with Taylor",
     "holdSec": 4.2
    },
    {
@@ -25831,8 +25824,8 @@ window.ROON_DEMO_DATA = {
     "takenAt": "2025-07-19T15:00:00.000Z",
     "caption": "The ocean, one year on",
     "storyText": "",
-    "intertitle": "Summer 2025 with Rooney",
-    "chapterTitle": "Summer 2025 with Rooney",
+    "intertitle": "Summer 2025 with Taylor",
+    "chapterTitle": "Summer 2025 with Taylor",
     "holdSec": 4.2
    },
    {
@@ -25845,8 +25838,8 @@ window.ROON_DEMO_DATA = {
     "takenAt": "2025-08-02T15:00:00.000Z",
     "caption": "Pool noodles and big jumps",
     "storyText": "",
-    "intertitle": "Summer 2025 with Rooney",
-    "chapterTitle": "Summer 2025 with Rooney",
+    "intertitle": "Summer 2025 with Taylor",
+    "chapterTitle": "Summer 2025 with Taylor",
     "holdSec": 4.2
    },
    {
@@ -25857,10 +25850,10 @@ window.ROON_DEMO_DATA = {
     "posterRef": null,
     "src": "media/fam_b44fd40e9d36256d3b/mem_979e2268db43b1f51b-web.jpg",
     "takenAt": "2025-08-16T15:00:00.000Z",
-    "caption": "Grandma June teaches Rooney to shell peas",
+    "caption": "Grandma June teaches Taylor to shell peas",
     "storyText": "",
-    "intertitle": "Summer 2025 with Rooney",
-    "chapterTitle": "Summer 2025 with Rooney",
+    "intertitle": "Summer 2025 with Taylor",
+    "chapterTitle": "Summer 2025 with Taylor",
     "holdSec": 4.2
    },
    {
@@ -25873,8 +25866,8 @@ window.ROON_DEMO_DATA = {
     "takenAt": "2025-09-13T15:00:00.000Z",
     "caption": "Back to school, second grade",
     "storyText": "",
-    "intertitle": "Fall 2025 with Rooney",
-    "chapterTitle": "Fall 2025 with Rooney",
+    "intertitle": "Fall 2025 with Taylor",
+    "chapterTitle": "Fall 2025 with Taylor",
     "holdSec": 4.2
    },
    {
@@ -25887,8 +25880,8 @@ window.ROON_DEMO_DATA = {
     "takenAt": "2025-10-05T15:00:00.000Z",
     "caption": "Grandma June at the head of the table",
     "storyText": "",
-    "intertitle": "Fall 2025 with Rooney",
-    "chapterTitle": "Fall 2025 with Rooney",
+    "intertitle": "Fall 2025 with Taylor",
+    "chapterTitle": "Fall 2025 with Taylor",
     "holdSec": 4.2
    },
    {
@@ -25899,10 +25892,10 @@ window.ROON_DEMO_DATA = {
     "posterRef": null,
     "src": "media/fam_b44fd40e9d36256d3b/mem_9384517751ca8103e4-web.jpg",
     "takenAt": "2025-11-08T15:00:00.000Z",
-    "caption": "Rooney's first lost tooth",
+    "caption": "Taylor's first lost tooth",
     "storyText": "",
-    "intertitle": "Fall 2025 with Rooney",
-    "chapterTitle": "Fall 2025 with Rooney",
+    "intertitle": "Fall 2025 with Taylor",
+    "chapterTitle": "Fall 2025 with Taylor",
     "holdSec": 4.2
    },
    {
@@ -25915,8 +25908,8 @@ window.ROON_DEMO_DATA = {
     "takenAt": "2025-11-15T15:00:00.000Z",
     "caption": "Milo, five, missing the same one",
     "storyText": "",
-    "intertitle": "Fall 2025 with Rooney",
-    "chapterTitle": "Fall 2025 with Rooney",
+    "intertitle": "Fall 2025 with Taylor",
+    "chapterTitle": "Fall 2025 with Taylor",
     "holdSec": 4.2
    },
    {
@@ -26103,10 +26096,10 @@ window.ROON_DEMO_DATA = {
      "mem_54bc7a84815e545002-web.jpg"
     ],
     "durationSec": null,
-    "originalName": "s-rooney-curls-2021.jpg",
+    "originalName": "s-taylor-curls-2021.jpg",
     "mime": "image/jpeg",
     "size": 268755,
-    "caption": "Rooney, three, all curls",
+    "caption": "Taylor, three, all curls",
     "storyText": "",
     "takenAt": "2021-06-05T15:00:00.000Z",
     "peopleIds": [
@@ -26144,7 +26137,7 @@ window.ROON_DEMO_DATA = {
     "originalName": "s-june-peas-2021.jpg",
     "mime": "image/jpeg",
     "size": 176794,
-    "caption": "June shows Rooney how peas climb",
+    "caption": "June shows Taylor how peas climb",
     "storyText": "",
     "takenAt": "2021-06-05T15:00:00.000Z",
     "peopleIds": [
@@ -26376,7 +26369,7 @@ window.ROON_DEMO_DATA = {
     "originalName": "s-birthday-four-2022.jpg",
     "mime": "image/jpeg",
     "size": 75518,
-    "caption": "Rooney's fourth birthday, the cake with claws",
+    "caption": "Taylor's fourth birthday, the cake with claws",
     "storyText": "",
     "takenAt": "2022-04-16T15:00:00.000Z",
     "peopleIds": [
@@ -26414,7 +26407,7 @@ window.ROON_DEMO_DATA = {
     "originalName": "s-pavement-rain-2022.jpg",
     "mime": "image/jpeg",
     "size": 209562,
-    "caption": "Rooney waters the pavement, calls it rain",
+    "caption": "Taylor waters the pavement, calls it rain",
     "storyText": "",
     "takenAt": "2022-06-11T15:00:00.000Z",
     "peopleIds": [
@@ -26567,7 +26560,7 @@ window.ROON_DEMO_DATA = {
     "mime": null,
     "size": 0,
     "caption": "Dinosaur phase begins",
-    "storyText": "Rooney found a dinosaur book at the library and would not put it down. She named every dinosaur on the walk home.",
+    "storyText": "Taylor found a dinosaur book at the library and would not put it down. She named every dinosaur on the walk home.",
     "takenAt": "2022-07-10T15:00:00.000Z",
     "peopleIds": [
      "per_47f6d75809a92fae04"
@@ -26595,7 +26588,7 @@ window.ROON_DEMO_DATA = {
     "mime": null,
     "size": 0,
     "caption": "Dinosaur drawing on the fridge",
-    "storyText": "Rooney drew a dinosaur with a spiky back and a lopsided smile. It went straight on the fridge and never came down.",
+    "storyText": "Taylor drew a dinosaur with a spiky back and a lopsided smile. It went straight on the fridge and never came down.",
     "takenAt": "2022-07-22T15:00:00.000Z",
     "peopleIds": [
      "per_47f6d75809a92fae04"
@@ -26624,7 +26617,7 @@ window.ROON_DEMO_DATA = {
     "originalName": "s-roaring-dinosaur-2022.mp4",
     "mime": "video/mp4",
     "size": 3537029,
-    "caption": "Rooney and the roaring dinosaur",
+    "caption": "Taylor and the roaring dinosaur",
     "storyText": "",
     "takenAt": "2022-07-23T15:00:00.000Z",
     "peopleIds": [
@@ -26661,7 +26654,7 @@ window.ROON_DEMO_DATA = {
     "mime": null,
     "size": 0,
     "caption": "Milo roars back",
-    "storyText": "Milo learned to roar from Rooney and did it at the dinner table, at bath time, and once at the grocery store.",
+    "storyText": "Milo learned to roar from Taylor and did it at the dinner table, at bath time, and once at the grocery store.",
     "takenAt": "2022-08-05T15:00:00.000Z",
     "peopleIds": [
      "per_47f6d75809a92fae04",
@@ -26730,7 +26723,7 @@ window.ROON_DEMO_DATA = {
     "originalName": "s-birthday-five-2023.jpg",
     "mime": "image/jpeg",
     "size": 128391,
-    "caption": "Rooney's birthday, five candles",
+    "caption": "Taylor's birthday, five candles",
     "storyText": "",
     "takenAt": "2023-04-15T15:00:00.000Z",
     "peopleIds": [
@@ -26770,7 +26763,7 @@ window.ROON_DEMO_DATA = {
     "originalName": "s-blue-bike-2023.jpg",
     "mime": "image/jpeg",
     "size": 189752,
-    "caption": "Rooney on the blue bike, no hands (almost)",
+    "caption": "Taylor on the blue bike, no hands (almost)",
     "storyText": "",
     "takenAt": "2023-06-10T15:00:00.000Z",
     "peopleIds": [
@@ -27001,7 +26994,7 @@ window.ROON_DEMO_DATA = {
     "mime": null,
     "size": 0,
     "caption": "Dinosaur summer, again",
-    "storyText": "The dinosaur phase returned. Rooney taught Milo the names this time, in order, and corrected him gently.",
+    "storyText": "The dinosaur phase returned. Taylor taught Milo the names this time, in order, and corrected him gently.",
     "takenAt": "2023-07-14T15:00:00.000Z",
     "peopleIds": [
      "per_47f6d75809a92fae04",
@@ -27489,7 +27482,7 @@ window.ROON_DEMO_DATA = {
     "originalName": "s-birthday-breakfast-2024.jpg",
     "mime": "image/jpeg",
     "size": 139003,
-    "caption": "Birthday breakfast in bed for Rooney",
+    "caption": "Birthday breakfast in bed for Taylor",
     "storyText": "",
     "takenAt": "2024-04-13T15:00:00.000Z",
     "peopleIds": [
@@ -27527,7 +27520,7 @@ window.ROON_DEMO_DATA = {
     "originalName": "s-sunflower-2024.jpg",
     "mime": "image/jpeg",
     "size": 117090,
-    "caption": "Rooney's sunflower, taller than her",
+    "caption": "Taylor's sunflower, taller than her",
     "storyText": "",
     "takenAt": "2024-06-08T15:00:00.000Z",
     "peopleIds": [
@@ -27604,7 +27597,7 @@ window.ROON_DEMO_DATA = {
     "originalName": "s-milo-first-ride-2024.mp4",
     "mime": "video/mp4",
     "size": 7396951,
-    "caption": "Milo's first bike ride, Rooney running behind",
+    "caption": "Milo's first bike ride, Taylor running behind",
     "storyText": "",
     "takenAt": "2024-06-22T15:00:00.000Z",
     "peopleIds": [
@@ -27681,7 +27674,7 @@ window.ROON_DEMO_DATA = {
     "mime": null,
     "size": 0,
     "caption": "Three summers of dinosaurs",
-    "storyText": "Rooney, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.",
+    "storyText": "Taylor, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.",
     "takenAt": "2024-07-18T15:00:00.000Z",
     "peopleIds": [
      "per_47f6d75809a92fae04",
@@ -27975,7 +27968,7 @@ window.ROON_DEMO_DATA = {
     "originalName": "s-reads-to-class-2025.jpg",
     "mime": "image/jpeg",
     "size": 263465,
-    "caption": "Rooney reads to the whole class",
+    "caption": "Taylor reads to the whole class",
     "storyText": "",
     "takenAt": "2025-04-05T15:00:00.000Z",
     "peopleIds": [
@@ -28248,7 +28241,7 @@ window.ROON_DEMO_DATA = {
     "originalName": "s-shell-peas-2025.jpg",
     "mime": "image/jpeg",
     "size": 56905,
-    "caption": "Grandma June teaches Rooney to shell peas",
+    "caption": "Grandma June teaches Taylor to shell peas",
     "storyText": "",
     "takenAt": "2025-08-16T15:00:00.000Z",
     "peopleIds": [
@@ -28324,7 +28317,7 @@ window.ROON_DEMO_DATA = {
     "mime": null,
     "size": 0,
     "caption": "The lunchbox note era",
-    "storyText": "Rooney started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.",
+    "storyText": "Taylor started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.",
     "takenAt": "2025-09-27T15:00:00.000Z",
     "peopleIds": [
      "per_47f6d75809a92fae04",
@@ -28393,7 +28386,7 @@ window.ROON_DEMO_DATA = {
     "originalName": "s-lost-tooth-2025.jpg",
     "mime": "image/jpeg",
     "size": 65619,
-    "caption": "Rooney's first lost tooth",
+    "caption": "Taylor's first lost tooth",
     "storyText": "",
     "takenAt": "2025-11-08T15:00:00.000Z",
     "peopleIds": [
@@ -28468,7 +28461,7 @@ window.ROON_DEMO_DATA = {
     "id": "per_47f6d75809a92fae04",
     "familyId": "fam_b44fd40e9d36256d3b",
     "key": "rooney",
-    "name": "Rooney",
+    "name": "Taylor",
     "birthdate": "2018-04-12",
     "relationship": "daughter",
     "createdBy": "usr_ab07029fd28b543202",
@@ -28528,12 +28521,12 @@ window.ROON_DEMO_DATA = {
  "GET /api/families/fam_b44fd40e9d36256d3b/prompts": {
   "prompts": [
    {
-    "id": "prm_c13028ccc96bfe31cb",
+    "id": "prm_6b84bedadbdbfa1441",
     "familyId": "fam_b44fd40e9d36256d3b",
     "status": "pending",
-    "createdAt": "2026-10-30T22:10:52.939Z",
-    "dueAt": "2026-10-30T22:10:52.939Z",
-    "scheduledFor": "2026-10-30T22:10:52.939Z",
+    "createdAt": "2026-10-30T22:33:05.840Z",
+    "dueAt": "2026-10-30T22:33:05.840Z",
+    "scheduledFor": "2026-10-30T22:33:05.840Z",
     "answers": [],
     "sample": true,
     "kind": "ordinary_day",
@@ -28560,17 +28553,17 @@ window.ROON_DEMO_DATA = {
     ]
    },
    {
-    "id": "prm_82b1622d204c689f97",
+    "id": "prm_3b137e91b0c73ecce4",
     "familyId": "fam_b44fd40e9d36256d3b",
     "status": "pending",
-    "createdAt": "2026-10-30T22:10:52.939Z",
-    "dueAt": "2026-10-30T22:10:52.939Z",
-    "scheduledFor": "2026-10-30T22:10:52.939Z",
+    "createdAt": "2026-10-30T22:33:05.840Z",
+    "dueAt": "2026-10-30T22:33:05.840Z",
+    "scheduledFor": "2026-10-30T22:33:05.840Z",
     "answers": [],
     "sample": true,
     "kind": "bank",
     "personId": "per_47f6d75809a92fae04",
-    "text": "What does an ordinary afternoon look like for Rooney right now — who is there, and what actually happens?",
+    "text": "What does an ordinary afternoon look like for Taylor right now — who is there, and what actually happens?",
     "why": "bank:child",
     "deliveries": [
      {
@@ -28592,12 +28585,12 @@ window.ROON_DEMO_DATA = {
     ]
    },
    {
-    "id": "prm_cfbc6d7eda1b69c26d",
+    "id": "prm_554ccb04aee6d50d2d",
     "familyId": "fam_b44fd40e9d36256d3b",
     "status": "pending",
-    "createdAt": "2026-10-30T22:10:52.936Z",
-    "dueAt": "2026-10-30T22:10:52.936Z",
-    "scheduledFor": "2026-10-30T22:10:52.936Z",
+    "createdAt": "2026-10-30T22:33:05.839Z",
+    "dueAt": "2026-10-30T22:33:05.839Z",
+    "scheduledFor": "2026-10-30T22:33:05.839Z",
     "answers": [],
     "sample": true,
     "kind": "place_cluster",
@@ -28624,18 +28617,18 @@ window.ROON_DEMO_DATA = {
     ]
    },
    {
-    "id": "prm_8fab380ccd35af6d3f",
+    "id": "prm_717852a4faa9e79659",
     "familyId": "fam_b44fd40e9d36256d3b",
     "status": "pending",
-    "createdAt": "2026-10-30T22:10:52.928Z",
-    "dueAt": "2026-10-30T22:10:52.928Z",
-    "scheduledFor": "2026-10-30T22:10:52.928Z",
+    "createdAt": "2026-10-30T22:33:05.836Z",
+    "dueAt": "2026-10-30T22:33:05.836Z",
+    "scheduledFor": "2026-10-30T22:33:05.836Z",
     "answers": [],
     "sample": true,
     "kind": "series",
     "seriesId": "ser_24b247c0f066475f22",
     "personId": "per_47f6d75809a92fae04",
-    "text": "What is Rooney most into right now?",
+    "text": "What is Taylor most into right now?",
     "why": "series:annual",
     "deliveries": [
      {
@@ -28657,18 +28650,18 @@ window.ROON_DEMO_DATA = {
     ]
    },
    {
-    "id": "prm_72bdfa36a3c4a21a25",
+    "id": "prm_913e339b1d89685c58",
     "familyId": "fam_b44fd40e9d36256d3b",
     "status": "pending",
-    "createdAt": "2026-10-30T22:10:52.928Z",
-    "dueAt": "2026-10-30T22:10:52.928Z",
-    "scheduledFor": "2026-10-30T22:10:52.928Z",
+    "createdAt": "2026-10-30T22:33:05.836Z",
+    "dueAt": "2026-10-30T22:33:05.836Z",
+    "scheduledFor": "2026-10-30T22:33:05.836Z",
     "answers": [],
     "sample": true,
     "kind": "series",
     "seriesId": "ser_17d20f73d4c776467c",
     "personId": "per_47f6d75809a92fae04",
-    "text": "What made Rooney laugh hardest this year?",
+    "text": "What made Taylor laugh hardest this year?",
     "why": "series:annual",
     "deliveries": [
      {
@@ -28690,12 +28683,12 @@ window.ROON_DEMO_DATA = {
     ]
    },
    {
-    "id": "prm_24ffae9a2a12f7c5de",
+    "id": "prm_4c5b6f3242f0bea70f",
     "familyId": "fam_b44fd40e9d36256d3b",
     "status": "pending",
-    "createdAt": "2026-10-30T22:10:52.928Z",
-    "dueAt": "2026-10-30T22:10:52.928Z",
-    "scheduledFor": "2026-10-30T22:10:52.928Z",
+    "createdAt": "2026-10-30T22:33:05.836Z",
+    "dueAt": "2026-10-30T22:33:05.836Z",
+    "scheduledFor": "2026-10-30T22:33:05.836Z",
     "answers": [],
     "sample": true,
     "kind": "series",
@@ -28723,12 +28716,12 @@ window.ROON_DEMO_DATA = {
     ]
    },
    {
-    "id": "prm_aa8ef65762fb31bec0",
+    "id": "prm_e7f143f69fe2963359",
     "familyId": "fam_b44fd40e9d36256d3b",
     "status": "pending",
-    "createdAt": "2026-10-30T22:10:52.928Z",
-    "dueAt": "2026-10-30T22:10:52.928Z",
-    "scheduledFor": "2026-10-30T22:10:52.928Z",
+    "createdAt": "2026-10-30T22:33:05.836Z",
+    "dueAt": "2026-10-30T22:33:05.836Z",
+    "scheduledFor": "2026-10-30T22:33:05.836Z",
     "answers": [],
     "sample": true,
     "kind": "series",
@@ -28756,12 +28749,12 @@ window.ROON_DEMO_DATA = {
     ]
    },
    {
-    "id": "prm_da31d5515f256ee9a2",
+    "id": "prm_e6afdb42c1d1102837",
     "familyId": "fam_b44fd40e9d36256d3b",
     "status": "pending",
-    "createdAt": "2026-10-30T22:10:52.928Z",
-    "dueAt": "2026-10-30T22:10:52.928Z",
-    "scheduledFor": "2026-10-30T22:10:52.928Z",
+    "createdAt": "2026-10-30T22:33:05.836Z",
+    "dueAt": "2026-10-30T22:33:05.836Z",
+    "scheduledFor": "2026-10-30T22:33:05.836Z",
     "answers": [],
     "sample": true,
     "kind": "series",
@@ -28789,12 +28782,12 @@ window.ROON_DEMO_DATA = {
     ]
    },
    {
-    "id": "prm_a7f5fceb5c78c25fc2",
+    "id": "prm_6a515a150b79ab03b8",
     "familyId": "fam_b44fd40e9d36256d3b",
     "status": "pending",
-    "createdAt": "2026-10-30T22:10:52.928Z",
-    "dueAt": "2026-10-30T22:10:52.928Z",
-    "scheduledFor": "2026-10-30T22:10:52.928Z",
+    "createdAt": "2026-10-30T22:33:05.836Z",
+    "dueAt": "2026-10-30T22:33:05.836Z",
+    "scheduledFor": "2026-10-30T22:33:05.836Z",
     "answers": [],
     "sample": true,
     "kind": "series",
@@ -28822,12 +28815,12 @@ window.ROON_DEMO_DATA = {
     ]
    },
    {
-    "id": "prm_12b3072e1efdadb113",
+    "id": "prm_d551ae769077d66697",
     "familyId": "fam_b44fd40e9d36256d3b",
     "status": "pending",
-    "createdAt": "2026-10-30T22:10:52.926Z",
-    "dueAt": "2026-10-30T22:10:52.926Z",
-    "scheduledFor": "2026-10-30T22:10:52.926Z",
+    "createdAt": "2026-10-30T22:33:05.834Z",
+    "dueAt": "2026-10-30T22:33:05.834Z",
+    "scheduledFor": "2026-10-30T22:33:05.834Z",
     "answers": [],
     "sample": true,
     "kind": "weekly_one",
@@ -28885,14 +28878,14 @@ window.ROON_DEMO_DATA = {
     "id": "ser_24b247c0f066475f22",
     "familyId": "fam_b44fd40e9d36256d3b",
     "personId": "per_47f6d75809a92fae04",
-    "personName": "Rooney",
-    "question": "What is Rooney most into right now?",
+    "personName": "Taylor",
+    "question": "What is Taylor most into right now?",
     "interval": "annual",
     "nextDueAt": "2026-10-30T20:40:49.921Z",
     "instances": [
      {
-      "promptId": "prm_8fab380ccd35af6d3f",
-      "scheduledFor": "2026-10-30T22:10:52.928Z",
+      "promptId": "prm_717852a4faa9e79659",
+      "scheduledFor": "2026-10-30T22:33:05.836Z",
       "status": "pending",
       "answers": []
      }
@@ -28903,14 +28896,14 @@ window.ROON_DEMO_DATA = {
     "id": "ser_17d20f73d4c776467c",
     "familyId": "fam_b44fd40e9d36256d3b",
     "personId": "per_47f6d75809a92fae04",
-    "personName": "Rooney",
-    "question": "What made Rooney laugh hardest this year?",
+    "personName": "Taylor",
+    "question": "What made Taylor laugh hardest this year?",
     "interval": "annual",
     "nextDueAt": "2026-10-30T20:40:49.921Z",
     "instances": [
      {
-      "promptId": "prm_72bdfa36a3c4a21a25",
-      "scheduledFor": "2026-10-30T22:10:52.928Z",
+      "promptId": "prm_913e339b1d89685c58",
+      "scheduledFor": "2026-10-30T22:33:05.836Z",
       "status": "pending",
       "answers": []
      }
@@ -28927,8 +28920,8 @@ window.ROON_DEMO_DATA = {
     "nextDueAt": "2026-10-30T20:40:49.921Z",
     "instances": [
      {
-      "promptId": "prm_24ffae9a2a12f7c5de",
-      "scheduledFor": "2026-10-30T22:10:52.928Z",
+      "promptId": "prm_4c5b6f3242f0bea70f",
+      "scheduledFor": "2026-10-30T22:33:05.836Z",
       "status": "pending",
       "answers": []
      }
@@ -28945,8 +28938,8 @@ window.ROON_DEMO_DATA = {
     "nextDueAt": "2026-10-30T20:40:49.921Z",
     "instances": [
      {
-      "promptId": "prm_aa8ef65762fb31bec0",
-      "scheduledFor": "2026-10-30T22:10:52.928Z",
+      "promptId": "prm_e7f143f69fe2963359",
+      "scheduledFor": "2026-10-30T22:33:05.836Z",
       "status": "pending",
       "answers": []
      }
@@ -28963,8 +28956,8 @@ window.ROON_DEMO_DATA = {
     "nextDueAt": "2026-10-30T20:40:49.921Z",
     "instances": [
      {
-      "promptId": "prm_da31d5515f256ee9a2",
-      "scheduledFor": "2026-10-30T22:10:52.928Z",
+      "promptId": "prm_e6afdb42c1d1102837",
+      "scheduledFor": "2026-10-30T22:33:05.836Z",
       "status": "pending",
       "answers": []
      }
@@ -28981,8 +28974,8 @@ window.ROON_DEMO_DATA = {
     "nextDueAt": "2026-10-30T20:40:49.921Z",
     "instances": [
      {
-      "promptId": "prm_a7f5fceb5c78c25fc2",
-      "scheduledFor": "2026-10-30T22:10:52.928Z",
+      "promptId": "prm_6a515a150b79ab03b8",
+      "scheduledFor": "2026-10-30T22:33:05.836Z",
       "status": "pending",
       "answers": []
      }
@@ -29030,7 +29023,7 @@ window.ROON_DEMO_DATA = {
     "excludedIds": [],
     "sample": true,
     "createdAt": "2026-10-30T20:42:09.043Z",
-    "updatedAt": "2026-10-30T22:10:52.983Z",
+    "updatedAt": "2026-10-30T22:33:05.851Z",
     "growthCount": 9
    },
    {
@@ -29068,7 +29061,7 @@ window.ROON_DEMO_DATA = {
     "excludedIds": [],
     "sample": true,
     "createdAt": "2026-10-30T20:42:09.043Z",
-    "updatedAt": "2026-10-30T22:10:52.984Z",
+    "updatedAt": "2026-10-30T22:33:05.851Z",
     "growthCount": 7
    },
    {
@@ -29105,7 +29098,7 @@ window.ROON_DEMO_DATA = {
     "excludedIds": [],
     "sample": true,
     "createdAt": "2026-10-30T20:42:09.043Z",
-    "updatedAt": "2026-10-30T22:10:52.984Z",
+    "updatedAt": "2026-10-30T22:33:05.851Z",
     "growthCount": 6
    },
    {
@@ -29141,7 +29134,7 @@ window.ROON_DEMO_DATA = {
     "excludedIds": [],
     "sample": true,
     "createdAt": "2026-10-30T20:42:09.043Z",
-    "updatedAt": "2026-10-30T22:10:52.984Z",
+    "updatedAt": "2026-10-30T22:33:05.851Z",
     "growthCount": 5
    },
    {
@@ -29177,7 +29170,7 @@ window.ROON_DEMO_DATA = {
     "excludedIds": [],
     "sample": true,
     "createdAt": "2026-10-30T20:42:09.043Z",
-    "updatedAt": "2026-10-30T22:10:52.984Z",
+    "updatedAt": "2026-10-30T22:33:05.851Z",
     "growthCount": 5
    },
    {
@@ -29186,9 +29179,9 @@ window.ROON_DEMO_DATA = {
     "source": "auto",
     "kind": "co_appearance",
     "key": "co:per_1c03ef455d57eb3eb6+per_47f6d75809a92fae04",
-    "title": "Milo & Rooney, together",
+    "title": "Milo & Taylor, together",
     "titleRenamed": false,
-    "observation": "Milo and Rooney appear together in 26 memories.",
+    "observation": "Milo and Taylor appear together in 26 memories.",
     "basis": "These people appearing together in your memories",
     "match": {
      "personIds": [
@@ -29237,7 +29230,7 @@ window.ROON_DEMO_DATA = {
     "excludedIds": [],
     "sample": true,
     "createdAt": "2026-10-30T20:42:09.043Z",
-    "updatedAt": "2026-10-30T22:10:52.984Z",
+    "updatedAt": "2026-10-30T22:33:05.851Z",
     "growthCount": 26
    },
    {
@@ -29246,9 +29239,9 @@ window.ROON_DEMO_DATA = {
     "source": "auto",
     "kind": "co_appearance",
     "key": "co:per_47f6d75809a92fae04+per_f67acb6274b180d4a0",
-    "title": "Rooney & Grandma June, together",
+    "title": "Taylor & Grandma June, together",
     "titleRenamed": false,
-    "observation": "Rooney and Grandma June appear together in 15 memories.",
+    "observation": "Taylor and Grandma June appear together in 15 memories.",
     "basis": "These people appearing together in your memories",
     "match": {
      "personIds": [
@@ -29286,7 +29279,7 @@ window.ROON_DEMO_DATA = {
     "excludedIds": [],
     "sample": true,
     "createdAt": "2026-10-30T20:42:09.044Z",
-    "updatedAt": "2026-10-30T22:10:52.984Z",
+    "updatedAt": "2026-10-30T22:33:05.852Z",
     "growthCount": 15
    },
    {
@@ -29330,7 +29323,7 @@ window.ROON_DEMO_DATA = {
     "excludedIds": [],
     "sample": true,
     "createdAt": "2026-10-30T20:42:09.044Z",
-    "updatedAt": "2026-10-30T22:10:52.984Z",
+    "updatedAt": "2026-10-30T22:33:05.852Z",
     "growthCount": 10
    }
   ]
@@ -29369,7 +29362,7 @@ window.ROON_DEMO_DATA = {
    "excludedIds": [],
    "sample": true,
    "createdAt": "2026-10-30T20:42:09.043Z",
-   "updatedAt": "2026-10-30T22:10:52.990Z",
+   "updatedAt": "2026-10-30T22:33:05.857Z",
    "growthCount": 0
   },
   "items": [
@@ -29421,7 +29414,7 @@ window.ROON_DEMO_DATA = {
     "src": "media/fam_b44fd40e9d36256d3b/mem_639c875daf7b901106-web.jpg",
     "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_639c875daf7b901106-web.jpg",
     "poster": null,
-    "caption": "Rooney on the blue bike, no hands (almost)",
+    "caption": "Taylor on the blue bike, no hands (almost)",
     "storyText": "",
     "takenAt": "2023-06-10T15:00:00.000Z",
     "peopleIds": [
@@ -29442,7 +29435,7 @@ window.ROON_DEMO_DATA = {
     "src": "media/fam_b44fd40e9d36256d3b/mem_46c968b69840a936d2-s-milo-first-ride-2024.mp4",
     "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_46c968b69840a936d2-s-milo-first-ride-2024.mp4",
     "poster": "media/fam_b44fd40e9d36256d3b/mem_46c968b69840a936d2-poster.jpg",
-    "caption": "Milo's first bike ride, Rooney running behind",
+    "caption": "Milo's first bike ride, Taylor running behind",
     "storyText": "",
     "takenAt": "2024-06-22T15:00:00.000Z",
     "peopleIds": [
@@ -29520,7 +29513,7 @@ window.ROON_DEMO_DATA = {
    "excludedIds": [],
    "sample": true,
    "createdAt": "2026-10-30T20:42:09.043Z",
-   "updatedAt": "2026-10-30T22:10:52.999Z",
+   "updatedAt": "2026-10-30T22:33:05.863Z",
    "growthCount": 0
   },
   "items": [
@@ -29531,7 +29524,7 @@ window.ROON_DEMO_DATA = {
     "originalSrc": null,
     "poster": null,
     "caption": "Dinosaur phase begins",
-    "storyText": "Rooney found a dinosaur book at the library and would not put it down. She named every dinosaur on the walk home.",
+    "storyText": "Taylor found a dinosaur book at the library and would not put it down. She named every dinosaur on the walk home.",
     "takenAt": "2022-07-10T15:00:00.000Z",
     "peopleIds": [
      "per_47f6d75809a92fae04"
@@ -29552,7 +29545,7 @@ window.ROON_DEMO_DATA = {
     "originalSrc": null,
     "poster": null,
     "caption": "Dinosaur drawing on the fridge",
-    "storyText": "Rooney drew a dinosaur with a spiky back and a lopsided smile. It went straight on the fridge and never came down.",
+    "storyText": "Taylor drew a dinosaur with a spiky back and a lopsided smile. It went straight on the fridge and never came down.",
     "takenAt": "2022-07-22T15:00:00.000Z",
     "peopleIds": [
      "per_47f6d75809a92fae04"
@@ -29572,7 +29565,7 @@ window.ROON_DEMO_DATA = {
     "src": "media/fam_b44fd40e9d36256d3b/mem_18e4fe2a9092efba17-s-roaring-dinosaur-2022.mp4",
     "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_18e4fe2a9092efba17-s-roaring-dinosaur-2022.mp4",
     "poster": "media/fam_b44fd40e9d36256d3b/mem_18e4fe2a9092efba17-poster.jpg",
-    "caption": "Rooney and the roaring dinosaur",
+    "caption": "Taylor and the roaring dinosaur",
     "storyText": "",
     "takenAt": "2022-07-23T15:00:00.000Z",
     "peopleIds": [
@@ -29615,7 +29608,7 @@ window.ROON_DEMO_DATA = {
     "originalSrc": null,
     "poster": null,
     "caption": "Dinosaur summer, again",
-    "storyText": "The dinosaur phase returned. Rooney taught Milo the names this time, in order, and corrected him gently.",
+    "storyText": "The dinosaur phase returned. Taylor taught Milo the names this time, in order, and corrected him gently.",
     "takenAt": "2023-07-14T15:00:00.000Z",
     "peopleIds": [
      "per_47f6d75809a92fae04",
@@ -29703,7 +29696,7 @@ window.ROON_DEMO_DATA = {
     "originalSrc": null,
     "poster": null,
     "caption": "Three summers of dinosaurs",
-    "storyText": "Rooney, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.",
+    "storyText": "Taylor, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.",
     "takenAt": "2024-07-18T15:00:00.000Z",
     "peopleIds": [
      "per_47f6d75809a92fae04",
@@ -29727,9 +29720,9 @@ window.ROON_DEMO_DATA = {
    "source": "auto",
    "kind": "co_appearance",
    "key": "co:per_1c03ef455d57eb3eb6+per_47f6d75809a92fae04",
-   "title": "Milo & Rooney, together",
+   "title": "Milo & Taylor, together",
    "titleRenamed": false,
-   "observation": "Milo and Rooney appear together in 26 memories.",
+   "observation": "Milo and Taylor appear together in 26 memories.",
    "basis": "These people appearing together in your memories",
    "match": {
     "personIds": [
@@ -29778,7 +29771,7 @@ window.ROON_DEMO_DATA = {
    "excludedIds": [],
    "sample": true,
    "createdAt": "2026-10-30T20:42:09.043Z",
-   "updatedAt": "2026-10-30T22:10:53.007Z",
+   "updatedAt": "2026-10-30T22:33:05.871Z",
    "growthCount": 0
   },
   "items": [
@@ -29811,7 +29804,7 @@ window.ROON_DEMO_DATA = {
     "originalSrc": null,
     "poster": null,
     "caption": "Milo roars back",
-    "storyText": "Milo learned to roar from Rooney and did it at the dinner table, at bath time, and once at the grocery store.",
+    "storyText": "Milo learned to roar from Taylor and did it at the dinner table, at bath time, and once at the grocery store.",
     "takenAt": "2022-08-05T15:00:00.000Z",
     "peopleIds": [
      "per_47f6d75809a92fae04",
@@ -29832,7 +29825,7 @@ window.ROON_DEMO_DATA = {
     "src": "media/fam_b44fd40e9d36256d3b/mem_ca71de709a423445c4-web.jpg",
     "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_ca71de709a423445c4-web.jpg",
     "poster": null,
-    "caption": "Rooney's birthday, five candles",
+    "caption": "Taylor's birthday, five candles",
     "storyText": "",
     "takenAt": "2023-04-15T15:00:00.000Z",
     "peopleIds": [
@@ -29878,7 +29871,7 @@ window.ROON_DEMO_DATA = {
     "originalSrc": null,
     "poster": null,
     "caption": "Dinosaur summer, again",
-    "storyText": "The dinosaur phase returned. Rooney taught Milo the names this time, in order, and corrected him gently.",
+    "storyText": "The dinosaur phase returned. Taylor taught Milo the names this time, in order, and corrected him gently.",
     "takenAt": "2023-07-14T15:00:00.000Z",
     "peopleIds": [
      "per_47f6d75809a92fae04",
@@ -30055,7 +30048,7 @@ window.ROON_DEMO_DATA = {
     "src": "media/fam_b44fd40e9d36256d3b/mem_46c968b69840a936d2-s-milo-first-ride-2024.mp4",
     "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_46c968b69840a936d2-s-milo-first-ride-2024.mp4",
     "poster": "media/fam_b44fd40e9d36256d3b/mem_46c968b69840a936d2-poster.jpg",
-    "caption": "Milo's first bike ride, Rooney running behind",
+    "caption": "Milo's first bike ride, Taylor running behind",
     "storyText": "",
     "takenAt": "2024-06-22T15:00:00.000Z",
     "peopleIds": [
@@ -30100,7 +30093,7 @@ window.ROON_DEMO_DATA = {
     "originalSrc": null,
     "poster": null,
     "caption": "Three summers of dinosaurs",
-    "storyText": "Rooney, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.",
+    "storyText": "Taylor, now six, gave Milo a lecture on dinosaurs at the kitchen table. The drawing from 2022 is still on the fridge.",
     "takenAt": "2024-07-18T15:00:00.000Z",
     "peopleIds": [
      "per_47f6d75809a92fae04",
@@ -30346,7 +30339,7 @@ window.ROON_DEMO_DATA = {
     "originalSrc": null,
     "poster": null,
     "caption": "The lunchbox note era",
-    "storyText": "Rooney started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.",
+    "storyText": "Taylor started leaving notes in Milo's lunchbox. Milo leaves rocks in hers.",
     "takenAt": "2025-09-27T15:00:00.000Z",
     "peopleIds": [
      "per_47f6d75809a92fae04",
@@ -30370,9 +30363,9 @@ window.ROON_DEMO_DATA = {
    "source": "auto",
    "kind": "co_appearance",
    "key": "co:per_47f6d75809a92fae04+per_f67acb6274b180d4a0",
-   "title": "Rooney & Grandma June, together",
+   "title": "Taylor & Grandma June, together",
    "titleRenamed": false,
-   "observation": "Rooney and Grandma June appear together in 15 memories.",
+   "observation": "Taylor and Grandma June appear together in 15 memories.",
    "basis": "These people appearing together in your memories",
    "match": {
     "personIds": [
@@ -30410,7 +30403,7 @@ window.ROON_DEMO_DATA = {
    "excludedIds": [],
    "sample": true,
    "createdAt": "2026-10-30T20:42:09.044Z",
-   "updatedAt": "2026-10-30T22:10:53.056Z",
+   "updatedAt": "2026-10-30T22:33:05.877Z",
    "growthCount": 0
   },
   "items": [
@@ -30420,7 +30413,7 @@ window.ROON_DEMO_DATA = {
     "src": "media/fam_b44fd40e9d36256d3b/mem_fc2c9720b282443477-web.jpg",
     "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_fc2c9720b282443477-web.jpg",
     "poster": null,
-    "caption": "June shows Rooney how peas climb",
+    "caption": "June shows Taylor how peas climb",
     "storyText": "",
     "takenAt": "2021-06-05T15:00:00.000Z",
     "peopleIds": [
@@ -30464,7 +30457,7 @@ window.ROON_DEMO_DATA = {
     "src": "media/fam_b44fd40e9d36256d3b/mem_ca71de709a423445c4-web.jpg",
     "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_ca71de709a423445c4-web.jpg",
     "poster": null,
-    "caption": "Rooney's birthday, five candles",
+    "caption": "Taylor's birthday, five candles",
     "storyText": "",
     "takenAt": "2023-04-15T15:00:00.000Z",
     "peopleIds": [
@@ -30735,7 +30728,7 @@ window.ROON_DEMO_DATA = {
     "src": "media/fam_b44fd40e9d36256d3b/mem_979e2268db43b1f51b-web.jpg",
     "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_979e2268db43b1f51b-web.jpg",
     "poster": null,
-    "caption": "Grandma June teaches Rooney to shell peas",
+    "caption": "Grandma June teaches Taylor to shell peas",
     "storyText": "",
     "takenAt": "2025-08-16T15:00:00.000Z",
     "peopleIds": [
@@ -30787,7 +30780,7 @@ window.ROON_DEMO_DATA = {
    "excludedIds": [],
    "sample": true,
    "createdAt": "2026-10-30T20:42:09.043Z",
-   "updatedAt": "2026-10-30T22:10:53.070Z",
+   "updatedAt": "2026-10-30T22:33:05.883Z",
    "growthCount": 0
   },
   "items": [
@@ -30939,7 +30932,7 @@ window.ROON_DEMO_DATA = {
    "excludedIds": [],
    "sample": true,
    "createdAt": "2026-10-30T20:42:09.043Z",
-   "updatedAt": "2026-10-30T22:10:53.085Z",
+   "updatedAt": "2026-10-30T22:33:05.889Z",
    "growthCount": 0
   },
   "items": [
@@ -31139,7 +31132,7 @@ window.ROON_DEMO_DATA = {
    "excludedIds": [],
    "sample": true,
    "createdAt": "2026-10-30T20:42:09.044Z",
-   "updatedAt": "2026-10-30T22:10:53.095Z",
+   "updatedAt": "2026-10-30T22:33:05.895Z",
    "growthCount": 0
   },
   "items": [
@@ -31171,7 +31164,7 @@ window.ROON_DEMO_DATA = {
     "src": "media/fam_b44fd40e9d36256d3b/mem_ca71de709a423445c4-web.jpg",
     "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_ca71de709a423445c4-web.jpg",
     "poster": null,
-    "caption": "Rooney's birthday, five candles",
+    "caption": "Taylor's birthday, five candles",
     "storyText": "",
     "takenAt": "2023-04-15T15:00:00.000Z",
     "peopleIds": [
@@ -31407,7 +31400,7 @@ window.ROON_DEMO_DATA = {
    "excludedIds": [],
    "sample": true,
    "createdAt": "2026-10-30T20:42:09.043Z",
-   "updatedAt": "2026-10-30T22:10:53.106Z",
+   "updatedAt": "2026-10-30T22:33:05.901Z",
    "growthCount": 0
   },
   "items": [
@@ -31438,7 +31431,7 @@ window.ROON_DEMO_DATA = {
     "src": "media/fam_b44fd40e9d36256d3b/mem_af4b52e146f5edf5f2-web.jpg",
     "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_af4b52e146f5edf5f2-web.jpg",
     "poster": null,
-    "caption": "Rooney's fourth birthday, the cake with claws",
+    "caption": "Taylor's fourth birthday, the cake with claws",
     "storyText": "",
     "takenAt": "2022-04-16T15:00:00.000Z",
     "peopleIds": [
@@ -31459,7 +31452,7 @@ window.ROON_DEMO_DATA = {
     "src": "media/fam_b44fd40e9d36256d3b/mem_ca71de709a423445c4-web.jpg",
     "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_ca71de709a423445c4-web.jpg",
     "poster": null,
-    "caption": "Rooney's birthday, five candles",
+    "caption": "Taylor's birthday, five candles",
     "storyText": "",
     "takenAt": "2023-04-15T15:00:00.000Z",
     "peopleIds": [
@@ -31482,7 +31475,7 @@ window.ROON_DEMO_DATA = {
     "src": "media/fam_b44fd40e9d36256d3b/mem_6fcc2eced27e195091-web.jpg",
     "originalSrc": "media/fam_b44fd40e9d36256d3b/mem_6fcc2eced27e195091-web.jpg",
     "poster": null,
-    "caption": "Birthday breakfast in bed for Rooney",
+    "caption": "Birthday breakfast in bed for Taylor",
     "storyText": "",
     "takenAt": "2024-04-13T15:00:00.000Z",
     "peopleIds": [
@@ -31583,6 +31576,6 @@ window.ROON_DEMO_DATA = {
  },
  "POST /api/families/fam_b44fd40e9d36256d3b/activity/seen": {
   "ok": true,
-  "seenAt": "2026-10-30T22:10:53.116Z"
+  "seenAt": "2026-10-30T22:33:05.910Z"
  }
 };
