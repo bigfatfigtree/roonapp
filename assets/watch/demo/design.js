@@ -264,6 +264,84 @@
     }).sort(function (a, b) { return new Date(b.takenAt || b.createdAt || 0) - new Date(a.takenAt || a.createdAt || 0); });
     return tagged.length ? visualOf(tagged[0]) : '';
   }
+  /* The row's order (Den model, locked): storylines Rooney follows
+     first — in the keeper's own arrangement when they've set one —
+     then everyone else by how recently their story moved. */
+  function orderedPeople(st) {
+    var people = (st.people || []).slice();
+    var order = ((st.family && st.family.peopleRowOrder) || []).map(String);
+    function rank(p) { var i = order.indexOf(String(p.id)); return i < 0 ? 9999 : i; }
+    function lastAct(p) {
+      var t = 0;
+      (st.memories || []).forEach(function (m) {
+        if ((m.peopleIds || []).map(String).indexOf(String(p.id)) >= 0) {
+          var d = new Date(m.takenAt || m.createdAt || 0).getTime();
+          if (d > t) t = d;
+        }
+      });
+      return t;
+    }
+    var followed = people.filter(function (p) { return p.followed; }).sort(function (a, b) { return rank(a) - rank(b); });
+    var rest = people.filter(function (p) { return !p.followed; }).sort(function (a, b) { return lastAct(b) - lastAct(a); });
+    return followed.concat(rest);
+  }
+  /* "New in your story" — fetched once per family per visit-window;
+     renders the section under the people row, dots the faces that
+     moved, and (after a beat, so arriving eyes have seen it) marks
+     the surface seen. The dot is a dot: no counts, ever. */
+  var actCache = { familyId: null, at: 0, data: null };
+  function fillActivity(root, st) {
+    var fid = st.family && st.family.id;
+    if (!fid) return;
+    var now = Date.now();
+    if (actCache.familyId !== String(fid) || now - actCache.at > 30000 || !actCache.data) {
+      actCache = { familyId: String(fid), at: now, data: null };
+      fetch('/api/families/' + encodeURIComponent(fid) + '/activity?limit=5', { credentials: 'same-origin' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (d) {
+          actCache.data = d;
+          paintActivity(root, d);
+          if (d && d.hasNew) {
+            setTimeout(function () {
+              fetch('/api/families/' + encodeURIComponent(fid) + '/activity/seen', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, body: '{}' }).catch(function () {});
+            }, 2500);
+          }
+        })
+        .catch(function () {});
+    } else {
+      paintActivity(root, actCache.data);
+    }
+  }
+  function paintActivity(root, d) {
+    if (!d || !root || !document.body.contains(root)) return;
+    var row = $('.fx-people', root);
+    if (row && d.newByPerson) {
+      $$('.fx-person[data-person-id]', row).forEach(function (a) {
+        if (d.newByPerson[a.getAttribute('data-person-id')] && !$('.fx-facedot', a)) {
+          var dot = document.createElement('span');
+          dot.className = 'fx-facedot';
+          dot.setAttribute('aria-label', 'Something new in their story');
+          a.appendChild(dot);
+        }
+      });
+    }
+    if (!d.items || !d.items.length || $('.fx-activity', root)) return;
+    var sec = document.createElement('section');
+    sec.className = 'fx-activity';
+    var hrefFor = function (i) {
+      if (i.kind === 'proposal') return '#/family';
+      if (i.targetType === 'thread' && i.targetId) return '#/thread/' + encodeURIComponent(i.targetId);
+      if (i.targetType === 'chapter' && i.targetId) return '#/story/' + encodeURIComponent(i.targetId);
+      if (i.personId) return '#/person/' + encodeURIComponent(i.personId);
+      return '#/explore';
+    };
+    var lis = d.items.slice(0, 5).map(function (i) {
+      return '<li><a href="' + esc(hrefFor(i)) + '">' + esc(i.text) + '</a></li>';
+    }).join('');
+    sec.innerHTML = '<div class="fx-activity-head"><h2>New in your story</h2>' + (d.hasNew ? '<span class="fx-activity-dot" aria-hidden="true"></span>' : '') + '</div><ul>' + lis + '</ul>';
+    var wrap = $('.today-cover-wrap', root);
+    if (wrap) root.insertBefore(sec, wrap);
+  }
   function buildToday() {
     var root = $('#view-root');
     if (!root) return;
@@ -287,14 +365,26 @@
       var pr = document.createElement('div');
       pr.className = 'fx-people';
       var ph = '<a class="fx-person" href="#/family"><span class="fx-face fx-face--plus" aria-hidden="true">+</span><span class="fx-pname">Invite</span></a>';
-      (st.people || []).forEach(function (p) {
+      orderedPeople(st).forEach(function (p) {
         var face = personFace(p, st);
-        ph += '<a class="fx-person" href="#/person/' + encodeURIComponent(p.id) + '"><span class="fx-face">' +
+        ph += '<a class="fx-person" href="#/person/' + encodeURIComponent(p.id) + '" data-person-id="' + esc(p.id) + '"><span class="fx-face">' +
           (face ? '<img src="' + esc(face) + '" alt="" loading="lazy">' : '<span class="fx-face-init">' + esc((firstName(p.name) || '?').charAt(0).toUpperCase()) + '</span>') +
           '</span><span class="fx-pname">' + esc(firstName(p.name)) + '</span></a>';
       });
+      /* Seated members of the Den who aren't themselves a storyline
+         face get a disc too (the keeper is the one looking — owner
+         excluded; a member whose first name matches a person's is
+         treated as that person). Their home is the Family page. */
+      var personNames = (st.people || []).map(function (p) { return firstName(p.name).toLowerCase(); });
+      ((st.family && st.family.members) || []).forEach(function (m) {
+        if (!m || m.role === 'owner' || !m.name) return;
+        var fn = firstName(m.name);
+        if (!fn || personNames.indexOf(fn.toLowerCase()) >= 0) return;
+        ph += '<a class="fx-person" href="#/family"><span class="fx-face"><span class="fx-face-init">' + esc(fn.charAt(0).toUpperCase()) + '</span></span><span class="fx-pname">' + esc(fn) + '</span></a>';
+      });
       pr.innerHTML = ph;
       root.insertBefore(pr, wrap);
+      fillActivity(root, st);
     }
     if (!cover.querySelector('.fx-coverpill')) {
       var pill = document.createElement('span');

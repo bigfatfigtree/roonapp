@@ -671,8 +671,18 @@ function igIconComment() { return '<svg viewBox="0 0 24 24" fill="none" stroke="
 function igIconShare() { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5v11.5"/><path d="m7.2 8.2 4.8-4.7 4.8 4.7"/><path d="M5 13.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-6.5"/></svg>'; }
 function reactionsHTML(targetType, targetId, reactions, opts) {
   const sums = reactions || [];
+  /* Den rule (CIRCLE-SPEC §4.1): inside the family, reactions render
+     as PEOPLE, never totals — the buttons carry no numbers, and under
+     them a quiet line names who reacted: "❤️ Maggie, Grace · 🌟 Ray".
+     The only counts in the product are counts of what's kept. */
+  const peopleLine = sums.filter((s) => s.people && s.people.length).map((s) => {
+    const names = s.people.map((p) => p.name);
+    const shown = names.slice(0, 3).join(', ') + (names.length > 3 ? ' and ' + (names.length - 3) + ' more' : '');
+    return esc(s.emoji) + ' ' + esc(shown);
+  }).join(' · ');
   return '<div class="reactions' + (opts && opts.compact ? ' reactions-compact' : '') + '" data-reactions="' + esc(targetType) + ':' + esc(targetId) + '">' +
-    EMOJI.map((e) => { const s = sums.find((x) => x.emoji === e); const c = s ? (s.count || 0) : 0; const mine = s && s.mine; return '<button type="button" class="react-btn' + (mine ? ' mine' : '') + '" data-react="' + e + '" aria-pressed="' + !!mine + '">' + e + (c ? ' ' + c : '') + '</button>'; }).join('') +
+    EMOJI.map((e) => { const s = sums.find((x) => x.emoji === e); const mine = s && s.mine; return '<button type="button" class="react-btn' + (mine ? ' mine' : '') + '" data-react="' + e + '" aria-pressed="' + !!mine + '">' + e + '</button>'; }).join('') +
+    (peopleLine ? '<span class="react-people">' + peopleLine + '</span>' : '') +
     '</div>';
 }
 function wireReactions(root, targetType, targetId) {
@@ -1647,10 +1657,23 @@ function openAddSheet(kind) {
 }
 function openMenuSheet() {
   const rows = [['Today', '#/'], ['Questions', '#/questions'], ['Saved', '#/saved'], ['Your collections', '#/collections'], ['Family & people', '#/family'], ['Who this story goes to', '#/legacy'], ['Plan & room', '#/plan'], ['Year Film', '#/film'], ['Help & settings', '#/settings']];
+  /* Family switcher (feed-source rulings): you can keep your own
+     Roon and sit in other people's Dens. Each family is its own
+     archive — switching moves you between them; nothing ever blends. */
+  const fams = state.families || [];
+  const switcher = fams.length > 1
+    ? '<p class="meta-line" style="margin:14px 0 6px">Your families</p>' + fams.map((f) => '<button type="button" class="quick-row" data-menu-family="' + esc(f.id) + '"><span>' + esc(f.name || 'A family') + (isSampleFamily(f) ? ' · Sample' : '') + '</span>' + (state.family && String(f.id) === String(state.family.id) ? '<strong>You’re here</strong>' : '<strong>→</strong>') + '</button>').join('')
+    : '';
   openSheet('<h3>Menu</h3>' + rows.map((r) => '<button type="button" class="quick-row" data-menu-go="' + esc(r[1]) + '"><span>' + esc(r[0]) + '</span><strong>→</strong></button>').join('') +
+    switcher +
     '<button type="button" class="btn btn-ghost btn-block" data-close-sheet>Close</button>');
   wireCloseSheet();
   $$('#sheet [data-menu-go]').forEach((b) => b.addEventListener('click', () => { const h = b.dataset.menuGo; closeSheet(); location.hash = h; }));
+  $$('#sheet [data-menu-family]').forEach((b) => b.addEventListener('click', async () => {
+    const fam = (state.families || []).find((f) => String(f.id) === String(b.dataset.menuFamily));
+    closeSheet();
+    if (fam && (!state.family || String(fam.id) !== String(state.family.id))) { await setFamily(fam); location.hash = '#/'; route(true); }
+  }));
 }
 /* Settings — ONLY real things: who is signed in, the two real
    destinations (question settings live on Questions; plan on Plan),
@@ -2191,6 +2214,20 @@ function renderFamily(root) {
   }).join('');
   let html = '<h1 class="dsp family-title">Family</h1><p class="family-sub">The people and memories that make up our story.</p>';
   html += '<div class="fam-circles">' + state.people.filter((p) => p.followed).map(circleHTML).join('') + '<button type="button" class="fam-circle fam-circle-add" id="fam-circle-add"><span class="fam-circle-img fam-circle-add-img">+</span><span class="fam-circle-name">Add</span><span class="fam-circle-count">&nbsp;</span></button></div>';
+  /* The people row on Today is the keeper's arrangement (Den model):
+     storylines first, in the order set here. Owner-only controls. */
+  const iAmOwnerEarly = !!state.user && members.some((m) => m.userId === state.user.id && m.role === 'owner');
+  if (iAmOwnerEarly && state.people.some((p) => p.followed)) {
+    const orderIds = ((fam && fam.peopleRowOrder) || []).map(String);
+    const followedOrdered = state.people.filter((p) => p.followed).slice().sort((a, b) => {
+      const ia = orderIds.indexOf(String(a.id)), ib = orderIds.indexOf(String(b.id));
+      return (ia < 0 ? 9999 : ia) - (ib < 0 ? 9999 : ib);
+    });
+    html += '<div class="card" id="row-order-card"><p style="margin:0 0 8px"><strong>The row on Today</strong><br><span class="muted-small">Your people, in the order they appear on the home screen. Rooney’s storylines lead the row.</span></p>' +
+      followedOrdered.map((p, i) => '<p style="margin:0 0 6px;display:flex;gap:8px;align-items:center"><span style="flex:1"><strong>' + esc(p.name) + '</strong></span>' +
+        '<button type="button" class="btn btn-ghost btn-small" data-row-move="-1" data-row-id="' + esc(p.id) + '"' + (i === 0 ? ' disabled' : '') + ' aria-label="Move earlier">↑</button>' +
+        '<button type="button" class="btn btn-ghost btn-small" data-row-move="1" data-row-id="' + esc(p.id) + '"' + (i === followedOrdered.length - 1 ? ' disabled' : '') + ' aria-label="Move later">↓</button></p>').join('') + '</div>';
+  }
   html += '<h2 class="fam-timeline-header">Family timeline</h2>' + (timelineHTML ? '<div class="timeline-list">' + timelineHTML + '</div>' : '<div class="empty"><p>No dated memories yet — the timeline appears as memories arrive.</p></div>');
   /* Everyone stays reachable and manageable below the circles: the
      full person list (followed people appear in both — the circles
@@ -2205,7 +2242,10 @@ function renderFamily(root) {
       '</p>').join('') +
     '<label class="field" style="margin:10px 0 0"><span>The next person you invite will</span><select id="fam-invite-role"><option value="contributor">Add photos and answer questions</option><option value="viewer">Watch and react — no adding or changing</option></select></label>' +
     '<button type="button" class="btn btn-outline btn-small" id="fam-invite" style="margin-top:10px">Invite someone</button><div id="invite-out" style="margin-top:10px"></div>' +
-    '<p class="muted-small">Contributors use the locked words, always: “Can add photos and answer questions.”</p></div>';
+    '<p class="muted-small">Contributors use the locked words, always: “Can add photos and answer questions.”</p>' +
+    /* Den model: the owner issues, anyone may suggest. Suggestions
+       wait for the owner's one-tap OK — nothing is sent until then. */
+    '<div id="den-proposals" style="margin-top:14px"></div><div id="den-suggest" style="margin-top:10px"></div></div>';
   html += '<h2 class="section-title">Answering by text</h2><div class="card">' +
     '<p style="margin:0 0 6px">Interviews started: <strong>' + state.interviews.length + '</strong> · answered: <strong>' + state.interviews.filter((iv) => iv.status === 'answered' || (iv.answers || []).length).length + '</strong></p>' +
     '<p class="muted-small" style="margin:0">Interview and question links work with no account. ' + esc(NO_PROVIDER_LINE) + '. Guest view links are below — view-only, and revocable.</p></div>';
@@ -2276,6 +2316,70 @@ function wireFamily(root) {
   $$('[data-revoke-no]', root).forEach((b) => b.addEventListener('click', () => { const row = b.closest('.shared-link'); const box = row ? $('[data-revoke-box]', row) : null; if (box) box.hidden = true; const ask = row ? $('[data-revoke-ask]', row) : null; if (ask) ask.hidden = false; }));
   $$('[data-revoke-yes]', root).forEach((b) => b.addEventListener('click', async () => { b.disabled = true; try { await api(F('/guest-links/' + encodeURIComponent(b.dataset.revokeYes)), { method: 'DELETE' }); await refreshData(); render(); toast('Link revoked — it no longer opens.'); } catch (e) { toast(e.message, 'error'); b.disabled = false; } }));
   const nf = $('#fam-new-family', root); if (nf) nf.addEventListener('click', () => { location.hash = '#/onboarding'; });
+  /* People-row arrangement: swap in the full followed order and save. */
+  $$('[data-row-move]', root).forEach((b) => b.addEventListener('click', async () => {
+    const orderIds = (((state.family || {}).peopleRowOrder) || []).map(String);
+    const followed = state.people.filter((p) => p.followed).slice().sort((a, c) => {
+      const ia = orderIds.indexOf(String(a.id)), ic = orderIds.indexOf(String(c.id));
+      return (ia < 0 ? 9999 : ia) - (ic < 0 ? 9999 : ic);
+    }).map((p) => String(p.id));
+    const i = followed.indexOf(String(b.dataset.rowId));
+    const j = i + parseInt(b.dataset.rowMove, 10);
+    if (i < 0 || j < 0 || j >= followed.length) return;
+    const tmp = followed[i]; followed[i] = followed[j]; followed[j] = tmp;
+    b.disabled = true;
+    try { await api(F('/people-row'), { method: 'PATCH', body: { order: followed } }); await refreshData(); render(); toast('Row updated — that’s the order on Today now.'); }
+    catch (e) { toast(e.message, 'error'); b.disabled = false; }
+  }));
+  /* Den suggestions: members propose, the owner settles. The list is
+     fetched fresh (it is not part of the family snapshot). */
+  const iAmOwner2 = !!state.user && ((state.family || {}).members || []).some((m) => m.userId === state.user.id && m.role === 'owner');
+  const paintProposals = async () => {
+    const box = $('#den-proposals', root); const sg = $('#den-suggest', root);
+    let props = [];
+    try { const res = await api(F('/invite-proposals')); props = listOf(res, ['proposals']); } catch (e) { return; }
+    if (box) {
+      const pend = props.filter((p) => p.status === 'pending');
+      if (iAmOwner2) {
+        box.innerHTML = pend.length
+          ? '<p style="margin:0 0 8px"><strong>Suggested for the Den</strong><br><span class="muted-small">Anyone in the Den can suggest someone. Nothing is sent until you say yes.</span></p>' + pend.map((p) => '<p style="margin:0 0 8px;display:flex;gap:8px;align-items:center;flex-wrap:wrap"><strong>' + esc(p.name) + '</strong> <span class="badge bsoft">' + (p.role === 'viewer' ? 'Watches and reacts' : 'Can add photos') + '</span> <span class="muted-small">suggested by ' + esc(p.proposedByName || 'a member') + '</span><button type="button" class="btn btn-grad btn-small" data-prop-approve="' + esc(p.id) + '">Approve &amp; get the invite link</button><button type="button" class="btn btn-ghost btn-small" data-prop-decline="' + esc(p.id) + '">Not now</button></p>').join('') + '<div id="prop-invite-out"></div>'
+          : '<p class="muted-small" style="margin:0">No suggestions waiting. Anyone in the Den can suggest someone — their name lands here for your OK.</p>';
+      } else {
+        const mine = props.filter((p) => p.status !== 'approved');
+        box.innerHTML = mine.length ? '<p style="margin:0 0 6px"><strong>Your suggestions</strong></p>' + mine.map((p) => '<p class="muted-small" style="margin:0 0 4px">' + esc(p.name) + ' — ' + (p.status === 'pending' ? 'waiting for the owner’s OK' : 'the owner let this one go') + '</p>').join('') : '';
+      }
+      $$('[data-prop-approve]', box).forEach((b) => b.addEventListener('click', async () => {
+        b.disabled = true;
+        try {
+          const res = await api(F('/invite-proposals/' + encodeURIComponent(b.dataset.propApprove) + '/approve'), { method: 'POST', body: {} });
+          const out = $('#prop-invite-out', root);
+          if (out && res && res.inviteUrl) out.innerHTML = '<p class="muted-small" style="word-break:break-all">Approved — share this invite link: <strong>' + esc(res.inviteUrl) + '</strong> <button type="button" class="btn btn-ghost btn-small" id="prop-invite-copy">Copy</button></p>';
+          const c = $('#prop-invite-copy', root); if (c) c.addEventListener('click', () => copyText(res.inviteUrl, 'Invite link copied.'));
+          await paintProposals();
+        } catch (e) { toast(e.message, 'error'); b.disabled = false; }
+      }));
+      $$('[data-prop-decline]', box).forEach((b) => b.addEventListener('click', async () => {
+        b.disabled = true;
+        try { await api(F('/invite-proposals/' + encodeURIComponent(b.dataset.propDecline) + '/decline'), { method: 'POST', body: {} }); await paintProposals(); }
+        catch (e) { toast(e.message, 'error'); b.disabled = false; }
+      }));
+    }
+    if (sg && !iAmOwner2) {
+      sg.innerHTML = '<form id="den-suggest-form"><label class="field" style="margin:0 0 8px"><span>Suggest someone for the Den</span><input name="name" placeholder="Their name" autocomplete="off"></label>' +
+        '<label class="field" style="margin:0 0 8px"><span>They would</span><select name="role"><option value="contributor">Add photos and answer questions</option><option value="viewer">Watch and react — no adding or changing</option></select></label>' +
+        '<button type="submit" class="btn btn-outline btn-small">Send the suggestion</button> <span class="muted-small">The owner decides — nothing is sent to them yet.</span></form>';
+      const form = $('#den-suggest-form', sg);
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const fd = new FormData(form);
+        const name = String(fd.get('name') || '').trim();
+        if (!name) { toast('A name is enough to suggest someone.'); return; }
+        try { await api(F('/invite-proposals'), { method: 'POST', body: { name, role: fd.get('role') } }); toast('Suggested — it’s with the owner now.'); await paintProposals(); }
+        catch (err) { toast(err.message, 'error'); }
+      });
+    }
+  };
+  paintProposals();
 }
 
 /* ================= PERSON VIEW ================= */
@@ -2286,9 +2390,21 @@ function renderPerson(root, personId) {
   const chapters = state.chapters.filter((ch) => chapterMemories(ch).some((m) => (m.peopleIds || []).map(String).includes(String(p.id))) || String(ch.title || '').includes(p.name));
   const threads = state.threads.filter((t) => (t.match && String(t.match.personId) === String(p.id)) || (t.memoryIds || []).some((id) => { const m = state.memories.find((x) => String(x.id) === String(id)); return m && (m.peopleIds || []).map(String).includes(String(p.id)); }));
   const letters = state.letters.filter((l) => String(l.toPersonId) === String(p.id));
+  /* Profile as a story home (CIRCLE-SPEC §2): a cover moment with the
+     name set over it, then ONE identity line in archive counts —
+     moments kept, stories told, since when. Never applause counts:
+     there is no number on this page that measures attention. */
+  const coverMem = mine.filter((m) => (m.type === 'photo' && mediaSrc(m)) || (m.type === 'video' && m.poster)).slice().sort((a, b) => new Date(b.takenAt || b.createdAt || 0) - new Date(a.takenAt || a.createdAt || 0))[0] || null;
+  const coverSrc = coverMem ? (coverMem.type === 'photo' ? mediaSrc(coverMem) : coverMem.poster) : '';
+  const years = mine.map((m) => new Date(m.takenAt || m.createdAt || 0).getFullYear()).filter((y) => y > 1900 && y < 3000);
+  const sinceYear = years.length ? Math.min(...years) : (p.birthdate ? new Date(p.birthdate).getFullYear() : null);
+  const identityLine = num(mine.length) + ' moment' + (mine.length === 1 ? '' : 's') + ' · ' + num(chapters.length) + ' stor' + (chapters.length === 1 ? 'y' : 'ies') + (sinceYear ? ' · since ' + sinceYear : '');
   root.innerHTML = '<p style="margin:0 0 10px"><a href="#/family">← Family</a></p>' +
-    '<div style="display:flex;gap:14px;align-items:center"><span class="person-avatar">' + esc(initialOf(p.name)) + '</span><div><h1 class="dsp" style="margin:0;font-size:34px">' + esc(p.name) + '</h1><p class="muted" style="margin:2px 0">' + esc(p.relationship || '') + (p.followed ? ' · Rooney follows ' + pronoun(p).subj + ' story — ' + esc(postureWords(p)) : ' · Rooney isn\'t following ' + pronoun(p).poss + ' storyline') + '</p></div></div>' +
+    '<div class="profile-cover">' + (coverSrc ? '<img src="' + esc(coverSrc) + '" alt="">' : '<span class="profile-cover-fallback">' + esc(initialOf(p.name)) + '</span>') +
+    '<div class="profile-cover-scrim"><h1 class="dsp">' + esc(p.name) + '</h1><p>' + esc(p.relationship || '') + (p.followed ? ' · Rooney follows ' + pronoun(p).subj + ' story — ' + esc(postureWords(p)) : ' · Rooney isn\'t following ' + pronoun(p).poss + ' storyline') + '</p></div></div>' +
+    '<p class="profile-counts">' + esc(identityLine) + '</p>' +
     '<p style="margin:14px 0"><a class="btn btn-outline btn-small" href="#/explore" data-scoped="' + esc(p.id) + '">See ' + esc(firstName(p.name)) + "'s story in Moments</a> " +
+    '<button type="button" class="btn btn-outline btn-small" id="pv-ask">Ask about ' + esc(firstName(p.name)) + '</button> ' +
     (p.followed ? '<button type="button" class="btn btn-ghost btn-small" id="pv-unfollow">Unfollow</button>' : '<button type="button" class="btn btn-grad btn-small" id="pv-follow">Follow ' + pronoun(p).poss + ' story</button>') +
     ' <button type="button" class="btn btn-ghost btn-small" id="pv-edit">Edit</button>' +
     ' <button type="button" class="btn btn-ghost btn-small" id="pv-mute">' + (p.resurfaceMuted ? 'Let On This Day show them again' : 'Keep them out of On This Day') + '</button>' +
@@ -2299,6 +2415,20 @@ function renderPerson(root, personId) {
     (isStartPlan() ? '' : '<h2 class="section-title">Letters for ' + esc(firstName(p.name)) + '</h2>' + (letters.length ? letters.map((l) => l.sealed && !l.due ? '<div class="card"><p class="dsp" style="font-size:20px;margin:0">A letter for ' + esc(l.toPersonName || p.name) + ' — opens ' + esc(fmtDay(l.deliverOn)) + '</p></div>' : '<div class="card"><p class="dsp" style="font-size:20px;margin:0 0 6px">' + esc(l.title || 'A letter') + '</p>' + (l.body ? '<p style="white-space:pre-wrap;line-height:1.7;margin:0">' + esc(l.body) + '</p>' : '<p class="muted" style="margin:0">' + esc(l.note || '') + '</p>') + '</div>').join('') : '<div class="empty"><p>No letters for ' + esc(firstName(p.name)) + ' yet — write one from the Story page.</p></div>')) +
     '<h2 class="section-title">Moments with ' + esc(firstName(p.name)) + '</h2>' + (mine.length ? '<div class="item-grid">' + mine.slice(0, 24).map((m) => '<div class="item-cell">' + (m.type === 'photo' || m.type === 'video' ? mediaHTML(m) : '<div style="padding:12px">' + mediaHTML(m) + '</div>') + '<p class="cap">' + esc(m.caption || m.type) + ' · ' + esc(fmtDate(m.takenAt, { month: 'short', year: 'numeric' })) + '</p></div>').join('') + '</div>' : '<div class="empty"><p>No moments tagged with ' + esc(firstName(p.name)) + ' yet.</p></div>');
   const scoped = $('[data-scoped]', root); if (scoped) scoped.addEventListener('click', (e) => { e.preventDefault(); state.feedScope = String(p.id); state.feedCursor = null; state.feedDone = false; location.hash = '#/explore'; if (state.view === 'explore') render(); });
+  /* Ask about them: the profile's engine — one tap starts an
+     interview about this person (with their strongest recent photo
+     when there is one), and the answer lands back on this page. */
+  const ask = $('#pv-ask', root); if (ask) ask.addEventListener('click', async () => {
+    ask.disabled = true;
+    try {
+      const body = { personId: p.id };
+      const recentPhoto = mine.filter((m) => m.type === 'photo').slice().sort((a, b) => new Date(b.takenAt || b.createdAt || 0) - new Date(a.takenAt || a.createdAt || 0))[0];
+      if (recentPhoto) body.memoryId = recentPhoto.id;
+      await api(F('/interviews'), { method: 'POST', body });
+      toast('Rooney is asking about ' + firstName(p.name) + ' — it’s waiting in Questions.');
+      location.hash = '#/questions';
+    } catch (e) { toast(e.message, 'error'); ask.disabled = false; }
+  });
   const f = $('#pv-follow', root); if (f) f.addEventListener('click', () => setFollowed(p, true));
   const uf = $('#pv-unfollow', root); if (uf) uf.addEventListener('click', () => setFollowed(p, false));
   const ed = $('#pv-edit', root); if (ed) ed.addEventListener('click', () => editPersonSheet(p));

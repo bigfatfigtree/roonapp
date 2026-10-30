@@ -167,6 +167,16 @@ p.lead{color:var(--soft);line-height:1.65;font-size:16px;margin:0 0 14px}
 .reactions{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;align-items:center}
 .react-btn{border:1px solid var(--line);background:#14151D;border-radius:100px;padding:6px 12px;font:inherit;font-size:14px;cursor:pointer}
 .react-btn.mine{background:var(--pink);border-color:transparent;font-weight:700}
+.react-people{font-size:12px;color:var(--soft,#7A7079);margin-left:6px;line-height:1.4}
+/* Profile as a story home (Den build): cover moment, name over the
+   image, one archive-shaped count line. */
+.profile-cover{position:relative;border-radius:22px;overflow:hidden;min-height:230px;background:#171922;display:flex;align-items:flex-end}
+.profile-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.profile-cover-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:84px;font-weight:700;color:rgba(245,242,236,.25);font-family:var(--font-display)}
+.profile-cover-scrim{position:relative;z-index:1;width:100%;padding:64px 18px 14px;background:linear-gradient(180deg,rgba(5,5,10,0),rgba(5,5,10,.78));color:#F5F2EC}
+.profile-cover-scrim h1{font-size:36px;line-height:1.05;margin:0}
+.profile-cover-scrim p{margin:4px 0 0;color:rgba(245,242,236,.8);font-size:13.5px}
+.profile-counts{margin:12px 2px 0;font-size:13px;font-weight:600;color:var(--fx-ink2,rgba(245,242,236,.74));letter-spacing:.01em}
 .comment-toggle{background:none;border:none;font:inherit;font-size:13.5px;color:var(--blue);font-weight:600;cursor:pointer;padding:6px 4px}
 .comments{margin-top:10px;border-top:1px solid var(--line);padding-top:12px}
 .comment{font-size:14.5px;line-height:1.55;margin:0 0 8px}
@@ -1025,6 +1035,19 @@ body.fx-locked{overflow:hidden}
 .fx-face--plus{border:1.5px dashed rgba(255,255,255,.35);background:transparent;font-size:24px;font-weight:400;color:rgba(245,242,236,.8)}
 .fx-face-init{font-size:19px;font-weight:700}
 .fx-pname{max-width:64px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fx-person{position:relative}
+.fx-facedot{position:absolute;top:1px;right:6px;width:10px;height:10px;border-radius:50%;background:var(--fx-grad);border:2px solid #0D0E13;z-index:2}
+/* "New in your story" — the Den's one activity surface (Den build).
+   Quiet lines, a soft dot, no counts, no badges. */
+.fx-activity{margin:2px 0 18px;background:#14151D;border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:14px 16px 10px}
+.fx-activity-head{display:flex;align-items:center;gap:8px;margin:0 0 8px}
+.fx-activity-head h2{font-family:var(--font-ui);font-size:15px;font-weight:700;color:var(--fx-ink);margin:0}
+.fx-activity-dot{width:8px;height:8px;border-radius:50%;background:var(--fx-grad);flex:none}
+.fx-activity ul{list-style:none;margin:0;padding:0}
+.fx-activity li{margin:0;padding:7px 0;border-top:1px solid rgba(255,255,255,.05)}
+.fx-activity li:first-child{border-top:none}
+.fx-activity a{color:var(--fx-ink2);text-decoration:none;font-size:13.5px;line-height:1.45;display:block}
+.fx-activity a strong{color:var(--fx-ink);font-weight:600}
 /* Featured card: the app's own Today cover, composed like the board's. */
 .today-cover-wrap{margin:0 0 6px}
 .today-cover{border-radius:26px;box-shadow:0 24px 48px -20px rgba(0,0,0,.7)}

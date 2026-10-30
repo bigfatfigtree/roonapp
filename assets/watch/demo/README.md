@@ -257,3 +257,36 @@ one-tap demo login → Today cover → Explore (scroll; Everyone⇄person
 toggle re-renders) → Threads list → chapter reader. Grep the tree for
 `http://` / `https://` / `googleapis` — the only hits should be inside
 README/comments, never in code that loads.
+
+## Bake 2026-10-30 PM — populate-media + GO-LIVE (251 keys)
+
+Re-baked from the COMPLETION code (Den S1 + prod S2) after the sample
+family was enriched under Jeff's "populate all images and videos, no
+repeats" order. Two-stage harness (`hidden_files/bake-harness/`):
+`capture.py` (previous-key replay + Playwright journey) then
+`supplement.py` (id-dependent keys re-enumerated from the reseeded
+store: all thread details, comments for every target, per-person and
+per-month feeds for every month present 2021-06 → 2025-11, film years
+2021–2025, activity, invite-proposals). **251 keys, all HTTP 200**,
+real db.json md5-verified unchanged before/after both stages.
+
+- Sample family now: **63 memories (48 photos · 7 videos · 8 writings),
+  14 chapters, 8 threads** — Gardens followed. All media is real Pexels
+  stock; provenance per file in `app/server/sample-assets/PROVENANCE.md`.
+- Den surfaces are IN this bake: `/activity` ("New in your story"),
+  `/invite-proposals` (member-proposed invite queue), `/den-prefs`,
+  family detail with members + peopleRowOrder, family switcher data.
+- No-repeat proof: `app/server/check-sample-covers.js` run against both
+  the live store and this baked demo-data.js — **60 cover slots, every
+  one populated, zero repeats** (a memory may appear inside its own
+  thread/story; it headlines exactly one surface; the pool photo
+  headlines exactly one).
+- New bake transform: memory `fileRef`/`originalSrc` point at the web
+  rendition, so the static package ships renditions only (62 media
+  files, 36.5 MB); originals stay in the real app. Two videos
+  (roaring-dinosaur, milo-first-ride) have no view rendition in the app
+  itself — their originals ship, exactly as the app serves them.
+- Design discipline unchanged: design.js byte-identical, no boot
+  script, Google Fonts links removed, dark Variant D default
+  (body #0D0E13 verified in QA), only font 404s are the documented
+  Olive/Origin stubs.
