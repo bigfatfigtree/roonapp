@@ -408,6 +408,24 @@ footer .fsmall{font-family:'Inter',sans-serif;font-style:normal;font-size:12.5px
 .defband p{font-family:'Instrument Serif',serif;font-size:clamp(19px,2.3vw,26px);line-height:1.45;margin:0;color:#fff}
 .defband p em{color:var(--amber)}
 
+/* ===== watch section (additive, section-scoped) ===== */
+.wch-row{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(28px,5vw,64px);margin-top:54px;align-items:start}
+@media(max-width:1000px){.wch-row{grid-template-columns:1fr}}
+.wch-ing{display:grid;gap:13px;margin-top:22px}
+.wch-ing>div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.wch-ing h3{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:19px;margin:0 0 5px}
+.wch-ing p{font-size:14.5px;line-height:1.6;color:var(--soft);margin:0}
+.wch-try{font-size:15px;font-weight:600;margin:0 0 14px}
+.wch-phone{position:relative;width:100%;max-width:390px;margin:0 auto;border-radius:38px;border:10px solid #17121d;background:#17121d;box-shadow:0 34px 64px -34px var(--sh);overflow:hidden}
+.wch-phone iframe{display:block;width:100%;height:auto;aspect-ratio:390/844;border:0;border-radius:27px;background:#120E16;visibility:hidden}
+.wch-pill{position:absolute;top:16px;left:50%;transform:translateX(-50%);z-index:3;background:rgba(18,14,22,.85);color:#F7F1EC;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 13px;border-radius:100px;backdrop-filter:blur(6px);pointer-events:none}
+.wch-fallback{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:15px;background:#17121d;color:#F7F1EC;text-align:center;padding:26px}
+.wch-fallback img{width:70%;border-radius:14px;display:block}
+.wch-fallback p{font-size:13.5px;line-height:1.55;color:#AEA0B8;margin:0;max-width:30ch}
+.wch-phone:focus-within{outline:2px solid var(--coral);outline-offset:3px}
+.wch-video{margin-top:74px;text-align:center}
+.wch-vh{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(24px,3vw,32px);margin:0 0 10px}
+.wch-video video{width:100%;max-width:400px;border-radius:22px;background:#120E16;box-shadow:0 34px 64px -34px var(--sh)}
 </style>
 </head>
 <body>
@@ -502,6 +520,58 @@ footer .fsmall{font-family:'Inter',sans-serif;font-style:normal;font-size:12.5px
     </div>
   </div>
 </section>
+
+<!-- ============ WATCH ============ -->
+<section class="sec" id="watch">
+  <div class="wrap">
+    <div class="rv"><p class="eyeb">watching together</p>
+    <h2 class="big">This isn&rsquo;t your camera roll. <em>It&rsquo;s the story, ready to watch.</em></h2></div>
+    <p class="lead rv" style="margin-top:16px;max-width:66ch">Your photos come back as a feed the whole couch can watch &mdash; but Rooney doesn&rsquo;t just hand them back to you. Between the photos, Rooney writes: what it noticed, the thread it&rsquo;s been following for years, and the chapter this day belongs to. You scroll. The story is already in the scroll.</p>
+    <div class="hphoto rv"><img src="assets/watch/couch-tv.jpg" alt="A couple on a couch watching together. The TV shows a Roon chapter from a sample family." width="2000" height="1333" loading="lazy" decoding="async" style="aspect-ratio:3/2"></div>
+    <p class="illu rv">The people are stock photography; the screens show the real Roon product with a sample family.</p>
+    <div class="wch-row">
+      <div class="rv">
+        <p class="eyeb">what&rsquo;s in the feed</p>
+        <p class="lead" style="max-width:52ch">What&rsquo;s actually in the feed &mdash; four things, taking turns:</p>
+        <div class="wch-ing">
+          <div><h3>A photo</h3><p>Yours, as you took it. The feed starts with what your family already has.</p></div>
+          <div><h3>Something Rooney noticed</h3><p>A pattern across your years, shown with the photos that prove it &mdash; never just a claim.</p></div>
+          <div><h3>A thread Rooney is following</h3><p>The same person, place, or day, gathered from every year it appears in, in order.</p></div>
+          <div><h3>The start of a chapter</h3><p>A named piece of your story, written in sentences from your family&rsquo;s own words &mdash; tap to read the rest.</p></div>
+        </div>
+        <div style="margin-top:30px;display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+          <button class="btn b-g" onclick="goBeta()">Join the beta</button>
+          <span style="font-size:13.5px;color:var(--soft)">Roon is in private beta &mdash; founding families first.</span>
+        </div>
+        <p style="margin-top:18px"><a href="/how-rooney-works" style="color:var(--coral);font-weight:600">See how Rooney works &rarr;</a></p>
+      </div>
+      <div class="rv">
+        <p class="wch-try">Try it &mdash; this is a sample family. Scroll it the way you&rsquo;d scroll anything:</p>
+        <div class="wch-phone">
+          <span class="wch-pill">Sample family</span>
+          <div class="wch-fallback" id="wchFallback">
+            <img src="assets/watch/walkthrough-poster.jpg" alt="The Roon feed on a phone, showing a sample family">
+            <p>The interactive sample isn&rsquo;t available here &mdash; watch how it works below.</p>
+          </div>
+          <iframe id="wchFrame" src="assets/watch/demo/app.html" title="Try the Roon feed — a sample family you can scroll" width="390" height="844" loading="lazy" sandbox="allow-scripts allow-same-origin" referrerpolicy="no-referrer"></iframe>
+        </div>
+        <p class="illu">Sample family &mdash; demo data. This is the real Roon feed, showing a sample family so you can try the scroll. Your family&rsquo;s feed is built only from your own photos and words.</p>
+      </div>
+    </div>
+    <div class="wch-video rv">
+      <h3 class="wch-vh">Watch how it works</h3>
+      <p class="lead" style="margin:0 auto 20px;max-width:56ch">Forty seconds: how a pile of photos becomes an evening on the couch.</p>
+      <video controls preload="none" poster="assets/watch/walkthrough-poster.jpg" playsinline>
+        <source src="assets/watch/walkthrough.mp4" type="video/mp4">
+        <source src="assets/watch/walkthrough.webm" type="video/webm">
+        <track kind="captions" src="assets/watch/walkthrough.en.vtt" srclang="en" label="English" default>
+        Your browser can&rsquo;t play this video &mdash; the four things in the feed, above, are what it shows.
+      </video>
+      <p class="illu" style="margin-left:auto;margin-right:auto">Sample family shown. The film Rooney makes for your family is assembled from that year&rsquo;s chapters, narrated in your family&rsquo;s own words.</p>
+    </div>
+  </div>
+</section>
+<script>(function(){var f=document.getElementById('wchFrame'),fb=document.getElementById('wchFallback');if(!f)return;f.addEventListener('load',function(){f.style.visibility='visible';if(fb)fb.style.display='none'})})();</script>
 
 <!-- ============ THREADS ============ -->
 <section class="sec" id="threads">

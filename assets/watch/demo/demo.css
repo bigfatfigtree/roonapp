@@ -1,0 +1,76 @@
+/* Roon interactive demo — export skin layer.
+ *
+ * PRE-FONT-DRAFT: the final brand fonts are Olive Display (display) and
+ * Origin (UI), pending Jeff's decision/purchase. styles.css already
+ * declares @font-face stubs for those names pointing at fonts/*.woff2
+ * files that do not exist yet, and its token stacks
+ * (--font-display / --font-ui / --font-reading) fall back to
+ * 'Instrument Serif' and Inter by design. This sheet makes those
+ * fallbacks real and fully local: it declares the fallback families
+ * from the TTFs in demo/fonts/ (copied from ~/workspace/roon/qa/fonts/).
+ * The dead Olive/Origin woff2 requests 404 harmlessly and the fallback
+ * stacks take over — exactly the app's documented pre-font behaviour.
+ *
+ * When the final fonts land: put the real files in fonts/, fix the
+ * @font-face blocks in the styles.css copy to match the delivered
+ * files, and delete this fallback layer (see README.md).
+ *
+ * LOGO: the canonical Roon lockup (assets/brand/logo-dark.png) is
+ * already the markup in app.html for all three brand surfaces
+ * (.auth-lockup 56px, .rail-lockup 30px, .mh-lockup 26px tall —
+ * sizing lives in styles.css, unchanged). The logo is one piece of
+ * artwork — the dinosaur drawing forms the "R" — never a typeset
+ * wordmark. The standalone dinosaur mark (assets/mark-dark.png) is
+ * used only for the nav disc, Ask Rooney discs and avatars.
+ */
+
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('fonts/InstrumentSerif-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('fonts/InstrumentSerif-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/Inter-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/Inter-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/Inter-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/Inter-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/Inter-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}

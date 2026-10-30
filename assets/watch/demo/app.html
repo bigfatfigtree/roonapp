@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Roon — Your family's story, kept</title>
+<meta name="description" content="Roon helps your family remember: Rooney prompts, reminds, and notices — and turns the photos you already have into a living story.">
+<link rel="icon" type="image/png" href="assets/mark-dark.png">
+<!-- DEMO EXPORT: Google Fonts links removed — fonts are local (demo.css + fonts/).
+     PRE-FONT-DRAFT package: final fonts are Olive Display / Origin, pending
+     Jeff's decision; Instrument Serif / Inter are the app's own fallbacks.
+     The Roon logo below is the canonical artwork lockup
+     (assets/brand/logo-dark.png) — one piece of artwork, never typeset. -->
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="demo.css">
+</head>
+<body>
+<div id="toast-region" class="toast-region" aria-live="polite"></div>
+
+<!-- ============ AUTH ============ -->
+<main id="auth-view" class="auth-view" hidden>
+  <div class="auth-card">
+    <div class="auth-brand">
+      <h1 class="auth-logo-h"><img src="assets/brand/logo-dark.png" alt="Roon" class="auth-lockup"></h1>
+      <p class="auth-tagline">The days you'd give anything to have back —<br>kept, and told back to you.</p>
+    </div>
+    <div class="auth-tabs" role="tablist" aria-label="Sign in or create account">
+      <button type="button" class="auth-tab is-active" id="tab-login" role="tab" aria-selected="true">Sign in</button>
+      <button type="button" class="auth-tab" id="tab-signup" role="tab" aria-selected="false">Create account</button>
+    </div>
+    <form id="form-login" class="auth-form" autocomplete="on" novalidate>
+      <label class="field"><span>Email</span><input type="email" name="email" required autocomplete="email" inputmode="email" placeholder="you@example.com"></label>
+      <label class="field"><span>Password</span><input type="password" name="password" required autocomplete="current-password" placeholder="Your password"></label>
+      <p class="form-error" role="alert" hidden></p>
+      <button type="submit" class="btn btn-grad btn-block">Sign in</button>
+    </form>
+    <form id="form-signup" class="auth-form" autocomplete="on" novalidate hidden>
+      <label class="field"><span>Your name</span><input type="text" name="name" required autocomplete="name" placeholder="Your name"></label>
+      <label class="field"><span>Email</span><input type="email" name="email" required autocomplete="email" inputmode="email" placeholder="you@example.com"></label>
+      <label class="field"><span>Password</span><input type="password" name="password" required minlength="8" autocomplete="new-password" placeholder="Choose a password (8+ characters)"></label>
+      <p class="form-error" role="alert" hidden></p>
+      <button type="submit" class="btn btn-grad btn-block">Create account</button>
+      <p class="auth-fineprint">Your family's memories are never sold and never used to train public models. Export everything, any time.</p>
+    </form>
+    <div class="demo-box">
+      <p><strong>New here?</strong> Look around the sample family first — made-up photos and story, so you can see how Roon feels.</p>
+      <button type="button" class="btn btn-outline btn-block" id="btn-demo">Explore the sample family</button>
+      <p class="muted-small">Demo data — a made-up family, labelled Sample everywhere it appears.</p>
+    </div>
+    <div id="invite-notice" class="invite-notice" hidden><p>You've been invited to join a family on Roon. Sign in or create an account and we'll bring you straight in.</p></div>
+  </div>
+</main>
+
+<!-- ============ APP SHELL ============ -->
+<div id="app-shell" class="app-shell" hidden>
+  <aside class="rail" aria-label="Main">
+    <a class="rail-brand" href="#/" aria-label="Roon — Today"><img src="assets/brand/logo-dark.png" alt="Roon" class="rail-lockup"></a>
+    <div class="rail-family" id="rail-family"></div>
+    <nav class="rail-nav rail-nav-primary" aria-label="Roon sections">
+      <a href="#/explore" data-nav="explore"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.8"/><path d="m15.5 8.5-2.2 4.5-4.8 2.5 2.2-4.5z"/></svg><span>Moments</span></a>
+      <a href="#/story" data-nav="story"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="3" width="15" height="18" rx="2"/><path d="M8.5 8h7M8.5 12h7"/></svg><span>Story</span></a>
+      <a href="#/threads" data-nav="threads"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12c1.8-4.5 3.7-4.5 5.5 0s3.7 4.5 5.5 0 3.7-4.5 5.5 0"/></svg><span>Threads</span></a>
+    </nav>
+    <button type="button" class="btn btn-grad btn-block" id="btn-rooney-rail"><span class="rail-rooney-disc" aria-hidden="true"><img src="assets/mark-dark.png" alt=""></span>Ask Rooney</button>
+    <button type="button" class="btn btn-outline btn-block" id="btn-add-rail">Add to your story</button>
+    <nav class="rail-nav rail-nav-secondary" aria-label="More">
+      <p class="rail-more-label">More</p>
+      <a href="#/" data-nav="today"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.5M12 19v2.5M2.5 12H5M19 12h2.5M5 5l1.8 1.8M17.2 17.2 19 19M19 5l-1.8 1.8M6.8 17.2 5 19"/></svg><span>Today</span></a>
+      <a href="#/questions" data-nav="questions"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.2 9a2.9 2.9 0 1 1 4.1 2.7c-.8.35-1.3.8-1.3 1.8"/><circle cx="12" cy="17.5" r=".4" fill="currentColor"/></svg><span>Questions</span><span id="nav-q-count" class="nav-count" hidden></span></a>
+      <a href="#/family" data-nav="family"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8.5" r="3.2"/><path d="M3.5 19.5c.6-3 2.8-4.5 5.5-4.5s4.9 1.5 5.5 4.5"/><circle cx="17" cy="9.5" r="2.6"/><path d="M16.5 15.2c2.3.2 3.7 1.6 4.1 4"/></svg><span>Family &amp; people</span></a>
+      <a href="#/plan" data-nav="plan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></svg><span>Plan &amp; room</span></a>
+      <a href="#/film" data-nav="film"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="2"/><path d="m10.5 9.5 5 2.5-5 2.5z"/></svg><span>Year Film</span></a>
+      <a href="#/settings" data-nav="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.8"/><path d="M9.4 9.2A2.7 2.7 0 1 1 12 12.4V14"/><circle cx="12" cy="17.3" r=".4" fill="currentColor"/></svg><span>Help &amp; settings</span></a>
+    </nav>
+    <div class="rail-foot">
+      <label class="visually-hidden" for="find-input">Find a memory</label>
+      <input id="find-input" class="find-input" type="search" placeholder="Find — a word, a person, a date…" autocomplete="off">
+      <p class="plan-line" id="plan-line"></p>
+      <button type="button" class="btn btn-ghost btn-small" id="btn-logout">Sign out</button>
+    </div>
+  </aside>
+
+  <div class="main-wrap">
+    <header class="mobile-head">
+      <a class="mh-left" href="#/" aria-label="Roon — Today"><img src="assets/brand/logo-dark.png" alt="Roon" class="mh-lockup"></a>
+      <div class="mh-actions">
+        <button type="button" class="mh-btn" id="btn-find-mobile" aria-label="Find a memory">⌕</button>
+        <button type="button" class="mh-btn mh-capture" id="btn-capture-mobile" aria-label="Add a memory">+</button>
+        <button type="button" class="mh-btn" id="btn-menu-mobile" aria-label="Menu">•••</button>
+      </div>
+    </header>
+    <div id="sample-banner" class="sample-banner" role="note" hidden>Sample family — made-up photos and story, so you can see how Roon feels.</div>
+    <main class="main" id="main"><div id="view-root"></div></main>
+  </div>
+
+  <nav class="bottom-nav" aria-label="Roon sections">
+    <a href="#/explore" data-nav="explore" class="bottom-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.8"/><path d="m15.5 8.5-2.2 4.5-4.8 2.5 2.2-4.5z"/></svg>Moments</a>
+    <a href="#/story" data-nav="story" class="bottom-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="3" width="15" height="18" rx="2"/><path d="M8.5 8h7M8.5 12h7"/></svg>Story</a>
+    <button type="button" class="bottom-rooney" id="btn-rooney-mobile" aria-label="Ask Rooney"><span class="rooney-disc" aria-hidden="true"><img src="assets/mark-dark.png" alt=""></span><span>Rooney</span></button>
+    <a href="#/threads" data-nav="threads" class="bottom-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12c1.8-4.5 3.7-4.5 5.5 0s3.7 4.5 5.5 0 3.7-4.5 5.5 0"/></svg>Threads</a>
+    <button type="button" class="bottom-link bottom-add" id="btn-add-mobile" aria-label="Add to your story"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Add</button>
+  </nav>
+</div>
+
+<!-- ============ OVERLAYS ============ -->
+<div class="sheet-backdrop" id="sheet-backdrop" hidden><div class="sheet" id="sheet" role="dialog" aria-modal="true"></div></div>
+<div class="find-overlay" id="find-overlay" hidden>
+  <div class="find-box">
+    <div class="find-head"><input id="find-overlay-input" type="search" placeholder="Find — a word, a person, a date…" autocomplete="off"><button type="button" class="btn btn-ghost btn-small" id="btn-find-close">Close</button></div>
+    <div id="find-results"></div>
+  </div>
+</div>
+<div id="film-player" class="film-player" hidden role="dialog" aria-modal="true" aria-label="Year film player"></div>
+<!-- DEMO EXPORT: baked data + fetch shim must load BEFORE app.js. app.js is unmodified. -->
+<script src="demo-data.js"></script>
+<script src="demo-shim.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

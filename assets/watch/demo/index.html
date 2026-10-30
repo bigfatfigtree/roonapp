@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roon — interactive sample demo</title>
+<meta name="description" content="Try Roon with a made-up sample family: a fully self-contained, offline demo of the Roon app.">
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; padding: 28px 16px 40px;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: #141017; color: #FCFAF7;
+    display: flex; flex-direction: column; align-items: center; gap: 18px;
+  }
+  h1 { font-size: 20px; font-weight: 650; margin: 0; text-align: center; }
+  .disclosure {
+    margin: 0; max-width: 560px; text-align: center;
+    font-size: 15px; line-height: 1.55; color: #F2BAE8;
+  }
+  .phone {
+    width: 402px; max-width: 94vw;
+    padding: 12px; border-radius: 52px;
+    background: #000; border: 1px solid #3a3340;
+    box-shadow: 0 24px 60px rgba(0,0,0,.55);
+  }
+  .phone iframe {
+    display: block; width: 100%; height: min(844px, 148vw);
+    border: 0; border-radius: 42px; background: #FCFAF7;
+  }
+  .note { margin: 0; max-width: 560px; text-align: center; font-size: 13px; line-height: 1.6; color: #b9aeb8; }
+  .note code { color: #FCFAF7; }
+</style>
+</head>
+<body>
+  <h1>Roon — try the sample family</h1>
+  <p class="disclosure">Sample family — made-up photos and story, so you can see how Roon feels.</p>
+  <div class="phone">
+    <iframe src="app.html" title="Roon app — sample family demo" loading="eager"></iframe>
+  </div>
+  <p class="note">This demo is fully self-contained: it runs entirely in your browser with baked-in sample data — nothing is uploaded, saved, or sent anywhere. Tap “Explore the sample family” inside to look around. For embedding, <code>app.html</code> can be iframed directly (it is the app itself; this page is only a phone frame around it).</p>
+</body>
+</html>
