@@ -208,6 +208,7 @@ footer nav a:hover{color:var(--ink)}
 </header>
 
 <main class="wrap">
+  <p style="max-width:640px;font-size:16.5px;line-height:1.55;color:#B9BDCB;margin:22px 0 2px">Roon turns the photos and videos your family already has into a written story &mdash; chapters, a film every January, letters for later. Below is the real product, running on a sample family. It all works. Try it.</p>
 
   <!-- ===== HERO: Jeff's greeting, Ask framing, the Den row ===== -->
   <div class="hero">
@@ -220,10 +221,10 @@ footer nav a:hover{color:var(--ink)}
       </div>
       <button class="ask-orb" onclick="goStage()" aria-label="Ask Rooney — inside Roon, below"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round"><path d="M5 7h9M18 7h1M5 12h3M12 12h7M5 17h11M20 17h-1"/><circle cx="16" cy="7" r="2.1"/><circle cx="10" cy="12" r="2.1"/><circle cx="18" cy="17" r="2.1"/></svg></button>
     </div>
-    <p class="askhint">Ask Rooney lives inside Roon — tap the bar and you&rsquo;re there. Rooney, bottom centre, answers from the family&rsquo;s own moments.</p>
+    <p class="askhint">Ask Rooney lives inside Roon — tap the bar and you&rsquo;re there. Rooney, bottom centre, answers using only this family&rsquo;s photos and words.</p>
 
     <div class="denrow-wrap">
-      <div class="denrow-lab">The Den — who&rsquo;s in this story</div>
+      <div class="denrow-lab">The Den — the family in this story, who can watch and add</div>
       <div class="denrow" id="denRow">
         <button class="denp" onclick="goSignup()"><span class="face plus">+</span><span class="nm">Invite</span></button>
         <button class="denp" onclick="goPerson('Rooney')"><span class="face"><img src="assets/media/av-rooney.jpg" alt="Rooney"></span><span class="nm">Rooney</span></button>
@@ -240,7 +241,7 @@ footer nav a:hover{color:var(--ink)}
   <section id="stage" style="scroll-margin-top:84px">
     <p class="eyeb">the real product</p>
     <h2 class="sec">This is Roon. Try it — don&rsquo;t just look at it.</h2>
-    <p class="lead">Everything in the frame below works. Scroll <b>Moments</b>. Open <b>Threads</b> and tap one. Read her <b>Story</b>. Look through <b>Collections</b> and <b>Saved</b>. Then tap <b>Rooney</b>, bottom centre, and ask about anything you saw — the answers come from this family&rsquo;s own moments.</p>
+    <p class="lead">Everything in the frame below works. Scroll <b>Moments</b> — the feed. Open <b>Threads</b> — the patterns Rooney follows across the years — and tap one. Read her <b>Story</b>. Look through <b>Collections</b> and <b>Saved</b>, the moments set aside. Then tap <b>Rooney</b>, bottom centre, and ask about anything you saw — the answers come only from this family&rsquo;s photos and words.</p>
     <div style="height:16px"></div>
     <div class="stage-frame" id="stageFrame">
       <div class="stage-fallback" id="stageFallback">
@@ -320,12 +321,7 @@ footer nav a:hover{color:var(--ink)}
         <p class="pw">Try Roon &mdash; free.</p>
         <div class="price"><span class="amt">$0</span></div>
         <p class="billed">free, always</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Rooney follows 1 person closely</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Room to keep 2,500 memories</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>One chapter, written from your own photos &mdash; your first 150 memories, told</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>A taste of Rooney&rsquo;s questions &mdash; prompts for the first week</li>
-        </ul>
+        <ul><li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Rooney follows 1 person closely</li><li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>One chapter, written from your own photos &mdash; your first 150 memories, told</li><li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>A taste of Rooney&rsquo;s questions &mdash; prompts for the first week</li><li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Room to keep 2,500 memories</li></ul>
         <button class="btn" onclick="goSignup()">Join the beta</button>
       </div>
       <div class="plan feat">
@@ -334,14 +330,7 @@ footer nav a:hover{color:var(--ink)}
         <p class="pw">For the whole story, as it happens.</p>
         <div class="price"><span class="amt">$99</span><span class="per">/year</span></div>
         <p class="billed">billed yearly · $8.25 a month — or $12 a month, billed monthly</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Room for 25,000 photos + 300 minutes of video</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Rooney follows 3 people closely</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Rooney notices patterns &amp; builds chapters for you</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Your Year Film every January &mdash; made to watch together</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Sealed letters for future dates</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Family can add photos too</li>
-        </ul>
+        <ul><li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Rooney follows 3 people closely</li><li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Rooney notices patterns &amp; builds chapters for you</li><li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Your Year Film every January &mdash; made to watch together</li><li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Sealed letters for future dates</li><li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Family can add photos too</li><li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Room for 25,000 photos + 300 minutes of video</li></ul>
         <button class="btn grad" onclick="goSignup()">Join the beta</button>
       </div>
       <div class="plan">
@@ -350,18 +339,12 @@ footer nav a:hover{color:var(--ink)}
         <p class="pw">One payment. Yours for life.</p>
         <div class="price"><span class="amt">$749</span></div>
         <p class="billed">one payment, no subscription</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Everything in Roon, for life</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Rooney follows 5 people closely</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Room for 60,000 photos + 800 minutes of video</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Legacy handoff &mdash; name who inherits it</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Founding families: $599 &mdash; the first 200 only</li>
-        </ul>
+        <ul><li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Everything in Roon, for life</li><li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Rooney follows 5 people closely</li><li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Legacy handoff &mdash; name who inherits it</li><li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Founding families: $599 &mdash; the first 200 only</li><li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Room for 60,000 photos + 800 minutes of video</li></ul>
         <button class="btn" onclick="goSignup()">Join the beta</button>
       </div>
     </div>
     <p class="addons"><strong>Need more later?</strong> There are only two upgrades. Following another person? Add them &mdash; $24 a year, or $3 a month. Out of room? Add room &mdash; from $30 a year, or $3 a month. Each one is offered only when you actually hit it &mdash; everything else is just included.</p>
-    <p class="addons small"><strong>The smaller print:</strong> room comes in three steps &mdash; $30, $80, or $150 a year (or $3, $8, or $15 a month), added only when your story needs it. Deep Backfill &mdash; Rooney tells 2,500 older memories in one go &mdash; is $19, one time. A second family is $49 a year, or $5 a month.</p>
+    <p class="addons small"><strong>The smaller print:</strong> room comes in three steps &mdash; $30, $80, or $150 a year (or $3, $8, or $15 a month), added only when your story needs it. Want a big stack of older memories told at once &mdash; 2,500 of them? That&rsquo;s $19, one time. A second family is $49 a year, or $5 a month.</p>
   </section>
 
   <!-- ===== THE DEN ===== -->
