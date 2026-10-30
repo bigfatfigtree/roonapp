@@ -19,6 +19,42 @@ local static server) and the app works.
 > the disclosure line: “Sample family — made-up photos and story, so you
 > can see how Roon feels.”
 
+## Re-bake — 2026-10-30 (second bake, current package)
+
+Re-captured from a **freshly restarted** throwaway instance of the current
+app server (PORT 8741, `ROON_DATA_DIR` pointing at a hermetic **copy** of
+`db.json` — the real `app/data/db.json`, md5
+`295c7e041d8c3b28b0b40a97d5decbfc`, verified unchanged before and after;
+the :8730 instance was never touched). **76 keys, all HTTP 200** — the
+original 71 plus the C-feature routes the current front-end requests:
+`collections`, `saved`, `legacy`, `resurfacing`, `prompt-settings`.
+Capture was UI-driven (Playwright journey through the real app) plus an
+authenticated replay for the feed month/scope variants, comments and film
+years. What this bake carries that the first did not:
+
+- **Feed-assembly dedupe** (server-side): e.g. the lead chapter card now
+  reads "Assembled from 4 moments kept from 2023: 3 photos, 1 video"
+  (first bake: 6 moments blended from 2022–2024).
+- **Commentary prose cleanup** (server-side): "The people recorded in
+  these moments:" → "In these moments:" throughout threads/chapters.
+- **Caption cleanup + Moments rename** (front-end): current `app.js`
+  (md5 `54d3170c364902d9971046bc072f513b`) renders the feed as **Moments**,
+  with the "Made by Rooney · N moments" tag on Rooney-built cards and the
+  duplicated-name caption fixed.
+- New views work in the demo: **Saved**, **Your collections**, **Who this
+  story goes to** (legacy) — their GET routes are baked; writes still get
+  the demo message, as before.
+- Export edits to `app.html` now also remove the **premium-variant boot
+  script and `variant.js`**: the demo always shows the shipping default
+  design (variants are an app-side experiment, not part of this package).
+- Boot behaviour (unchanged from the first bake): the baked `/api/me`
+  signs the sample family in immediately — the demo opens on Today; the
+  one-tap button appears after signing out.
+- QA pass re-run and green (Playwright, 390px, external requests
+  blocked): Today → Moments (scroll, person scopes) → Threads → Story →
+  chapter reader → Collections → Film. Screenshots: `qa-demo-*.png`.
+  Only 404s are the documented Olive/Origin woff2 stubs.
+
 ## Status: PRE-FONT-DRAFT
 
 Final brand fonts are **Olive Display** (display) and **Origin** (UI),
@@ -132,16 +168,16 @@ The Roon logo is **one piece of artwork**: the dinosaur drawing forms the
 |---|---|
 | `index.html` | Phone-frame wrapper + Sample disclosure |
 | `app.html` | The app page (iframe target) |
-| `app.js` | Unmodified app front-end (225,355 B, md5 `3b9fe2f71b21ccb675106d3ca288c6ee`) |
-| `styles.css` | Unmodified app styles (64,143 B, md5 `614181e9d0d45a16b531b9afb953d42b`) |
-| `demo-data.js` | Baked API map — 71 keys |
+| `app.js` | Unmodified app front-end (274,498 B, md5 `54d3170c364902d9971046bc072f513b`) |
+| `styles.css` | Unmodified app styles (90,711 B, md5 `ddc4db2f6aed1eee77985109649a3994`) |
+| `demo-data.js` | Baked API map — 76 keys (second bake, see above) |
 | `demo-shim.js` | fetch override (see above) |
 | `demo.css` | Local fallback fonts (@font-face) + logo/font notes |
 | `fonts/` | InstrumentSerif-Regular/Italic, Inter 400/500/600/700/800 (TTF) |
 | `assets/mark-dark.png`, `mark-light.png` | Standalone dinosaur mark (small-mark uses) |
 | `assets/brand/logo-dark.png`, `logo-light.png` | Canonical logo lockup |
 | `media/fam_b44fd40e9d36256d3b/` | 9 sample media files (3 photos × web+original, 1 video × view+original+poster) |
-| `qa-demo-*.png` | QA screenshots — **not yet produced**: the sandbox Chromium chain was in a SIGTRAP outage window throughout the build session (see README “QA status” note in the build report); re-run the QA pass when it lifts |
+| `qa-demo-*.png` | QA screenshots from the second-bake QA pass (Playwright, 390px) |
 
 ## QA (how to re-run)
 

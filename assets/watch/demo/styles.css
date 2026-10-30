@@ -375,6 +375,7 @@ p.lead{color:var(--soft);line-height:1.65;font-size:16px;margin:0 0 14px}
 .post-more{position:absolute;right:0;bottom:0;background:var(--ivory);border:none;font:inherit;font-size:14px;color:var(--soft);cursor:pointer;padding:0 0 0 8px}
 .post-family-line{margin:4px 0 0;font-size:14px;line-height:1.55;color:var(--ink)}
 .post-trace{margin:6px 0 0;font-size:12px;font-weight:400;color:var(--soft);line-height:1.45}
+.post-maker{margin:0 0 4px;font-size:12px;font-weight:600;color:var(--ink2);line-height:1.4}
 .post-date{margin:4px 0 0;font-size:12px;color:var(--soft)}
 /* — prompt strip — */
 .prompt-strip-post{margin:0 0 24px}
@@ -799,3 +800,290 @@ body{background:var(--cream)}
 /* Logo lockup on new share surfaces (§6a): the canonical artwork at a
    modest height — never a typeset wordmark. */
 .share-brand{height:26px;width:auto;display:block;margin:0 0 12px}
+
+/* ================================================================
+   C1–C7 additive block (Save & return · Your collections · On This
+   Day controls · who can see what · watching-only members · who the
+   story goes to · Find source labels). Appended only — nothing above
+   this banner is modified. */
+.post-actions-right{display:flex;gap:2px;align-items:flex-start;margin-left:auto}
+.post-save-btn{border:none;background:transparent;padding:5px 8px;font-size:13px;font-weight:600;color:var(--ink);border-radius:8px;cursor:pointer;font-family:inherit}
+.post-save-btn.is-saved{color:var(--blue,#0C7BB3)}
+.post-save-btn:active{transform:scale(.94)}
+.moment-menu-btn{border:none;background:transparent;padding:5px 8px;font-size:14px;line-height:1;color:var(--ink2);border-radius:8px;cursor:pointer;font-family:inherit;letter-spacing:1px}
+.reader-memory .post-actions-right{margin-top:6px;justify-content:flex-end}
+.collection-card{display:flex;gap:14px;align-items:center;background:var(--card,#fff);border:1px solid var(--line);border-radius:16px;padding:12px 14px;margin:0 0 10px;text-decoration:none;color:var(--ink)}
+.collection-thumb{width:64px;height:64px;border-radius:12px;overflow:hidden;background:var(--bone);flex:none;display:block}
+.collection-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.collection-meta{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.collection-manage{display:flex;gap:4px;flex-wrap:wrap;padding:2px 0 14px;border-bottom:1px solid var(--line);margin-bottom:6px}
+.col-pick-list{max-height:46vh;overflow:auto;margin-bottom:12px}
+.col-pick{display:flex;gap:10px;align-items:flex-start;padding:9px 4px;border-bottom:1px solid var(--line);cursor:pointer}
+.rs-row{display:flex;justify-content:space-between;gap:10px;align-items:center;margin:0 0 6px}
+.find-group-title{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink2);margin:16px 0 6px}
+.find-source{display:inline-block;font-size:11.5px;font-weight:600;background:var(--pink);border-radius:999px;padding:1px 8px;margin-left:4px;vertical-align:1px}
+/* Watching-only members (C5): the add/capture doors are not theirs. */
+.is-viewer #btn-add-mobile,.is-viewer #btn-add-rail,.is-viewer #btn-capture-mobile,.is-viewer .bottom-add,.is-viewer #fam-invite{display:none}
+
+
+/* ================================================================
+   v14 PREMIUM PASS — switchable art direction (Jeff: v13 'doesn't
+   seem premium — really amateur', 'just seems so blah').
+   Activated ONLY by <html data-variant="b"|"d" data-premium="1">
+   (boot script in index.html; ?variant=b|d). No attribute = the
+   shipping design, byte-for-byte as before.
+   Structure: shared premium system (one spacing scale, one caption
+   type system, designed action rows, slim sample banner, consistent
+   nav icons) written ONCE against --fx-* tokens; each variant only
+   sets tokens + its own furniture. Variant B = light, the brand
+   gradient lives in the furniture. Variant D = 'dark theater'
+   (Jeff's boards): near-black ground, glass, big type. Variant C
+   (tinted ivory) was dropped — Jeff's taste declared itself dark.
+   ================================================================ */
+html[data-premium="1"]{
+  --fx-s1:4px;--fx-s2:8px;--fx-s3:12px;--fx-s4:16px;--fx-s5:20px;--fx-s6:28px;
+}
+html[data-variant="b"]{
+  --fx-ground:#FCFAF7;--fx-chrome:#FCFAF7;--fx-ink:#141017;--fx-ink2:#463E48;--fx-soft:#7A7079;
+  --fx-line:#E7DDD1;--fx-accent:#0C7BB3;--fx-grad:linear-gradient(112deg,#0C7BB3,#7F9BCE 52%,#F2BAE8);
+  --fx-pill-bg:#FFFFFF;--fx-pill-line:#E7DDD1;--fx-mine-bg:#F9E8F5;
+  --fx-row-bg:#F5F0E9;--fx-chip-ink:#463E48;--fx-active-bg:linear-gradient(112deg,#0C7BB3,#7F9BCE 52%,#F2BAE8);--fx-active-ink:#FFFFFF;
+  --fx-maker-bg:linear-gradient(112deg,#0C7BB3,#7F9BCE 52%,#F2BAE8);--fx-maker-ink:#FFFFFF;--fx-maker-line:transparent;
+  --fx-banner-bg:#F5F0E9;--fx-banner-ink:#6E5F52;
+  --fx-glass:rgba(252,250,247,.84);--fx-glass-line:rgba(20,16,23,.09);--fx-glass-ink:#141017;
+  --fx-bar-shadow:0 12px 24px -18px rgba(74,52,32,.35);
+}
+html[data-variant="d"]{
+  --fx-ground:#0D0E13;--fx-chrome:#0D0E13;--fx-ink:#F5F2EC;--fx-ink2:rgba(245,242,236,.74);--fx-soft:rgba(245,242,236,.52);
+  --fx-line:rgba(255,255,255,.09);--fx-accent:#8FC3E8;--fx-grad:linear-gradient(112deg,#0C7BB3,#7F9BCE 52%,#F2BAE8);
+  --fx-pill-bg:rgba(255,255,255,.06);--fx-pill-line:rgba(255,255,255,.11);--fx-mine-bg:rgba(242,186,232,.18);
+  --fx-row-bg:rgba(255,255,255,.06);--fx-chip-ink:rgba(245,242,236,.78);--fx-active-bg:#F5F2EC;--fx-active-ink:#141017;
+  --fx-maker-bg:rgba(255,255,255,.10);--fx-maker-ink:#F5F2EC;--fx-maker-line:rgba(255,255,255,.16);
+  --fx-banner-bg:#13141B;--fx-banner-ink:rgba(245,242,236,.55);
+  --fx-glass:rgba(15,16,23,.55);--fx-glass-line:rgba(255,255,255,.15);--fx-glass-ink:#F5F2EC;
+  --fx-bar-shadow:0 16px 30px -18px rgba(0,0,0,.85);
+}
+html[data-premium="1"] body{background:var(--fx-ground)}
+
+/* — Fix 5: the sample banner becomes a whisper — slim, one line,
+   palette-true (the mustard is gone). Colours come from the variant
+   tokens; the sentence itself was shortened in index.html so it fits
+   one line at this size instead of wrapping into a billboard. — */
+html[data-premium="1"] .sample-banner{background:var(--fx-banner-bg);color:var(--fx-banner-ink);border-bottom:1px solid var(--fx-line);font-size:11px;font-weight:500;letter-spacing:.01em;line-height:1.3;padding:6px 16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* — Fix 4 (spacing) + the sticky Moments bar: one scale everywhere,
+   a hairline + soft shadow so the feed reads layered scrolling under
+   it. Fix 3: the scope-chip row scrolls with a FADED right edge —
+   never a hard mid-word cut at rest. — */
+html[data-premium="1"] .explore-bar{background:var(--fx-chrome);padding:10px 0 8px;border-bottom:1px solid var(--fx-line);box-shadow:var(--fx-bar-shadow)}
+html[data-premium="1"] .explore-bar-title{font-size:13.5px;color:var(--fx-ink)}
+html[data-premium="1"] .ig-feed .scope-row{background:var(--fx-row-bg);scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 28px),transparent 100%);mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 28px),transparent 100%)}
+html[data-premium="1"] .ig-feed .scope-row::-webkit-scrollbar{display:none}
+html[data-premium="1"] .ig-feed .scope-row .chip{flex:none;color:var(--fx-chip-ink)}
+html[data-premium="1"] .ig-feed .scope-row .chip.is-active{background:var(--fx-active-bg);color:var(--fx-active-ink);font-weight:600;box-shadow:0 4px 14px -6px rgba(12,123,179,.5)}
+html[data-premium="1"] .ig-feed .post{padding:14px 0 10px;margin:0 0 26px}
+html[data-premium="1"] .ig-feed #feed-stream .post:first-child{padding-top:16px}
+
+/* — Fix 1: a real caption type system. The title/people line is the
+   board's serif display, confident and near-black; Rooney's
+   attribution is a semibold name, never a shout; the family's own
+   words are serif italic (a different voice from Rooney's sans);
+   date/count meta is one small quiet grey. No all-grey mush. — */
+html[data-premium="1"] .post-head{padding:0 0 10px}
+html[data-premium="1"] .post-who{font-size:13.5px;font-weight:600;color:var(--fx-ink)}
+html[data-premium="1"] .post-my{font-size:12px;color:var(--fx-soft)}
+html[data-premium="1"] .post-sample{background:var(--fx-pill-bg);border-color:var(--fx-line);color:var(--fx-soft)}
+html[data-premium="1"] .post-caption{padding:8px 0 0}
+html[data-premium="1"] .post-cap-text{font-size:14.5px;line-height:1.5;color:var(--fx-ink)}
+html[data-premium="1"] .post-cap-title{font-family:var(--font-display);font-weight:400;font-size:19px;line-height:1.28;color:var(--fx-ink);letter-spacing:.002em}
+html[data-premium="1"] .post-author{font-weight:700;font-size:13.5px;color:var(--fx-ink)}
+html[data-premium="1"] .post-family-line{font-family:var(--font-display);font-style:italic;font-size:16px;line-height:1.45;color:var(--fx-ink2);margin-top:6px}
+html[data-premium="1"] .post-date{font-size:11.5px;color:var(--fx-soft);margin-top:5px;letter-spacing:.01em}
+html[data-premium="1"] .post-more{background:transparent;color:var(--fx-accent);font-weight:600}
+/* The 'Made by Rooney · N moments' tag becomes a real chip — this is
+   also the raw-vs-Rooney-built distinguisher, visible at a glance. */
+html[data-premium="1"] .post-maker{display:inline-flex;align-items:center;font-size:11px;font-weight:700;letter-spacing:.02em;line-height:1;padding:5px 10px;border-radius:100px;margin:0 0 8px;background:var(--fx-maker-bg);color:var(--fx-maker-ink);border:1px solid var(--fx-maker-line)}
+
+/* — Fix 2: the action row is designed, never vacant. The house four
+   reactions sit in visible pills at zero counts; comment + share
+   align on the same baseline. (Hero + growth posts now target their
+   thread in igFeedCardHTML, so their rows carry reactions too.) — */
+html[data-premium="1"] .post-actions{padding:10px 0 2px;min-height:42px;align-items:center}
+html[data-premium="1"] .post-actions .reactions{gap:6px}
+html[data-premium="1"] .post-actions .react-btn{background:var(--fx-pill-bg);border:1px solid var(--fx-pill-line);border-radius:100px;padding:6px 10px;font-size:14px;line-height:1;color:var(--fx-ink)}
+html[data-premium="1"] .post-actions .react-btn.mine{background:var(--fx-mine-bg);border-color:transparent;font-weight:600}
+html[data-premium="1"] .post-actions .comment-toggle-ig{color:var(--fx-ink)}
+html[data-premium="1"] .post-share{color:var(--fx-ink2)}
+html[data-premium="1"] .post-share-btn{color:var(--fx-accent);font-weight:600}
+html[data-premium="1"] .post-actions .comments{border-top-color:var(--fx-line)}
+
+/* — Fix 7: one icon family in the bottom nav — same box, same stroke
+   weight, same optical size, whatever the glyph. — */
+html[data-premium="1"] .bottom-nav svg{width:23px;height:23px;stroke-width:1.7}
+html[data-premium="1"] .bottom-link{color:var(--fx-soft)}
+
+
+/* ================================================================
+   VARIANT B — 'gradient in the furniture'. The feed ground stays
+   warm ivory so photography pops; the brand gradient threads ONLY
+   through the chrome: the hairline under the Moments bar, the
+   active filter chip and the Made-by-Rooney chip (token-set above),
+   deep-blue accents. No gradient text, no wash behind photos.
+   ================================================================ */
+html[data-variant="b"] .explore-bar{position:sticky}
+html[data-variant="b"] .explore-bar::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--fx-grad);opacity:.9}
+
+/* ================================================================
+   VARIANT D — 'dark theater'. Near-black cinematic ground; media
+   carries the colour; chrome goes frosted glass; type turns warm
+   white and confident. (Today + Threads get their own sections
+   below; the full-screen viewer follows.)
+   ================================================================ */
+html[data-variant="d"] body{background:#0D0E13;color:var(--fx-ink)}
+html[data-variant="d"] .post-media{background:#050506}
+html[data-variant="d"] .post-text-frame{background:linear-gradient(155deg,#1A1C26,#101118 58%,#201426)}
+html[data-variant="d"] .post-text-serif{color:var(--fx-ink)}
+html[data-variant="d"] .post-micro{color:var(--fx-soft)}
+html[data-variant="d"] .post-voice-frame{background:linear-gradient(160deg,#1A1C26,#101118 62%,#201426)}
+html[data-variant="d"] .prompt-strip{background:rgba(255,255,255,.05);border-color:var(--fx-line);color:var(--fx-ink)}
+html[data-variant="d"] .strip-label{color:var(--fx-ink2)}
+html[data-variant="d"] .strip-go{color:var(--fx-accent)}
+html[data-variant="d"] .post-note-line{color:var(--fx-soft)}
+html[data-variant="d"] .today-wrap.ig-feed{background:transparent}
+@media(max-width:999px){
+  html[data-premium="1"] .explore-bar{top:56px;padding:10px 20px 8px}
+  /* D shell: the mobile head goes dark glass; its actions become the
+     board's frosted pill (find · add · bell · your avatar). */
+  html[data-variant="d"] .mobile-head{background:rgba(13,14,19,.86);backdrop-filter:blur(16px) saturate(1.25);-webkit-backdrop-filter:blur(16px) saturate(1.25)}
+  html[data-variant="d"] .mh-actions.fx-pill{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.10);border-radius:100px;padding:3px}
+  html[data-variant="d"] .mh-actions.fx-pill .mh-btn{width:34px;height:34px;border:none;background:transparent;color:#F5F2EC;font-size:16px;display:inline-flex;align-items:center;justify-content:center;padding:0}
+  html[data-variant="d"] .mh-actions.fx-pill .mh-btn svg{width:19px;height:19px}
+  html[data-variant="d"] .mh-actions.fx-pill .mh-capture{background:var(--fx-grad);color:#fff}
+  html[data-variant="d"] .mh-actions.fx-pill #btn-menu-mobile{display:none}
+  html[data-variant="d"] .fx-bell{position:relative}
+  html[data-variant="d"] .fx-belldot{position:absolute;top:5px;right:6px;width:8px;height:8px;border-radius:50%;background:#F2BAE8;border:1.5px solid #14151D}
+  html[data-variant="d"] .fx-avatar{width:34px;height:34px;flex:none;border-radius:50%;border:none;background:var(--fx-grad);color:#fff;font-family:var(--font-ui);font-size:14px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;padding:0}
+  /* D nav: the board's floating glass pill. Roon's five slots and the
+     Rooney disc stay — the disc's light circle pops on the dark pill
+     exactly like the boards' white active element. */
+  html[data-variant="d"] .bottom-nav{left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));border-radius:26px;background:rgba(15,16,23,.72);backdrop-filter:blur(20px) saturate(1.3);-webkit-backdrop-filter:blur(20px) saturate(1.3);border:1px solid rgba(255,255,255,.09);box-shadow:0 18px 40px -12px rgba(0,0,0,.65);padding:6px 6px 8px}
+  html[data-variant="d"] .main{padding-bottom:124px}
+}
+
+
+/* ================================================================
+   FULL-SCREEN MOMENT VIEWER (both variants; built by variant.js).
+   The lights go down: the moment fills the phone, the caption
+   floats in a frosted-glass card, reactions run down the right
+   rail — the boards' grammar, Roon's real content and counts.
+   ================================================================ */
+body.fx-locked{overflow:hidden}
+.fx-viewer{position:fixed;inset:0;z-index:110;background:#000;color:var(--fx-glass-ink,#F5F2EC)}
+.fx-viewer[hidden]{display:none}
+.fx-viewer-media{position:absolute;inset:0}
+.fx-viewer-media img,.fx-viewer-media video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+.fx-viewer-close{position:absolute;top:calc(12px + env(safe-area-inset-top));right:14px;z-index:3;width:38px;height:38px;border-radius:50%;border:1px solid var(--fx-glass-line);background:var(--fx-glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:var(--fx-glass-ink);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.fx-viewer-close svg{width:17px;height:17px}
+.fx-viewer-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:38px;height:38px;border-radius:50%;border:1px solid var(--fx-glass-line);background:var(--fx-glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:var(--fx-glass-ink);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.fx-viewer-nav svg{width:18px;height:18px}
+.fx-viewer-nav:disabled{opacity:.32;cursor:default}
+.fx-viewer-prev{left:10px}
+.fx-viewer-next{right:10px}
+.fx-viewer-rail{position:absolute;right:12px;bottom:148px;z-index:3;display:flex;flex-direction:column;gap:10px;align-items:center}
+.fx-rail-btn{min-width:46px;padding:7px 4px 6px;border-radius:100px;border:1px solid var(--fx-glass-line);background:var(--fx-glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:var(--fx-glass-ink);display:flex;flex-direction:column;align-items:center;gap:1px;cursor:pointer;font-family:var(--font-ui)}
+.fx-rail-btn.mine{border-color:rgba(242,186,232,.55)}
+.fx-rail-emoji{font-size:18px;line-height:1.15}
+.fx-rail-ico{display:flex;line-height:1}
+.fx-rail-ico svg{width:19px;height:19px}
+.fx-rail-count{font-size:10px;font-weight:600;line-height:1.1}
+.fx-viewer-card{position:absolute;left:14px;right:74px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:2;background:var(--fx-glass);backdrop-filter:blur(20px) saturate(1.3);-webkit-backdrop-filter:blur(20px) saturate(1.3);border:1px solid var(--fx-glass-line);border-radius:20px;padding:13px 16px 12px;color:var(--fx-glass-ink)}
+.fx-viewer-who{margin:0 0 5px;font-size:12px;font-weight:600;color:var(--fx-glass-ink);opacity:.85}
+.fx-viewer-cap .post-caption{padding:0}
+.fx-viewer-cap .post-cap-text,.fx-viewer-cap .post-cap-title,.fx-viewer-cap .post-author{color:var(--fx-glass-ink)}
+.fx-viewer-cap .post-family-line{color:var(--fx-glass-ink);opacity:.92}
+.fx-viewer-cap .post-date{color:var(--fx-glass-ink);opacity:.6}
+.fx-viewer-openwrap{margin:8px 0 0}
+.fx-viewer-open{color:var(--fx-accent);font-size:13.5px;font-weight:600;text-decoration:none}
+.fx-expand{position:absolute;top:10px;right:10px;z-index:4;width:34px;height:34px;border-radius:50%;background:rgba(10,10,16,.44);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.fx-expand svg{width:17px;height:17px}
+html[data-premium="1"] .post-media{position:relative}
+
+/* ================================================================
+   VARIANT D — TODAY, in the EchoTalk composition (Jeff's board,
+   element for element; content is the sample family's real data,
+   injected by variant.js):
+   wordmark + frosted pill (above, shell) → Quick Search row →
+   the Den people row (invite circle first, then real faces) →
+   featured card (full-bleed photo, glass identity pill top,
+   display title bottom-left, stat strip under it) → shelves.
+   ================================================================ */
+html[data-variant="d"] .fx-searchrow{display:flex;gap:10px;align-items:center;margin:4px 0 16px}
+html[data-variant="d"] .fx-search{flex:1;display:flex;align-items:center;gap:10px;background:#171922;border:1px solid rgba(255,255,255,.07);border-radius:100px;padding:14px 18px;color:rgba(245,242,236,.55);font-family:var(--font-ui);font-size:15px;cursor:pointer;text-align:left}
+html[data-variant="d"] .fx-search svg{width:19px;height:19px;flex:none}
+html[data-variant="d"] .fx-orb{width:48px;height:48px;flex:none;border-radius:50%;border:none;background:var(--fx-grad);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+html[data-variant="d"] .fx-orb svg{width:21px;height:21px}
+html[data-variant="d"] .fx-people{display:flex;gap:14px;overflow-x:auto;padding:2px 2px 12px;scrollbar-width:none}
+html[data-variant="d"] .fx-people::-webkit-scrollbar{display:none}
+html[data-variant="d"] .fx-person{display:flex;flex-direction:column;align-items:center;gap:6px;flex:none;text-decoration:none;color:var(--fx-ink2);font-size:11px;font-weight:500}
+html[data-variant="d"] .fx-face{width:58px;height:58px;border-radius:50%;overflow:hidden;border:2px solid rgba(255,255,255,.16);background:#1B1D26;display:flex;align-items:center;justify-content:center;color:var(--fx-ink)}
+html[data-variant="d"] .fx-face img{width:100%;height:100%;object-fit:cover;display:block}
+html[data-variant="d"] .fx-face--plus{border:1.5px dashed rgba(255,255,255,.35);background:transparent;font-size:24px;font-weight:400;color:rgba(245,242,236,.8)}
+html[data-variant="d"] .fx-face-init{font-size:19px;font-weight:700}
+html[data-variant="d"] .fx-pname{max-width:64px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* Featured card: the app's own Today cover, composed like the board's. */
+html[data-variant="d"] .today-cover-wrap{margin:0 0 6px}
+html[data-variant="d"] .today-cover{border-radius:26px;box-shadow:0 24px 48px -20px rgba(0,0,0,.7)}
+html[data-variant="d"] .today-cover-label{display:none}
+html[data-variant="d"] .today-cover-sample{top:20px;right:16px;background:rgba(15,16,23,.45);backdrop-filter:blur(10px);border-color:rgba(255,255,255,.25);border-radius:100px;padding:2px 8px}
+html[data-variant="d"] .today-cover-line{font-size:38px;line-height:1.08}
+html[data-variant="d"] .today-cover-tile{border-radius:14px;border-color:rgba(255,255,255,.28)}
+html[data-variant="d"] .today-share-btn{background:rgba(15,16,23,.55);backdrop-filter:blur(12px);border-color:rgba(255,255,255,.18);color:#F5F2EC}
+html[data-variant="d"] .fx-coverpill{position:absolute;top:14px;left:14px;z-index:3;display:flex;align-items:center;gap:10px;background:rgba(15,16,23,.45);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);border:1px solid rgba(255,255,255,.17);border-radius:100px;padding:5px 15px 5px 6px;color:#fff}
+html[data-variant="d"] .fx-coverpill-mark{width:30px;height:30px;flex:none;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;overflow:hidden}
+html[data-variant="d"] .fx-coverpill-mark img{width:21px;height:21px;object-fit:contain;display:block}
+html[data-variant="d"] .fx-coverpill-main{display:flex;flex-direction:column;line-height:1.2}
+html[data-variant="d"] .fx-coverpill-name{font-size:13px;font-weight:600}
+html[data-variant="d"] .fx-coverpill-sub{font-size:11px;color:rgba(255,255,255,.75)}
+/* Shelves: horizontally scrolling real threads + stories. */
+html[data-variant="d"] .fx-shelf{margin:24px 0 0}
+html[data-variant="d"] .fx-shelf-head{display:flex;justify-content:space-between;align-items:baseline;margin:0 0 10px}
+html[data-variant="d"] .fx-shelf-head h2{font-family:var(--font-ui);font-size:17px;font-weight:700;color:var(--fx-ink);margin:0}
+html[data-variant="d"] .fx-shelf-head a{font-size:13px;color:var(--fx-soft);text-decoration:none}
+html[data-variant="d"] .fx-shelf-track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 2px 8px;margin-right:-20px;scrollbar-width:none}
+html[data-variant="d"] .fx-shelf-track::-webkit-scrollbar{display:none}
+html[data-variant="d"] .fx-card{flex:0 0 148px;scroll-snap-align:start;text-decoration:none}
+html[data-variant="d"] .fx-card-img{display:block;width:148px;height:110px;border-radius:16px;overflow:hidden;background:#171922}
+html[data-variant="d"] .fx-card-img img{width:100%;height:100%;object-fit:cover;display:block}
+html[data-variant="d"] .fx-card-mark{display:flex;width:100%;height:100%;align-items:center;justify-content:center}
+html[data-variant="d"] .fx-card-mark img{width:44px;height:44px;object-fit:contain;opacity:.85}
+html[data-variant="d"] .fx-card-title{display:block;margin-top:8px;font-size:13.5px;font-weight:600;line-height:1.3;color:var(--fx-ink)}
+html[data-variant="d"] .fx-card-meta{display:block;margin-top:2px;font-size:11.5px;color:var(--fx-soft)}
+
+/* ================================================================
+   VARIANT D — THREADS as the discovery grid (image-5's left
+   screen): followed threads become portrait cover cards — image,
+   title + count over the scrim at the bottom. Proposal rows stay
+   decision rows (they carry Follow / Not for me), restyled dark.
+   ================================================================ */
+html[data-variant="d"] .threads-title{color:var(--fx-ink)}
+html[data-variant="d"] .threads-sub{color:var(--fx-soft)}
+html[data-variant="d"] .section-title{color:var(--fx-ink)}
+html[data-variant="d"] .thread-row{background:#14151D;border-color:var(--fx-line);color:var(--fx-ink)}
+html[data-variant="d"] .thread-row:active{background:#171922}
+html[data-variant="d"] .thread-row-title{color:var(--fx-ink)}
+html[data-variant="d"] .thread-row-meta{color:var(--fx-soft)}
+html[data-variant="d"] .thread-row-thumb{background:#1B1D26}
+html[data-variant="d"] .fx-threadgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 10px}
+html[data-variant="d"] .fx-threadgrid .thread-row:only-child{grid-column:1/-1;aspect-ratio:16/10}
+html[data-variant="d"] .fx-threadgrid .thread-row{position:relative;display:block;aspect-ratio:3/3.7;margin:0;padding:0;border:none;border-radius:20px;overflow:hidden;background:#171922;box-shadow:0 16px 32px -18px rgba(0,0,0,.7)}
+html[data-variant="d"] .fx-threadgrid .thread-row-thumb{position:absolute;inset:0;width:100%;height:100%;border-radius:0;background:#1B1D26}
+html[data-variant="d"] .fx-threadgrid .thread-row-thumb img{width:100%;height:100%;object-fit:cover}
+html[data-variant="d"] .fx-threadgrid .thread-row-thumb img.mark{width:64px;height:64px;margin:auto;object-fit:contain}
+html[data-variant="d"] .fx-threadgrid .thread-row-thumb{display:flex}
+html[data-variant="d"] .fx-threadgrid .thread-row-main{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:36px 12px 11px;background:linear-gradient(180deg,rgba(5,5,10,0),rgba(5,5,10,.85));display:block}
+html[data-variant="d"] .fx-threadgrid .thread-row-title{color:#fff;font-size:17px;line-height:1.2;margin:0 0 3px}
+html[data-variant="d"] .fx-threadgrid .thread-row-meta{color:rgba(255,255,255,.78);font-size:11px;margin:0}
+html[data-variant="d"] .fx-threadgrid .thread-row-strip,html[data-variant="d"] .fx-threadgrid .thread-row-shareline,html[data-variant="d"] .fx-threadgrid .thread-row-chev{display:none}
+html[data-variant="d"] .ask-card{background:#14151D;border-color:var(--fx-line);color:var(--fx-ink)}
+.share-scope-list{margin:0 0 12px;max-height:220px;overflow:auto}
+.share-scope-row{margin:0 0 4px;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}

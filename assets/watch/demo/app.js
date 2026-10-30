@@ -255,6 +255,7 @@ function paintShareSheet() {
     '<p class="muted" style="margin:0 0 12px">Anyone with this link can see this — no account needed. You can stop sharing any time.</p>' +
     (url ? '<p class="share-url" title="' + esc(url) + '">' + esc(url) + '</p>' : '<p class="form-error">That link came back empty — close this and try again.</p>') +
     '<p class="share-counts">Seen by ' + num(c.views) + ' · ' + num(c.hearts) + ' ❤️ · ' + num(c.total) + ' reactions</p>' +
+    shareScopeListHTML(spec) +
     '<div class="share-main-actions">' +
     (navigator.share ? '<button type="button" class="btn btn-grad" id="share-native">Share…</button>' : '') +
     '<button type="button" class="btn btn-outline" id="share-copy">Copy link</button></div>' +
@@ -445,7 +446,7 @@ function renderChrome() {
 function updateQBadge() { const n = state.prompts.filter(isPendingPrompt).length; const b = $('#nav-q-count'); if (b) { b.hidden = !n; b.textContent = n ? String(n) : ''; } }
 
 /* ================= routing ================= */
-const NAVMAP = { today: 'today', explore: 'explore', story: 'story', chapter: 'story', threads: 'threads', thread: 'threads', questions: 'questions', film: 'film', family: 'family', person: 'family', plan: 'plan', imports: 'family', settings: 'settings', onboarding: 'today' };
+const NAVMAP = { today: 'today', explore: 'explore', story: 'story', chapter: 'story', threads: 'threads', thread: 'threads', questions: 'questions', film: 'film', family: 'family', person: 'family', plan: 'plan', imports: 'family', settings: 'settings', onboarding: 'today', saved: 'family', collections: 'family', collection: 'family', legacy: 'plan' };
 function parseRoute() {
   const h = (location.hash || '#/').replace(/^#\/?/, '');
   const parts = h.split('/').filter(Boolean);
@@ -453,7 +454,8 @@ function parseRoute() {
   if (parts[0] === 'story' && parts[1]) return { view: 'chapter', param: decodeURIComponent(parts[1]) };
   if (parts[0] === 'thread' && parts[1]) return { view: 'thread', param: decodeURIComponent(parts[1]) };
   if (parts[0] === 'person' && parts[1]) return { view: 'person', param: decodeURIComponent(parts[1]) };
-  const known = ['explore', 'story', 'threads', 'questions', 'film', 'family', 'plan', 'imports', 'settings', 'onboarding'];
+  if (parts[0] === 'collection' && parts[1]) return { view: 'collection', param: decodeURIComponent(parts[1]) };
+  const known = ['explore', 'story', 'threads', 'questions', 'film', 'family', 'plan', 'imports', 'settings', 'onboarding', 'saved', 'collections', 'legacy'];
   return { view: known.includes(parts[0]) ? parts[0] : 'today' };
 }
 function route(force) {
@@ -538,6 +540,10 @@ async function render() {
   else if (v === 'plan') renderPlan(root);
   else if (v === 'imports') renderImports(root);
   else if (v === 'settings') renderSettings(root);
+  else if (v === 'saved') renderSaved(root);
+  else if (v === 'collections') renderCollections(root);
+  else if (v === 'collection') renderCollection(root, state.param);
+  else if (v === 'legacy') renderLegacy(root);
   else renderToday(root);
 }
 
@@ -805,19 +811,35 @@ function igPushText(arr, txt) {
   for (const x of arr) { const xn = x.toLowerCase(); if (xn === norm || xn.includes(norm) || norm.includes(xn)) return; }
   arr.push(t);
 }
+/* v13b caption composition — ONE bold lead per post, never two sources
+   stacked: Rooney-built posts lead with their TITLE (the old standing
+   "Rooney" author prefix in front of a title that names people read as
+   'Rooney Milo & Rooney, together'). Raw posts lead with the "Rooney"
+   attribution (opts.author) only when Rooney actually left a note —
+   a raw post has no title to collide with. The basedOn trace line
+   ("From your records: its thread · the moments themselves · people
+   recorded") is system narration and no longer renders in the feed;
+   Rooney-built posts carry a plain "Made by Rooney · N moments" tag
+   instead. The trace survives on detail surfaces via commentaryHTML. */
 function igCaptionHTML(opts) {
   const c = opts.commentaryArgs ? commentaryOf.apply(null, opts.commentaryArgs) : null;
   const texts = []; (opts.texts || []).forEach((t) => igPushText(texts, t));
   if (c && c.text) igPushText(texts, c.text);
-  const based = c ? basedLine(c.basedOn) : '';
   let h = '<div class="post-caption">';
+  if (opts.madeBy === 'rooney') {
+    const n = opts.momentCount || 0;
+    h += '<p class="post-maker">Made by Rooney' + (n > 0 ? ' · ' + n + ' moment' + (n === 1 ? '' : 's') : '') + '</p>';
+  }
   if (texts.length || opts.title) {
-    const full = ((opts.title ? opts.title + ' ' : '') + texts.join(' ')).trim();
+    const lead = opts.title || (opts.author && texts.length ? opts.author : '');
+    const full = ((lead ? lead + ' ' : '') + texts.join(' ')).trim();
     const showMore = full.length > 150;
-    h += '<div class="post-cap-wrap"><p class="post-cap-text"><strong class="post-author">Rooney</strong>' + (opts.title ? ' <strong class="post-cap-title">' + esc(opts.title) + '</strong>' : '') + (texts.length ? (opts.title ? ' — ' : ' ') + esc(texts.join(' ')) : '') + '</p>' + (showMore ? '<button type="button" class="post-more" data-cap-more aria-expanded="false">… more</button>' : '') + '</div>';
+    h += '<div class="post-cap-wrap"><p class="post-cap-text">' +
+      (opts.title ? '<strong class="post-cap-title">' + esc(opts.title) + '</strong>' : (lead ? '<strong class="post-author">' + esc(lead) + '</strong>' : '')) +
+      (texts.length ? (lead ? (opts.title ? ' — ' : ' ') : '') + esc(texts.join(' ')) : '') + '</p>' +
+      (showMore ? '<button type="button" class="post-more" data-cap-more aria-expanded="false">… more</button>' : '') + '</div>';
   }
   if (opts.family) h += '<p class="post-family-line">' + esc(opts.family) + '</p>';
-  if (based) h += '<p class="post-trace">' + esc(based) + '</p>';
   if (opts.dateStr) { const yrs = igYearsAgo(opts.dateStr); h += '<p class="post-date">' + esc(fmtDay(opts.dateStr)) + (yrs >= 1 ? ' · ' + yrs + ' year' + (yrs === 1 ? '' : 's') + ' ago' : '') + '</p>'; }
   return h + '</div>';
 }
@@ -897,18 +919,18 @@ function igFeedCardHTML(card) {
       return '<article class="post" data-kind="writing">' + igHeaderHTML(who, m.takenAt, m.sample) +
         '<div class="post-media"><div class="post-text-frame"><p class="post-text-serif">' + esc(title) + '</p></div></div>' +
         igActionsHTML('memory', m.id, m.reactions, m.commentCount, '', '') +
-        igCaptionHTML({ texts: [], commentaryArgs: [card, m], family: body, dateStr: m.takenAt }) + '</article>';
+        igCaptionHTML({ texts: [], commentaryArgs: [card, m], author: 'Rooney', family: body, dateStr: m.takenAt }) + '</article>';
     }
     if (m.type === 'voice') {
       return '<article class="post" data-kind="voice">' + igHeaderHTML(who, m.takenAt, m.sample) +
         '<div class="post-voice-frame">' + mediaHTML(m) + '</div>' +
         igActionsHTML('memory', m.id, m.reactions, m.commentCount, '', '') +
-        igCaptionHTML({ texts: [], commentaryArgs: [card, m], family: '', dateStr: m.takenAt }) + '</article>';
+        igCaptionHTML({ texts: [], commentaryArgs: [card, m], author: 'Rooney', family: '', dateStr: m.takenAt }) + '</article>';
     }
     return '<article class="post" data-kind="' + esc(m.type || 'media') + '">' + igHeaderHTML(who, m.takenAt, m.sample) +
       '<div class="post-media" data-clamp-media>' + mediaHTML(m) + '</div>' +
       igActionsHTML('memory', m.id, m.reactions, m.commentCount, '', '') +
-      igCaptionHTML({ texts: [], commentaryArgs: [card, m], family: m.caption || '', dateStr: m.takenAt }) + '</article>';
+      igCaptionHTML({ texts: [], commentaryArgs: [card, m], author: 'Rooney', family: m.caption || '', dateStr: m.takenAt }) + '</article>';
   }
   if (k === 'chapter') {
     const ch = card.chapter || {}; const mems = chapterMemories(ch);
@@ -918,7 +940,7 @@ function igFeedCardHTML(card) {
     const dateStr = ch.endDate || ch.startDate || igLatestDate(mems);
     return '<article class="post" data-kind="chapter">' + igHeaderHTML(igWhoFor(igPeopleOfMems(mems)), dateStr, ch.sample) + media +
       igActionsHTML('chapter', ch.id, ch.reactions, ch.commentCount, href, 'Open this chapter', { scope: 'chapter', targetId: ch.id, objectTitle: ch.title || 'Untitled chapter' }) +
-      igCaptionHTML({ title: ch.title || 'Untitled chapter', texts: [ch.summary || ''], commentaryArgs: [card, ch], dateStr }) + '</article>';
+      igCaptionHTML({ title: ch.title || 'Untitled chapter', texts: [ch.summary || ''], commentaryArgs: [card, ch], madeBy: 'rooney', momentCount: (ch.memoryIds || []).length || mems.length, dateStr }) + '</article>';
   }
   if (k === 'thread' || k === 'growth') {
     const t = card.thread || {}; const mems = igMemsFromIds(t.memoryIds, 10);
@@ -929,8 +951,8 @@ function igFeedCardHTML(card) {
     texts.push(t.observation || '');
     return '<article class="post" data-kind="' + k + '">' + igHeaderHTML(igWhoFor(igPeopleOfMems(mems)), dateStr, t.sample) +
       igSingleMediaHTML(mems, href, t.title || 'A thread') +
-      igActionsHTML(k === 'thread' ? 'thread' : '', t.id, t.reactions, t.commentCount, href, 'Open this thread', { scope: 'thread', targetId: t.id, objectTitle: t.title || 'A thread' }) +
-      igCaptionHTML({ title: t.title || 'A thread', texts, commentaryArgs: [card, t], dateStr }) + '</article>';
+      igActionsHTML('thread', t.id, t.reactions, t.commentCount, href, 'Open this thread', { scope: 'thread', targetId: t.id, objectTitle: t.title || 'A thread' }) +
+      igCaptionHTML({ title: t.title || 'A thread', texts, commentaryArgs: [card, t], madeBy: 'rooney', momentCount: (t.memoryIds || []).length || mems.length, dateStr }) + '</article>';
   }
   if (k === 'proposal') {
     const t = card.thread || {}; const mems = igMemsFromIds(t.memoryIds, 10);
@@ -941,7 +963,7 @@ function igFeedCardHTML(card) {
     else extra = '<div class="post-actions"><div class="post-follow-btns"><button type="button" class="btn btn-grad btn-small" data-follow-thread="' + esc(t.id) + '">Follow</button><button type="button" class="btn btn-outline btn-small" data-dismiss-thread="' + esc(t.id) + '">Not for me</button></div>' + '<a class="post-share" href="' + href + '" aria-label="Open this thread">' + igIconShare() + '</a></div>';
     return '<article class="post" data-kind="proposal">' + igHeaderHTML(igWhoFor(igPeopleOfMems(mems)), dateStr, t.sample) +
       igSingleMediaHTML(mems, href, t.title || 'A thread') + extra +
-      igCaptionHTML({ title: t.title || '', texts: [t.observation || ''], commentaryArgs: [card, t], dateStr }) + '</article>';
+      igCaptionHTML({ title: t.title || '', texts: [t.observation || ''], commentaryArgs: [card, t], madeBy: 'rooney', momentCount: (t.memoryIds || []).length || mems.length, dateStr }) + '</article>';
   }
   if (k === 'film') {
     const fy = card.filmYear || card.year || (card.film && card.film.year) || '';
@@ -953,14 +975,14 @@ function igFeedCardHTML(card) {
     return '<article class="post" data-kind="film">' + igHeaderHTML(igWhoFor(igPeopleOfMems(mems)), dateStr, card.sample) +
       igSingleMediaHTML(mems, href, title) +
       igActionsHTML('', '', null, 0, href, 'Watch the Year Film', { scope: 'film', filmYear: Number(fy), objectTitle: title }) +
-      igCaptionHTML({ title, texts: [card.line || (card.film && card.film.line) || ''], commentaryArgs: [card], dateStr }) + '</article>';
+      igCaptionHTML({ title, texts: [card.line || (card.film && card.film.line) || ''], commentaryArgs: [card], madeBy: 'rooney', momentCount: (card.memoryIds || (card.film && card.film.memoryIds) || []).length || mems.length, dateStr }) + '</article>';
   }
   if (k === 'noticing') {
     const n = card.noticing || {}; const mems = igMemsFromIds(n.evidenceMemoryIds || n.memoryIds, 10);
     const dateStr = igLatestDate(mems);
     return '<article class="post" data-kind="noticing">' + igHeaderHTML(igWhoFor(igPeopleOfMems(mems)), dateStr, n.sample || mems.some((m) => m.sample)) +
       igSingleMediaHTML(mems, '', '') +
-      igCaptionHTML({ texts: [n.title || n.text || n.summary || '', n.detail || n.body || ''], commentaryArgs: [card, n], dateStr }) + '</article>';
+      igCaptionHTML({ title: n.title || n.text || n.summary || '', texts: [n.detail || n.body || ''], commentaryArgs: [card, n], madeBy: 'rooney', momentCount: (n.evidenceMemoryIds || n.memoryIds || []).length || mems.length, dateStr }) + '</article>';
   }
   if (k === 'hero') {
     const thread = card.thread || null; const n = card.noticing || null;
@@ -970,8 +992,8 @@ function igFeedCardHTML(card) {
     const dateStr = igLatestDate(mems);
     return '<article class="post" data-kind="hero">' + igHeaderHTML(igWhoFor(igPeopleOfMems(mems)), dateStr, (thread && thread.sample) || (n && n.sample) || mems.some((m) => m.sample)) +
       igSingleMediaHTML(mems, href, (thread && thread.title) || '') +
-      (href ? igActionsHTML('', '', null, 0, href, 'See the photos') : '') +
-      igCaptionHTML({ title: (thread && thread.title) || '', texts: [card.observation || (thread && thread.observation) || (n && (n.title || n.text)) || ''], commentaryArgs: [card, thread, n], dateStr }) + '</article>';
+      (href && thread ? igActionsHTML('thread', thread.id, thread.reactions, thread.commentCount, href, 'See the photos', { scope: 'thread', targetId: thread.id, objectTitle: thread.title || 'A thread' }) : (href ? igActionsHTML('', '', null, 0, href, 'See the photos') : '')) +
+      igCaptionHTML({ title: (thread && thread.title) || '', texts: [card.observation || (thread && thread.observation) || (n && (n.title || n.text)) || ''], commentaryArgs: [card, thread, n], madeBy: 'rooney', momentCount: evIds.length || mems.length, dateStr }) + '</article>';
   }
   if (k === 'prompt') {
     if (!card.prompt) return '';
@@ -1624,7 +1646,7 @@ function openAddSheet(kind) {
   $$('#sheet [data-add-connect]').forEach((b) => b.addEventListener('click', () => { closeSheet(); location.hash = '#/imports'; }));
 }
 function openMenuSheet() {
-  const rows = [['Today', '#/'], ['Questions', '#/questions'], ['Family & people', '#/family'], ['Plan & room', '#/plan'], ['Year Film', '#/film'], ['Help & settings', '#/settings']];
+  const rows = [['Today', '#/'], ['Questions', '#/questions'], ['Saved', '#/saved'], ['Your collections', '#/collections'], ['Family & people', '#/family'], ['Who this story goes to', '#/legacy'], ['Plan & room', '#/plan'], ['Year Film', '#/film'], ['Help & settings', '#/settings']];
   openSheet('<h3>Menu</h3>' + rows.map((r) => '<button type="button" class="quick-row" data-menu-go="' + esc(r[1]) + '"><span>' + esc(r[0]) + '</span><strong>→</strong></button>').join('') +
     '<button type="button" class="btn btn-ghost btn-block" data-close-sheet>Close</button>');
   wireCloseSheet();
@@ -1640,8 +1662,13 @@ function renderSettings(root) {
     '<a class="quiet-row settings-row" href="#/questions"><span><strong>Question times &amp; settings</strong><br><span class="muted-small">When Rooney asks, and how often.</span></span><span>→</span></a>' +
     '<a class="quiet-row settings-row" href="#/plan"><span><strong>Plan &amp; room</strong><br><span class="muted-small">Your plan, room and billing.</span></span><span>→</span></a>' +
     '<a class="quiet-row settings-row" href="' + F('/export') + '"><span><strong>Export everything</strong><br><span class="muted-small">Every original, your story as a page, and all the data — a ZIP.</span></span><span>⬇</span></a>' +
+    '<a class="quiet-row settings-row" href="#/legacy"><span><strong>Who this story goes to</strong><br><span class="muted-small">Name who keeps the story going if you can\'t.</span></span><span>→</span></a>' +
+    '<div id="resurface-settings"></div>' +
+    '<div id="den-prefs-settings"></div>' +
     '<p style="margin-top:18px"><button type="button" class="btn btn-outline" id="settings-logout">Sign out</button></p>';
   const lo = $('#settings-logout', root); if (lo) lo.addEventListener('click', doLogout);
+  fillResurfacingSettings(root);
+  fillDenPrefs(root);
 }
 
 /* ================= STORY ================= */
@@ -1731,7 +1758,7 @@ function renderChapter(root, chapterId) {
   root.innerHTML = header +
     '<div class="ch-white-card">' +
     (ch.narrative ? '<div class="chapter-body"><p class="chapter-narrative">' + esc(ch.narrative) + '</p><p class="meta-line" style="margin-top:10px">Written by Rooney from your family\'s own words, captions and dates — nothing invented. The memories below are the evidence.</p></div>' : '<div class="empty"><h3>Rooney hasn\'t written this one yet</h3><p>Add captions or answer a question about this time, and the chapter fills in with your own words.</p></div>') +
-    '<p style="margin:14px 0 0;display:flex;gap:8px;flex-wrap:wrap;align-items:center"><button type="button" class="btn btn-outline btn-small" id="btn-rename-chapter">Rename chapter</button>' + shareBtnHTML({ scope: 'chapter', targetId: ch.id, objectTitle: ch.title || 'Untitled chapter' }) + '</p><div data-share-chip></div>' +
+    '<p style="margin:14px 0 0;display:flex;gap:8px;flex-wrap:wrap;align-items:center"><button type="button" class="btn btn-outline btn-small" id="btn-rename-chapter">Rename chapter</button><button type="button" class="btn btn-outline btn-small" id="btn-ch-audience">Who can see this: ' + audienceWords(ch.audience) + '</button>' + shareBtnHTML({ scope: 'chapter', targetId: ch.id, objectTitle: ch.title || 'Untitled chapter' }) + '</p><div data-share-chip></div>' +
     '<div class="ch-reactions">' + reactionsHTML('chapter', ch.id, ch.reactions) + commentsHTML('chapter', ch.id, ch.commentCount || 0) + '</div></div>' +
     '<h2 class="section-title">The memories in this chapter</h2>' +
     '<div id="chapter-grid"></div><div id="chapter-detail"></div>';
@@ -1767,6 +1794,10 @@ function renderChapter(root, chapterId) {
     wireCloseSheet();
     $('#rename-form').addEventListener('submit', async (e) => { e.preventDefault(); try { await api('/api/chapters/' + encodeURIComponent(ch.id), { method: 'PATCH', body: { title: new FormData(e.currentTarget).get('title') } }); closeSheet(); await refreshData(); render(); toast('Chapter renamed.'); } catch (err) { formError(e.currentTarget, err.message); } });
   });
+  /* C4: who may see this chapter (the audience picker). The
+     chapter's moments keep their own settings — both apply. */
+  const chab = $('#btn-ch-audience', root);
+  if (chab) chab.addEventListener('click', () => openAudienceSheet('chapter', ch));
 }
 
 /* ================= THREADS ================= */
@@ -1949,11 +1980,12 @@ function interviewsHTML() {
     '<div class="card"><p style="margin:0 0 12px">Pick a person, and Rooney frames one good question — anchored to a photo, if you choose one. They answer by voice or writing on a simple link, no account needed.</p>' +
     '<form id="interview-form"><label class="field"><span>Ask</span><select name="personId">' + state.people.map((p) => '<option value="' + esc(p.id) + '">' + esc(p.name) + '</option>').join('') + '</select></label>' +
     '<label class="field"><span>Anchor photo (optional)</span><select name="memoryId"><option value="">No photo — a question from Rooney\'s bank</option>' + state.memories.filter((m) => m.type === 'photo').slice(0, 60).map((m) => '<option value="' + esc(m.id) + '">' + esc((m.caption || 'Photo') + ' · ' + fmtDate(m.takenAt)) + '</option>').join('') + '</select></label>' +
+    '<label class="field"><span>Who may see the answers</span><select name="audience"><option value="den">The Den — everyone in the family</option><option value="private">Just me</option></select></label>' +
     '<p class="form-error" role="alert" hidden></p><button type="submit" class="btn btn-grad">Start the interview</button><div id="interview-result" style="margin-top:12px"></div></form></div>' +
     (list.length ? list.map((iv) => {
       const answers = iv.answers || (iv.prompt && iv.prompt.answers) || [];
       const status = iv.status || (answers.length ? 'answered' : 'awaiting');
-      return '<div class="card"><div class="kicker-row"><span class="badge ' + (status === 'answered' ? 'bpink' : 'bsoft') + '">' + (status === 'answered' ? 'Answered' : 'Waiting for their answer') + '</span>' + (iv.sample ? '<span class="badge bsample">Sample</span>' : '') + '</div>' +
+      return '<div class="card"><div class="kicker-row"><span class="badge ' + (status === 'answered' ? 'bpink' : 'bsoft') + '">' + (status === 'answered' ? 'Answered' : 'Waiting for their answer') + '</span>' + (iv.audience === 'private' ? '<span class="badge bsoft">Just me</span>' : '') + (iv.sample ? '<span class="badge bsample">Sample</span>' : '') + '</div>' +
         '<p class="dsp" style="font-size:21px;margin:0 0 6px">For ' + esc(iv.personName || personName(iv.personId)) + '</p>' +
         (iv.question ? '<p style="margin:0 0 8px">“' + esc(iv.question) + '”</p>' : '') +
         answers.map((a) => '<p style="margin:0 0 6px">' + esc(a.text || '') + ' <span class="muted-small">— ' + esc(a.answeredByName || 'via link') + '</span></p>').join('') +
@@ -1971,7 +2003,7 @@ function wireInterviews(root) {
     e.preventDefault(); const fd = new FormData(form);
     const btn = $('button[type="submit"]', form); btn.disabled = true; btn.textContent = 'Framing the question…';
     try {
-      const body = { personId: fd.get('personId') }; const mid = fd.get('memoryId'); if (mid) body.memoryId = mid;
+      const body = { personId: fd.get('personId') }; const mid = fd.get('memoryId'); if (mid) body.memoryId = mid; const aud = fd.get('audience'); if (aud) body.audience = aud;
       const res = await api(F('/interviews'), { method: 'POST', body });
       const iv = (res && res.interview) || {};
       const out = $('#interview-result', form);
@@ -2108,6 +2140,7 @@ function editPersonSheet(p) {
     '<label class="field"><span>Birthdate (optional)</span><input type="date" name="birthdate" value="' + esc(p.birthdate ? String(p.birthdate).slice(0, 10) : '') + '"></label>' +
     '<label class="field"><span>How Rooney follows them</span><select name="posture"><option value="growing"' + (p.posture === 'growing' || !p.posture ? ' selected' : '') + '>Growing up</option><option value="together"' + (p.posture === 'together' ? ' selected' : '') + '>Our life together</option><option value="remembering"' + (p.posture === 'remembering' ? ' selected' : '') + '>Remembering</option></select></label>' +
     '<div id="died-wrap" ' + (p.posture === 'remembering' ? '' : 'hidden') + '><label class="field"><span>Died on (optional)</span><input type="date" name="diedOn" value="' + esc(p.diedOn ? String(p.diedOn).slice(0, 10) : '') + '"></label></div>' +
+    '<label class="field"><span>New moments with them start as</span><select name="defaultAudience"><option value=""' + (p.defaultAudience !== 'private' && p.defaultAudience !== 'den' ? ' selected' : '') + '>No preference — the usual rule</option><option value="private"' + (p.defaultAudience === 'private' ? ' selected' : '') + '>Just me</option><option value="den"' + (p.defaultAudience === 'den' ? ' selected' : '') + '>Shared with the Den</option></select></label>' +
     '<p class="form-error" role="alert" hidden></p>' +
     '<button type="submit" class="btn btn-grad btn-block">' + (p.id ? 'Save' : 'Add person') + '</button><button type="button" class="btn btn-ghost btn-block" data-close-sheet>Cancel</button></form>');
   wireCloseSheet();
@@ -2115,7 +2148,7 @@ function editPersonSheet(p) {
   postureSel.addEventListener('change', () => { $('#died-wrap').hidden = postureSel.value !== 'remembering'; });
   $('#person-form').addEventListener('submit', async (e) => {
     e.preventDefault(); const form = e.currentTarget; const fd = new FormData(form);
-    const payload = { name: fd.get('name'), relationship: fd.get('relationship'), birthdate: fd.get('birthdate') || null, posture: fd.get('posture'), diedOn: fd.get('posture') === 'remembering' ? (fd.get('diedOn') || null) : null };
+    const payload = { name: fd.get('name'), relationship: fd.get('relationship'), birthdate: fd.get('birthdate') || null, posture: fd.get('posture'), diedOn: fd.get('posture') === 'remembering' ? (fd.get('diedOn') || null) : null, defaultAudience: fd.get('defaultAudience') || null };
     try {
       if (p.id) await api('/api/people/' + encodeURIComponent(p.id), { method: 'PATCH', body: payload });
       else await api(F('/people'), { method: 'POST', body: payload });
@@ -2164,14 +2197,21 @@ function renderFamily(root) {
      are the board composition, this list is the manager). The old
      separate "Add a person" row is replaced by the Add circle above. */
   html += '<h2 class="section-title">Everyone in the story</h2>' + (state.people.length ? state.people.map(personCardHTML).join('') : '<div class="empty"><h3>No people yet</h3><p>Add the people Rooney writes about — a child, a partner, a grandparent, someone you\'re remembering.</p></div>');
+  const iAmOwner = !!state.user && members.some((m) => m.userId === state.user.id && m.role === 'owner');
+  const roleWords = (r) => r === 'owner' ? 'Owner' : r === 'viewer' ? 'Watches and reacts — can\'t add or change things' : 'Can add photos and answer questions';
   html += '<h2 class="section-title">Who can add photos</h2><div class="card">' +
-    members.map((m) => '<p style="margin:0 0 8px"><strong>' + esc(m.name || m.email || 'A family member') + '</strong> <span class="badge bsoft">' + esc(m.role === 'owner' ? 'Owner' : 'Can add photos and answer questions') + '</span></p>').join('') +
-    '<button type="button" class="btn btn-outline btn-small" id="fam-invite">Invite someone</button><div id="invite-out" style="margin-top:10px"></div>' +
+    members.map((m) => '<p style="margin:0 0 8px;display:flex;gap:8px;align-items:center;flex-wrap:wrap"><strong>' + esc(m.name || m.email || 'A family member') + '</strong> <span class="badge bsoft">' + esc(roleWords(m.role)) + '</span>' +
+      (iAmOwner && m.role !== 'owner' && m.userId ? '<select data-member-role="' + esc(m.userId) + '" aria-label="Change what they can do"><option value="contributor"' + (m.role !== 'viewer' ? ' selected' : '') + '>Can add photos and answer questions</option><option value="viewer"' + (m.role === 'viewer' ? ' selected' : '') + '>Watches and reacts only</option></select><button type="button" class="btn btn-ghost btn-small btn-danger" data-member-remove="' + esc(m.userId) + '" data-member-name="' + esc(m.name || m.email || 'This person') + '">Remove</button>' : '') +
+      '</p>').join('') +
+    '<label class="field" style="margin:10px 0 0"><span>The next person you invite will</span><select id="fam-invite-role"><option value="contributor">Add photos and answer questions</option><option value="viewer">Watch and react — no adding or changing</option></select></label>' +
+    '<button type="button" class="btn btn-outline btn-small" id="fam-invite" style="margin-top:10px">Invite someone</button><div id="invite-out" style="margin-top:10px"></div>' +
     '<p class="muted-small">Contributors use the locked words, always: “Can add photos and answer questions.”</p></div>';
   html += '<h2 class="section-title">Answering by text</h2><div class="card">' +
     '<p style="margin:0 0 6px">Interviews started: <strong>' + state.interviews.length + '</strong> · answered: <strong>' + state.interviews.filter((iv) => iv.status === 'answered' || (iv.answers || []).length).length + '</strong></p>' +
     '<p class="muted-small" style="margin:0">Interview and question links work with no account. ' + esc(NO_PROVIDER_LINE) + '. Guest view links are below — view-only, and revocable.</p></div>';
   html += '<h2 class="section-title">Quiet corners</h2>' +
+    '<a class="quiet-row" href="#/saved"><span><strong>Saved</strong><br><span class="muted-small">The moments you kept aside — all in one place.</span></span><span>→</span></a>' +
+    '<a class="quiet-row" href="#/collections"><span><strong>Your collections</strong><br><span class="muted-small">Groups of moments you put together yourself.</span></span><span>→</span></a>' +
     '<a class="quiet-row" href="#/plan"><span><strong>Plan &amp; room</strong><br><span class="muted-small">' + esc(planName()) + (pres && pres.room ? ' · ' + num(pres.room.photosUsed) + ' of ' + num(pres.room.photosCap) + ' photos' : '') + '</span></span><span>→</span></a>' +
     '<a class="quiet-row" href="#/imports"><span><strong>Bring in photos</strong><br><span class="muted-small">Backfill — give Roon what you already have.</span></span><span>→</span></a>' +
     '<div class="card">' + SHARE_BRAND_HTML + '<p style="margin:0 0 10px"><strong>Shared links</strong><br><span class="muted-small">Read-only pages for family who don\'t have Roon. Everything you share — a chapter, a thread, the film, an interview, or the whole story — lives here, with who has seen it. Every link is revocable.</span></p>' +
@@ -2210,7 +2250,24 @@ function wireFamily(root) {
   const circleAdd = $('#fam-circle-add', root); if (circleAdd) circleAdd.addEventListener('click', () => editPersonSheet(null));
   $$('[data-timeline-month]', root).forEach((b) => b.addEventListener('click', () => { state.feedMonth = b.dataset.timelineMonth; state.feedScope = 'all'; state.feedCursor = null; state.feedDone = false; location.hash = '#/explore'; }));
   const invite = $('#fam-invite', root);
-  if (invite) invite.addEventListener('click', async () => { invite.disabled = true; try { const res = await api(F('/invite'), { method: 'POST', body: {} }); const url = (res && (res.inviteUrl || res.url)) || ''; $('#invite-out', root).innerHTML = '<p class="muted-small" style="word-break:break-all">Share this invite link: <strong>' + esc(url) + '</strong> <button type="button" class="btn btn-ghost btn-small" id="invite-copy">Copy</button></p>'; const c = $('#invite-copy', root); if (c) c.addEventListener('click', () => copyText(url, 'Invite link copied.')); } catch (e) { toast(e.message, 'error'); } finally { invite.disabled = false; } });
+  if (invite) invite.addEventListener('click', async () => { invite.disabled = true; try { const roleSel = $('#fam-invite-role', root); const res = await api(F('/invite'), { method: 'POST', body: { role: roleSel ? roleSel.value : 'contributor' } }); const url = (res && (res.inviteUrl || res.url)) || ''; $('#invite-out', root).innerHTML = '<p class="muted-small" style="word-break:break-all">Share this invite link: <strong>' + esc(url) + '</strong> <button type="button" class="btn btn-ghost btn-small" id="invite-copy">Copy</button></p>'; const c = $('#invite-copy', root); if (c) c.addEventListener('click', () => copyText(url, 'Invite link copied.')); } catch (e) { toast(e.message, 'error'); } finally { invite.disabled = false; } });
+  /* C5: the owner can move a member between adding and watching. */
+  $$('[data-member-role]', root).forEach((sel) => sel.addEventListener('change', async () => {
+    sel.disabled = true;
+    try { await api(F('/members/' + encodeURIComponent(sel.dataset.memberRole)), { method: 'PATCH', body: { role: sel.value } }); await refreshData(); render(); toast('Updated — that is what they can do now.'); }
+    catch (e) { toast(e.message, 'error'); sel.disabled = false; }
+  }));
+  /* Den model: removal ends access at once; what they added stays,
+     with their name on it — the rule is printed before it happens. */
+  $$('[data-member-remove]', root).forEach((b) => b.addEventListener('click', () => {
+    const uid = b.dataset.memberRemove; const nm = b.dataset.memberName;
+    openSheet('<h3>Remove ' + esc(nm) + ' from the Den?</h3><p class="muted">Their access ends right away, everywhere. Everything they added stays in the story, with their name on it — their comments stay too, unless you hide them. Nothing is deleted.</p><p><button type="button" class="btn btn-grad btn-block" id="member-remove-yes">Remove them</button></p><button type="button" class="btn btn-ghost btn-block" data-close-sheet>Keep them</button>');
+    wireCloseSheet();
+    $('#member-remove-yes').addEventListener('click', async () => {
+      try { await api(F('/members/' + encodeURIComponent(uid)), { method: 'DELETE' }); closeSheet(); await refreshData(); render(); toast('Removed — their access has ended, and what they added stays in the story.'); }
+      catch (e) { toast(e.message, 'error'); }
+    });
+  }));
   const mkGuest = async (scope, threadId) => { try { const body = { scope }; if (threadId) body.threadId = threadId; const res = await api(F('/guest-links'), { method: 'POST', body }); const url = (res && res.url) || (res && res.guestLink && res.guestLink.url) || ''; await refreshData(); render(); if (url) toast('Guest link created — copy it from the list below.'); } catch (e) { toast(e.message, 'error'); } };
   const gf = $('#guest-family', root); if (gf) gf.addEventListener('click', () => mkGuest('family'));
   const gt = $('#guest-thread', root); if (gt) gt.addEventListener('click', () => { const sel = $('#guest-thread-sel', root); if (!sel.value) { toast('Choose a followed thread first.'); return; } mkGuest('thread', sel.value); });
@@ -2233,7 +2290,9 @@ function renderPerson(root, personId) {
     '<div style="display:flex;gap:14px;align-items:center"><span class="person-avatar">' + esc(initialOf(p.name)) + '</span><div><h1 class="dsp" style="margin:0;font-size:34px">' + esc(p.name) + '</h1><p class="muted" style="margin:2px 0">' + esc(p.relationship || '') + (p.followed ? ' · Rooney follows ' + pronoun(p).subj + ' story — ' + esc(postureWords(p)) : ' · Rooney isn\'t following ' + pronoun(p).poss + ' storyline') + '</p></div></div>' +
     '<p style="margin:14px 0"><a class="btn btn-outline btn-small" href="#/explore" data-scoped="' + esc(p.id) + '">See ' + esc(firstName(p.name)) + "'s story in Moments</a> " +
     (p.followed ? '<button type="button" class="btn btn-ghost btn-small" id="pv-unfollow">Unfollow</button>' : '<button type="button" class="btn btn-grad btn-small" id="pv-follow">Follow ' + pronoun(p).poss + ' story</button>') +
-    ' <button type="button" class="btn btn-ghost btn-small" id="pv-edit">Edit</button></p>' +
+    ' <button type="button" class="btn btn-ghost btn-small" id="pv-edit">Edit</button>' +
+    ' <button type="button" class="btn btn-ghost btn-small" id="pv-mute">' + (p.resurfaceMuted ? 'Let On This Day show them again' : 'Keep them out of On This Day') + '</button>' +
+    ' <button type="button" class="btn btn-ghost btn-small" id="pv-den">' + (p.denVisible === false ? 'Bring this storyline back into the Den' : 'Take this storyline out of the Den') + '</button></p>' +
     '<h2 class="section-title">Their chapters</h2>' + (chapters.length ? chapters.map((ch) => '<a class="toc-row" href="#/story/' + encodeURIComponent(ch.id) + '"><span><h3>' + esc(ch.title || 'Untitled chapter') + '</h3><span class="muted-small">' + esc(chapterRange(ch)) + '</span></span></a>').join('') : '<div class="empty"><p>No chapters centre on ' + esc(firstName(p.name)) + ' yet.</p></div>') +
     '<h2 class="section-title">Their threads</h2>' + (threads.length ? threads.map((t) => '<div class="card feed-card media-card">' + threadCardInner(t, t.status === 'followed' ? 'Following' : 'Watching') + '</div>').join('') : '<div class="empty"><p>No threads yet — Rooney is watching.</p></div>') +
     seriesHTML(p.id) +
@@ -2243,6 +2302,20 @@ function renderPerson(root, personId) {
   const f = $('#pv-follow', root); if (f) f.addEventListener('click', () => setFollowed(p, true));
   const uf = $('#pv-unfollow', root); if (uf) uf.addEventListener('click', () => setFollowed(p, false));
   const ed = $('#pv-edit', root); if (ed) ed.addEventListener('click', () => editPersonSheet(p));
+  /* C3: one tap keeps every moment with this person out of On This
+     Day (they stay everywhere else — nothing is hidden or deleted). */
+  const pm = $('#pv-mute', root); if (pm) pm.addEventListener('click', async () => {
+    const next = !p.resurfaceMuted; pm.disabled = true;
+    try { await api('/api/people/' + encodeURIComponent(p.id), { method: 'PATCH', body: { resurfaceMuted: next } }); await refreshData(); render(); toast(next ? 'On This Day will leave ' + firstName(p.name) + "'s moments alone." : firstName(p.name) + "'s moments can come back in On This Day."); }
+    catch (e) { toast(e.message, 'error'); pm.disabled = false; }
+  });
+  /* Archive vs Story: the per-storyline Den toggle — every moment
+     with this person stops (or resumes) resolving for Den members. */
+  const pd = $('#pv-den', root); if (pd) pd.addEventListener('click', async () => {
+    const next = p.denVisible === false; pd.disabled = true;
+    try { await api('/api/people/' + encodeURIComponent(p.id), { method: 'PATCH', body: { denVisible: next } }); await refreshData(); render(); toast(next ? firstName(p.name) + "'s moments are in the Den again." : firstName(p.name) + "'s moments are out of the Den — only you see them now."); }
+    catch (e) { toast(e.message, 'error'); pd.disabled = false; }
+  });
 }
 
 /* ================= PLAN ================= */
@@ -2411,18 +2484,368 @@ async function openFind() {
 }
 function closeFind() { const ov = $('#find-overlay'); if (ov) ov.hidden = true; if ($('#sheet-backdrop').hidden) document.body.classList.remove('locked'); }
 $('#btn-find-close').addEventListener('click', closeFind);
+/* C7: Find is server-backed now — one search over captions, your
+   words, transcripts, names on moments, chapter titles and thread
+   titles, with every result labelled by where the match was found.
+   (Replaces the old client-side filter over /memories.) Ask Rooney
+   sits beside the results, ready to gather them into a thread. */
+let findTimer = null;
 $('#find-overlay-input').addEventListener('input', (e) => {
-  const q = e.target.value.trim().toLowerCase();
+  const q = e.target.value.trim();
   const box = $('#find-results');
   if (!q) { box.innerHTML = '<p class="muted">Type a word from a caption, a person\'s name, or a date.</p>'; return; }
-  const all = state.findMemories || state.memories;
-  const hits = all.filter((m) => {
-    const hay = [m.caption || '', m.storyText || '', fmtDay(m.takenAt), monthYear(m.takenAt), yearOf(m.takenAt), fmtDate(m.takenAt, { month: 'long' }), (m.peopleIds || []).map(personName).join(' ')].join(' ').toLowerCase();
-    return q.split(/\s+/).every((w) => hay.includes(w));
-  }).slice(0, 40);
-  box.innerHTML = hits.length ? hits.map((m) => { const ch = state.chapters.find((c) => (c.memoryIds || []).map(String).includes(String(m.id))); const th = state.threads.find((t) => (t.memoryIds || []).map(String).includes(String(m.id))); const href = ch ? '#/story/' + encodeURIComponent(ch.id) : (th ? '#/thread/' + encodeURIComponent(th.id) : '#/family'); return '<a class="find-result" href="' + href + '">' + (m.type === 'photo' && mediaSrc(m) ? '<img src="' + esc(mediaSrc(m)) + '" alt="" loading="lazy">' : '') + '<span><strong>' + esc(m.caption || m.storyText || m.type) + '</strong><br><span class="muted-small">' + esc(fmtDay(m.takenAt)) + ((m.peopleIds || []).length ? ' · ' + esc(m.peopleIds.map(personName).filter(Boolean).join(', ')) : '') + (ch ? ' · in “' + esc(ch.title || '') + '”' : '') + '</span></span></a>'; }).join('') : '<p class="muted">Nothing matches “' + esc(e.target.value.trim()) + '” yet — Rooney only finds what your family has actually kept.</p>';
-  $$('.find-result', box).forEach((a) => a.addEventListener('click', closeFind));
+  box.innerHTML = '<p class="muted">Looking…</p>';
+  clearTimeout(findTimer);
+  findTimer = setTimeout(async () => {
+    let res = null;
+    try { res = await api(F('/find') + '?q=' + encodeURIComponent(q)); } catch (err) { box.innerHTML = '<p class="muted">' + esc(err.message) + '</p>'; return; }
+    const mems = (res && res.memories) || [];
+    const people = (res && res.people) || [];
+    const chapters = (res && res.chapters) || [];
+    const threadsF = (res && res.threads) || [];
+    if (!mems.length && !people.length && !chapters.length && !threadsF.length) {
+      box.innerHTML = '<p class="muted">Nothing matches “' + esc(q) + '” yet — Rooney only finds what your family has actually kept.</p>' +
+        '<div class="card" style="margin-top:12px"><p style="margin:0 0 8px"><strong>Ask Rooney to gather “' + esc(q) + '”</strong></p>' + askBlockHTML('find-ask') + '</div>';
+      wireAskBlock('find-ask');
+      const fi = $('#find-ask-input'); if (fi) fi.value = q;
+      return;
+    }
+    let html = '';
+    if (people.length) html += '<h3 class="find-group-title">People</h3>' + people.map((p) => '<a class="find-result" href="#/person/' + encodeURIComponent(p.id) + '"><span class="person-avatar">' + esc(initialOf(p.name)) + '</span><span><strong>' + esc(p.name) + '</strong><br><span class="muted-small">' + esc(p.relationship || '') + '</span></span></a>').join('');
+    if (mems.length) html += '<h3 class="find-group-title">Moments</h3>' + mems.map((m) => { const ch = state.chapters.find((c) => (c.memoryIds || []).map(String).includes(String(m.id))); const th = state.threads.find((t) => (t.memoryIds || []).map(String).includes(String(m.id))); const href = ch ? '#/story/' + encodeURIComponent(ch.id) : (th ? '#/thread/' + encodeURIComponent(th.id) : '#/family'); return '<a class="find-result" href="' + href + '">' + (m.type === 'photo' && mediaSrc(m) ? '<img src="' + esc(mediaSrc(m)) + '" alt="" loading="lazy">' : '') + '<span><strong>' + esc(m.caption || m.storyText || m.type) + '</strong><br><span class="muted-small">' + esc(fmtDay(m.takenAt)) + ((m.peopleIds || []).length ? ' · ' + esc(m.peopleIds.map(personName).filter(Boolean).join(', ')) : '') + '</span> ' + (m.matchLabel ? '<span class="find-source">' + esc(m.matchLabel) + '</span>' : '') + '</span></a>'; }).join('');
+    if (chapters.length) html += '<h3 class="find-group-title">Chapters Rooney wrote</h3>' + chapters.map((c) => '<a class="find-result" href="#/story/' + encodeURIComponent(c.id) + '"><span><strong>' + esc(c.title || 'Untitled chapter') + '</strong><br><span class="muted-small">Chapter</span></span></a>').join('');
+    if (threadsF.length) html += '<h3 class="find-group-title">Threads Rooney follows</h3>' + threadsF.map((t) => '<a class="find-result" href="#/thread/' + encodeURIComponent(t.id) + '"><span><strong>' + esc(t.title || 'A thread') + '</strong><br><span class="muted-small">' + esc(threadEvidenceLine(t)) + '</span></span></a>').join('');
+    html += '<div class="card" style="margin-top:14px"><p style="margin:0 0 8px"><strong>Want these gathered into one thread?</strong></p>' + askBlockHTML('find-ask') + '</div>';
+    box.innerHTML = html;
+    wireAskBlock('find-ask');
+    const fi2 = $('#find-ask-input'); if (fi2) fi2.value = q;
+    $$('.find-result', box).forEach((a) => a.addEventListener('click', closeFind));
+  }, 250);
 });
+
+/* ================= C1–C7 (additive block) =================
+   Save & return, your collections, On This Day controls, who can
+   see what, watching-only members, who the story goes to, and the
+   server-backed Find. Everything here is additive: new views, new
+   sheets, and small controls hung on existing posts — the feed
+   itself is untouched. */
+function myMemberRole() { const mem = ((state.family && state.family.members) || []).find((x) => state.user && x.userId === state.user.id); return mem ? mem.role : null; }
+function iAmViewer() { return myMemberRole() === 'viewer'; }
+function iAmOwner() { return myMemberRole() === 'owner'; }
+function applyRoleChrome() { document.body.classList.toggle('is-viewer', iAmViewer()); }
+async function loadCollections(force) {
+  if (!force && state.collectionsCache) return state.collectionsCache;
+  const res = await api(F('/collections'));
+  state.collectionsCache = (res && res.collections) || [];
+  return state.collectionsCache;
+}
+function memberName(userId) { const mem = ((state.family && state.family.members) || []).find((x) => x.userId === userId); return mem ? (mem.name || mem.email || 'A keeper') : 'A keeper'; }
+function patchMemoryLocal(id, patch) { const m = memById(id); if (m) Object.assign(m, patch); if (state.findMemories) { const fm = state.findMemories.find((x) => String(x.id) === String(id)); if (fm) Object.assign(fm, patch); } }
+
+/* ---- C2: Saved ---- */
+async function renderSaved(root) {
+  root.innerHTML = '<p class="eyeb">Kept aside</p><h1 class="dsp">Saved</h1><p class="lead">The moments you kept aside, all in one place. Tap Save on any moment in Moments and it waits for you here.</p><div id="saved-body"><div class="skeleton"></div></div>';
+  let data = null;
+  try { data = await api(F('/saved')); } catch (e) { $('#saved-body', root).innerHTML = '<div class="empty"><p>' + esc(e.message) + '</p></div>'; return; }
+  const mems = (data && data.memories) || [];
+  const body = $('#saved-body', root); if (!body) return;
+  if (!mems.length) { body.innerHTML = '<div class="empty"><h3>Nothing saved yet</h3><p>Open Moments, tap <strong>Save</strong> on a photo, a video, a piece of writing or a voice note, and it will be here when you come back.</p><a class="btn btn-grad" href="#/explore">Go to Moments</a></div>'; return; }
+  body.innerHTML = '<p class="muted-small" style="margin:0 0 6px">' + num(mems.length) + ' saved moment' + (mems.length === 1 ? '' : 's') + ' — most recently saved first.</p>' + mems.map((m) => igFeedCardHTML({ kind: 'media', memory: m })).join('');
+  wireFeedCards(body);
+}
+
+/* ---- C1: Your collections ---- */
+function collectionCardHTML(c) {
+  const cover = c.cover;
+  const thumb = cover && cover.type === 'photo' && mediaSrc(cover) ? '<img src="' + esc(mediaSrc(cover)) + '" alt="" loading="lazy">' : (cover && cover.type === 'video' && cover.poster ? '<img src="' + esc(cover.poster) + '" alt="" loading="lazy">' : '');
+  return '<a class="collection-card" href="#/collection/' + encodeURIComponent(c.id) + '"><span class="collection-thumb">' + thumb + '</span><span class="collection-meta"><strong>' + esc(c.name) + '</strong><span class="muted-small">' + num(c.count) + ' moment' + (c.count === 1 ? '' : 's') + ' · put together by ' + esc(memberName(c.createdBy)) + '</span></span><span>→</span></a>';
+}
+async function renderCollections(root) {
+  root.innerHTML = '<p class="eyeb">Your way of organising</p><h1 class="dsp">Your collections</h1><p class="lead">Groups of moments you put together yourself — a holiday, a person, a year of the garden. They sit beside the chapters and threads Rooney makes; these ones are yours.</p><p><button type="button" class="btn btn-grad" id="col-new">New collection</button></p><div id="collections-body"><div class="skeleton"></div></div>' +
+    '<h2 class="section-title">Rooney made these</h2>' +
+    (state.chapters.length ? state.chapters.map((ch) => '<a class="toc-row" href="#/story/' + encodeURIComponent(ch.id) + '"><span style="min-width:0"><h3>' + esc(ch.title || 'Untitled chapter') + '</h3><span class="muted-small">Chapter · ' + esc(chapterRange(ch)) + '</span></span></a>').join('') : '<p class="muted">No chapters yet.</p>') +
+    (state.threads.filter((t) => t.status === 'followed').length ? state.threads.filter((t) => t.status === 'followed').map((t) => '<a class="toc-row" href="#/thread/' + encodeURIComponent(t.id) + '"><span style="min-width:0"><h3>' + esc(t.title || 'A thread') + '</h3><span class="muted-small">Thread · ' + esc(threadEvidenceLine(t)) + '</span></span></a>').join('') : '');
+  const nb = $('#col-new', root); if (nb) nb.addEventListener('click', () => openNewCollectionSheet(null));
+  let cols = [];
+  try { cols = await loadCollections(true); } catch (e) { $('#collections-body', root).innerHTML = '<div class="empty"><p>' + esc(e.message) + '</p></div>'; return; }
+  const body = $('#collections-body', root); if (!body) return;
+  body.innerHTML = cols.length ? cols.map(collectionCardHTML).join('') : '<div class="empty"><h3>No collections yet</h3><p>Make your first one — or tap the ••• on any moment in Moments and choose “Add to a collection”.</p></div>';
+}
+function openNewCollectionSheet(prefillMemoryId) {
+  openSheet('<h3>New collection</h3><form id="col-new-form"><label class="field"><span>Name it</span><input name="name" required maxlength="80" placeholder="Summer at the lake, Milo\'s firsts…"></label><p class="form-error" role="alert" hidden></p><button type="submit" class="btn btn-grad btn-block">Create collection</button><button type="button" class="btn btn-ghost btn-block" data-close-sheet>Cancel</button></form>');
+  wireCloseSheet();
+  $('#col-new-form').addEventListener('submit', async (e) => {
+    e.preventDefault(); const form = e.currentTarget;
+    try {
+      const res = await api(F('/collections'), { method: 'POST', body: { name: new FormData(form).get('name'), memoryIds: prefillMemoryId ? [prefillMemoryId] : [] } });
+      state.collectionsCache = null; closeSheet();
+      const c = res && res.collection;
+      toast(prefillMemoryId ? 'Collection made — that moment is in it.' : 'Collection made.');
+      if (c && c.id) location.hash = '#/collection/' + encodeURIComponent(c.id); else if (state.view === 'collections') render();
+    } catch (err) { formError(form, err.message); }
+  });
+}
+async function renderCollection(root, collectionId) {
+  root.innerHTML = '<div class="skeleton"></div>';
+  let data = null;
+  try { data = await api(F('/collections/' + encodeURIComponent(collectionId))); } catch (e) { root.innerHTML = '<div class="empty"><h3>That collection isn\'t here</h3><p>' + esc(e.message) + '</p><p><a href="#/collections">All your collections →</a></p></div>'; return; }
+  const col = data.collection; const items = col.items || [];
+  const canManage = col.createdBy === (state.user && state.user.id) || iAmOwner();
+  root.innerHTML = '<p style="margin:0 0 10px"><a href="#/collections">← Your collections</a></p>' +
+    '<h1 class="dsp" style="margin-bottom:4px">' + esc(col.name) + '</h1>' +
+    '<p class="muted" style="margin:0 0 6px">' + num(items.length) + ' moment' + (items.length === 1 ? '' : 's') + ' · put together by ' + esc(memberName(col.createdBy)) + ' · in the order you left them</p>' +
+    (canManage ? '<p style="display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 4px"><button type="button" class="btn btn-outline btn-small" id="col-rename">Rename</button><button type="button" class="btn btn-outline btn-small" id="col-add">Add moments</button><button type="button" class="btn btn-ghost btn-small btn-danger" id="col-delete">Delete collection</button></p>' : '') +
+    '<div id="collection-items">' + (items.length ? items.map((m, i) => '<div class="collection-item">' + igFeedCardHTML({ kind: 'media', memory: m }) + (canManage ? '<div class="collection-manage"><button type="button" class="btn btn-ghost btn-small" data-col-up="' + esc(m.id) + '"' + (i === 0 ? ' disabled' : '') + '>Move up</button><button type="button" class="btn btn-ghost btn-small" data-col-down="' + esc(m.id) + '"' + (i === items.length - 1 ? ' disabled' : '') + '>Move down</button><button type="button" class="btn btn-ghost btn-small" data-col-remove="' + esc(m.id) + '">Take out</button></div>' : '') + '</div>').join('') : '<div class="empty"><h3>Nothing in here yet</h3><p>Add moments with the button above, or from the ••• menu on any moment in Moments.</p></div>') + '</div>';
+  wireFeedCards($('#collection-items', root));
+  if (!canManage) return;
+  const ids = items.map((m) => m.id);
+  const saveOrder = async (newIds) => { try { await api(F('/collections/' + encodeURIComponent(col.id)), { method: 'PATCH', body: { memoryIds: newIds } }); state.collectionsCache = null; render(); } catch (e) { toast(e.message, 'error'); } };
+  $$('[data-col-up]', root).forEach((b) => b.addEventListener('click', () => { const i = ids.indexOf(b.dataset.colUp); if (i > 0) { const n = ids.slice(); const t = n[i - 1]; n[i - 1] = n[i]; n[i] = t; saveOrder(n); } }));
+  $$('[data-col-down]', root).forEach((b) => b.addEventListener('click', () => { const i = ids.indexOf(b.dataset.colDown); if (i >= 0 && i < ids.length - 1) { const n = ids.slice(); const t = n[i + 1]; n[i + 1] = n[i]; n[i] = t; saveOrder(n); } }));
+  $$('[data-col-remove]', root).forEach((b) => b.addEventListener('click', async () => { b.disabled = true; try { await api(F('/collections/' + encodeURIComponent(col.id) + '/items/' + encodeURIComponent(b.dataset.colRemove)), { method: 'DELETE' }); state.collectionsCache = null; toast('Taken out — the moment itself is untouched.'); render(); } catch (e) { toast(e.message, 'error'); b.disabled = false; } }));
+  const rn = $('#col-rename', root); if (rn) rn.addEventListener('click', () => {
+    openSheet('<h3>Rename collection</h3><form id="col-rename-form"><label class="field"><span>Name</span><input name="name" required maxlength="80" value="' + esc(col.name) + '"></label><p class="form-error" role="alert" hidden></p><button type="submit" class="btn btn-grad btn-block">Save name</button><button type="button" class="btn btn-ghost btn-block" data-close-sheet>Cancel</button></form>');
+    wireCloseSheet();
+    $('#col-rename-form').addEventListener('submit', async (e) => { e.preventDefault(); try { await api(F('/collections/' + encodeURIComponent(col.id)), { method: 'PATCH', body: { name: new FormData(e.currentTarget).get('name') } }); state.collectionsCache = null; closeSheet(); render(); toast('Renamed.'); } catch (err) { formError(e.currentTarget, err.message); } });
+  });
+  const del = $('#col-delete', root); if (del) del.addEventListener('click', () => {
+    openSheet('<h3>Delete this collection?</h3><p class="muted">The collection goes away. Every moment in it stays exactly where it was — nothing is deleted from your story.</p><p><button type="button" class="btn btn-grad btn-block" id="col-delete-yes">Delete the collection</button></p><button type="button" class="btn btn-ghost btn-block" data-close-sheet>Keep it</button>');
+    wireCloseSheet();
+    $('#col-delete-yes').addEventListener('click', async () => { try { await api(F('/collections/' + encodeURIComponent(col.id)), { method: 'DELETE' }); state.collectionsCache = null; closeSheet(); location.hash = '#/collections'; toast('Collection deleted — the moments are all still in your story.'); } catch (e) { toast(e.message, 'error'); } });
+  });
+  const add = $('#col-add', root); if (add) add.addEventListener('click', () => openAddMomentsSheet(col, ids));
+}
+function openAddMomentsSheet(col, currentIds) {
+  const candidates = state.memories.filter((m) => !currentIds.map(String).includes(String(m.id)));
+  openSheet('<h3>Add moments to “' + esc(col.name) + '”</h3>' + (candidates.length ? '<form id="col-add-form"><div class="col-pick-list">' + candidates.map((m) => '<label class="col-pick"><input type="checkbox" name="mid" value="' + esc(m.id) + '"><span><strong>' + esc(m.caption || m.storyText || m.type) + '</strong><br><span class="muted-small">' + esc(fmtDay(m.takenAt)) + '</span></span></label>').join('') + '</div><p class="form-error" role="alert" hidden></p><button type="submit" class="btn btn-grad btn-block">Add the ticked moments</button></form>' : '<p class="muted">Every moment you can see is already in here.</p>') + '<button type="button" class="btn btn-ghost btn-block" data-close-sheet>Close</button>');
+  wireCloseSheet();
+  const form = $('#col-add-form'); if (!form) return;
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const chosen = $$('input[name="mid"]:checked', form).map((i) => i.value);
+    if (!chosen.length) { formError(form, 'Tick at least one moment.'); return; }
+    try { await api(F('/collections/' + encodeURIComponent(col.id) + '/items'), { method: 'POST', body: { memoryIds: chosen } }); state.collectionsCache = null; closeSheet(); render(); toast('Added.'); }
+    catch (err) { formError(form, err.message); }
+  });
+}
+function openCollectionPicker(memoryId) {
+  (async () => {
+    let cols = [];
+    try { cols = await loadCollections(true); } catch (e) { toast(e.message, 'error'); return; }
+    openSheet('<h3>Add to a collection</h3>' + (cols.length ? cols.map((c) => '<button type="button" class="quick-row" data-pick-col="' + esc(c.id) + '"><span>' + esc(c.name) + '</span><strong>' + num(c.count) + '</strong></button>').join('') : '<p class="muted">No collections yet — make the first one.</p>') + '<button type="button" class="quick-row" id="pick-new-col"><span>New collection…</span><strong>+</strong></button><button type="button" class="btn btn-ghost btn-block" data-close-sheet>Close</button>');
+    wireCloseSheet();
+    $$('#sheet [data-pick-col]').forEach((b) => b.addEventListener('click', async () => { b.disabled = true; try { await api(F('/collections/' + encodeURIComponent(b.dataset.pickCol) + '/items'), { method: 'POST', body: { memoryIds: [memoryId] } }); state.collectionsCache = null; closeSheet(); toast('Added to the collection.'); } catch (e) { toast(e.message, 'error'); b.disabled = false; } }));
+    const nc = $('#pick-new-col'); if (nc) nc.addEventListener('click', () => openNewCollectionSheet(memoryId));
+  })();
+}
+
+/* ---- C2/C3/C4: the per-moment menu + post controls ---- */
+async function toggleSave(memoryId, btn) {
+  const m = memById(memoryId); if (!m) return;
+  const next = !m.saved;
+  if (btn) btn.disabled = true;
+  try {
+    const res = await api('/api/memories/' + encodeURIComponent(memoryId), { method: 'PATCH', body: { saved: next } });
+    const saved = res && res.memory ? !!res.memory.saved : next;
+    patchMemoryLocal(memoryId, { saved, savedAt: res && res.memory ? res.memory.savedAt : (saved ? new Date().toISOString() : null) });
+    $$('[data-save-mem="' + CSS.escape(memoryId) + '"]').forEach((b) => { b.classList.toggle('is-saved', saved); b.setAttribute('aria-pressed', String(saved)); b.textContent = saved ? 'Saved' : 'Save'; b.disabled = false; });
+    toast(saved ? 'Saved — find it any time under Saved.' : 'Taken off your saved list.');
+    if (!saved && state.view === 'saved') render();
+  } catch (e) { toast(e.message, 'error'); if (btn) btn.disabled = false; }
+}
+function openMomentMenu(memoryId) {
+  const m = memById(memoryId); if (!m) return;
+  const muted = !!m.resurfaceMuted;
+  openSheet('<h3>This moment</h3>' +
+    '<button type="button" class="quick-row" data-mm="save"><span>' + (m.saved ? 'Saved — tap to unsave' : 'Save this moment') + '</span><strong>' + (m.saved ? '✓' : '') + '</strong></button>' +
+    '<button type="button" class="quick-row" data-mm="collect"><span>Add to a collection</span><strong>→</strong></button>' +
+    '<button type="button" class="quick-row" data-mm="audience"><span>Who can see this: ' + audienceWords(m.audience) + '</span><strong>Change</strong></button>' +
+    '<button type="button" class="quick-row" data-mm="mute"><span>' + (muted ? 'Let On This Day show this again' : 'Keep this out of On This Day') + '</span><strong>' + (muted ? '✓' : '') + '</strong></button>' +
+    '<p class="muted-small" style="margin:10px 2px 0">Keeping a moment out of On This Day never hides or deletes it — it stays in Moments, chapters and search.</p>' +
+    '<button type="button" class="btn btn-ghost btn-block" data-close-sheet>Close</button>');
+  wireCloseSheet();
+  $$('#sheet [data-mm]').forEach((b) => b.addEventListener('click', async () => {
+    const act = b.dataset.mm;
+    if (act === 'save') { closeSheet(); toggleSave(memoryId, null); return; }
+    if (act === 'collect') { openCollectionPicker(memoryId); return; }
+    if (act === 'audience') { openAudienceSheet('memory', m); return; }
+    b.disabled = true;
+    try {
+      if (act === 'mute') { const next = !muted; await api('/api/memories/' + encodeURIComponent(memoryId), { method: 'PATCH', body: { resurfaceMuted: next } }); patchMemoryLocal(memoryId, { resurfaceMuted: next }); closeSheet(); toast(next ? 'On This Day will leave this moment alone.' : 'This moment can come back in On This Day.'); }
+    } catch (e) { toast(e.message, 'error'); b.disabled = false; }
+  }));
+}
+/* Who can see a thing, in the locked plain words. */
+function audienceWords(a) { return a === 'private' ? 'Just me' : a === 'people' ? 'Specific people' : 'The Den'; }
+function audienceOfClient(m) { const a = m && m.audience; if (a === 'private' || a === 'owners') return 'private'; if (a === 'people') return 'people'; return 'den'; }
+/* The audience picker — one sheet for moments and chapters. Saving
+   takes effect everywhere at once (audiences resolve at read time),
+   so unsharing is just this, backwards. */
+function openAudienceSheet(kind, obj) {
+  const cur = audienceOfClient(obj);
+  const others = ((state.family && state.family.members) || []).filter((mm) => mm.userId && (!state.user || mm.userId !== state.user.id));
+  const named = new Set((obj.audiencePeople || []).map(String));
+  openSheet('<h3>Who can see this</h3><form id="aud-form">' +
+    '<label class="col-pick"><input type="radio" name="aud" value="private"' + (cur === 'private' ? ' checked' : '') + '><span><strong>Just me</strong><br><span class="muted-small">Only you' + (kind === 'memory' ? ' — and whoever added it' : '') + '. Not in the Den, never in a share.</span></span></label>' +
+    '<label class="col-pick"><input type="radio" name="aud" value="den"' + (cur === 'den' ? ' checked' : '') + '><span><strong>The Den</strong><br><span class="muted-small">Everyone in this family can see it — this is the shared story.</span></span></label>' +
+    '<label class="col-pick"><input type="radio" name="aud" value="people"' + (cur === 'people' ? ' checked' : '') + '><span><strong>Specific people</strong><br><span class="muted-small">You, plus the people you tick below.</span></span></label>' +
+    '<div id="aud-people" style="margin:6px 0 0 26px">' + (others.length ? others.map((mm) => '<label class="col-pick"><input type="checkbox" name="who" value="' + esc(mm.userId) + '"' + (named.has(String(mm.userId)) ? ' checked' : '') + '><span>' + esc(mm.name || mm.email || 'A family member') + '</span></label>').join('') : '<p class="muted-small">No one else is in this family yet — invite someone from the Family page.</p>') + '</div>' +
+    '<p class="form-error" role="alert" hidden></p><button type="submit" class="btn btn-grad btn-block">Save</button><button type="button" class="btn btn-ghost btn-block" data-close-sheet>Cancel</button></form>');
+  wireCloseSheet();
+  const form = $('#aud-form');
+  const syncPeople = () => { const sel = form.querySelector('input[name="aud"]:checked'); $('#aud-people').style.opacity = sel && sel.value === 'people' ? '1' : '.45'; };
+  $$('input[name="aud"]', form).forEach((r) => r.addEventListener('change', syncPeople)); syncPeople();
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const aud = new FormData(form).get('aud');
+    const who = $$('input[name="who"]:checked', form).map((i) => i.value);
+    if (aud === 'people' && !who.length) { formError(form, 'Tick at least one person — or choose Just me.'); return; }
+    try {
+      if (kind === 'memory') { await api('/api/memories/' + encodeURIComponent(obj.id), { method: 'PATCH', body: { audience: aud, audiencePeople: aud === 'people' ? who : undefined } }); patchMemoryLocal(obj.id, { audience: aud, audiencePeople: aud === 'people' ? who : null }); }
+      else { await api('/api/chapters/' + encodeURIComponent(obj.id), { method: 'PATCH', body: { audience: aud, audiencePeople: aud === 'people' ? who : undefined } }); }
+      closeSheet(); toast('Saved — that is who can see it now.');
+      if (kind === 'chapter' || (aud === 'private' && !iAmOwner())) { await refreshData(); render(); }
+    } catch (err) { formError(form, err.message); }
+  });
+}
+/* Hang a Save button + ••• menu on every memory post and chapter
+   figure, without touching the feed's own rendering: posts carry
+   their memory id in [data-reactions="memory:<id>"]. Idempotent —
+   the holder is marked, so re-renders and reaction swaps are safe. */
+function decorateMomentPosts() {
+  const root = $('#view-root'); if (!root) return;
+  applyRoleChrome();
+  if (iAmViewer()) return;
+  $$('[data-reactions^="memory:"]', root).forEach((wrap) => {
+    const holder = wrap.closest('.post') || wrap.closest('.reader-memory');
+    if (!holder || holder.dataset.cDecorated) return;
+    const mid = (wrap.getAttribute('data-reactions') || '').slice('memory:'.length);
+    const m = memById(mid); if (!m) return;
+    holder.dataset.cDecorated = '1';
+    const group = document.createElement('div');
+    group.className = 'post-actions-right';
+    group.innerHTML = '<button type="button" class="post-save-btn' + (m.saved ? ' is-saved' : '') + '" data-save-mem="' + esc(mid) + '" aria-pressed="' + !!m.saved + '">' + (m.saved ? 'Saved' : 'Save') + '</button>' +
+      '<button type="button" class="moment-menu-btn" data-menu-mem="' + esc(mid) + '" aria-label="More for this moment">•••</button>';
+    const actions = $('.post-actions', holder);
+    if (actions) actions.appendChild(group); else holder.appendChild(group);
+  });
+}
+document.addEventListener('click', (e) => {
+  const sv = e.target.closest('[data-save-mem]'); if (sv) { toggleSave(sv.dataset.saveMem, sv); return; }
+  const mn = e.target.closest('[data-menu-mem]'); if (mn) openMomentMenu(mn.dataset.menuMem);
+});
+const _viewRootEl = $('#view-root');
+if (_viewRootEl) { new MutationObserver(() => decorateMomentPosts()).observe(_viewRootEl, { childList: true, subtree: true }); }
+
+/* ---- C3: On This Day controls (Settings) ---- */
+async function fillResurfacingSettings(root) {
+  const box = $('#resurface-settings', root); if (!box) return;
+  let s = null;
+  try { s = await api(F('/resurfacing')); } catch (e) { box.innerHTML = ''; return; }
+  const r = (s && s.resurfacing) || {};
+  const mutedMems = (r.mutedMemoryIds || []).map((id) => memById(id)).filter(Boolean);
+  const mutedPeople = (r.mutedPeopleIds || []).map((id) => personById(id)).filter(Boolean);
+  const periods = r.periods || [];
+  box.innerHTML = '<h2 class="section-title">On This Day</h2><div class="card">' +
+    '<p style="margin:0 0 10px">On This Day brings older moments back to the top of Moments. Some days that\'s a gift; some days it isn\'t. You say which — nothing here hides or deletes anything.</p>' +
+    (r.paused
+      ? '<p style="margin:0 0 10px"><strong>On This Day is paused</strong>' + (r.pauseUntil ? ' until ' + esc(fmtDay(r.pauseUntil)) : ' until you turn it back on') + '.</p><button type="button" class="btn btn-grad btn-small" id="rs-resume">Turn On This Day back on</button>'
+      : '<p style="display:flex;gap:8px;flex-wrap:wrap;margin:0"><button type="button" class="btn btn-outline btn-small" id="rs-pause-week">Pause for a week</button><button type="button" class="btn btn-outline btn-small" id="rs-pause-open">Pause until I turn it back on</button></p>') +
+    (mutedMems.length ? '<h3 class="dsp" style="font-size:18px;margin:18px 0 6px">Moments kept out</h3>' + mutedMems.map((m) => '<p class="rs-row"><span>' + esc(m.caption || m.storyText || m.type) + ' <span class="muted-small">' + esc(fmtDay(m.takenAt)) + '</span></span><button type="button" class="btn btn-ghost btn-small" data-rs-unmute-mem="' + esc(m.id) + '">Bring back</button></p>').join('') : '') +
+    (mutedPeople.length ? '<h3 class="dsp" style="font-size:18px;margin:18px 0 6px">People kept out</h3>' + mutedPeople.map((p) => '<p class="rs-row"><span>' + esc(p.name) + '</span><button type="button" class="btn btn-ghost btn-small" data-rs-unmute-person="' + esc(p.id) + '">Bring back</button></p>').join('') : '') +
+    '<h3 class="dsp" style="font-size:18px;margin:18px 0 6px">A stretch of time to leave alone</h3>' +
+    (periods.length ? periods.map((pd) => '<p class="rs-row"><span>' + esc(pd.from) + ' to ' + esc(pd.to) + '</span><button type="button" class="btn btn-ghost btn-small" data-rs-del-period="' + esc(pd.id) + '">Remove</button></p>').join('') : '<p class="muted-small" style="margin:0 0 8px">None set.</p>') +
+    '<form id="rs-period-form" style="display:flex;gap:8px;flex-wrap:wrap;align-items:end"><label class="field" style="margin:0"><span>From</span><input type="date" name="from" required></label><label class="field" style="margin:0"><span>To</span><input type="date" name="to" required></label><button type="submit" class="btn btn-outline btn-small">Leave this time alone</button></form>' +
+    '<p class="muted-small" style="margin:10px 0 0">You can also keep a single moment out from its ••• menu in Moments, or a whole person from their page.</p></div>';
+  const again = () => fillResurfacingSettings(root);
+  const resume = $('#rs-resume', box); if (resume) resume.addEventListener('click', async () => { try { await api(F('/resurfacing/resume'), { method: 'POST', body: {} }); toast('On This Day is back on.'); again(); } catch (e) { toast(e.message, 'error'); } });
+  const pw = $('#rs-pause-week', box); if (pw) pw.addEventListener('click', async () => { try { await api(F('/resurfacing/pause'), { method: 'POST', body: { until: new Date(Date.now() + 7 * 86400000).toISOString() } }); toast('Paused for a week.'); again(); } catch (e) { toast(e.message, 'error'); } });
+  const po = $('#rs-pause-open', box); if (po) po.addEventListener('click', async () => { try { await api(F('/resurfacing/pause'), { method: 'POST', body: {} }); toast('Paused until you turn it back on.'); again(); } catch (e) { toast(e.message, 'error'); } });
+  $$('[data-rs-unmute-mem]', box).forEach((b) => b.addEventListener('click', async () => { try { await api('/api/memories/' + encodeURIComponent(b.dataset.rsUnmuteMem), { method: 'PATCH', body: { resurfaceMuted: false } }); patchMemoryLocal(b.dataset.rsUnmuteMem, { resurfaceMuted: false }); again(); } catch (e) { toast(e.message, 'error'); } }));
+  $$('[data-rs-unmute-person]', box).forEach((b) => b.addEventListener('click', async () => { try { await api('/api/people/' + encodeURIComponent(b.dataset.rsUnmutePerson), { method: 'PATCH', body: { resurfaceMuted: false } }); await refreshData(); again(); } catch (e) { toast(e.message, 'error'); } }));
+  $$('[data-rs-del-period]', box).forEach((b) => b.addEventListener('click', async () => { try { await api(F('/resurfacing/periods/' + encodeURIComponent(b.dataset.rsDelPeriod)), { method: 'DELETE' }); again(); } catch (e) { toast(e.message, 'error'); } }));
+  const pf = $('#rs-period-form', box); if (pf) pf.addEventListener('submit', async (e) => { e.preventDefault(); const fd = new FormData(pf); try { await api(F('/resurfacing/periods'), { method: 'POST', body: { from: fd.get('from'), to: fd.get('to') } }); toast('That stretch of time will be left alone.'); again(); } catch (err) { toast(err.message, 'error'); } });
+}
+
+/* ---- C6: Who this story goes to ---- */
+async function renderLegacy(root) {
+  root.innerHTML = '<p class="eyeb">Yours, always</p><h1 class="dsp">Who this story goes to</h1><div id="legacy-body"><div class="skeleton"></div></div>';
+  let data = null;
+  try { data = await api(F('/legacy')); } catch (e) { $('#legacy-body', root).innerHTML = '<div class="empty"><p>' + esc(e.message) + '</p></div>'; return; }
+  const body = $('#legacy-body', root); if (!body) return;
+  const what = '<div class="card"><h3 class="dsp" style="font-size:20px;margin:0 0 8px">What happens, in plain words</h3>' + ((data.whatHappens || []).map((line) => '<p style="margin:0 0 6px">' + esc(line) + '</p>').join('')) + '</div>';
+  if (!data.planHasLegacy) {
+    body.innerHTML = '<p class="lead">One day this story should pass to someone you trust — someone who can add to it, keep it safe, and hand it on again. Naming that person is part of Forever.</p>' + what + '<p style="margin-top:14px"><a class="btn btn-grad" href="#/plan">See Forever on your plan</a></p>';
+    return;
+  }
+  if (data.ownerOnly) {
+    body.innerHTML = '<p class="lead">Naming who keeps this story going is the family owner\'s job — only they can see or change the names.</p>' + what;
+    return;
+  }
+  const d = data.designation;
+  const heirVal = (i, k) => (d && d.heirs && d.heirs[i] ? esc(d.heirs[i][k] || '') : '');
+  body.innerHTML = what +
+    (d && d.confirmationDue ? '<div class="card" style="background:var(--pink);border-color:transparent"><p style="margin:0 0 10px"><strong>Still right?</strong> It has been over a year since these names were confirmed. If they are still the right people, say so — it takes one tap.</p><button type="button" class="btn btn-grad btn-small" id="legacy-confirm">This is still right</button></div>' : '') +
+    '<div class="card"><h3 class="dsp" style="font-size:20px;margin:0 0 10px">' + (d ? 'The names on record' : 'Name who keeps the story') + '</h3><form id="legacy-form">' +
+    '<label class="field"><span>The person who takes over first</span><input name="sName" required value="' + (d ? esc(d.successorName || '') : '') + '" placeholder="Their full name"></label>' +
+    '<label class="field"><span>Their email</span><input name="sEmail" type="email" required value="' + (d ? esc(d.successorEmail || '') : '') + '" placeholder="name@example.com"></label>' +
+    '<label class="field"><span>Next in line (optional)</span><input name="h1Name" value="' + heirVal(0, 'name') + '" placeholder="Full name"></label>' +
+    '<label class="field"><span>Their email</span><input name="h1Email" type="email" value="' + heirVal(0, 'email') + '" placeholder="name@example.com"></label>' +
+    '<label class="field"><span>And then (optional)</span><input name="h2Name" value="' + heirVal(1, 'name') + '" placeholder="Full name"></label>' +
+    '<label class="field"><span>Their email</span><input name="h2Email" type="email" value="' + heirVal(1, 'email') + '" placeholder="name@example.com"></label>' +
+    '<p class="form-error" role="alert" hidden></p><button type="submit" class="btn btn-grad">' + (d ? 'Save these names' : 'Save') + '</button>' +
+    (d ? ' <button type="button" class="btn btn-ghost btn-danger" id="legacy-remove">Remove these names</button>' : '') +
+    '</form>' + (d && d.confirmedAt ? '<p class="muted-small" style="margin:10px 0 0">Last confirmed ' + esc(fmtDay(d.confirmedAt)) + '.</p>' : '') + '</div>';
+  const form = $('#legacy-form', body);
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault(); const fd = new FormData(form);
+    const heirs = [];
+    if (String(fd.get('h1Name') || '').trim() || String(fd.get('h1Email') || '').trim()) heirs.push({ name: fd.get('h1Name'), email: fd.get('h1Email') });
+    if (String(fd.get('h2Name') || '').trim() || String(fd.get('h2Email') || '').trim()) heirs.push({ name: fd.get('h2Name'), email: fd.get('h2Email') });
+    try { await api(F('/legacy'), { method: 'PUT', body: { successor: { name: fd.get('sName'), email: fd.get('sEmail') }, heirs } }); toast('Saved — and confirmed as of today.'); render(); }
+    catch (err) { formError(form, err.message); }
+  });
+  const cf = $('#legacy-confirm', body); if (cf) cf.addEventListener('click', async () => { cf.disabled = true; try { await api(F('/legacy/confirm'), { method: 'POST', body: {} }); toast('Confirmed — still right.'); render(); } catch (e) { toast(e.message, 'error'); cf.disabled = false; } });
+  const rm = $('#legacy-remove', body); if (rm) rm.addEventListener('click', async () => { rm.disabled = true; try { await api(F('/legacy'), { method: 'DELETE' }); toast('Removed. You can name someone again any time.'); render(); } catch (e) { toast(e.message, 'error'); rm.disabled = false; } });
+}
+
+/* ---- Archive vs Story: the keeper's auto-share preference ---- */
+async function fillDenPrefs(root) {
+  const box = $('#den-prefs-settings', root); if (!box) return;
+  if (!iAmOwner()) { box.innerHTML = ''; return; }
+  let prefs = null;
+  try { prefs = await api(F('/den-prefs')); } catch (e) { box.innerHTML = ''; return; }
+  const on = !!(prefs && prefs.autoShareNew);
+  box.innerHTML = '<h2 class="section-title">Sharing with your Den</h2><div class="card">' +
+    '<p style="margin:0 0 10px">Your archive is yours. New moments start as <strong>Just me</strong> — the Den sees the shared story, never the raw archive — and you choose what to share, moment by moment, from each moment\'s ••• menu.</p>' +
+    '<p style="margin:0 0 10px">If you\'d rather most things were shared as they arrive, turn this on: <strong>new moments will be shared with the Den automatically</strong>. You can still make any single moment Just me, any time.</p>' +
+    '<button type="button" class="btn ' + (on ? 'btn-grad' : 'btn-outline') + ' btn-small" id="den-pref-toggle">' + (on ? 'On — new moments are shared with the Den' : 'Off — new moments start as Just me') + '</button></div>';
+  const t = $('#den-pref-toggle', box);
+  if (t) t.addEventListener('click', async () => {
+    t.disabled = true;
+    try { const res = await api(F('/den-prefs'), { method: 'POST', body: { autoShareNew: !on } }); toast(res && res.autoShareNew ? 'On — new moments will be shared with the Den.' : 'Off — new moments start as Just me.'); fillDenPrefs(root); }
+    catch (e) { toast(e.message, 'error'); t.disabled = false; }
+  });
+}
+
+/* ---- Ruling (5): the share sheet names what's inside ---- */
+function shareScopeListHTML(spec) {
+  let mems = [];
+  if (!spec) return '';
+  if (spec.scope === 'chapter') { const ch = state.chapters.find((c) => String(c.id) === String(spec.targetId)); if (ch) mems = chapterMemories(ch); }
+  else if (spec.scope === 'thread') { const t = state.threads.find((x) => String(x.id) === String(spec.targetId)); if (t) mems = (t.memoryIds || []).map(memById).filter(Boolean); }
+  else if (spec.scope === 'film') { mems = state.memories.filter((m) => m.type === 'photo' && new Date(m.takenAt).getFullYear() === Number(spec.filmYear)); }
+  else if (spec.scope === 'family') { mems = state.memories.filter((m) => audienceOfClient(m) === 'den'); }
+  else return '';
+  mems = mems.filter((m) => audienceOfClient(m) !== 'private' && m.reviewState !== 'pending');
+  if (spec.scope === 'family') mems = mems.filter((m) => audienceOfClient(m) === 'den');
+  if (!mems.length) return '<p class="share-label">What\'s inside</p><p class="muted-small" style="margin:0 0 10px">Nothing the link can show right now — moments set to “Just me” are never inside a share.</p>';
+  const shown = mems.slice(0, 12);
+  return '<p class="share-label">What\'s inside — ' + num(mems.length) + ' moment' + (mems.length === 1 ? '' : 's') + '</p><div class="share-scope-list">' +
+    shown.map((m) => '<p class="share-scope-row">' + esc(m.caption || m.storyText || m.type) + ' <span class="muted-small">' + esc(fmtDay(m.takenAt)) + '</span></p>').join('') +
+    (mems.length > shown.length ? '<p class="muted-small" style="margin:4px 0 0">…and ' + num(mems.length - shown.length) + ' more</p>' : '') +
+    '<p class="muted-small" style="margin:6px 0 0">Moments set to “Just me” are never inside a share.</p></div>';
+}
 
 /* ================= boot ================= */
 (async function boot() {
