@@ -55,6 +55,72 @@ years. What this bake carries that the first did not:
   chapter reader → Collections → Film. Screenshots: `qa-demo-*.png`.
   Only 404s are the documented Olive/Origin woff2 stubs.
 
+## Dark bake — 2026-10-30 (third bake, current package)
+
+Re-baked from the **post-reskin app (v15)**: Variant D (dark theater) is
+now the app's permanent, only design — see `app-v2/DARK-RESKIN-REPORT.md`.
+Captured from a freshly started throwaway instance of the finished app
+server (PORT 8741, `ROON_DATA_DIR` → hermetic **copy** of `app/data` —
+the real `app/data/db.json`, md5 `d5db1a359bef8efce3475a4da31c7e8f`,
+verified unchanged before and after the capture; the :8730 instance was
+never touched). **Baseline note:** that md5 supersedes the
+`295c7e04…` figure from the second bake — the reskin team's own QA
+minted one guest-link record on the live store (disclosed in their
+report §5), which is the whole difference; no family content changed.
+
+- **77 keys, all HTTP 200** — the second bake's 76 plus
+  `GET …/den-prefs`, which the current front-end requests (found by the
+  capture journey, not assumed).
+- **No variant anything.** Capture used no `?variant=` param and no
+  localStorage keys — the app has none left to use: `index.html` ships
+  no boot script and `styles.css` has zero `data-variant` selectors.
+  The baked demo inherits dark natively as the default.
+- **`design.js` is in the package** (21,499 B, md5
+  `6c4aeef861cff76caf1e832a7b0c426d`, byte-identical to
+  `app/public/design.js`). It is the reskin's renamed, permanent
+  behaviour layer (Today's composition, full-screen viewer, head pill,
+  Threads grid) — load-bearing, never dropped. The old bake's
+  "remove variant boot + variant.js" edit is **retired**: there is
+  nothing to remove, and re-adding any of it would resurrect the
+  deleted switcher.
+- **Export edits to `app.html`** (from the current `app/public/index.html`,
+  md5 of result `4b320c830702c9a78d3aa5982b192334`): Google Fonts links
+  removed; `demo.css` added; `demo-data.js` + `demo-shim.js` injected
+  before the unmodified `app.js`; `design.js` kept, unmodified.
+  `app.js` is byte-identical to source (md5
+  `54d3170c364902d9971046bc072f513b` — the front-end JS did not change
+  in the reskin); `styles.css` is the reskin's (87,675 B, md5
+  `3ec5040b85ecbae2d9110b31543771ec`).
+- **Logo:** the app now ships the canonical **light** lockup natively —
+  all three brand surfaces in the baked `app.html` reference
+  `assets/brand/logo-light.png` (correct on the dark ground; no runtime
+  swap exists anymore). The wrapper `index.html` iframe background is
+  now `#0D0E13` so the phone frame doesn't flash light.
+- **Credential stripping extended:** the store now holds one guest-link
+  record (see baseline note), whose response carries a signed `token`
+  and a `url` embedding it. Both fields were stripped during the bake —
+  the same class as `replyToken`; the front-end renders that row fine
+  without them (its Copy button is conditional on `url`). Verified:
+  no `replyToken`, no guest token, no capture origin anywhere in
+  `demo-data.js`.
+- **Share cards:** the downloadable card art (`sharecards.js` v2) was
+  deliberately left unchanged by the reskin — exports, not surfaces.
+  In-app share surfaces in this demo are dark; card art stays v2.
+  Expected, not a defect.
+- **QA (repo copy, served statically, Playwright 390px, external
+  requests blocked):** Today → Moments (scroll) → Threads → thread
+  open → Story → chapter reader → Film → Saved → Collections — all
+  render, **0 page errors**, only 404s are the documented Olive/Origin
+  woff2 stubs. Dark-default proof: `<html>` carries **no** variant
+  attributes (`dataset.variant = null`), computed body background
+  `rgb(13, 14, 19)` (= `#0D0E13`), screenshot edge pixels ≈ `#0D0E13`,
+  and Today's design.js composition (Quick Search, Den people row,
+  glass cover pill) is present. Screenshots:
+  `~/workspace/roon/qa/dark-bake-{today,moments,threads,thread,story,chapter,film,saved,collections}.png`
+  (the second bake's light `qa-demo-*.png` were removed from this
+  folder as stale). This package is mirrored byte-identically at
+  `~/workspace/roon/repo/assets/watch/demo/`.
+
 ## Status: PRE-FONT-DRAFT
 
 Final brand fonts are **Olive Display** (display) and **Origin** (UI),
@@ -87,9 +153,12 @@ The Roon logo is **one piece of artwork**: the dinosaur drawing forms the
   (900×297 RGBA, ≈3.03:1), copied from `~/workspace/roon/current-site/assets/brand/`.
   md5: logo-dark `63878beb911c4d86a15249e180dfbf77`,
   logo-light `209a29429689584a9b5fa5cbc34a6019`.
-- The three brand surfaces in `app.html` all use the **logo-dark** lockup
-  (all three sit on light backgrounds; logo-light ships alongside for any
-  future dark surface):
+- **Superseded by the dark bake (2026-10-30):** the app is now dark by
+  default, and the three brand surfaces in `app.html` all use the
+  **logo-light** lockup natively (see "Dark bake" above). The original
+  note, from the light era: the three surfaces used the **logo-dark**
+  lockup (all three sat on light backgrounds; logo-light shipped
+  alongside for any future dark surface):
   1. Auth view — `.auth-lockup`, 56px tall
   2. Desktop rail brand — `.rail-lockup`, 30px tall
   3. Mobile header brand — `.mh-lockup`, 26px tall
@@ -169,15 +238,16 @@ The Roon logo is **one piece of artwork**: the dinosaur drawing forms the
 | `index.html` | Phone-frame wrapper + Sample disclosure |
 | `app.html` | The app page (iframe target) |
 | `app.js` | Unmodified app front-end (274,498 B, md5 `54d3170c364902d9971046bc072f513b`) |
-| `styles.css` | Unmodified app styles (90,711 B, md5 `ddc4db2f6aed1eee77985109649a3994`) |
-| `demo-data.js` | Baked API map — 76 keys (second bake, see above) |
+| `design.js` | Unmodified permanent behaviour layer (21,499 B, md5 `6c4aeef861cff76caf1e832a7b0c426d`) |
+| `styles.css` | Unmodified app styles, post-reskin dark (87,675 B, md5 `3ec5040b85ecbae2d9110b31543771ec`) |
+| `demo-data.js` | Baked API map — 77 keys (dark bake, see above) |
 | `demo-shim.js` | fetch override (see above) |
 | `demo.css` | Local fallback fonts (@font-face) + logo/font notes |
 | `fonts/` | InstrumentSerif-Regular/Italic, Inter 400/500/600/700/800 (TTF) |
 | `assets/mark-dark.png`, `mark-light.png` | Standalone dinosaur mark (small-mark uses) |
 | `assets/brand/logo-dark.png`, `logo-light.png` | Canonical logo lockup |
 | `media/fam_b44fd40e9d36256d3b/` | 9 sample media files (3 photos × web+original, 1 video × view+original+poster) |
-| `qa-demo-*.png` | QA screenshots from the second-bake QA pass (Playwright, 390px) |
+| QA screenshots | Dark-bake pass: `~/workspace/roon/qa/dark-bake-*.png` (Playwright, 390px) |
 
 ## QA (how to re-run)
 

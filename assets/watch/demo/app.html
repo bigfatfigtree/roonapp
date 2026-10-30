@@ -7,12 +7,7 @@
 <meta name="description" content="Roon helps your family remember: Rooney prompts, reminds, and notices — and turns the photos you already have into a living story.">
 <link rel="icon" type="image/png" href="assets/mark-dark.png">
 <!-- DEMO EXPORT: Google Fonts links removed — fonts are local (demo.css + fonts/).
-     PRE-FONT-DRAFT package: final fonts are Olive Display / Origin, pending
-     Jeff's decision; Instrument Serif / Inter are the app's own fallbacks.
-     The Roon logo below is the canonical artwork lockup
-     (assets/brand/logo-dark.png) — one piece of artwork, never typeset.
-     DEMO EXPORT also: premium-variant boot script and variant.js removed —
-     the demo always shows the shipping default design. -->
+     DEMO EXPORT variant note: the post-reskin app ships NO variant boot script and no variant.js — dark (Variant D) is the permanent default; design.js is permanent and kept unmodified. -->
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="demo.css">
 </head>
@@ -23,7 +18,7 @@
 <main id="auth-view" class="auth-view" hidden>
   <div class="auth-card">
     <div class="auth-brand">
-      <h1 class="auth-logo-h"><img src="assets/brand/logo-dark.png" alt="Roon" class="auth-lockup"></h1>
+      <h1 class="auth-logo-h"><img src="assets/brand/logo-light.png" alt="Roon" class="auth-lockup"></h1>
       <p class="auth-tagline">The days you'd give anything to have back —<br>kept, and told back to you.</p>
     </div>
     <div class="auth-tabs" role="tablist" aria-label="Sign in or create account">
@@ -56,7 +51,7 @@
 <!-- ============ APP SHELL ============ -->
 <div id="app-shell" class="app-shell" hidden>
   <aside class="rail" aria-label="Main">
-    <a class="rail-brand" href="#/" aria-label="Roon — Today"><img src="assets/brand/logo-dark.png" alt="Roon" class="rail-lockup"></a>
+    <a class="rail-brand" href="#/" aria-label="Roon — Today"><img src="assets/brand/logo-light.png" alt="Roon" class="rail-lockup"></a>
     <div class="rail-family" id="rail-family"></div>
     <nav class="rail-nav rail-nav-primary" aria-label="Roon sections">
       <a href="#/explore" data-nav="explore"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.8"/><path d="m15.5 8.5-2.2 4.5-4.8 2.5 2.2-4.5z"/></svg><span>Moments</span></a>
@@ -87,7 +82,7 @@
 
   <div class="main-wrap">
     <header class="mobile-head">
-      <a class="mh-left" href="#/" aria-label="Roon — Today"><img src="assets/brand/logo-dark.png" alt="Roon" class="mh-lockup"></a>
+      <a class="mh-left" href="#/" aria-label="Roon — Today"><img src="assets/brand/logo-light.png" alt="Roon" class="mh-lockup"></a>
       <div class="mh-actions">
         <button type="button" class="mh-btn" id="btn-find-mobile" aria-label="Find a memory">⌕</button>
         <button type="button" class="mh-btn mh-capture" id="btn-capture-mobile" aria-label="Add a memory">+</button>
@@ -116,9 +111,10 @@
   </div>
 </div>
 <div id="film-player" class="film-player" hidden role="dialog" aria-modal="true" aria-label="Year film player"></div>
-<!-- DEMO EXPORT: baked data + fetch shim must load BEFORE app.js. app.js is unmodified. -->
+<!-- DEMO EXPORT: baked data + fetch shim must load BEFORE app.js. app.js and design.js are unmodified. -->
 <script src="demo-data.js"></script>
 <script src="demo-shim.js"></script>
 <script src="app.js"></script>
+<script src="design.js"></script>
 </body>
 </html>
