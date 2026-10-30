@@ -18,7 +18,6 @@
   --accent:#8FC3E8;
   --grad:linear-gradient(112deg,#0C7BB3,#7F9BCE 52%,#F2BAE8);
   --glass:rgba(15,16,23,.55);
-  --tab-h:74px;
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
@@ -45,6 +44,21 @@ section:first-of-type{padding-top:26px}
 .pill .join:hover{background:var(--grad);color:#fff;opacity:.92}
 .pill .avatar{width:34px;height:34px;border-radius:50%;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;margin-left:4px;flex-shrink:0}
 @media(max-width:640px){.pill a.hideS{display:none}.pill a,.pill button{padding:8px 9px;font-size:13px}}
+
+/* ---------- hamburger + full-screen menu (replaces the old bottom tab bar) ---------- */
+.burger{display:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--line2);background:rgba(255,255,255,.06);cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;flex-shrink:0;margin-left:8px}
+.burger i{display:block;width:17px;height:2px;background:var(--ink);border-radius:2px}
+@media(max-width:900px){.burger{display:flex}}
+.dpanel{position:fixed;inset:0;z-index:120;background:#0D0E13;color:var(--ink);overflow-y:auto;padding:14px clamp(16px,3vw,32px) 48px;transform:translateY(-102%);transition:transform .45s cubic-bezier(.2,.8,.3,1);pointer-events:none}
+.dpanel.open{transform:none;pointer-events:auto}
+.dpanel .dtop{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:4px 0 24px}
+.dpanel .dtop img{height:27px;display:block}
+.dpanel .dx{width:42px;height:42px;border-radius:50%;border:1px solid var(--line2);background:rgba(255,255,255,.06);color:var(--ink);font-size:19px;cursor:pointer;flex-shrink:0}
+.dnav{max-width:1180px;margin:0 auto}
+.dlink{display:flex;align-items:baseline;gap:14px;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid var(--line);padding:16px 2px;cursor:pointer;color:var(--ink);font-family:'Instrument Serif',Georgia,serif;font-size:27px;line-height:1.15}
+.dlink small{font-family:'Inter',system-ui,sans-serif;font-size:12.5px;color:var(--soft)}
+.dlink:hover{color:var(--accent)}
+.dpanel .dcta{display:block;margin:28px auto 0;max-width:1180px;width:100%;background:var(--grad);color:#fff;border:none;border-radius:100px;padding:15px 22px;font-weight:600;font-size:15px;cursor:pointer}
 
 /* ---------- hero: greeting + Ask framing + Den row (page dressing) ---------- */
 .hero{padding:30px 0 4px}
@@ -166,27 +180,13 @@ section:first-of-type{padding-top:26px}
 .closing .disc2{font-size:13px;color:var(--soft);max-width:56ch;margin:0 auto 16px;line-height:1.65}
 .closing h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(26px,3.6vw,38px);margin:0 auto 22px;max-width:22ch;line-height:1.18}
 .closing .beta{text-align:left;margin-top:26px}
-footer{border-top:1px solid var(--line);margin-top:44px;padding:22px 0 calc(var(--tab-h) + 26px)}
-@media(min-width:901px){footer{padding-bottom:26px}}
+footer{border-top:1px solid var(--line);margin-top:44px;padding:22px 0 26px}
 footer .in{max-width:1180px;margin:0 auto;padding:0 clamp(16px,3vw,32px);display:flex;gap:18px;align-items:center;flex-wrap:wrap}
 footer img{height:22px}
 footer nav{display:flex;gap:18px;margin-left:auto;font-size:13px;color:var(--soft)}
 footer nav a:hover{color:var(--ink)}
 
-/* ---------- floating glass bottom nav (app-style, mobile) ---------- */
-.tabbar{display:none}
-@media(max-width:900px){
- .tabbar{display:flex;position:fixed;left:10px;right:10px;bottom:calc(env(safe-area-inset-bottom) + 10px);z-index:90;background:rgba(15,16,23,.72);backdrop-filter:blur(20px) saturate(1.3);-webkit-backdrop-filter:blur(20px) saturate(1.3);border:1px solid var(--line);border-radius:26px;padding:8px 6px;align-items:flex-end;justify-content:space-around}
- .tb{flex:1;background:none;border:none;display:flex;flex-direction:column;align-items:center;gap:4px;padding:6px 2px;color:var(--soft);cursor:pointer}
- .tb svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7}
- .tb .lbl{font-size:9.5px;font-weight:600}
- .tb.mid{flex:0 0 auto;margin-top:-22px}
- .tb.mid .cir{width:54px;height:54px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;border:3px solid #0D0E13}
- .tb.mid .cir img{width:30px}
- .tb.mid .lbl{color:var(--ink2);margin-top:2px}
- body{padding-bottom:calc(var(--tab-h) + 14px)}
-}
-.toast{position:fixed;bottom:calc(var(--tab-h) + env(safe-area-inset-bottom) + 22px);left:50%;transform:translateX(-50%) translateY(16px);background:#1B1D26;border:1px solid var(--line2);color:var(--ink);padding:13px 20px;border-radius:12px;font-size:13.5px;opacity:0;pointer-events:none;transition:.3s;z-index:400;max-width:88vw;text-align:center}
+.toast{position:fixed;bottom:calc(env(safe-area-inset-bottom) + 22px);left:50%;transform:translateX(-50%) translateY(16px);background:#1B1D26;border:1px solid var(--line2);color:var(--ink);padding:13px 20px;border-radius:12px;font-size:13.5px;opacity:0;pointer-events:none;transition:.3s;z-index:400;max-width:88vw;text-align:center}
 @media(min-width:901px){.toast{bottom:24px}}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
@@ -210,14 +210,29 @@ footer nav a:hover{color:var(--ink)}
   <div class="in">
     <a class="brand" href="/"><img src="assets/brand/logo-light.png" alt="Roon"></a>
     <nav class="pill" aria-label="Page">
-      <a href="#stage">See for yourself</a>
+      <a href="#stage" class="hideS">See for yourself</a>
       <a href="#pricing" class="hideS">Pricing</a>
       <a href="#letters" class="hideS">Letters</a>
       <button class="join" onclick="goSignup()">Join the beta</button>
       <span class="avatar" title="Jeff" aria-hidden="true">J</span>
     </nav>
+    <button class="burger" id="dburger" aria-label="Open menu" aria-expanded="false" aria-controls="dpanel"><i></i><i></i><i></i></button>
   </div>
 </header>
+
+<div class="dpanel" id="dpanel" aria-hidden="true">
+  <div class="dtop"><img src="assets/brand/logo-light.png" alt="Roon">
+  <button class="dx" id="dclose" aria-label="Close menu">&times;</button></div>
+  <nav class="dnav" aria-label="Sections">
+    <button class="dlink" data-act="top" onclick="dGo('top')">Today <small>Back to the top</small></button>
+    <button class="dlink" data-act="stage" onclick="dGo('stage')">See for yourself <small>The real product, live below</small></button>
+    <button class="dlink" data-act="stage" onclick="dGo('stage')">Moments <small>The feed, inside the product</small></button>
+    <button class="dlink" data-act="stage" onclick="dGo('stage')">Rooney <small>Ask her anything</small></button>
+    <button class="dlink" data-act="pricing" onclick="dGo('pricing')">Pricing <small>Founding plans</small></button>
+    <button class="dlink" data-act="letters" onclick="dGo('letters')">Letters <small>Sealed, for later</small></button>
+  </nav>
+  <button class="dcta" onclick="dGo('join')">Join the beta</button>
+</div>
 
 <main class="wrap">
   <p style="max-width:640px;font-size:16.5px;line-height:1.55;color:#B9BDCB;margin:22px 0 2px">Roon turns your family&rsquo;s photos, video, and voice into visual chapters &mdash; a crafted story, not just the files. Rooney is the storyteller who lives inside Roon &mdash; she reads the photos and videos your family already has and writes the story back to you: chapters, threads across the years, a film every January, letters for later. Below is the real product. It all works. Try it.</p>
@@ -479,17 +494,22 @@ footer nav a:hover{color:var(--ink)}
   </div>
 </footer>
 
-<nav class="tabbar" aria-label="Sections">
-  <button class="tb" onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg viewBox="0 0 24 24" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span class="lbl">Today</span></button>
-  <button class="tb" onclick="goStage()"><svg viewBox="0 0 24 24" stroke-linecap="round"><circle cx="12" cy="12" r="8.8"/><path d="M15.5 8.5l-2.2 4.5-4.8 2.5 2.2-4.5z"/></svg><span class="lbl">Moments</span></button>
-  <button class="tb mid" onclick="goStage()"><span class="cir"><img src="assets/brand/mark-light.png" alt="Rooney"></span><span class="lbl">Rooney</span></button>
-  <button class="tb" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})"><svg viewBox="0 0 24 24" stroke-linecap="round"><path d="M4 19V6a2 2 0 012-2h4v16H6a2 2 0 01-2-2z"/><path d="M20 19V6a2 2 0 00-2-2h-4v16h4a2 2 0 002-2z"/></svg><span class="lbl">Pricing</span></button>
-  <button class="tb" onclick="goSignup()"><svg viewBox="0 0 24 24" stroke-linecap="round"><path d="M12 3l1.8 5.4L19 10l-5.2 1.6L12 17l-1.8-5.4L5 10l5.2-1.6L12 3z"/></svg><span class="lbl">Join</span></button>
-</nav>
-
 <div class="toast" id="toast"></div>
 
 <script>
+/* hamburger menu (replaces the old bottom tab bar): open/close + item actions */
+function closeD(){var p=document.getElementById('dpanel');if(p){p.classList.remove('open');p.setAttribute('aria-hidden','true')}var b=document.getElementById('dburger');if(b)b.setAttribute('aria-expanded','false')}
+function dGo(act){closeD();
+ if(act==='top'){window.scrollTo({top:0,behavior:'smooth'})}
+ else if(act==='stage'){goStage()}
+ else if(act==='pricing'){document.getElementById('pricing').scrollIntoView({behavior:'smooth'})}
+ else if(act==='letters'){document.getElementById('letters').scrollIntoView({behavior:'smooth'})}
+ else if(act==='join'){goSignup()}}
+(function(){var bg=document.getElementById('dburger'),p=document.getElementById('dpanel'),mc=document.getElementById('dclose');
+ if(!bg||!p)return;
+ bg.addEventListener('click',function(){p.classList.add('open');p.setAttribute('aria-hidden','false');bg.setAttribute('aria-expanded','true')});
+ if(mc)mc.addEventListener('click',closeD);
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeD()})})();
 /* stage mount: reveal the app when it loads (same pattern as the homepage #watch frame) */
 (function(){var f=document.getElementById('appFrame'),fb=document.getElementById('stageFallback');if(!f)return;
  f.addEventListener('load',function(){f.style.visibility='visible';if(fb)fb.style.display='none'})})();
