@@ -21,13 +21,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ivory:#FCFAF7; --bone:#F5F0E9; --sand:#EDE5DA;
-  --ink:#181419; --ink-2:#463E48; --soft:#7A7079;
+  --ivory:#0D0E13; --bone:#12131A; --sand:#1B1D27;
+  --ink:#F5F2EC; --ink-2:rgba(245,242,236,.78); --soft:rgba(245,242,236,.55);
   --deep:#141017; --deep-2:#221A26; --deep-3:#332538;
-  --rose:#0C7BB3; --coral:#0C7BB3; --amber:#F2BAE8; --gold:#B554A6;
+  --rose:#8FC3E8; --coral:#8FC3E8; --amber:#F2BAE8; --gold:#B554A6;
   --grad:linear-gradient(112deg,#0C7BB3,#7F9BCE 52%,#F2BAE8);
-  --line:#E7DDD1; --lineD:rgba(255,255,255,.12);
-  --sh:rgba(20,24,44,.15);
+  --line:rgba(255,255,255,.10); --lineD:rgba(255,255,255,.12);
+  --sh:rgba(0,0,0,.5);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -362,6 +362,32 @@ footer .fsmall{font-family:'Inter',sans-serif;font-style:normal;font-size:12.5px
 .defband{background:linear-gradient(155deg,var(--deep-2),var(--deep-3));color:#fff;border-radius:24px;padding:clamp(28px,4vw,44px);margin-top:40px}
 .defband p{font-family:'Instrument Serif',serif;font-size:clamp(19px,2.3vw,26px);line-height:1.45;margin:0;color:#fff}
 .defband p em{color:var(--amber)}
+
+/* ===== DARK MIRROR ===== */
+/* Variant D mirror (2026-10-30): dark surfaces the token swap cannot reach.
+   Ground #0D0E13, ink #F5F2EC, glass + hairlines per PREMIUM-PASS-REPORT Variant D. */
+header.stuck,header.solid{background:rgba(13,14,19,.86);backdrop-filter:blur(18px);box-shadow:0 1px 0 var(--line)}
+header.stuck nav a,header.solid nav a{color:rgba(245,242,236,.74)}
+header.stuck nav a:hover,header.solid nav a:hover{color:var(--ink)}
+header.stuck .burger,header.solid .burger{background:rgba(255,255,255,.07);border-color:var(--line);backdrop-filter:blur(10px)}
+header.stuck .burger i,header.solid .burger i{background:#F5F2EC}
+.mpanel{background:#0D0E13;color:var(--ink)}
+.mpanel .mx{background:rgba(255,255,255,.06);border-color:var(--line);color:var(--ink)}
+.capc,.connect,.ac,.promise,.plan,.tcard,.hubc,.wch-ing>div{background:#12131A;border-color:var(--line);color:var(--ink)}
+.svci{background:rgba(255,255,255,.045);border-color:var(--line)}
+.svci .ci{background:rgba(255,255,255,.06);border-color:var(--line)}
+.svci .tag{background:rgba(143,195,232,.13)}
+table.cmp2{background:#12131A;border-color:var(--line);color:var(--ink-2)}
+table.cmp2 th{background:var(--sand);color:var(--ink)}
+table.cmp2 td{color:var(--ink-2)}
+.ask{background:rgba(255,255,255,.045);border-color:var(--line);color:var(--ink-2)}
+.plan.life{background:#12131A;border-color:rgba(242,186,232,.38);color:var(--ink)}
+.defband{background:linear-gradient(155deg,#1C1526,#101018);border:1px solid var(--line)}
+.beta{background:linear-gradient(168deg,var(--deep),var(--deep-2) 58%,#131A29)}
+.ainote{background:rgba(143,195,232,.07);border-color:rgba(143,195,232,.30)}
+.save{background:rgba(143,195,232,.13)}
+.b-o{border-color:rgba(255,255,255,.28)}
+input::placeholder{color:rgba(245,242,236,.4)}
 </style>
 <script type="application/ld+json">{
  "@context": "https://schema.org",
@@ -422,7 +448,7 @@ footer .fsmall{font-family:'Inter',sans-serif;font-style:normal;font-size:12.5px
 </head>
 <body>
 <header class="solid">
-  <a href='/'><img class="logo" src="assets/brand/logo-dark.png" alt="Roon"></a>
+  <a href='/'><img class="logo" src="assets/brand/logo-light.png" alt="Roon"></a>
   <nav><div class="lk"><a href="/how-rooney-works">How Rooney works</a><a href="/our-story">Our story</a><a href="/what-is-a-family-story">Why stories matter</a><a href="/#pricing">Pricing</a><a href="/dashboard">See inside</a></div></nav>
   <div style="display:flex;gap:10px;align-items:center">
     <button class="btn b-g" onclick="goBeta()">Join the beta</button>
@@ -430,7 +456,7 @@ footer .fsmall{font-family:'Inter',sans-serif;font-style:normal;font-size:12.5px
   </div>
 </header>
 <div class="mpanel" id="mpanel" aria-hidden="true">
-  <div class="mtop"><img class="logo" src="assets/brand/logo-dark.png" alt="Roon" style="height:29px">
+  <div class="mtop"><img class="logo" src="assets/brand/logo-light.png" alt="Roon" style="height:29px">
   <button class="mx" id="mclose" aria-label="Close menu">&times;</button></div>
   <a class="mlink" href="/how-rooney-works">How Rooney works</a><a class="mlink" href="/our-story">Our story</a><a class="mlink" href="/what-is-a-family-story">Why stories matter</a><a class="mlink" href="/#pricing">Pricing</a><a class="mlink" href="/dashboard">See inside</a>
   <div class="mgrp"><h5>Your photos</h5><a href="/preserve-family-photos">Preserve family photos</a><a href="/too-many-photos">Too many photos on your phone</a><a href="/digitize-old-photos">Digitize old family photos</a><a href="/google-photos-alternative">Google Photos, plus the story</a><a href="/apple-photos-alternative">Apple Photos, plus the story</a></div><div class="mgrp"><h5>Your children</h5><a href="/baby-book-alternative">A baby book that fills itself in</a><a href="/save-childrens-artwork">Save children's artwork & the things they say</a><a href="/letters-to-your-child">Letters to your child, for later</a></div><div class="mgrp"><h5>Your parents &amp; grandparents</h5><a href="/questions-to-ask-your-grandparents">Questions to ask your grandparents</a><a href="/record-your-parents-stories">Record your parents' stories</a><a href="/storyworth-alternative">A StoryWorth alternative</a><a href="/digital-legacy">What happens to your photos</a></div><div class="mgrp"><h5>Watching together</h5><a href="/family-movie-night">Family movie night & your Year Film</a><a href="/memory-gift">Give Roon as a gift</a></div>
@@ -497,7 +523,7 @@ footer .fsmall{font-family:'Inter',sans-serif;font-style:normal;font-size:12.5px
 </section>
 </main>
 <footer>
-  <a href='/'><img class="logo" src="assets/brand/logo-dark.png" alt="Roon"></a>
+  <a href='/'><img class="logo" src="assets/brand/logo-light.png" alt="Roon"></a>
   <p>Tell us about today. We'll remember the rest.</p>
   <div class="fcols">
     <div><h5>Start here</h5>
