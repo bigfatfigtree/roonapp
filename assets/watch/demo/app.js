@@ -1437,14 +1437,14 @@ function watchFeedMore(root) {
 
 /* ================= Rooney sheet ================= */
 const ASK_EXAMPLES = ['every birthday cake', 'first days of school', 'the dog in every year', "everything at Grandma's table", 'all the firsts'];
-function askPreviewHTML(preview) {
+function askPreviewHTML(preview, filmIntent) {
   const byYear = {};
   (preview.items || []).forEach((m) => { const y = yearOf(m.takenAt) || 'Undated'; (byYear[y] = byYear[y] || []).push(m); });
   return '<div style="margin-top:16px"><h3 class="dsp" style="font-size:23px">' + esc(preview.suggestedTitle || 'Your thread') + '</h3>' +
     '<p class="muted">' + esc(preview.basis || '') + (preview.count != null ? ' · ' + num(preview.count) + ' moments' + (preview.fromYear ? ', ' + preview.fromYear + (preview.toYear && preview.toYear !== preview.fromYear ? ' — ' + preview.toYear : '') : '') : '') + '</p>' +
     (preview.searchedNote ? '<p class="muted-small">Rooney searched ' + esc(preview.searchedNote) + '.</p>' : '') +
     Object.keys(byYear).sort().map((y) => '<p style="margin:10px 0 4px"><strong>' + esc(y) + '</strong></p><div class="evidence-grid">' + byYear[y].slice(0, 4).map((m) => m.type === 'photo' && mediaSrc(m) ? '<img src="' + esc(mediaSrc(m)) + '" alt="" loading="lazy">' : '<span class="chip" style="cursor:default">' + esc(m.caption || m.type) + ' · ' + esc(fmtDate(m.takenAt, { month: 'short', day: 'numeric' })) + '</span>').join('') + '</div>').join('') +
-    '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px"><button type="button" class="btn btn-grad btn-small" id="ask-keep">Keep this thread</button><button type="button" class="btn btn-outline btn-small" id="ask-show">Just show me</button></div>' +
+    '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px"><button type="button" class="btn ' + (filmIntent ? 'btn-outline' : 'btn-grad') + ' btn-small" id="ask-keep">Keep this thread</button><button type="button" class="btn btn-outline btn-small" id="ask-show">Just show me</button><button type="button" class="btn ' + (filmIntent ? 'btn-grad' : 'btn-outline') + ' btn-small" id="ask-film">▶ Watch it as a film</button></div>' +
     '<div id="ask-show-area"></div></div>';
 }
 async function runAsk(query, area, statusEl) {
@@ -1464,8 +1464,22 @@ async function runAsk(query, area, statusEl) {
       });
       return;
     }
-    area.innerHTML = askPreviewHTML(res.preview);
+    area.innerHTML = askPreviewHTML(res.preview, res.filmIntent);
     const keep = $('#ask-keep', area); const show = $('#ask-show', area);
+    const filmBtn = $('#ask-film', area);
+    if (filmBtn) filmBtn.addEventListener('click', async () => {
+      filmBtn.disabled = true; filmBtn.textContent = 'Rooney is cutting the film…';
+      try {
+        const fres = await api(F('/film/ask'), { method: 'POST', body: { query } });
+        const items = fres && fres.film && fres.film.items;
+        if (items && items.length) { closeSheet(); startFilmPlayer(items, fres.film.title || 'Your film'); }
+        else toast('No film came back — nothing was made.', 'error');
+      } catch (e) {
+        if (e.data && e.data.code === 'plan_gate') openPlanSheet();
+        else toast(e.message, 'error');
+      }
+      filmBtn.disabled = false; filmBtn.textContent = '▶ Watch it as a film';
+    });
     if (keep) keep.addEventListener('click', async () => {
       keep.disabled = true; keep.textContent = 'Keeping…';
       try { const created = await api(F('/threads'), { method: 'POST', body: { askQuery: query } }); const t = created && (created.thread || created); toast('Thread kept — Rooney is following it now.'); closeSheet(); await refreshData(); if (t && t.id) location.hash = '#/thread/' + encodeURIComponent(t.id); else location.hash = '#/threads'; }
@@ -1478,8 +1492,9 @@ async function runAsk(query, area, statusEl) {
   } catch (e) { if (statusEl) statusEl.textContent = ''; area.innerHTML = '<p style="margin-top:14px">' + esc(e.message) + '</p>'; }
 }
 function askBlockHTML(idPrefix) {
-  return '<label class="field"><span>Ask Rooney for a thread</span></label><div class="ask-row"><input id="' + idPrefix + '-input" type="text" placeholder="Ask Rooney to pull a thread…" autocomplete="off"><button type="button" class="btn btn-grad" id="' + idPrefix + '-go">Pull this thread</button></div>' +
+  return '<label class="field"><span>Ask Rooney for a thread — or a film</span></label><div class="ask-row"><input id="' + idPrefix + '-input" type="text" placeholder="Ask Rooney to pull a thread…" autocomplete="off"><button type="button" class="btn btn-grad" id="' + idPrefix + '-go">Pull this thread</button></div>' +
     '<div class="chip-row"><span class="muted-small" style="font-weight:600">Try:</span>' + ASK_EXAMPLES.map((x) => '<button type="button" class="chip" data-ask-chip="' + esc(x) + '">' + esc(x) + '</button>').join('') + '</div>' +
+    '<p class="muted-small">A thread gathers moments. A film plays them — ask “make a film of every birthday” and Rooney cuts one from the same moments.</p>' +
     '<p class="muted-small" id="' + idPrefix + '-status" role="status"></p><div id="' + idPrefix + '-result"></div>';
 }
 function wireAskBlock(prefix) {
@@ -1741,7 +1756,7 @@ function renderStory(root) {
     html += '<p><button type="button" class="btn btn-outline btn-small" id="btn-rebuild">Ask Rooney to re-draft chapters</button> <span class="muted-small">Re-drafting re-clusters your memories by time, people and your own words.</span></p>';
   }
   html += seriesHTML(null);
-  html += '<div class="film-stage"><p class="eyeb" style="color:#F2BAE8">Family night</p><h2 class="dsp" style="color:#fff">Your year, as a film</h2><p style="color:rgba(255,255,255,.75);line-height:1.6;max-width:520px">The year\'s photos in date order, your chapters and captions as the words on screen. Made to be watched together.</p><a class="btn btn-grad" href="#/film">Watch the Year Film</a></div>';
+  html += '<div class="film-stage"><p class="eyeb" style="color:#F2BAE8">Family night</p><h2 class="dsp" style="color:#fff">Your year, as a film</h2><p style="color:rgba(255,255,255,.75);line-height:1.6;max-width:520px">The year\'s photos and videos in date order — the videos play inside the film, with their sound — your chapters and captions as the words on screen. Made to be watched together.</p><a class="btn btn-grad" href="#/film">Watch the Year Film</a></div>';
   html += lettersSectionHTML(null);
   root.innerHTML = html;
   const rb = $('#btn-rebuild', root); if (rb) rb.addEventListener('click', async () => { rb.disabled = true; rb.textContent = 'Rooney is reading…'; try { const res = await api(F('/chapters/rebuild'), { method: 'POST', body: {} }); if (res && res.chapters) { state.chapters = res.chapters; state.chaptersMeta = res; } state.loadedFor = null; await ensureData(); render(); toast('Chapters re-drafted from your memories.'); } catch (e) { toast(e.message, 'error'); rb.disabled = false; rb.textContent = 'Ask Rooney to re-draft chapters'; } });
@@ -1906,12 +1921,13 @@ function paintThreadDetail(root, t, items) {
     (t.basis ? '<p class="muted">How Rooney found it: ' + esc(t.basis) + '</p>' : '') +
     '<div style="display:flex;gap:8px;flex-wrap:wrap;margin:12px 0">' +
     (t.status !== 'followed' ? '<button type="button" class="btn btn-grad btn-small" id="td-follow">Follow this thread</button>' : '<button type="button" class="btn btn-outline btn-small" id="td-unfollow">Stop following</button>') +
+    '<button type="button" class="btn btn-grad btn-small" id="td-watchfilm">▶ Watch it as a film</button>' +
     '<button type="button" class="btn btn-outline btn-small" id="td-rename">Rename</button>' + shareBtnHTML({ scope: 'thread', targetId: t.id, objectTitle: t.title || 'A thread' }) + '</div>' +
     '<div data-share-chip></div>' +
     (t.miniStory
       ? '<div class="card"><p class="eyeb">The mini-story</p><h3 class="dsp" style="font-size:23px;margin:0 0 8px">' + esc(t.miniStory.title || t.title || '') + '</h3><p style="white-space:pre-wrap;line-height:1.7">' + esc(t.miniStory.text || '') + '</p><p class="muted-small">' + esc(t.miniStory.sourceLine || '') + '</p></div>'
       : '<div class="card"><p style="margin:0 0 10px">This thread can become a written mini-story — assembled only from these moments and your own words.</p><button type="button" class="btn btn-grad btn-small" id="td-ministory">Ask Rooney to write this thread</button></div>') +
-    '<div class="card"><div class="toggle-row"><span><strong>Include in the Year Film</strong><br><span class="muted-small">This thread\'s photos close the film.</span></span><input type="checkbox" id="td-film" ' + (t.filmIncluded ? 'checked' : '') + ' style="width:22px;height:22px"></div></div>' +
+    '<div class="card"><div class="toggle-row"><span><strong>Include in the Year Film</strong><br><span class="muted-small">This thread\'s moments — photos and videos — close the film.</span></span><input type="checkbox" id="td-film" ' + (t.filmIncluded ? 'checked' : '') + ' style="width:22px;height:22px"></div></div>' +
     '<div class="card">' + reactionsHTML('thread', t.id, t.reactions) + commentsHTML('thread', t.id, t.commentCount || 0) + '</div>' +
     (items === null ? '<div class="skeleton"></div>' : (list.length ? Object.keys(byYear).sort().map((y) => '<div class="year-group"><h3>' + esc(y) + '</h3><div class="item-grid">' + byYear[y].map((m) => '<div class="item-cell" data-item="' + esc(m.id) + '"><button type="button" class="item-remove" data-remove-item="' + esc(m.id) + '" aria-label="Remove from this thread">✕</button>' + (m.type === 'photo' || m.type === 'video' ? mediaHTML(m) : '<div style="padding:12px">' + mediaHTML(m) + '</div>') + '<p class="cap">' + esc(m.caption || m.type) + ' · ' + esc(fmtDate(m.takenAt, { month: 'short', day: 'numeric' })) + '</p></div>').join('') + '</div></div>').join('') : '<div class="empty"><p>No moments are in this thread yet.</p></div>'));
   wireComments(root);
@@ -1924,6 +1940,7 @@ function paintThreadDetail(root, t, items) {
     $('#td-rename-form').addEventListener('submit', async (e) => { e.preventDefault(); try { const res = await api(F('/threads/' + encodeURIComponent(t.id)), { method: 'PATCH', body: { title: new FormData(e.currentTarget).get('title') } }); const nt = (res && (res.thread || res)) || t; closeSheet(); await refreshData(); paintThreadDetail(root, Object.assign({}, t, nt), list); toast('Thread renamed.'); } catch (err) { formError(e.currentTarget, err.message); } });
   });
   const filmToggle = $('#td-film', root); if (filmToggle) filmToggle.addEventListener('change', async () => { try { await api(F('/threads/' + encodeURIComponent(t.id)), { method: 'PATCH', body: { filmIncluded: filmToggle.checked } }); toast(filmToggle.checked ? 'This thread will close the Year Film.' : 'Removed from the Year Film.'); } catch (e) { toast(e.message, 'error'); filmToggle.checked = !filmToggle.checked; } });
+  const wfBtn = $('#td-watchfilm', root); if (wfBtn) wfBtn.addEventListener('click', async () => { if (isStartPlan()) { openPlanSheet(); return; } wfBtn.disabled = true; try { await watchFilmUrl(F('/threads/' + encodeURIComponent(t.id) + '/film'), t.title || 'A thread'); } finally { wfBtn.disabled = false; } });
   const msBtn = $('#td-ministory', root); if (msBtn) msBtn.addEventListener('click', async () => {
     if (isStartPlan()) { openPlanSheet(); return; }
     msBtn.disabled = true; msBtn.textContent = 'Rooney is writing…';
@@ -2062,20 +2079,20 @@ function wirePromptSettings(root) {
 }
 
 /* ================= FILM ================= */
-const filmState = { items: [], idx: 0, timer: null, playing: false, year: null };
+const filmState = { items: [], idx: 0, timer: null, playing: false, year: null, label: null, vid: null, startedAt: 0, remaining: 0 };
 function renderFilm(root) {
   const years = Array.from(new Set(state.memories.filter((m) => m.takenAt).map((m) => yearOf(m.takenAt)))).filter(Boolean).sort().reverse();
   const threads = state.threads.filter((t) => t.status === 'followed');
   const wantedThread = new URLSearchParams(location.hash.split('?')[1] || '').get('thread') || '';
-  root.innerHTML = '<p class="eyeb">January\'s gift, any day of the year</p><h1 class="dsp">Your year, as a film</h1><p class="lead">Plays from your photos — in date order, with your chapters and your own captions as the words on screen.</p>' +
+  root.innerHTML = '<p class="eyeb">January\'s gift, any day of the year</p><h1 class="dsp">Your year, as a film</h1><p class="lead">Plays from your photos and videos — in date order, the videos playing inside the film with their own sound, your chapters and captions as the words on screen.</p>' +
     '<div class="card"><div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end">' +
-    '<label class="field" style="margin:0;flex:1;min-width:150px"><span>Year</span><select id="film-year">' + (years.length ? years.map((y) => '<option value="' + esc(y) + '">' + esc(y) + '</option>').join('') : '<option value="">No photos yet</option>') + '</select></label>' +
+    '<label class="field" style="margin:0;flex:1;min-width:150px"><span>Year</span><select id="film-year">' + (years.length ? years.map((y) => '<option value="' + esc(y) + '">' + esc(y) + '</option>').join('') : '<option value="">No moments yet</option>') + '</select></label>' +
     '<label class="field" style="margin:0;flex:1;min-width:180px"><span>Close with a thread (optional)</span><select id="film-thread"><option value="">No thread</option>' + threads.map((t) => '<option value="' + esc(t.id) + '"' + (wantedThread === String(t.id) ? ' selected' : '') + '>' + esc(t.title || 'Thread') + '</option>').join('') + '</select></label>' +
     '<button type="button" class="btn btn-grad" id="film-play">▶ Watch together</button>' +
     '<button type="button" class="btn btn-outline share-btn" id="film-share">' + igIconShare() + 'Share</button></div>' +
     '<div data-share-chip></div>' +
     '<div id="film-msg" style="margin-top:12px"></div></div>' +
-    '<div class="film-stage"><p class="eyeb" style="color:#F2BAE8">Family night mode</p><p style="color:rgba(255,255,255,.78);line-height:1.65;margin:0;max-width:540px">Press play and put the phone down. The film crossfades through the year, chapter titles appear as intertitles, and a followed thread can close the night. Fullscreen is “Watch together.”</p></div>';
+    '<div class="film-stage"><p class="eyeb" style="color:#F2BAE8">Family night mode</p><p style="color:rgba(255,255,255,.78);line-height:1.65;margin:0;max-width:540px">Press play and put the phone down. The film moves through the year — photos crossfade, videos play with their sound — chapter titles appear as intertitles, and a followed thread can close the night. Fullscreen is “Watch together.”</p></div>';
   const playBtn = $('#film-play', root);
   if (playBtn) playBtn.addEventListener('click', () => loadFilm($('#film-year', root).value, $('#film-thread', root).value));
   /* Share the film for the year currently chosen in the picker — the
@@ -2084,7 +2101,7 @@ function renderFilm(root) {
   const filmShareBtn = $('#film-share', root);
   if (filmShareBtn) filmShareBtn.addEventListener('click', () => {
     const y = $('#film-year', root) ? $('#film-year', root).value : '';
-    if (!y) { toast('Bring in some photos first — the film is made of them.'); return; }
+    if (!y) { toast('Bring in some photos or videos first — the film is made of them.'); return; }
     openShareSheet({ scope: 'film', filmYear: Number(y), objectTitle: y + ' — the film' });
   });
   const filmYearSel = $('#film-year', root);
@@ -2098,34 +2115,64 @@ function renderFilm(root) {
   if (wantedThread && years.length) loadFilm(years[0], wantedThread);
 }
 async function loadFilm(year, threadId) {
-  const msg = $('#film-msg'); if (!year) { if (msg) msg.innerHTML = '<p class="muted">Bring in some photos first — the film is made of them.</p>'; return; }
+  const msg = $('#film-msg'); if (!year) { if (msg) msg.innerHTML = '<p class="muted">Bring in some photos or videos first — the film is made of them.</p>'; return; }
   if (msg) msg.innerHTML = '<p class="muted-small">Gathering ' + esc(year) + '…</p>';
   try {
     const res = await api(F('/film/' + encodeURIComponent(year)) + (threadId ? '?thread=' + encodeURIComponent(threadId) : ''));
     const items = (res && (res.film || res.items)) || [];
     if (msg) msg.innerHTML = '';
-    if (!items.length) { if (msg) msg.innerHTML = '<p class="muted">No photos from ' + esc(year) + ' yet.</p>'; return; }
-    startFilmPlayer(items, year);
+    if (!items.length) { if (msg) msg.innerHTML = '<p class="muted">Nothing from ' + esc(year) + ' to play yet.</p>'; return; }
+    startFilmPlayer(items, String(year));
   } catch (e) {
     if (e.data && e.data.code === 'plan_gate') { if (msg) msg.innerHTML = '<div class="card" style="background:var(--pink);border-color:transparent;margin:0"><p style="margin:0 0 10px"><strong>The Year Film is part of the plan</strong> — Start is a test run: your first chapter, on Roon. The film, letters and the full story arrive when you start your plan.</p><button type="button" class="btn btn-grad btn-small" id="film-plan-btn">Start your plan</button></div>'; const b = $('#film-plan-btn'); if (b) b.addEventListener('click', openPlanSheet); }
     else if (msg) msg.innerHTML = '<p>' + esc(e.message) + '</p>';
   }
 }
-function startFilmPlayer(items, year) {
-  filmState.items = items; filmState.idx = 0; filmState.playing = true; filmState.year = year;
+/* Film player v2 — MIXED MEDIA (FILM BUILD, 2026-10-30). Photos hold
+   and crossfade as before; a video item plays IN the film, with its
+   own audio, and the film advances when the clip ends or its in-film
+   segment cap arrives (manifest playSec), whichever comes first.
+   Pause is slot-accurate: the remaining time of the current frame is
+   kept, and a playing video pauses/resumes with the film. */
+function filmClearTimer() { if (filmState.timer) { clearTimeout(filmState.timer); filmState.timer = null; } }
+function filmSchedule(ms) {
+  filmClearTimer();
+  filmState.remaining = ms; filmState.startedAt = Date.now();
+  filmState.timer = setTimeout(() => { filmState.timer = null; if (filmState.playing) showFilmFrame(filmState.idx + 1, false); }, ms);
+}
+function toggleFilmPause() {
+  const v = filmState.vid;
+  if (filmState.playing) {
+    filmState.playing = false;
+    if (filmState.timer) { filmState.remaining = Math.max(0, filmState.remaining - (Date.now() - filmState.startedAt)); filmClearTimer(); }
+    if (v && !v.paused) { try { v.pause(); } catch {} }
+  } else {
+    filmState.playing = true;
+    if (v && v.paused) { const p = v.play(); if (p && p.catch) p.catch(() => {}); }
+    filmState.startedAt = Date.now();
+    filmState.timer = setTimeout(() => { filmState.timer = null; if (filmState.playing) showFilmFrame(filmState.idx + 1, false); }, Math.max(filmState.remaining, 60));
+  }
+}
+function startFilmPlayer(items, label) {
+  filmState.items = items; filmState.idx = 0; filmState.playing = true;
+  filmState.year = label; filmState.label = label != null ? String(label) : '';
   const player = $('#film-player');
   player.innerHTML = '<div class="film-stage-area" id="film-area"><div class="film-frame" id="film-frame-a"></div><div class="film-frame" id="film-frame-b" style="opacity:0"></div><div class="film-intertitle" id="film-inter" hidden><p></p></div><p class="film-caption" id="film-cap"></p></div>' +
     '<div class="film-controls"><button type="button" class="btn btn-small" id="fp-toggle">❚❚ Pause</button><div class="film-progress"><i id="fp-bar" style="width:0%"></i></div><span id="fp-count" style="font-size:13px"></span><button type="button" class="btn btn-small" id="fp-fs">Watch together (fullscreen)</button><button type="button" class="btn btn-small" id="fp-exit">Exit film</button></div>';
   player.hidden = false; document.body.classList.add('locked');
+  // If a browser made the current video start muted (autoplay policy),
+  // the first touch of the player gives the film its sound back.
+  player.onpointerdown = () => { const v = filmState.vid; if (v && v.muted) v.muted = false; };
   showFilmFrame(0, true);
-  filmState.timer = setInterval(() => { if (filmState.playing) showFilmFrame(filmState.idx + 1, false); }, 4200);
-  $('#fp-toggle').addEventListener('click', (e) => { filmState.playing = !filmState.playing; e.currentTarget.textContent = filmState.playing ? '❚❚ Pause' : '▶ Play'; });
+  $('#fp-toggle').addEventListener('click', (e) => { toggleFilmPause(); e.currentTarget.textContent = filmState.playing ? '❚❚ Pause' : '▶ Play'; });
   $('#fp-exit').addEventListener('click', stopFilmPlayer);
   $('#fp-fs').addEventListener('click', () => { const area = $('#film-area'); if (area && area.requestFullscreen) area.requestFullscreen().catch(() => {}); else if (player.requestFullscreen) player.requestFullscreen().catch(() => {}); });
 }
 function showFilmFrame(idx, first) {
   const items = filmState.items; if (!items.length) return;
-  if (idx >= items.length) { stopFilmPlayer(); toast('That was ' + (filmState.year || 'the year') + ' — every photo really yours.'); return; }
+  if (idx >= items.length) { stopFilmPlayer(); toast('That was ' + (filmState.label || filmState.year || 'the film') + ' — every moment really yours.'); return; }
+  filmClearTimer();
+  if (filmState.vid) { try { filmState.vid.pause(); } catch {} filmState.vid = null; }
   filmState.idx = idx;
   const item = items[idx];
   const inter = $('#film-inter'); const cap = $('#film-cap');
@@ -2134,13 +2181,44 @@ function showFilmFrame(idx, first) {
   const a = $('#film-frame-a'); const b = $('#film-frame-b');
   const src = item.src || item.renditionRef || item.fileRef || '';
   const active = (!first && a.style.opacity !== '0') ? b : a; const other = active === a ? b : a;
-  active.innerHTML = src ? '<img src="' + esc(src) + '" alt="">' : '';
+  if (item.type === 'video' && src) {
+    const v = document.createElement('video');
+    v.src = src; if (item.posterRef) v.poster = item.posterRef;
+    v.playsInline = true; v.setAttribute('playsinline', ''); v.preload = 'auto';
+    active.innerHTML = ''; active.appendChild(v);
+    filmState.vid = v;
+    v.addEventListener('ended', () => { if (filmState.vid === v && filmState.playing) showFilmFrame(idx + 1, false); });
+    const p = v.play();
+    if (p && p.catch) p.catch(() => { v.muted = true; const p2 = v.play(); if (p2 && p2.catch) p2.catch(() => {}); });
+    filmSchedule(Math.round((item.playSec || 30) * 1000) + 350);
+  } else {
+    active.innerHTML = src ? '<img src="' + esc(src) + '" alt="">' : '';
+    filmSchedule(4200);
+  }
   active.style.opacity = '1'; other.style.opacity = '0';
+  // After the crossfade, retire a video left behind in the faded frame
+  // so it can't keep playing or downloading off-stage.
+  setTimeout(() => { const ov = other.querySelector('video'); if (ov && ov !== filmState.vid) { try { ov.pause(); } catch {} other.innerHTML = ''; } }, 1300);
   if (cap) cap.textContent = item.caption || item.storyText || '';
   const bar = $('#fp-bar'); if (bar) bar.style.width = Math.round(((idx + 1) / items.length) * 100) + '%';
   const count = $('#fp-count'); if (count) count.textContent = (idx + 1) + ' / ' + items.length;
 }
-function stopFilmPlayer() { if (filmState.timer) clearInterval(filmState.timer); filmState.timer = null; filmState.playing = false; const p = $('#film-player'); p.hidden = true; p.innerHTML = ''; document.body.classList.remove('locked'); if (document.fullscreenElement) document.exitFullscreen().catch(() => {}); }
+function stopFilmPlayer() { filmClearTimer(); if (filmState.vid) { try { filmState.vid.pause(); } catch {} filmState.vid = null; } filmState.playing = false; const p = $('#film-player'); if (p) { p.hidden = true; p.innerHTML = ''; p.onpointerdown = null; } document.body.classList.remove('locked'); if (document.fullscreenElement) document.exitFullscreen().catch(() => {}); }
+/* Fetch a film manifest (Year Film / thread film) and play it. */
+async function watchFilmUrl(url, fallbackLabel) {
+  try {
+    const res = await api(url);
+    const f = res && res.film;
+    const items = Array.isArray(f) ? f : ((f && f.items) || (res && res.items) || []);
+    if (!items.length) { toast('Nothing to play yet — this film is empty.'); return; }
+    const label = (f && !Array.isArray(f) && f.title) || (res.thread && res.thread.title) || fallbackLabel || '';
+    closeSheet();
+    startFilmPlayer(items, label);
+  } catch (e) {
+    if (e.data && e.data.code === 'plan_gate') openPlanSheet();
+    else toast(e.message, 'error');
+  }
+}
 
 /* ================= FAMILY ================= */
 function personCardHTML(p) {
