@@ -4,6 +4,62 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Roon &mdash; The days you'd give anything to have back.</title>
+<meta name="description" content="Roon turns your family&rsquo;s photos, video, and voice into written chapters &mdash; the story, not just the files. Rooney asks, reminds, and notices, for the whole family at one price.">
+<link rel="canonical" href="https://roonapp.co/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Roon">
+<meta property="og:title" content="Roon &mdash; The days you'd give anything to have back.">
+<meta property="og:description" content="Roon turns your family&rsquo;s photos, video, and voice into written chapters &mdash; the story, not just the files.">
+<meta property="og:url" content="https://roonapp.co/">
+<meta property="og:image" content="https://roonapp.co/assets/media/p2.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Roon",
+ "url": "https://roonapp.co/",
+ "logo": "https://roonapp.co/assets/brand/logo-dark.png",
+ "description": "Roon is a family storyteller. It takes the photos, video, voice notes, and writing your family already has, and turns them into a written story you can keep, watch together, and hand down."
+}</script>
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Roon",
+ "url": "https://roonapp.co/"
+}</script>
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "Product",
+ "name": "Roon",
+ "description": "Roon turns your family's photos, video, and voice into written chapters \u2014 the story, not just the files. An AI storyteller named Rooney organizes your memories into chapters, asks gentle questions by text, notices patterns across the years, finds any memory you ask for, and builds your Year Film.",
+ "brand": {
+  "@type": "Brand",
+  "name": "Roon"
+ },
+ "offers": [
+  {
+   "@type": "Offer",
+   "name": "Start",
+   "price": "0",
+   "priceCurrency": "USD",
+   "description": "Free test run: Rooney follows 1 person and writes one chapter from your first 150 memories; room to keep 2,500 memories; prompts for the first week; export always free."
+  },
+  {
+   "@type": "Offer",
+   "name": "Roon",
+   "price": "99",
+   "priceCurrency": "USD",
+   "description": "$99 per year per family (or $12 per month): Rooney follows 3 people closely; room for 25,000 photos plus 300 minutes of video; prompts that keep coming; sealed letters and a Year Film every January."
+  },
+  {
+   "@type": "Offer",
+   "name": "Forever",
+   "price": "749",
+   "priceCurrency": "USD",
+   "description": "One payment of $749: everything in Roon for life; Rooney follows 5 people closely; room for 60,000 photos plus 800 minutes of video, legacy handoff. Founding families pay $599 \u2014 the first 200 only."
+  }
+ ]
+}</script>
 <link rel="icon" href="assets/brand/mark-dark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -259,21 +315,118 @@ footer .fl a{font-size:13.5px;color:var(--soft)}
 footer .fl a:hover{color:var(--ink)}
 
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}.rv{opacity:1;transform:none}}
+
+/* ===== v2 additive: nav, subpages, hub, faq, footer (grown from the system) ===== */
+header.solid{background:rgba(252,250,247,.92);backdrop-filter:blur(18px);box-shadow:0 1px 0 var(--line)}
+header.solid nav a{color:var(--soft)}
+header.solid nav a:hover{color:var(--ink)}
+.burger{display:none;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:rgba(255,255,255,.14);backdrop-filter:blur(10px);cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.burger i{display:block;width:18px;height:2px;background:#fff;border-radius:2px;transition:.3s}
+header.stuck .burger,header.solid .burger{border-color:var(--line);background:#fff}
+header.stuck .burger i,header.solid .burger i{background:var(--ink)}
+@media(max-width:1000px){.burger{display:flex}header .b-g{padding:12px 20px;font-size:14px}}
+.mpanel{position:fixed;inset:0;z-index:200;background:var(--ivory);overflow-y:auto;padding:22px clamp(18px,5vw,54px) 48px;transform:translateY(-102%);transition:transform .45s cubic-bezier(.2,.8,.3,1)}
+.mpanel.open{transform:none}
+.mpanel .mtop{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.mpanel .mx{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:#fff;cursor:pointer;font-size:19px;color:var(--ink)}
+.mpanel a.mlink{display:block;font-family:'Instrument Serif',Georgia,serif;font-size:30px;padding:9px 0;color:var(--ink)}
+.mpanel .mgrp{margin-top:26px}
+.mpanel .mgrp h5{font-size:11px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--coral);margin:0 0 6px}
+.mpanel .mgrp a{display:block;font-size:16.5px;padding:7px 0;color:var(--ink-2)}
+.mpanel .mcta{margin-top:34px;width:100%;justify-content:center}
+.pagehero{padding:158px 0 10px}
+.crumbs{font-size:13px;color:var(--soft);margin:0 0 22px}
+.crumbs a{color:var(--coral);font-weight:500}
+.crumbs span{margin:0 7px;opacity:.6}
+h1.pg{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(36px,5.4vw,64px);line-height:1.05;letter-spacing:-.02em;margin:0 0 20px}
+h1.pg em{font-style:italic}
+/* Visual pass (v6): photography bands + Threads */
+.hphoto{margin:38px 0 2px;border-radius:24px;overflow:hidden;box-shadow:0 34px 64px -34px var(--sh)}
+.hphoto img{display:block;width:100%;height:auto;aspect-ratio:21/9;object-fit:cover}
+.hphoto.mid img{aspect-ratio:16/9}
+.strip{background:linear-gradient(158deg,var(--deep-2),var(--deep-3));border-radius:26px;padding:clamp(18px,3vw,30px);margin:36px 0 4px}
+.strip .frames{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(8px,1.4vw,14px)}
+.strip figure{margin:0;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.16)}
+.strip img{display:block;width:100%;height:100%;aspect-ratio:4/3;object-fit:cover}
+.strip .scap{margin:16px 2px 2px;font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:16.5px;line-height:1.5;color:rgba(255,255,255,.85)}
+.pimg{margin:30px 0;border-radius:22px;overflow:hidden;box-shadow:0 26px 50px -30px var(--sh)}
+.pimg img{display:block;width:100%;height:auto;aspect-ratio:16/8;object-fit:cover}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
+.tcard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px;box-shadow:0 18px 36px -30px var(--sh)}
+.tcard .tph{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:14px}
+.tcard .tph img{display:block;width:100%;height:100%;aspect-ratio:1;object-fit:cover;border-radius:9px}
+.tcard .tobs{font-family:'Instrument Serif',Georgia,serif;font-size:19.5px;line-height:1.42;color:var(--ink);margin:0 0 10px}
+.tcard .tev{font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--coral);margin:0}
+.minis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
+.mini{position:relative;border-radius:16px;overflow:hidden;min-height:158px}
+.mini img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.mini .mov{position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,14,22,.74),rgba(20,14,22,0) 62%)}
+.mini .mt{position:absolute;left:14px;right:14px;bottom:12px;color:#fff;font-family:'Instrument Serif',Georgia,serif;font-size:17.5px;line-height:1.25}
+.mini .mm{display:block;font-family:'Instrument Sans',sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.78);margin-bottom:4px}
+.askrow{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+.ask{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 16px;font-size:14.5px;color:var(--ink-2)}
+.illu{margin-top:20px;font-size:13.5px;line-height:1.6;color:var(--soft);max-width:64ch}
+.illu strong{color:var(--ink-2)}
+.hubc .hvis{display:block;border-radius:12px;overflow:hidden;margin:0 0 14px}
+.hubc .hvis img{display:block;width:100%;height:100%;aspect-ratio:16/8;object-fit:cover}
+@media(max-width:1000px){.tgrid{grid-template-columns:1fr}.minis{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.hphoto{margin-top:26px;border-radius:18px}.hphoto img,.hphoto.mid img{aspect-ratio:4/3}.strip .frames{grid-template-columns:repeat(2,1fr)}.pimg img{aspect-ratio:4/3}}
+.sec{padding:clamp(48px,8vh,84px) 0}
+.sec.tight{padding-top:26px}
+.prose p{font-size:clamp(16px,1.5vw,18px);line-height:1.74;color:var(--ink-2);margin:0 0 18px;max-width:66ch}
+.prose h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(22px,2.6vw,30px);margin:34px 0 12px}
+.prose ul{margin:0 0 18px;padding:0;list-style:none;max-width:66ch}
+.prose ul li{font-size:16.5px;line-height:1.62;color:var(--ink-2);padding:9px 0 9px 26px;position:relative;border-bottom:1px dashed var(--line)}
+.prose ul li:before{content:"";position:absolute;left:2px;top:19px;width:8px;height:8px;border-radius:50%;background:var(--grad)}
+.prose ul li strong{color:var(--ink)}
+table.cmp2{width:100%;border-collapse:collapse;margin:26px 0;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+table.cmp2 th,table.cmp2 td{padding:15px 18px;font-size:15px;line-height:1.55;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+table.cmp2 tr:last-child td{border-bottom:none}
+table.cmp2 th{font-family:'Instrument Serif',serif;font-weight:400;font-size:18px;background:var(--bone)}
+table.cmp2 td:first-child{font-weight:600;color:var(--ink);width:30%}
+.faq{max-width:840px}
+.faq .fq{border-bottom:1px solid var(--line);padding:22px 0}
+.faq .fq:first-child{border-top:1px solid var(--line)}
+.faq h3{font-size:17px;font-weight:600;margin:0 0 8px}
+.faq p{font-size:15.5px;line-height:1.68;color:var(--soft);margin:0;max-width:64ch}
+.hubgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+@media(max-width:960px){.hubgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.hubgrid{grid-template-columns:1fr}}
+.hubc{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px 24px 20px;transition:transform .3s,box-shadow .3s;display:block}
+.hubc:hover{transform:translateY(-4px);box-shadow:0 24px 46px -28px var(--sh)}
+.hubc .hg{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--coral);margin:0 0 9px}
+.hubc h4{font-family:'Instrument Serif',serif;font-weight:400;font-size:21px;margin:0 0 7px;line-height:1.2}
+.hubc p{font-size:14px;line-height:1.58;color:var(--soft);margin:0}
+.hubc .go{margin-top:13px;font-size:13.5px;font-weight:600;color:var(--coral)}
+footer .fcols{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;max-width:1080px;margin:34px auto 8px;text-align:left}
+@media(max-width:860px){footer .fcols{grid-template-columns:1fr 1fr}}
+footer .fcols h5{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin:0 0 12px}
+footer .fcols a{display:block;font-size:14px;color:var(--soft);padding:4px 0}
+footer .fcols a:hover{color:var(--ink)}
+footer .fsmall{font-family:'Inter',sans-serif;font-style:normal;font-size:12.5px;color:var(--soft);margin-top:26px}
+.defband{background:linear-gradient(155deg,var(--deep-2),var(--deep-3));color:#fff;border-radius:24px;padding:clamp(28px,4vw,44px);margin-top:40px}
+.defband p{font-family:'Instrument Serif',serif;font-size:clamp(19px,2.3vw,26px);line-height:1.45;margin:0;color:#fff}
+.defband p em{color:var(--amber)}
+
 </style>
 </head>
 <body>
 
 <header id="hdr">
   <a href='/'><img class="logo" id="hlogo" src="assets/brand/logo-light.png" alt="Roon"></a>
-  <nav><div class="lk">
-    <a href="#why">Why Roon</a>
-    <a href="#capture">What you keep</a>
-    <a href="#origin">Our story</a>
-    <a href="#ai">Meet Rooney</a>
-    <a href='/dashboard'>See inside</a>
-  </div></nav>
-  <button class="btn b-g" onclick="go('#beta')">Join the beta</button>
+  <nav><div class="lk"><a href="/how-rooney-works">How Rooney works</a><a href="/our-story">Our story</a><a href="/what-is-a-family-story">Why stories matter</a><a href="/#pricing">Pricing</a><a href="/dashboard">See inside</a></div></nav>
+  <div style="display:flex;gap:10px;align-items:center">
+    <button class="btn b-g" onclick="goBeta()">Join the beta</button>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i><i></i></button>
+  </div>
 </header>
+<div class="mpanel" id="mpanel" aria-hidden="true">
+  <div class="mtop"><img class="logo" src="assets/brand/logo-dark.png" alt="Roon" style="height:29px">
+  <button class="mx" id="mclose" aria-label="Close menu">&times;</button></div>
+  <a class="mlink" href="/how-rooney-works">How Rooney works</a><a class="mlink" href="/our-story">Our story</a><a class="mlink" href="/what-is-a-family-story">Why stories matter</a><a class="mlink" href="/#pricing">Pricing</a><a class="mlink" href="/dashboard">See inside</a>
+  <div class="mgrp"><h5>Your photos</h5><a href="/preserve-family-photos">Preserve family photos</a><a href="/too-many-photos">Too many photos on your phone</a><a href="/digitize-old-photos">Digitize old family photos</a><a href="/google-photos-alternative">Google Photos, plus the story</a><a href="/apple-photos-alternative">Apple Photos, plus the story</a></div><div class="mgrp"><h5>Your children</h5><a href="/baby-book-alternative">A baby book that fills itself in</a><a href="/save-childrens-artwork">Save children's artwork & the things they say</a><a href="/letters-to-your-child">Letters to your child, for later</a></div><div class="mgrp"><h5>Your parents &amp; grandparents</h5><a href="/questions-to-ask-your-grandparents">Questions to ask your grandparents</a><a href="/record-your-parents-stories">Record your parents' stories</a><a href="/storyworth-alternative">A StoryWorth alternative</a><a href="/digital-legacy">What happens to your photos</a></div><div class="mgrp"><h5>Watching together</h5><a href="/family-movie-night">Family movie night & your Year Film</a><a href="/memory-gift">Give Roon as a gift</a></div>
+  <button class="btn b-g mcta" onclick="goBeta()">Join the beta</button>
+</div>
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="hero">
@@ -289,7 +442,7 @@ footer .fl a:hover{color:var(--ink)}
   <div class="hero-in">
     <div>
       <h1>The days you'd give anything <em>to have back.</em></h1>
-      <p class="sub">Roon keeps the ordinary moments you'll miss most &mdash; photos, video, voice, and the words behind them &mdash; and turns them into a story worth living twice.</p>
+      <p class="sub">You already have the photos, video, and voice notes. Rooney turns them into named, written chapters &mdash; the story of your family, in your own words.</p>
       <div class="hero-cta">
         <button class="btn b-g" onclick="go('#beta')">Join the beta
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -317,13 +470,13 @@ footer .fl a:hover{color:var(--ink)}
         <p class="eyeb">why roon exists</p>
         <h2 class="big">You are taking more photographs than any generation in history &mdash; <em>and losing more memories.</em></h2>
         <p class="lead">The camera roll was supposed to solve this. It didn't. It gave us volume without meaning: thousands of images nobody will ever open, filed under a date that tells you nothing about what actually happened that day.</p>
-        <p class="lead">Google Photos and iCloud keep your files. That's storage, and they're good at it. Roon does the part they don't: it turns what's in those files into your family's story. Roon isn't storage. It's the part nobody built &mdash; the part that remembers <em>why</em> it mattered.</p>
+        <p class="lead">Google Photos and iCloud keep your files. That's storage, and they're good at it. Roon is not storage. Rooney is the storyteller &mdash; the part nobody built. Rooney turns your photos, video, and words into written chapters that remember <em>why</em> a moment mattered.</p>
       </div>
       <div class="rv d1">
         <div class="srow"><div class="snum">2,100</div><div class="slab">photos the average person takes every year</div></div>
         <div class="srow"><div class="snum">Under 3%</div><div class="slab">of them ever looked at again after the first week</div></div>
         <div class="srow"><div class="snum">18</div><div class="slab">summers between a child being born and leaving home</div></div>
-        <div class="srow"><div class="snum">One</div><div class="slab">ordinary Tuesday will end up mattering more than every holiday you planned &mdash; and you won't know which one until it's gone</div></div>
+        </div>
       </div>
     </div>
 
@@ -341,12 +494,36 @@ footer .fl a:hover{color:var(--ink)}
         <h4>What Roon gives you</h4>
         <ul>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Chapters, not folders &mdash; "The Summer of Dinosaurs," not "July 2027"</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>The story written down while you still remember it &mdash; because the photo will outlive the memory of why it mattered</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>The story written down while you still remember it &mdash; because a photo outlives the memory of why it mattered</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Patterns you'd never notice yourself, surfaced across years</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Something you can hand to someone, decades from now</li>
         </ul>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============ THREADS ============ -->
+<section class="sec" id="threads">
+  <div class="wrap">
+    <div class="rv"><p class="eyeb">threads rooney is following</p>
+    <h2 class="big">Your photos aren&rsquo;t a pile. They&rsquo;re full of <em>threads.</em></h2></div>
+    <p class="illu rv" style="margin-top:14px"><strong>Illustrative examples.</strong> One sample family&rsquo;s threads, below. Rooney assembles yours from your own media and words &mdash; and every count it ever shows you is a real count of your own moments.</p>
+    <div class="tgrid rv">
+      <div class="tcard"><div class="tph"><img loading="lazy" decoding="async" src="assets/media/p5.jpg" alt="A small child in a meadow holding flowers she picked on a walk" width="900" height="900"><img loading="lazy" decoding="async" src="assets/media/p7.jpg" alt="Two children playing on a country road, seen from behind" width="900" height="900"><img loading="lazy" decoding="async" src="assets/media/p6.jpg" alt="Black-and-white photo of a little girl walking through a field" width="900" height="900"></div><p class="tobs">She brings something back from every walk. Flowers, rocks, one time a snail. Forty-one walks, and the pattern never breaks.</p><p class="tev">Every walk &middot; 2019&ndash;2025 &middot; 41 moments</p></div>
+      <div class="tcard"><div class="tph"><img loading="lazy" decoding="async" src="assets/media/p2.jpg" alt="A girl swimming in turquoise pool water" width="900" height="900"><img loading="lazy" decoding="async" src="assets/media/p3.jpg" alt="A little girl floating in a bright blue pool" width="900" height="900"><img loading="lazy" decoding="async" src="assets/media/p4.jpg" alt="Black-and-white photo of a boy laughing, buried in sand at the beach" width="900" height="900"></div><p class="tobs">Every summer, the same water. First the edge, holding on. Then the float. Then the deep end, like she&rsquo;d always known it.</p><p class="tev">Summers &middot; 2020&ndash;2025 &middot; 128 moments</p></div>
+      <div class="tcard"><div class="tph"><img loading="lazy" decoding="async" src="assets/media/p14.jpg" alt="Sepia photo of a girl in sunglasses against a brick wall" width="900" height="900"><img loading="lazy" decoding="async" src="assets/media/p13.jpg" alt="Black-and-white photo of a boy in sunglasses against a hedge" width="900" height="900"><img loading="lazy" decoding="async" src="assets/media/p5.jpg" alt="A small child standing in a flower meadow" width="900" height="900"></div><p class="tobs">The same garden appears in your tapes and hers, thirty years apart. Rooney noticed before anyone in the family did.</p><p class="tev">Across 2 generations &middot; 57 moments</p></div>
+    </div>
+    <div class="rv"><p class="eyeb" style="margin-top:46px">threads become mini-stories</p></div>
+    <div class="minis rv">
+      <div class="mini"><img loading="lazy" decoding="async" src="assets/media/p2.jpg" alt="A girl swimming in turquoise water, reaching forward" width="900" height="900"><div class="mov"></div><div class="mt"><span class="mm">The pool &middot; 19 moments</span>The day she let go of the edge</div></div>
+      <div class="mini"><img loading="lazy" decoding="async" src="assets/media/p10.jpg" alt="A little boy grinning up at the camera at home" width="900" height="900"><div class="mov"></div><div class="mt"><span class="mm">The bathroom &middot; 6 moments</span>The haircut incident</div></div>
+      <div class="mini"><img loading="lazy" decoding="async" src="assets/media/p4.jpg" alt="Black-and-white photo of a boy laughing, buried in sand at the beach" width="900" height="900"><div class="mov"></div><div class="mt"><span class="mm">Every August &middot; 12 moments</span>The great beach burial</div></div>
+      <div class="mini"><img loading="lazy" decoding="async" src="assets/media/p13.jpg" alt="Black-and-white photo of a boy in sunglasses posing against a hedge" width="900" height="900"><div class="mov"></div><div class="mt"><span class="mm">Sunglasses &middot; 28 moments</span>The too-cool phase</div></div>
+    </div>
+    <p class="lead rv" style="margin-top:42px;max-width:66ch">Rooney follows threads like these on its own &mdash; people, places, and days that keep coming back across your photos, video, voice, and words. And you can ask for a thread of your own &mdash; a person, a place, an occasion, a date that returns: Rooney gathers everything that belongs to it, in date order, and writes the mini-story.</p>
+    <div class="askrow rv"><span class="ask">All her firsts</span><span class="ask">Every haircut, year by year</span><span class="ask">Every birthday cake</span><span class="ask">First days of school, side by side</span><span class="ask">The dog in every single year</span><span class="ask">Every photo at Grandma&rsquo;s table</span><span class="ask">Every beach house</span><span class="ask">Everything she ever carried home from a walk</span></div>
+    <p class="illu rv"><strong>Illustrative examples.</strong> The threads, mini-stories, and counts above belong to a sample family. Yours will be followed in your own photos, video, voice, and words &mdash; and named by someone who&rsquo;s read all of it.</p>
   </div>
 </section>
 
@@ -356,37 +533,7 @@ footer .fl a:hover{color:var(--ink)}
     <div style="max-width:660px" class="rv">
       <p class="eyeb">what you can keep</p>
       <h2 class="big">A memory is never <em>just a photograph.</em></h2>
-      <p class="lead">It's the sound of her voice at four. The thing you scribbled at 2am because you didn't want to forget it. The video nobody meant to take. Roon keeps all of it in one place, in whatever form it arrived.</p>
-    </div>
-
-    <div class="cap-grid">
-      <div class="capc rv d1">
-        <div class="vis"><img src="assets/media/p2.jpg" alt="Photos"><div class="ov"></div>
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.4"/><path d="M8 6l1.4-2h5.2L16 6"/></svg></div>
-        </div>
-        <div class="bd"><h4>Photographs</h4><p>Drop in one or ten thousand. Full resolution, never compressed, always yours to take back out.</p></div>
-      </div>
-
-      <div class="capc rv d2">
-        <div class="vis"><video src="assets/media/v1.mp4" muted playsinline autoplay loop></video><div class="ov"></div>
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg></div>
-        </div>
-        <div class="bd"><h4>Video</h4><p>The clips that actually move &mdash; the wobble, the laugh, the eleven seconds before they noticed the camera.</p></div>
-      </div>
-
-      <div class="capc rv d3">
-        <div class="vis"><img src="assets/media/p15.jpg" alt="Voice"><div class="ov"></div>
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></div>
-        </div>
-        <div class="bd"><h4>Voice &amp; audio</h4><p>Record straight into Roon, or send in voice memos you already made. Voices change faster than faces.</p></div>
-      </div>
-
-      <div class="capc rv d4">
-        <div class="vis"><img src="assets/media/p11.jpg" alt="Writing"><div class="ov"></div>
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4.2L16 5l3 3-11 10.8L4 20z"/></svg></div>
-        </div>
-        <div class="bd"><h4>Writing &amp; journals</h4><p>Type it here, or bring in notes you've kept elsewhere. One line counts. So does a thousand words at midnight.</p></div>
-      </div>
+      <p class="lead">It's the sound of her voice at four. The thing you scribbled at 2am because you didn't want to forget it. The video nobody meant to take. Roon brings all of it together &mdash; and Rooney combines it into chapters, in whatever form it arrived.</p>
     </div>
 
     <div class="connect rv d2">
@@ -399,7 +546,7 @@ footer .fl a:hover{color:var(--ink)}
         <div class="svci"><div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="3"/><circle cx="12" cy="13" r="3.2"/></svg></div>
           <div><div class="st">Google Photos</div><div class="ss">Suggests, never auto-imports</div></div><span class="tag">You approve</span></div>
         <div class="svci"><div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10 19h4"/></svg></div>
-          <div><div class="st">Apple Photos</div><div class="ss">Works quietly on iPhone &amp; iPad</div></div><span class="tag">You approve</span></div>
+          <div><div class="st">Apple Photos</div><div class="ss">Suggests, never auto-imports</div></div><span class="tag">You approve</span></div>
         <div class="svci"><div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg></div>
           <div><div class="st">Voice Memos</div><div class="ss">Send in recordings you already have</div></div><span class="tag">You approve</span></div>
         <div class="svci"><div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4.2L16 5l3 3-11 10.8L4 20z"/></svg></div>
@@ -409,33 +556,23 @@ footer .fl a:hover{color:var(--ink)}
   </div>
 </section>
 
-<!-- ============ ORIGIN ============ -->
+<!-- ============ ORIGIN (condensed) ============ -->
 <section class="origin" id="origin">
   <div class="g1"></div><div class="g2"></div>
   <div class="wrapn">
     <p class="eyeb d rv">where the name came from</p>
     <h2 class="rv d1">Roon is named after my daughter, <em>Rooney.</em></h2>
     <div class="rv d2">
-      <p>When she was four, she drew a little dinosaur. Wild spikes down its back, a lopsided smile, arms that don't quite reach anything. It's the logo you've been looking at this entire time. I have it tattooed on me.</p>
-
-      <div class="dnote">
-        <img src="assets/brand/mark-dark.png" alt="Rooney's drawing">
-        <p>She drew this at four years old. We didn't redraw it, clean it up, or hand it to a designer. It's hers, exactly as she made it &mdash; and it's the whole company's identity.</p>
-      </div>
-
-      <p>Rooney has a rare autoimmune disease. Her own immune system attacks her muscles. There's no cure. She has monthly infusions, chemotherapy, and steroids &mdash; a schedule that would flatten most adults, and she's a kid.</p>
-      <p><strong>She also lives more in a week than most people manage in a year.</strong></p>
-      <p>Watching her taught me something I wish I'd learned a gentler way: how fast this goes, and how much of it slips past while you're just trying to get through the day. The days you'd give anything to have back are almost never the ones you thought to photograph.</p>
-
-      <div class="pq">I wanted to build something that gives those days back &mdash; so she can live them all over again, and so we can too.</div>
-
-      <p>That's Roon. It exists for her first, and then for anyone who has ever realized, too late, what they'd stopped paying attention to. Whether you're keeping this for a newborn, a parent who won't be here forever, or for yourself &mdash; the reason is the same.</p>
-      <p class="sig">&mdash; Jeff, Rooney's dad</p>
+      <p>At four, she drew the dinosaur that is our logo. We never redrew it. I have it tattooed on me.</p>
+      <p>Rooney has a rare autoimmune disease, and no cure. She also lives more in a week than most people manage in a year.</p>
+      <p>Watching her taught me how fast this goes &mdash; and that the days you&rsquo;d give anything to have back are almost never the ones you thought to photograph. Roon exists to give those days back.</p>
+      <p><a href="/our-story" style="color:var(--amber);font-weight:600">Read our story &rarr;</a></p>
+      <p class="sig">&mdash; Jeff, Rooney&rsquo;s dad</p>
     </div>
   </div>
 </section>
 
-<!-- ============ AI ============ -->
+<!-- ============ AI (teaser) ============ -->
 <section class="ai" id="ai">
   <div class="wrap">
     <div class="rv">
@@ -446,54 +583,22 @@ footer .fl a:hover{color:var(--ink)}
           <h2 class="big" style="margin:0">The storyteller <em>inside</em> Roon.</h2>
         </div>
       </div>
-      <p class="ainote"><strong>A quick note on the name:</strong> Rooney is my daughter. Rooney is also what we named the storyteller inside the app, because it does the one thing she taught us to do &mdash; pay attention to the small stuff. When you see Rooney in the product, that's the assistant. The girl came first.</p>
+      <p class="ainote"><strong>A quick note on the name:</strong> Rooney is my daughter. Rooney is also what we named the storyteller inside the app, because it does the one thing she taught us to do &mdash; pay attention to the small stuff. When you see Rooney in the product, that&rsquo;s the assistant. The girl came first.</p>
     </div>
+    <div class="defband rv"><p>Rooney organizes your memories into chapters, asks gentle questions by text, notices patterns across the years, finds any memory you ask for, and builds your Year Film &mdash; <em>using only your family&rsquo;s own words and dates.</em></p></div>
+    <p class="lead rv d1" style="margin-top:34px">Rooney never invents a memory, never impersonates anyone, and your family&rsquo;s story is never sold and never used to train models. <a href="/how-rooney-works" style="color:var(--coral);font-weight:600">See how Rooney works &rarr;</a></p>
+  </div>
+</section>
 
-    <div class="acap">
-      <div class="ac rv d1">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
-        <h4>It notices patterns</h4>
-        <p>Across months and years, it sees what keeps repeating in your life that you're too close to spot.</p>
-        <div class="ex">&ldquo;Dinosaurs found their way into almost everything she loved for three summers running.&rdquo;</div>
-      </div>
-      <div class="ac rv d2">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V6a2 2 0 012-2h4v16H6a2 2 0 01-2-2z"/><path d="M20 19V6a2 2 0 00-2-2h-4v16h4a2 2 0 002-2z"/></svg></div>
-        <h4>It writes the story</h4>
-        <p>Not a caption, not a slideshow, not an album. Real chapters, with names, written in sentences from your own photos, words, and voice &mdash; a few honest paragraphs about what a day actually was.</p>
-        <div class="ex">&ldquo;This was one of the happiest summers &mdash; and then, without much warning, so was the deep end of the pool.&rdquo;</div>
-      </div>
-      <div class="ac rv d3">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.5"/></svg></div>
-        <h4>It asks what you'd never think to record</h4>
-        <p>Gentle, specific questions &mdash; never a form, never a daily nag. The ones your kids will want answered in thirty years.</p>
-        <div class="ex">&ldquo;You've never told us how she got her nickname.&rdquo;</div>
-      </div>
-      <div class="ac rv d1">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
-        <h4>It builds collections on its own</h4>
-        <p>You never make an album. Chapters assemble themselves, and they're named like memories, not folders.</p>
-        <div class="ex">&ldquo;The Year She Wouldn't Come Inside&rdquo; &middot; 142 moments</div>
-      </div>
-      <div class="ac rv d2">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6l10 6-10 6V6z"/></svg></div>
-        <h4>It makes the year into a film</h4>
-        <p>Every January, a cinematic look back &mdash; the happiest moments, the hardest ones, who mattered most. Not statistics.</p>
-        <div class="ex">Ends with one question, in your own voice: &ldquo;What do you hope you'll remember when you're eighty?&rdquo;</div>
-      </div>
-      <div class="ac rv d3">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="18" height="11" rx="2"/><path d="M7 10V7a5 5 0 0110 0v3"/></svg></div>
-        <h4>It holds letters until the right day</h4>
-        <p>Write to someone now, choose when they receive it &mdash; a birthday, a wedding, a day decades from here.</p>
-        <div class="ex">&ldquo;Your dad left this for today.&rdquo;</div>
-      </div>
+<!-- ============ HUB ============ -->
+<section class="sec" style="background:linear-gradient(180deg,var(--ivory),var(--bone))">
+  <div class="wrap">
+    <div class="rv" style="max-width:660px">
+      <p class="eyeb">ways roon helps</p>
+      <h2 class="big">Start <em>where you are.</em></h2>
+      <p class="lead">Every family arrives with a different pile: a camera roll out of control, a shoebox of prints, a parent whose stories aren&rsquo;t written down. Pick your pile.</p>
     </div>
-
-    <div class="promise rv d1">
-      <h4>What Rooney will never do</h4>
-      <p><strong>It will never invent a memory.</strong> Every word comes from something you gave it. If it doesn't know, it asks &mdash; it doesn't fill the gap.</p>
-      <p><strong>It will never impersonate someone.</strong> Roon preserves the people you love. It does not simulate them, generate their voice, or pretend to speak as them. That line will not move.</p>
-      <p><strong>Your memories stay yours.</strong> Never sold, never used to train public models, and you can export everything &mdash; originals included &mdash; any time.</p>
-    </div>
+    <div class="hubgrid"><a class="hubc" href="/preserve-family-photos"><span class="hvis"><img loading="lazy" decoding="async" src="assets/media/p9.jpg" alt="A woman pausing on a golden autumn road" width="900" height="900"></span><p class="hg">Your photos</p><h4>Preserve family photos</h4></a><a class="hubc" href="/too-many-photos"><span class="hvis"><img loading="lazy" decoding="async" src="assets/media/p15.jpg" alt="A girl filming herself with a phone on a tripod" width="900" height="900"></span><p class="hg">Your photos</p><h4>Too many photos on your phone</h4></a><a class="hubc" href="/digitize-old-photos"><span class="hvis"><img loading="lazy" decoding="async" src="assets/media/p14.jpg" alt="Sepia photo of a girl in sunglasses against a brick wall" width="900" height="900"></span><p class="hg">Your photos</p><h4>Digitize old family photos</h4></a><a class="hubc" href="/google-photos-alternative"><span class="hvis"><img loading="lazy" decoding="async" src="assets/media/p8.jpg" alt="A girl riding her bike toward the camera, grinning" width="900" height="900"></span><p class="hg">Your photos</p><h4>Google Photos, plus the story</h4></a><a class="hubc" href="/apple-photos-alternative"><span class="hvis"><img loading="lazy" decoding="async" src="assets/media/p2.jpg" alt="A girl swimming in turquoise pool water" width="900" height="900"></span><p class="hg">Your photos</p><h4>Apple Photos, plus the story</h4></a><a class="hubc" href="/baby-book-alternative"><span class="hvis"><img loading="lazy" decoding="async" src="assets/media/p3.jpg" alt="A little girl floating in a bright blue pool" width="900" height="900"></span><p class="hg">Your children</p><h4>A baby book that fills itself in</h4></a><a class="hubc" href="/save-childrens-artwork"><span class="hvis"><img loading="lazy" decoding="async" src="assets/media/p18.jpg" alt="A child's handprint painting in yellow, next to the watercolor set that made it" width="900" height="900"></span><p class="hg">Your children</p><h4>Save children&#x27;s artwork &amp; the things they say</h4></a><a class="hubc" href="/letters-to-your-child"><span class="hvis"><img loading="lazy" decoding="async" src="assets/media/p1.jpg" alt="A blonde toddler grinning in warm sunlight" width="900" height="900"></span><p class="hg">Your children</p><h4>Letters to your child, for later</h4></a><a class="hubc" href="/questions-to-ask-your-grandparents"><span class="hvis"><img loading="lazy" decoding="async" src="assets/media/p16.jpg" alt="A grandmother laughing with her two grandchildren at home" width="900" height="900"></span><p class="hg">Your parents &amp; grandparents</p><h4>Questions to ask your grandparents</h4></a><a class="hubc" href="/record-your-parents-stories"><span class="hvis"><img loading="lazy" decoding="async" src="assets/media/p17.jpg" alt="A grandfather and his grandson laughing together on the couch at home" width="900" height="900"></span><p class="hg">Your parents &amp; grandparents</p><h4>Record your parents&#x27; stories</h4></a><a class="hubc" href="/storyworth-alternative"><span class="hvis"><img loading="lazy" decoding="async" src="assets/media/p6.jpg" alt="Black-and-white photo of a little girl walking through a field" width="900" height="900"></span><p class="hg">Your parents &amp; grandparents</p><h4>A StoryWorth alternative</h4></a><a class="hubc" href="/digital-legacy"><span class="hvis"><img loading="lazy" decoding="async" src="assets/media/p4.jpg" alt="Black-and-white photo of a boy laughing at the beach" width="900" height="900"></span><p class="hg">Your parents &amp; grandparents</p><h4>What happens to your photos</h4></a><a class="hubc" href="/family-movie-night"><span class="hvis"><img loading="lazy" decoding="async" src="assets/media/p19.jpg" alt="A family of four on the couch watching together" width="900" height="900"></span><p class="hg">Watching together</p><h4>Family movie night &amp; your Year Film</h4></a><a class="hubc" href="/memory-gift"><span class="hvis"><img loading="lazy" decoding="async" src="assets/media/p10.jpg" alt="A little boy grinning up at the camera at home" width="900" height="900"></span><p class="hg">Watching together</p><h4>Give Roon as a gift</h4></a></div>
   </div>
 </section>
 
@@ -534,7 +639,7 @@ footer .fl a:hover{color:var(--ink)}
     </div>
 
     <div class="bstats rv d2">
-      <div class="bst"><div class="n dsp">Founding</div><div class="l">pricing, locked for life</div></div>
+      <div class="bst"><div class="n dsp">Founding</div><div class="l">pricing for beta families</div></div>
       <div class="bst"><div class="n dsp">Limited</div><div class="l">first group of families</div></div>
       <div class="bst"><div class="n dsp">Direct</div><div class="l">line to the people building it</div></div>
     </div>
@@ -547,27 +652,27 @@ footer .fl a:hover{color:var(--ink)}
     <div style="text-align:center;max-width:640px;margin:0 auto" class="rv">
       <p class="eyeb">pricing</p>
       <h2 class="big">Keep it for a while, <em>or keep it forever.</em></h2>
-      <p class="lead">Here's where pricing will land when we open up. Beta families lock these rates permanently.</p>
+      <p class="lead">Founding pricing for beta families. Start free. Pay only if you want the whole story told.</p>
     </div>
 
     <div class="tog rv d1">
-      <span id="lm" class="on">Monthly</span>
-      <button class="sw" id="sw" onclick="toggleBill()"><span class="kn"></span></button>
-      <span id="ly">Yearly</span>
+      <span id="lm">Monthly</span>
+      <button class="sw yr" id="sw" onclick="toggleBill()"><span class="kn"></span></button>
+      <span id="ly" class="on">Yearly</span>
       <span class="save">save 31%</span>
     </div>
 
     <div class="plans">
       <div class="plan rv d1">
         <h3>Start</h3>
-        <p class="pw">See if it's for you.</p>
+        <p class="pw">Try Roon &mdash; free.</p>
         <div class="price"><span class="amt dsp">$0</span></div>
         <p class="billed">free, always</p>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Your first 150 memories, fully told</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Rooney follows 1 person closely</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Room to keep 2,500 memories</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Up to 2 contributors &middot; 3 people in the story</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Rooney writes your first chapter</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>One chapter, written from your own photos &mdash; your first 150 memories, told</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>A taste of Rooney&rsquo;s questions &mdash; prompts for the first week</li>
         </ul>
         <button class="btn b-o" onclick="go('#beta')">Join the beta</button>
       </div>
@@ -576,16 +681,17 @@ footer .fl a:hover{color:var(--ink)}
         <span class="tg">Most families choose this</span>
         <h3>Roon</h3>
         <p class="pw">For the whole story, as it happens.</p>
-        <div class="price"><span class="amt dsp">$<span class="pn" data-m="12" data-y="99">12</span></span><span class="per pper" data-m="/month" data-y="/year">/month</span></div>
-        <p class="billed pb">billed monthly</p>
+        <div class="price"><span class="amt dsp">$<span class="pn" data-m="12" data-y="99">99</span></span><span class="per pper" data-m="/month" data-y="/year">/year</span></div>
+        <p class="billed pb">billed yearly · $8.25 a month</p>
         <ul>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Room for 25,000 photos + 300 minutes of video</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>6,000 memories told at join + 2,000 more every year</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Google &amp; Apple Photos connections</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Up to 6 contributors &middot; 8 people in the story</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Rooney's noticings &amp; auto collections</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>The Year in Review film, every January</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Letters for later</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Rooney follows 3 people closely</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Google &amp; Apple Photos &mdash; you approve what comes over</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Prompts that keep coming &mdash; questions, reminders, and the threads Rooney follows</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Rooney notices patterns &amp; builds chapters for you</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Your Year Film every January &mdash; made to watch together</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Sealed letters for future dates</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Family can add photos too</li>
         </ul>
         <button class="btn b-g" onclick="go('#beta')">Join the beta</button>
       </div>
@@ -593,11 +699,12 @@ footer .fl a:hover{color:var(--ink)}
       <div class="plan life rv d3">
         <span class="tg">Pay once</span>
         <h3>Forever</h3>
-        <p class="pw">For the ones you're never letting go of.</p>
+        <p class="pw">One payment. Yours for life.</p>
         <div class="price"><span class="amt dsp">$749</span></div>
         <p class="billed">one payment, no subscription</p>
         <ul>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Everything in Roon, for life</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Rooney follows 5 people closely</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Room for 60,000 photos + 800 minutes of video</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Legacy handoff &mdash; name who inherits it</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Archival export you can keep offline</li>
@@ -609,27 +716,47 @@ footer .fl a:hover{color:var(--ink)}
     </div>
 
     <p class="lifew rv d2">We built the Forever plan because it felt wrong to ask you to trust us with something permanent, and then rent it back to you every month.</p>
-    <p class="addons rv d2"><strong>Grow it when you need to:</strong> More room from $3/mo &nbsp;&middot;&nbsp; Deep Backfill &middot; $19 per 2,500 memories told &nbsp;&middot;&nbsp; 4 more people &middot; $12/yr &nbsp;&middot;&nbsp; A second family &middot; $49/yr &mdash; add any of it anytime, only when your story actually needs it</p>
+    <p class="addons rv d2"><strong>Need more later?</strong> There are only two upgrades. Following another person? Add them &mdash; $24 a year, or $3 a month. Out of room? Add room &mdash; from $30 a year, or $3 a month. Each one is offered only when you actually hit it &mdash; everything else is just included.</p>
+    <p class="addons rv d2" style="font-size:14.5px;color:var(--soft)"><strong>The smaller print:</strong> room comes in three steps &mdash; $30, $80, or $150 a year (or $3, $8, or $15 a month), added only when your story needs it. Deep Backfill &mdash; Rooney tells 2,500 older memories in one go &mdash; is $19, one time. A second family is $49 a year, or $5 a month.</p>
   </div>
 </section>
 
-<section class="closing">
-  <div class="wrapn rv">
-    <h2>You won't remember this day <em>either.</em></h2>
-    <p class="pr">What do you hope you'll remember about it, when you're eighty?</p>
-    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <button class="btn b-g" onclick="go('#beta')">Join the beta</button>
-      <a href='/dashboard'><button class="btn b-o">See inside Roon</button></a>
-    </div>
-  </div>
-</section>
+
 
 <footer>
   <a href='/'><img class="logo" src="assets/brand/logo-dark.png" alt="Roon"></a>
   <p>Tell us about today. We'll remember the rest.</p>
-  <div class="fl">
-    <a href="#why">Why Roon</a><a href="#capture">What you keep</a><a href="#origin">Our story</a><a href="#ai">Meet Rooney</a><a href="#beta">Join the beta</a><a href='/dashboard'>See inside</a>
+  <div class="fcols">
+    <div><h5>Start here</h5>
+      <a href="/how-rooney-works">How Rooney works</a>
+      <a href="/what-is-a-family-story">Why stories matter</a>
+      <a href="/our-story">Our story</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/dashboard">See inside Roon</a>
+    </div>
+    <div><h5>Your photos</h5>
+      <a href="/preserve-family-photos">Preserve family photos</a>
+      <a href="/too-many-photos">Too many photos</a>
+      <a href="/digitize-old-photos">Digitize old photos</a>
+      <a href="/google-photos-alternative">Google Photos alternative</a>
+      <a href="/apple-photos-alternative">Apple Photos alternative</a>
+    </div>
+    <div><h5>Your family</h5>
+      <a href="/baby-book-alternative">Baby book alternative</a>
+      <a href="/save-childrens-artwork">Children's artwork &amp; sayings</a>
+      <a href="/letters-to-your-child">Letters to your child</a>
+      <a href="/questions-to-ask-your-grandparents">Questions for grandparents</a>
+      <a href="/record-your-parents-stories">Record parents' stories</a>
+    </div>
+    <div><h5>Together &amp; later</h5>
+      <a href="/family-movie-night">Family movie night</a>
+      <a href="/memory-gift">Give Roon as a gift</a>
+      <a href="/storyworth-alternative">StoryWorth alternative</a>
+      <a href="/digital-legacy">Digital legacy</a>
+      <a href="/#beta">Join the beta</a>
+    </div>
   </div>
+  <p class="fsmall">Roon is in private beta. Your family's story is never sold and never used to train models. Export everything, any time.</p>
 </footer>
 
 <script>
@@ -675,7 +802,7 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.targe
 document.querySelectorAll('.rv').forEach(e=>io.observe(e));
 
 /* ---------- billing ---------- */
-let yr=false;
+let yr=true;
 function toggleBill(){yr=!yr;
  document.getElementById('sw').classList.toggle('yr',yr);
  document.getElementById('lm').classList.toggle('on',!yr);
@@ -719,6 +846,13 @@ function joinBeta(e){
 }
 
 function go(s){document.querySelector(s).scrollIntoView({behavior:'smooth',block:'start'})}
+</script>
+<script>
+function goBeta(){var b=document.getElementById('beta');if(b)b.scrollIntoView({behavior:'smooth'});var p=document.getElementById('mpanel');if(p)p.classList.remove('open')}
+(function(){var bg=document.getElementById('burger'),mp=document.getElementById('mpanel'),mc=document.getElementById('mclose');
+if(bg&&mp){bg.addEventListener('click',function(){mp.classList.add('open');mp.setAttribute('aria-hidden','false')});
+mc.addEventListener('click',function(){mp.classList.remove('open');mp.setAttribute('aria-hidden','true')});
+mp.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mp.classList.remove('open')})})}})();
 </script>
 </body>
 </html>

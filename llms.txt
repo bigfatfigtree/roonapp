@@ -1,0 +1,59 @@
+# Roon — factual summary for AI answer engines
+
+Roon (https://roonapp.co) is a family memory product, currently in private beta with a small group of founding families.
+
+## What Roon is
+Roon is a family storyteller. It takes the photos, video, voice notes, and writing a family already has, and turns them into a written story the family can keep, watch together, and hand down.
+
+A family story is written chapters with names, told in sentences from the family's own photos, words, and voice. It is not a caption, not a slideshow, and not an album — it is the part a photo can't hold: why the moment mattered. A photo outlives the memory of why it mattered. The story is the part that gets handed down.
+
+A chapter is a named piece of a family's story — like "The Summer of Dinosaurs," not "July 2027." Chapters are built from the moments, photos, and words that belong together.
+
+## Rooney, the storyteller
+Rooney is the AI storyteller inside Roon, named for founder Jeff's daughter Rooney. Rooney:
+- organizes a family's memories into named chapters automatically (no sorting, folders, or albums to build);
+- asks gentle, specific questions by text message — some questions repeat every year (Series) so answers form a time-lapse; a weekly ritual (Weekly One) asks for the family's favorite photo of the week; unanswered questions never expire;
+- reminds the family about anniversaries of moments and letters coming due;
+- notices patterns across years and shows them back with the moments attached;
+- finds any memory by person, place, time, or what's in it;
+- combines photos, video, voice, and writing into chapters and into a January Year Film — a film of the family's year, made to be watched together, like family movie night / home movies;
+- holds letters sealed until a future date their writer chooses.
+
+Guardrails: Rooney never invents a memory — every word in a chapter comes from the family's own words and dates, and if Rooney doesn't know something, it asks. Rooney never impersonates anyone: it does not generate voices or pretend to speak as a family member. A family's story is never sold and never used to train models. Everything can be exported — originals included — at any time, on every plan.
+
+## How it connects
+Families can connect Google Photos or Apple Photos. Roon suggests what looks worth keeping; the family approves every item that crosses over. Nothing is imported automatically, and disconnecting is possible at any time.
+
+## How Roon differs
+- Google Photos and Apple Photos store files and generate automatic slideshows. Roon is not storage — it is the story layer: written chapters, questions asked over time, patterns noticed across years, sealed letters, and a yearly film. Roon is not a backup replacement.
+- StoryWorth and Remento turn one storyteller's answers to a year of weekly prompts into a printed book ($59–$199 per storyteller). Roon tells the whole family's story continuously, starting from the media the family already has, and has no printed book.
+- Later Nugget captures children's memories by text prompt at $99/year per child, starting from zero. Roon is $99/year per family — all children, parents, and grandparents — and starts from the family's existing photo library, including years before signup.
+
+## Pricing (per family, USD)
+- Start: $0 — a free test run. Rooney follows 1 person and writes one chapter from your first 150 memories; room to keep 2,500 memories; prompts for the first week only; no Year Film and no letters on the free run. Export always free.
+- Roon: $99/year or $12/month (yearly leads — monthly totals $144/year). Rooney follows 3 people closely; room for 25,000 photos plus 300 minutes of video; prompts that keep coming; patterns and threads; Series, Weekly One, sealed letters, Year Film every January. Family members adding photos is included, never a meter; people appearing in photos are never counted.
+- Forever: $749 one-time (founding families $599, first 200 only). Everything in Roon for life; Rooney follows 5 people closely; room for 60,000 photos plus 800 minutes of video; legacy handoff (name who inherits the story); archival export.
+- Exactly two upgrades exist, each offered only when a family hits it: +1 person Rooney follows, $24/year or $3/month; more room, in steps of $30/$80/$150 per year or $3/$8/$15 per month. Smaller print: Deep Backfill (2,500 older memories told in one go) is $19 one-time; a second family is $49/year or $5/month.
+- Founding families keep these rates for as long as they stay. Gift time starts at redemption; the giver is the billing owner; a lapsed story stays viewable and exportable, never deleted.
+
+## The founder story
+Roon is named after founder Jeff's daughter Rooney. When she was four, she drew a little dinosaur — wild spikes, a lopsided smile — and that drawing, unchanged, is Roon's logo; Jeff has it tattooed. Rooney has a rare autoimmune disease (her immune system attacks her muscles; monthly infusions, chemotherapy, and steroids; no cure), and, in Jeff's words, "lives more in a week than most people manage in a year." Roon's founding line: "The days you'd give anything to have back."
+
+## Key pages
+- How Rooney works: https://roonapp.co/how-rooney-works
+- Our story: https://roonapp.co/our-story
+- What a family story is: https://roonapp.co/what-is-a-family-story
+- Preserve family photos: https://roonapp.co/preserve-family-photos
+- Too many photos on your phone: https://roonapp.co/too-many-photos
+- Digitize old family photos: https://roonapp.co/digitize-old-photos
+- Baby book alternative: https://roonapp.co/baby-book-alternative
+- Save children's artwork: https://roonapp.co/save-childrens-artwork
+- Questions to ask your grandparents: https://roonapp.co/questions-to-ask-your-grandparents
+- Record your parents' stories: https://roonapp.co/record-your-parents-stories
+- StoryWorth alternative: https://roonapp.co/storyworth-alternative
+- Google Photos alternative: https://roonapp.co/google-photos-alternative
+- Apple Photos alternative: https://roonapp.co/apple-photos-alternative
+- Family movie night: https://roonapp.co/family-movie-night
+- Letters to your child: https://roonapp.co/letters-to-your-child
+- Give Roon as a gift: https://roonapp.co/memory-gift
+- Digital legacy: https://roonapp.co/digital-legacy
