@@ -322,7 +322,7 @@ h1.pg em{font-style:italic}
 .ask{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 16px;font-size:14.5px;color:var(--ink-2)}
 .illu{margin-top:20px;font-size:13.5px;line-height:1.6;color:var(--soft);max-width:64ch}
 .illu strong{color:var(--ink-2)}
-.hubc .hvis{border-radius:12px;overflow:hidden;margin:0 0 14px}
+.hubc .hvis{display:block;border-radius:12px;overflow:hidden;margin:0 0 14px}
 .hubc .hvis img{display:block;width:100%;height:100%;aspect-ratio:16/8;object-fit:cover}
 @media(max-width:1000px){.tgrid{grid-template-columns:1fr}.minis{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:700px){.hphoto{margin-top:26px;border-radius:18px}.hphoto img,.hphoto.mid img{aspect-ratio:4/3}.strip .frames{grid-template-columns:repeat(2,1fr)}.pimg img{aspect-ratio:4/3}}
@@ -360,6 +360,118 @@ footer .fcols a{display:block;font-size:14px;color:var(--soft);padding:4px 0}
 footer .fcols a:hover{color:var(--ink)}
 footer .fsmall{font-family:'Inter',sans-serif;font-style:normal;font-size:12.5px;color:var(--soft);margin-top:26px}
 .defband{background:linear-gradient(155deg,var(--deep-2),var(--deep-3));color:#fff;border-radius:24px;padding:clamp(28px,4vw,44px);margin-top:40px}
+.defband p{font-family:'Instrument Serif',serif;font-size:clamp(19px,2.3vw,26px);line-height:1.45;margin:0;color:#fff}
+.defband p em{color:var(--amber)}
+
+/* ===== watch section (additive, section-scoped) ===== */
+.wch-row{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(28px,5vw,64px);margin-top:54px;align-items:start}
+@media(max-width:1000px){.wch-row{grid-template-columns:1fr}}
+.wch-ing{display:grid;gap:13px;margin-top:22px}
+.wch-ing>div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.wch-ing h3{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:19px;margin:0 0 5px}
+.wch-ing p{font-size:14.5px;line-height:1.6;color:var(--soft);margin:0}
+.wch-try{font-size:15px;font-weight:600;margin:0 0 14px}
+.wch-phone{position:relative;width:100%;max-width:390px;margin:0 auto;border-radius:38px;border:10px solid #17121d;background:#17121d;box-shadow:0 34px 64px -34px var(--sh);overflow:hidden}
+.wch-phone iframe{display:block;width:100%;height:auto;aspect-ratio:390/844;border:0;border-radius:27px;background:#120E16;visibility:hidden}
+#askChips .ask{cursor:pointer;font:inherit;text-align:left}
+#askChips .ask:hover{border-color:var(--coral)}
+#askChips .ask-on{background:linear-gradient(112deg,#0C7BB3,#7F9BCE 52%,#F2BAE8);color:#fff;border-color:transparent}
+#askNow{margin-top:18px;font-size:15.5px;line-height:1.6;color:var(--ink-2);max-width:54ch}
+#askNow strong{color:var(--ink)}
+.actvid{display:block;width:100%;aspect-ratio:390/844;object-fit:cover;background:#0D0E13}
+.wch-pill{position:absolute;top:16px;left:50%;transform:translateX(-50%);z-index:3;background:rgba(18,14,22,.85);color:#F7F1EC;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 13px;border-radius:100px;backdrop-filter:blur(6px);pointer-events:none}
+.wch-fallback{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:15px;background:#17121d;color:#F7F1EC;text-align:center;padding:26px}
+.wch-fallback img{width:70%;border-radius:14px;display:block}
+.wch-fallback p{font-size:13.5px;line-height:1.55;color:#AEA0B8;margin:0;max-width:30ch}
+.wch-phone:focus-within{outline:2px solid var(--coral);outline-offset:3px}
+.wch-video{margin-top:74px;text-align:center}
+.wch-vh{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(24px,3vw,32px);margin:0 0 10px}
+.wch-video video{width:100%;max-width:400px;border-radius:22px;background:#120E16;box-shadow:0 34px 64px -34px var(--sh)}
+
+/* ===== DARK MIRROR ===== */
+/* Variant D mirror (2026-10-30): dark surfaces the token swap cannot reach.
+   Ground #0D0E13, ink #F5F2EC, glass + hairlines per PREMIUM-PASS-REPORT Variant D. */
+header.stuck,header.solid{background:rgba(13,14,19,.86);backdrop-filter:blur(18px);box-shadow:0 1px 0 var(--line)}
+header.stuck nav a,header.solid nav a{color:rgba(245,242,236,.74)}
+header.stuck nav a:hover,header.solid nav a:hover{color:var(--ink)}
+header.stuck .burger,header.solid .burger{background:rgba(255,255,255,.07);border-color:var(--line);backdrop-filter:blur(10px)}
+header.stuck .burger i,header.solid .burger i{background:#F5F2EC}
+.mpanel{background:#0D0E13;color:var(--ink)}
+.mpanel .mx{background:rgba(255,255,255,.06);border-color:var(--line);color:var(--ink)}
+.capc,.connect,.ac,.promise,.plan,.tcard,.hubc,.wch-ing>div{background:#12131A;border-color:var(--line);color:var(--ink)}
+.svci{background:rgba(255,255,255,.045);border-color:var(--line)}
+.svci .ci{background:rgba(255,255,255,.06);border-color:var(--line)}
+.svci .tag{background:rgba(143,195,232,.13)}
+table.cmp2{background:#12131A;border-color:var(--line);color:var(--ink-2)}
+table.cmp2 th{background:var(--sand);color:var(--ink)}
+table.cmp2 td{color:var(--ink-2)}
+.ask{background:rgba(255,255,255,.045);border-color:var(--line);color:var(--ink-2)}
+.plan.life{background:#12131A;border-color:rgba(242,186,232,.38);color:var(--ink)}
+.defband{background:linear-gradient(155deg,#1C1526,#101018);border:1px solid var(--line)}
+.beta{background:linear-gradient(168deg,var(--deep),var(--deep-2) 58%,#131A29)}
+.ainote{background:rgba(143,195,232,.07);border-color:rgba(143,195,232,.30)}
+.save{background:rgba(143,195,232,.13)}
+.b-o{border-color:rgba(255,255,255,.28)}
+input::placeholder{color:rgba(245,242,236,.4)}
+
+/* ===== v2 additive: nav, subpages, hub, faq, footer (grown from the system) ===== */
+header.solid{background:rgba(13,14,19,.86);backdrop-filter:blur(18px);box-shadow:0 1px 0 var(--line)}
+header.solid nav a{color:var(--soft)}
+header.solid nav a:hover{color:var(--ink)}
+.burger{display:none;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:rgba(255,255,255,.14);backdrop-filter:blur(10px);cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.burger i{display:block;width:18px;height:2px;background:#fff;border-radius:2px;transition:.3s}
+header.stuck .burger,header.solid .burger{border-color:var(--line);background:rgba(255,255,255,.07)}
+header.stuck .burger i,header.solid .burger i{background:var(--ink)}
+@media(max-width:1000px){.burger{display:flex}header .b-g{padding:12px 20px;font-size:14px}}
+.mpanel{position:fixed;inset:0;z-index:200;background:var(--ivory);overflow-y:auto;padding:22px clamp(18px,5vw,54px) 48px;transform:translateY(-102%);transition:transform .45s cubic-bezier(.2,.8,.3,1)}
+.mpanel.open{transform:none}
+.mpanel .mtop{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.mpanel .mx{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:rgba(255,255,255,.06);cursor:pointer;font-size:19px;color:var(--ink)}
+.mpanel a.mlink{display:block;font-family:'Instrument Serif',Georgia,serif;font-size:30px;padding:9px 0;color:var(--ink)}
+.mpanel .mgrp{margin-top:26px}
+.mpanel .mgrp h5{font-size:11px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--coral);margin:0 0 6px}
+.mpanel .mgrp a{display:block;font-size:16.5px;padding:7px 0;color:var(--ink-2)}
+.mpanel .mcta{margin-top:34px;width:100%;justify-content:center}
+.pagehero{padding:158px 0 10px}
+.crumbs{font-size:13px;color:var(--soft);margin:0 0 22px}
+.crumbs a{color:var(--coral);font-weight:500}
+.crumbs span{margin:0 7px;opacity:.6}
+h1.pg{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(36px,5.4vw,64px);line-height:1.05;letter-spacing:-.02em;margin:0 0 20px}
+h1.pg em{font-style:italic}
+.sec{padding:clamp(48px,8vh,84px) 0}
+.sec.tight{padding-top:26px}
+.prose p{font-size:clamp(16px,1.5vw,18px);line-height:1.74;color:var(--ink-2);margin:0 0 18px;max-width:66ch}
+.prose h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(22px,2.6vw,30px);margin:34px 0 12px}
+.prose ul{margin:0 0 18px;padding:0;list-style:none;max-width:66ch}
+.prose ul li{font-size:16.5px;line-height:1.62;color:var(--ink-2);padding:9px 0 9px 26px;position:relative;border-bottom:1px dashed var(--line)}
+.prose ul li:before{content:"";position:absolute;left:2px;top:19px;width:8px;height:8px;border-radius:50%;background:var(--grad)}
+.prose ul li strong{color:var(--ink)}
+table.cmp2{width:100%;border-collapse:collapse;margin:26px 0;background:#12131A;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+table.cmp2 th,table.cmp2 td{padding:15px 18px;font-size:15px;line-height:1.55;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+table.cmp2 tr:last-child td{border-bottom:none}
+table.cmp2 th{font-family:'Instrument Serif',serif;font-weight:400;font-size:18px;background:var(--sand);color:var(--ink)}
+table.cmp2 td:first-child{font-weight:600;color:var(--ink);width:30%}
+.faq{max-width:840px}
+.faq .fq{border-bottom:1px solid var(--line);padding:22px 0}
+.faq .fq:first-child{border-top:1px solid var(--line)}
+.faq h3{font-size:17px;font-weight:600;margin:0 0 8px}
+.faq p{font-size:15.5px;line-height:1.68;color:var(--soft);margin:0;max-width:64ch}
+.hubgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+@media(max-width:960px){.hubgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.hubgrid{grid-template-columns:1fr}}
+.hubc{background:#12131A;border:1px solid var(--line);border-radius:20px;padding:24px 24px 20px;transition:transform .3s,box-shadow .3s;display:block}
+.hubc:hover{transform:translateY(-4px);box-shadow:0 24px 46px -28px var(--sh)}
+.hubc .hg{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--coral);margin:0 0 9px}
+.hubc h4{font-family:'Instrument Serif',serif;font-weight:400;font-size:21px;margin:0 0 7px;line-height:1.2}
+.hubc p{font-size:14px;line-height:1.58;color:var(--soft);margin:0}
+.hubc .go{margin-top:13px;font-size:13.5px;font-weight:600;color:var(--coral)}
+footer .fcols{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;max-width:1080px;margin:34px auto 8px;text-align:left}
+@media(max-width:860px){footer .fcols{grid-template-columns:1fr 1fr}}
+footer .fcols h5{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin:0 0 12px}
+footer .fcols a{display:block;font-size:14px;color:var(--soft);padding:4px 0}
+footer .fcols a:hover{color:var(--ink)}
+footer .fsmall{font-family:'Inter',sans-serif;font-style:normal;font-size:12.5px;color:var(--soft);margin-top:26px}
+.defband{background:linear-gradient(155deg,#1C1526,#101018);border:1px solid var(--line);color:#fff;border-radius:24px;padding:clamp(28px,4vw,44px);margin-top:40px}
 .defband p{font-family:'Instrument Serif',serif;font-size:clamp(19px,2.3vw,26px);line-height:1.45;margin:0;color:#fff}
 .defband p em{color:var(--amber)}
 
@@ -416,7 +528,7 @@ input::placeholder{color:rgba(245,242,236,.4)}
    "name": "What is the Year Film?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Every January, Rooney combines your family\u2019s chapters from the year into one film \u2014 made to be watched together, like home movies on family movie night. It\u2019s built only from your family\u2019s own photos, video, voice, and words."
+    "text": "Every January, Rooney combines your family\u2019s chapters from the year into one film \u2014 the happiest moments, the hardest ones, who mattered most \u2014 made to be watched together, like home movies on family movie night. It\u2019s built only from your family\u2019s own photos, video, voice, and words."
    }
   },
   {
@@ -424,7 +536,7 @@ input::placeholder{color:rgba(245,242,236,.4)}
    "name": "Can Roon convert my old VHS tapes?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "No. That\u2019s a job for a digitizing shop or mail-in service \u2014 and worth doing soon, because tape degrades. Once you have the files, Roon keeps them in your family\u2019s story."
+    "text": "No. Converting tapes and film is a job for a digitizing shop or mail-in service, and it\u2019s worth doing \u2014 tape doesn\u2019t improve with age. Once you have the digital files, Roon can keep them in your family\u2019s story alongside everything else."
    }
   },
   {
@@ -441,7 +553,7 @@ input::placeholder{color:rgba(245,242,236,.4)}
 <body>
 <header class="solid">
   <a href='/'><img class="logo" src="assets/brand/logo-light.png" alt="Roon"></a>
-  <nav><div class="lk"><a href="/how-rooney-works">How Rooney works</a><a href="/our-story">Our story</a><a href="/what-is-a-family-story">Why stories matter</a><a href="/#pricing">Pricing</a><a href="/dashboard">See it working</a></div></nav>
+  <nav><div class="lk"><a href="/how-rooney-works">How Rooney works</a><a href="/our-story">Our story</a><a href="/what-is-a-family-story">Why stories matter</a><a href="/#pricing">Pricing</a><a href="/dashboard">See inside</a></div></nav>
   <div style="display:flex;gap:10px;align-items:center">
     <button class="btn b-g" onclick="goBeta()">Join the beta</button>
     <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><i></i><i></i><i></i></button>
@@ -450,33 +562,31 @@ input::placeholder{color:rgba(245,242,236,.4)}
 <div class="mpanel" id="mpanel" aria-hidden="true">
   <div class="mtop"><img class="logo" src="assets/brand/logo-light.png" alt="Roon" style="height:29px">
   <button class="mx" id="mclose" aria-label="Close menu">&times;</button></div>
-  <a class="mlink" href="/how-rooney-works">How Rooney works</a><a class="mlink" href="/our-story">Our story</a><a class="mlink" href="/what-is-a-family-story">Why stories matter</a><a class="mlink" href="/#pricing">Pricing</a><a class="mlink" href="/dashboard">See it working</a>
-  <div class="mgrp"><h5>Your photos</h5><a href="/preserve-family-photos">Preserve family photos</a><a href="/too-many-photos">Too many photos on your phone</a><a href="/digitize-old-photos">Digitize old family photos</a><a href="/google-photos-alternative">Google Photos, plus the story</a><a href="/apple-photos-alternative">Apple Photos, plus the story</a></div><div class="mgrp"><h5>Your children</h5><a href="/baby-book-alternative">A baby book that fills itself in</a><a href="/save-childrens-artwork">Save children's artwork & the things they say</a><a href="/letters-to-your-child">Letters to your child, for later</a></div><div class="mgrp"><h5>Your parents &amp; grandparents</h5><a href="/questions-to-ask-your-grandparents">Questions to ask your grandparents</a><a href="/record-your-parents-stories">Record your parents' stories</a><a href="/storyworth-alternative">A StoryWorth alternative</a><a href="/digital-legacy">What happens to your photos</a></div><div class="mgrp"><h5>Watching together</h5><a href="/family-movie-night">Family movie night & your Year Film</a><a href="/memory-gift">Give Roon as a gift</a></div>
+  <a class="mlink" href="/how-rooney-works">How Rooney works</a><a class="mlink" href="/our-story">Our story</a><a class="mlink" href="/what-is-a-family-story">Why stories matter</a><a class="mlink" href="/#pricing">Pricing</a><a class="mlink" href="/dashboard">See inside</a>
+  <div class="mgrp"><h5>Your photos</h5><a href="/preserve-family-photos">Preserve family photos</a><a href="/too-many-photos">Too many photos on your phone</a><a href="/how-to-organize-family-photos">How to organize family photos</a><a href="/digitize-old-photos">Digitize old family photos</a><a href="/google-photos-alternative">Google Photos, plus the story</a><a href="/apple-photos-alternative">Apple Photos, plus the story</a><a href="/private-family-photo-sharing">Share privately, never publicly</a></div><div class="mgrp"><h5>Your children</h5><a href="/baby-book-alternative">A baby book that fills itself in</a><a href="/save-childrens-artwork">Save children's artwork & the things they say</a><a href="/letters-to-your-child">Letters to your child, for later</a></div><div class="mgrp"><h5>Your parents &amp; grandparents</h5><a href="/questions-to-ask-your-grandparents">Questions to ask your grandparents</a><a href="/record-your-parents-stories">Record your parents' stories</a><a href="/how-to-get-parents-to-share-stories">When parents won't write</a><a href="/how-to-save-voicemails">Save a loved one's voicemails</a><a href="/storyworth-alternative">A StoryWorth alternative</a><a href="/remento-alternative">A Remento alternative</a><a href="/storyworth-vs-remento">StoryWorth vs Remento</a><a href="/digital-legacy">What happens to your photos</a></div><div class="mgrp"><h5>Watching together</h5><a href="/family-movie-night">Family movie night & your Year Film</a><a href="/turn-photos-into-a-video">Turn photos into a video</a><a href="/memory-gift">Give Roon as a gift</a></div>
   <button class="btn b-g mcta" onclick="goBeta()">Join the beta</button>
 </div>
 <main>
 <section class="pagehero"><div class="wrap">
   <p class="crumbs"><a href="/">Home</a><span>/</span>Family movie night</p>
   <h1 class="pg">Family movie night, <em>the way it used to feel.</em></h1>
-<figure class="hphoto rv"><img src="assets/media/w19.jpg" alt="A family of four on the couch watching together — remote in hand, kids tucked in close" width="1400" height="800"></figure>
 </div></section>
 <section class="sec "><div class="wrap"><div class="rv"><p class="lead" style="font-size:clamp(18px,1.9vw,22px);color:var(--ink-2);max-width:62ch">There was a ritual once: somebody threaded the projector, or pushed a tape into the VCR, and the whole family watched itself &mdash; smaller, louder, younger. The movies weren&rsquo;t good. The gathering was the point, and the voices in them are priceless now.</p><div class="prose"><h3>The ritual, rebuilt</h3>
 <p>Every January, Rooney combines your family&rsquo;s chapters into a <strong>Year Film</strong>: the happiest moments, the hardest ones, and who mattered most &mdash; built from your own photos, video, voice, and words, in the order your year actually happened. It&rsquo;s made to be watched together: same couch, same people, press play. Not a feed item to scroll past alone &mdash; an occasion.</p>
 <p>And because Roon keeps your story all year &mdash; the chapters, the answers, the little things &mdash; the film isn&rsquo;t a slideshow generated from files. It&rsquo;s the year, told.</p>
 <h3>About your old home movies</h3>
-<p>Questions we hear: <em>How do I watch VHS tapes without a VCR? How do I get home movies onto my TV?</em> Honest answers: tapes and film need converting first &mdash; a local shop or a mail-in service does that well, and it&rsquo;s worth doing soon, because tape degrades. Once you have digital files, they can live in Roon alongside everything else, in the same chapters as this year&rsquo;s photos. Roon doesn&rsquo;t convert tapes; we&rsquo;d rather tell you that plainly than sell you a page.</p></div><div class="defband rv"><p>Slideshows are made for an event. <em>A Year Film is made for a ritual</em> &mdash; it arrives every January, from a story that&rsquo;s still being written.</p></div><div class="strip rv"><div class="frames"><figure><img loading="lazy" decoding="async" src="assets/media/p2.jpg" alt="A girl swimming in turquoise pool water" width="900" height="900"></figure><figure><img loading="lazy" decoding="async" src="assets/media/p3.jpg" alt="A little girl floating in a bright blue pool" width="900" height="900"></figure><figure><img loading="lazy" decoding="async" src="assets/media/p7.jpg" alt="Two children playing catch on a country road" width="900" height="900"></figure><figure><img loading="lazy" decoding="async" src="assets/media/p4.jpg" alt="Black-and-white photo of a boy laughing, buried in sand at the beach" width="900" height="900"></figure></div><p class="scap">Frames from one family&rsquo;s years &mdash; the pool, the road, the beach. This is what movie night is made of.</p></div></div></section><section class="sec "><div class="wrap"><div class="rv"><p class="eyeb">start this year</p><h2 class="big">Next January&rsquo;s film <em>starts with this year&rsquo;s photos.</em></h2>
+<p>Questions we hear: <em>How do I watch VHS tapes without a VCR? How do I get home movies onto my TV?</em> Honest answers: tapes and film need converting first &mdash; a local shop or a mail-in service does that well, and it&rsquo;s worth doing soon, because tape degrades. Once you have digital files, they can live in Roon alongside everything else, in the same chapters as this year&rsquo;s photos. Roon doesn&rsquo;t convert tapes; we&rsquo;d rather tell you that plainly than sell you a page.</p></div><div class="defband rv"><p>Slideshows are made for an event. <em>A Year Film is made for a ritual</em> &mdash; it arrives every January, from a story that&rsquo;s still being written.</p></div></div></section><section class="sec "><div class="wrap"><div class="rv"><p class="eyeb">start this year</p><h2 class="big">Next January&rsquo;s film <em>starts with this year&rsquo;s photos.</em></h2>
 <p class="lead">Roon is in private beta now, which means founding families are building the stories their first films will be made from. The film is part of <a href="/what-is-a-family-story" style="color:var(--coral);font-weight:600">what a family story is</a> &mdash; and if grandparents&rsquo; voices are part of the soundtrack you want, start with <a href="/record-your-parents-stories" style="color:var(--coral);font-weight:600">recording their stories</a> while they&rsquo;re here to tell them.</p></div></section>
 <section class="sec tight"><div class="wrap"><div class="rv">
       <p class="eyeb">plain answers</p><h2 class="big">Questions, <em>answered straight.</em></h2>
-      <div class="faq"><div class="fq"><h3>What is the Year Film?</h3><p>Every January, Rooney combines your family&rsquo;s chapters from the year into one film &mdash; made to be watched together, like home movies on family movie night. It&rsquo;s built only from your family&rsquo;s own photos, video, voice, and words.</p></div><div class="fq"><h3>Can Roon convert my old VHS tapes?</h3><p>No. That&rsquo;s a job for a digitizing shop or mail-in service &mdash; and worth doing soon, because tape degrades. Once you have the files, Roon keeps them in your family&rsquo;s story.</p></div><div class="fq"><h3>How is a Year Film different from a slideshow maker?</h3><p>Slideshow tools assemble a one-off video from files you pick, for one event. The Year Film is compiled from a living story Rooney has been writing with your family all year &mdash; chapters, answers, and moments already in context &mdash; and it comes back every January.</p></div></div></div></div></section>
-<section class="sec tight"><div class="wrap"><div class="rv"><p class="eyeb">threads become films</p><h2 class="big" style="font-size:clamp(26px,3.4vw,36px)">On movie night, a thread <em>plays</em>.</h2><p class="lead" style="margin-top:14px">Rooney follows the threads running through your years &mdash; the same water every summer, the same road, the years before. Press play and a thread becomes a mini-story: every moment in it, in order, with your family&rsquo;s own words on it.</p><div class="minis"><div class="mini"><img loading="lazy" decoding="async" src="assets/media/p3.jpg" alt="A little girl floating in a bright blue pool" width="900" height="900"><div class="mov"></div><div class="mt"><span class="mm">Six summers &middot; 128 moments</span>The pool summers</div></div><div class="mini"><img loading="lazy" decoding="async" src="assets/media/p7.jpg" alt="Two children playing catch on a country road" width="900" height="900"><div class="mov"></div><div class="mt"><span class="mm">2018&ndash;2025 &middot; 74 moments</span>The road years</div></div><div class="mini"><img loading="lazy" decoding="async" src="assets/media/p6.jpg" alt="Black-and-white photo of a little girl walking through a field" width="900" height="900"><div class="mov"></div><div class="mt"><span class="mm">Black-and-white &middot; 46 moments</span>Before any of this</div></div><div class="mini"><img loading="lazy" decoding="async" src="assets/media/p2.jpg" alt="A girl swimming in turquoise pool water" width="900" height="900"><div class="mov"></div><div class="mt"><span class="mm">The deep end &middot; 19 moments</span>The day she let go of the edge</div></div></div><p class="illu">Yours will be named from your own years.</p></div></div></section>
+      <div class="faq"><div class="fq"><h3>What is the Year Film?</h3><p>Every January, Rooney combines your family&rsquo;s chapters from the year into one film &mdash; the happiest moments, the hardest ones, who mattered most &mdash; made to be watched together, like home movies on family movie night. It&rsquo;s built only from your family&rsquo;s own photos, video, voice, and words.</p></div><div class="fq"><h3>Can Roon convert my old VHS tapes?</h3><p>No. Converting tapes and film is a job for a digitizing shop or mail-in service, and it&rsquo;s worth doing &mdash; tape doesn&rsquo;t improve with age. Once you have the digital files, Roon can keep them in your family&rsquo;s story alongside everything else.</p></div><div class="fq"><h3>How is a Year Film different from a slideshow maker?</h3><p>Slideshow tools assemble a one-off video from files you pick, for one event. The Year Film is compiled from a living story Rooney has been writing with your family all year &mdash; chapters, answers, and moments already in context &mdash; and it comes back every January.</p></div></div></div></div></section>
 <section class="beta" id="beta">
   <div class="bg1"></div>
   <div class="wrapn">
     <div class="rv">
       <div class="bpill"><i></i>Private beta &middot; now forming</div>
       <h2>We're building this <em>with</em> a small group of families first.</h2>
-      <p class="bl">We're letting in a limited first group &mdash; people who'll help shape it, get in at founding pricing, and keep that price for as long as they stay. Add your email and we'll be in touch as spots open.</p>
+      <p class="bl">Roon isn't open to everyone yet. We're letting in a limited first group &mdash; people who'll help shape it, get in at founding pricing, and keep that price for as long as they stay. Add your email and we'll be in touch as spots open.</p>
     </div>
     <div class="bform rv d1">
       <form id="bformInner" name="roon-beta" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return joinBeta(event)">
@@ -514,14 +624,16 @@ input::placeholder{color:rgba(245,242,236,.4)}
       <a href="/what-is-a-family-story">Why stories matter</a>
       <a href="/our-story">Our story</a>
       <a href="/#pricing">Pricing</a>
-      <a href="/dashboard">See for yourself</a>
+      <a href="/dashboard">See inside Roon</a>
     </div>
     <div><h5>Your photos</h5>
       <a href="/preserve-family-photos">Preserve family photos</a>
       <a href="/too-many-photos">Too many photos</a>
+      <a href="/how-to-organize-family-photos">Organize family photos</a>
       <a href="/digitize-old-photos">Digitize old photos</a>
       <a href="/google-photos-alternative">Google Photos alternative</a>
       <a href="/apple-photos-alternative">Apple Photos alternative</a>
+      <a href="/private-family-photo-sharing">Private family sharing</a>
     </div>
     <div><h5>Your family</h5>
       <a href="/baby-book-alternative">Baby book alternative</a>
@@ -529,11 +641,16 @@ input::placeholder{color:rgba(245,242,236,.4)}
       <a href="/letters-to-your-child">Letters to your child</a>
       <a href="/questions-to-ask-your-grandparents">Questions for grandparents</a>
       <a href="/record-your-parents-stories">Record parents' stories</a>
+      <a href="/how-to-get-parents-to-share-stories">When parents won't write</a>
+      <a href="/how-to-save-voicemails">Save voicemails</a>
     </div>
     <div><h5>Together &amp; later</h5>
       <a href="/family-movie-night">Family movie night</a>
+      <a href="/turn-photos-into-a-video">Turn photos into a video</a>
       <a href="/memory-gift">Give Roon as a gift</a>
       <a href="/storyworth-alternative">StoryWorth alternative</a>
+      <a href="/remento-alternative">Remento alternative</a>
+      <a href="/storyworth-vs-remento">StoryWorth vs Remento</a>
       <a href="/digital-legacy">Digital legacy</a>
       <a href="/#beta">Join the beta</a>
     </div>
