@@ -388,6 +388,14 @@ table.cmp2 td{color:var(--ink-2)}
 .save{background:rgba(143,195,232,.13)}
 .b-o{border-color:rgba(255,255,255,.28)}
 input::placeholder{color:rgba(245,242,236,.4)}
+.actgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:38px}
+.actcell{margin:0}
+.actframe{border-radius:26px;border:8px solid #17121D;background:#17121D;overflow:hidden;box-shadow:0 30px 56px -30px rgba(0,0,0,.6)}
+.actframe video{display:block;width:100%;aspect-ratio:390/844;object-fit:cover;background:#0D0E13}
+.actcell figcaption{margin-top:14px;font-size:15px;line-height:1.55;color:var(--ink-2)}
+.actcell figcaption strong{display:block;color:var(--ink);font-size:16px;margin-bottom:4px}
+@media(max-width:980px){.actgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:420px){.actgrid{grid-template-columns:1fr}.actframe{max-width:320px;margin:0 auto}}
 </style>
 <script type="application/ld+json">{
  "@context": "https://schema.org",
@@ -540,7 +548,15 @@ input::placeholder{color:rgba(245,242,236,.4)}
 </div></section>
 <section class="sec "><div class="wrap"><div class="rv"><p class="eyeb">movie night</p><h2 class="big">Made to be <em>watched together.</em></h2>
  <p class="lead">Every January, Rooney turns your year into a film &mdash; the happiest moments, the hardest ones, and who mattered most. It&rsquo;s made to be watched together: family movie night, the way families used to gather around home movies and VHS tapes. Press play, sit on the same couch, and watch your year. <a href="/family-movie-night" style="color:var(--coral);font-weight:600">More on family movie night &rarr;</a></p>
- <p class="lead">And underneath the film is the daily work no slideshow does: you don&rsquo;t sort, tag, or make albums. Rooney writes your moments into chapters with names, finds any memory by person, place, time, or what&rsquo;s in it, and combines photos, video, voice, and writing into one story. When something&rsquo;s missing, Rooney prompts you. Apple and Google show you files. Rooney asks, writes, and remembers why.</p></div></section><section class="sec "><div class="wrap"><div class="rv"><div class="promise rv d1">
+ <p class="lead">And underneath the film is the daily work no slideshow does: you don&rsquo;t sort, tag, or make albums. Rooney writes your moments into chapters with names, finds any memory by person, place, time, or what&rsquo;s in it, and combines photos, video, voice, and writing into one story. When something&rsquo;s missing, Rooney prompts you. Apple and Google show you files. Rooney asks, writes, and remembers why.</p></div></section><section class="sec "><div class="wrap"><div class="rv"><p class="eyeb">rooney, working</p><h2 class="big">Don&rsquo;t take our word for it. <em>Watch her work.</em></h2>
+<p class="lead" style="max-width:62ch">Everything below is the real product, recorded from it &mdash; Rooney doing the work this page just described, on one family&rsquo;s archive.</p>
+<div class="actgrid">
+  <figure class="actcell"><div class="actframe"><video autoplay muted loop playsinline preload="metadata" poster="assets/watch/film-frame-poster.jpg" aria-label="A film playing inside the real product"><source src="assets/action/rooney-film-playing.webm" type="video/webm"><source src="assets/action/rooney-film-playing.mp4" type="video/mp4"></video></div><figcaption><strong>The films, playing.</strong> Not one film &mdash; every year, every thread, every ask can become one. Chapter titles as intertitles, the family&rsquo;s own captions as the words.</figcaption></figure>
+  <figure class="actcell"><div class="actframe"><video autoplay muted loop playsinline preload="metadata" poster="assets/watch/film-frame-poster.jpg" aria-label="Rooney assembling a thread across the years"><source src="assets/action/rooney-thread-assembling.webm" type="video/webm"><source src="assets/action/rooney-thread-assembling.mp4" type="video/mp4"></video></div><figcaption><strong>A thread, assembling.</strong> One garden, five summers &mdash; every matching photo and video lining up in date order, gathered by Rooney, not by hand.</figcaption></figure>
+  <figure class="actcell"><div class="actframe"><video autoplay muted loop playsinline preload="metadata" poster="assets/watch/film-frame-poster.jpg" aria-label="A moment opening full-screen in the viewer"><source src="assets/action/rooney-viewer.webm" type="video/webm"><source src="assets/action/rooney-viewer.mp4" type="video/mp4"></video></div><figcaption><strong>A moment, full-screen.</strong> Tap any photo and the lights go down &mdash; her words about it, the people who loved it, one tap from its thread.</figcaption></figure>
+  <figure class="actcell"><div class="actframe"><video autoplay muted loop playsinline preload="metadata" poster="assets/watch/film-frame-poster.jpg" aria-label="Rooney's questions waiting for the family"><source src="assets/action/rooney-questions.webm" type="video/webm"><source src="assets/action/rooney-questions.mp4" type="video/mp4"></video></div><figcaption><strong>The questions.</strong> Specific, personal, asked about real moments &mdash; and the answers kept with the photos they belong to.</figcaption></figure>
+</div>
+</div></div></section><section class="sec "><div class="wrap"><div class="rv"><div class="promise rv d1">
       <h4>What Rooney will never do</h4>
       <p><strong>It will never invent a memory.</strong> Every word comes from something you gave it. If it doesn't know, it asks &mdash; it doesn't fill the gap.</p>
       <p><strong>It will never impersonate someone.</strong> Roon preserves the people you love. It does not simulate them, generate their voice, or pretend to speak as them. That line will not move.</p>
@@ -595,7 +611,7 @@ input::placeholder{color:rgba(245,242,236,.4)}
       <a href="/what-is-a-family-story">Why stories matter</a>
       <a href="/our-story">Our story</a>
       <a href="/#pricing">Pricing</a>
-      <a href="/dashboard">See inside Roon</a>
+      <a href="/dashboard">See for yourself</a>
     </div>
     <div><h5>Your photos</h5>
       <a href="/preserve-family-photos">Preserve family photos</a>

@@ -418,6 +418,12 @@ footer .fsmall{font-family:'Inter',sans-serif;font-style:normal;font-size:12.5px
 .wch-try{font-size:15px;font-weight:600;margin:0 0 14px}
 .wch-phone{position:relative;width:100%;max-width:390px;margin:0 auto;border-radius:38px;border:10px solid #17121d;background:#17121d;box-shadow:0 34px 64px -34px var(--sh);overflow:hidden}
 .wch-phone iframe{display:block;width:100%;height:auto;aspect-ratio:390/844;border:0;border-radius:27px;background:#120E16;visibility:hidden}
+#askChips .ask{cursor:pointer;font:inherit;text-align:left}
+#askChips .ask:hover{border-color:var(--coral)}
+#askChips .ask-on{background:linear-gradient(112deg,#0C7BB3,#7F9BCE 52%,#F2BAE8);color:#fff;border-color:transparent}
+#askNow{margin-top:18px;font-size:15.5px;line-height:1.6;color:var(--ink-2);max-width:54ch}
+#askNow strong{color:var(--ink)}
+.actvid{display:block;width:100%;aspect-ratio:390/844;object-fit:cover;background:#0D0E13}
 .wch-pill{position:absolute;top:16px;left:50%;transform:translateX(-50%);z-index:3;background:rgba(18,14,22,.85);color:#F7F1EC;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 13px;border-radius:100px;backdrop-filter:blur(6px);pointer-events:none}
 .wch-fallback{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:15px;background:#17121d;color:#F7F1EC;text-align:center;padding:26px}
 .wch-fallback img{width:70%;border-radius:14px;display:block}
@@ -492,7 +498,7 @@ input::placeholder{color:rgba(245,242,236,.4)}
         <button class="btn b-g" onclick="go('#beta')">Join the beta
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
-        <a href='/dashboard'><button class="btn b-l">See inside Roon</button></a>
+        <a href='/dashboard'><button class="btn b-l">See for yourself</button></a>
       </div>
     </div>
     <div class="narr">
@@ -600,6 +606,60 @@ input::placeholder{color:rgba(245,242,236,.4)}
 </section>
 <script>(function(){var f=document.getElementById('wchFrame'),fb=document.getElementById('wchFallback');if(!f)return;f.addEventListener('load',function(){f.style.visibility='visible';if(fb)fb.style.display='none'})})();</script>
 
+<!-- ============ ASK -> FILM ============ -->
+<section class="sec" id="askfilm" style="background:linear-gradient(180deg,#101118,#0D0E13)">
+  <div class="wrap">
+    <div class="rv"><p class="eyeb">ask rooney &middot; she makes films</p>
+    <h2 class="big">Ask in plain words. <em>Then press play.</em></h2></div>
+    <div class="wch-row">
+      <div class="rv">
+        <p class="lead" style="max-width:54ch">This is how it starts: you ask in plain words &mdash; <em>every birthday</em>, <em>the dog in every year</em>, <em>Grandma&rsquo;s garden</em> &mdash; and Rooney reads the whole archive and gathers every matching photo and video across the years, in date order. That&rsquo;s a thread. Follow it, and it can close your Year Film: the year&rsquo;s photos on screen as one film, chapter titles as intertitles, your family&rsquo;s own captions as the words.</p>
+        <p class="lead" style="max-width:54ch">And it never stops at one film. Every thread can become a film, every year in the archive can play as a film, every new ask makes another &mdash; Rooney keeps making films, inside Roon, from the archive your family already has, for as long as you keep living it.</p>
+        <div class="askrow" id="askChips">
+          <button type="button" class="ask" data-ask="film-garden">&ldquo;Make a film &mdash; close it with Grandma&rsquo;s garden&rdquo;</button>
+          <button type="button" class="ask" data-ask="thread-birth">&ldquo;Every birthday, in order&rdquo;</button>
+          <button type="button" class="ask" data-ask="thread-dino">&ldquo;Dinosaurs &mdash; every summer&rdquo;</button>
+          <button type="button" class="ask" data-ask="film-year">&ldquo;Our 2025, as a film&rdquo;</button>
+        </div>
+        <p id="askNow" aria-live="polite"><strong>Now playing:</strong> the 2025 film, closing with the garden thread.</p>
+      </div>
+      <div class="rv">
+        <p class="wch-try">The real product, playing &mdash; pick an ask:</p>
+        <div class="wch-phone">
+          <div class="wch-fallback" id="askFallback"><img src="assets/watch/film-frame-poster.jpg" alt="" style="width:120px;border-radius:14px"><p style="margin:0;font-size:14.5px;line-height:1.5">The sample is loading &mdash; the film starts playing in this frame in a moment.</p></div>
+          <iframe id="askFrame" src="assets/watch/demo/app.html" title="See Roon for yourself — ask Rooney and watch the film" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>(function(){
+var f=document.getElementById('askFrame'),fb=document.getElementById('askFallback'),now=document.getElementById('askNow');if(!f)return;
+var GARDENS='thr_b9e51c83f33adac898',BIRTH='thr_fea6feee44751599b9',DINO='thr_5cd11a25d239b68452',booted=false;
+function dw(){try{return f.contentWindow;}catch(e){return null;}}
+function dd(){var w=dw();try{return w&&w.document;}catch(e){return null;}}
+function setHash(h){var w=dw();if(w){try{w.location.hash=h;}catch(e){}}}
+function say(t){if(now)now.innerHTML=t;}
+function goThread(id){var t='#/thread/'+id;setHash(t);[2500,5500].forEach(function(ms){setTimeout(function(){var w=dw();if(w&&w.location.hash!==t)setHash(t);},ms);});}
+function driveFilm(tid){
+  setHash('#/film');var n=0;
+  (function poll(){if(n%8===0)setHash('#/film');var d=dd();if(d){var sel=d.querySelector('#film-thread');
+    if(sel){var yr=d.querySelector('#film-year');if(yr)yr.value='2025';sel.value=tid||'';var p=d.querySelector('#film-play');if(p){p.click();return;}}}
+    if(++n<60)setTimeout(poll,300);})();
+}
+function drive(kind){
+  var d=dd();var ex=d&&d.querySelector('#fp-exit');if(ex)ex.click();
+  if(kind==='film-garden'){driveFilm(GARDENS);say('<strong>Now playing:</strong> the 2025 film — closing with the garden thread: Grandma June’s garden, gathered from 2021 to 2025.');}
+  else if(kind==='film-year'){driveFilm('');say('<strong>Now playing:</strong> the 2025 film — the year’s photos in date order, chapter titles as intertitles, the family’s own captions on screen. There’s one for every year in the archive.');}
+  else if(kind==='thread-birth'){goThread(BIRTH);say('<strong>In the frame:</strong> the Birthdays thread — every birthday in the archive, photos and video together, in date order. A followed thread like this one can close the Year Film.');}
+  else if(kind==='thread-dino'){goThread(DINO);say('<strong>In the frame:</strong> the Dinosaurs thread — the phase that kept coming back, nine moments gathered across the summers.');}
+}
+var chips=document.querySelectorAll('#askChips [data-ask]');
+function mark(b){for(var i=0;i<chips.length;i++)chips[i].classList.remove('ask-on');if(b)b.classList.add('ask-on');}
+for(var i=0;i<chips.length;i++)(function(b){b.addEventListener('click',function(){mark(b);drive(b.getAttribute('data-ask'));});})(chips[i]);
+f.addEventListener('load',function(){f.style.visibility='visible';if(fb)fb.style.display='none';if(!booted){booted=true;setTimeout(function(){mark(document.querySelector('#askChips [data-ask="film-garden"]'));drive('film-garden');},1000);}});
+})();</script>
+
 <!-- ============ THREADS ============ -->
 <section class="sec" id="threads">
   <div class="wrap">
@@ -622,6 +682,21 @@ input::placeholder{color:rgba(245,242,236,.4)}
     <p class="lead rv" style="margin-top:42px;max-width:66ch">Rooney follows threads like these on its own &mdash; people, places, and days that keep coming back across your photos, video, voice, and words. And you can ask for a thread of your own &mdash; a person, a place, an occasion, a date that returns: Rooney gathers everything that belongs to it, in date order, and writes the mini-story.</p>
     <div class="askrow rv"><span class="ask">All her firsts</span><span class="ask">Every haircut, year by year</span><span class="ask">Every birthday cake</span><span class="ask">First days of school, side by side</span><span class="ask">The dog in every single year</span><span class="ask">Every photo at Grandma&rsquo;s table</span><span class="ask">Every beach house</span><span class="ask">Everything she ever carried home from a walk</span></div>
     <p class="illu rv">Yours will be followed in your own photos, video, voice, and words &mdash; and named by someone who&rsquo;s read all of it.</p>
+    <div class="wch-row rv" style="align-items:center">
+      <div>
+        <div class="wch-phone">
+          <video class="actvid" autoplay muted loop playsinline preload="metadata" poster="assets/watch/film-frame-poster.jpg" aria-label="Rooney assembling the garden thread across the years, inside the real product">
+            <source src="assets/action/rooney-thread-assembling.webm" type="video/webm">
+            <source src="assets/action/rooney-thread-assembling.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div>
+        <p class="eyeb">rooney, working</p>
+        <h3 style="font-family:'Instrument Serif',Georgia,serif;font-weight:500;font-size:clamp(26px,3vw,38px);line-height:1.12;margin:0 0 14px">Watch a thread <em style="color:var(--coral)">assemble itself.</em></h3>
+        <p class="lead" style="max-width:52ch">This is the garden thread inside the real product &mdash; one garden, five summers, every matching moment lining up in date order. Nobody dragged anything into a folder. Rooney read the archive and gathered it &mdash; and a thread gathered like this can close a film.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -807,7 +882,7 @@ input::placeholder{color:rgba(245,242,236,.4)}
       <a href="/what-is-a-family-story">Why stories matter</a>
       <a href="/our-story">Our story</a>
       <a href="/#pricing">Pricing</a>
-      <a href="/dashboard">See inside Roon</a>
+      <a href="/dashboard">See for yourself</a>
     </div>
     <div><h5>Your photos</h5>
       <a href="/preserve-family-photos">Preserve family photos</a>

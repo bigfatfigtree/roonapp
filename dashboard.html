@@ -190,6 +190,18 @@ footer nav a:hover{color:var(--ink)}
 @media(min-width:901px){.toast{bottom:24px}}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
+.askchips{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+.askchip{border:1px solid var(--line2);background:var(--card);color:var(--ink);border-radius:999px;padding:10px 17px;font-size:14.5px;cursor:pointer;font:inherit}
+.askchip:hover{border-color:var(--accent)}
+.askchip.on{background:linear-gradient(112deg,#0C7BB3,#7F9BCE 52%,#F2BAE8);color:#fff;border-color:transparent}
+.askhint{margin-top:14px;font-size:15px;line-height:1.55;color:var(--ink2);min-height:1.4em}
+.askhint strong{color:var(--ink)}
+.storyfilm{display:grid;grid-template-columns:300px 1fr;gap:34px;align-items:center;margin-top:46px}
+.sf-frame{border-radius:30px;border:9px solid #17121D;background:#17121D;overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.65)}
+.sf-frame video{display:block;width:100%;aspect-ratio:390/844;object-fit:cover;background:#0D0E13}
+.sf-copy h3{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(24px,2.8vw,32px);margin:0 0 12px;line-height:1.15}
+.sf-copy p{color:var(--ink2);font-size:15.5px;line-height:1.65;margin:0 0 18px;max-width:54ch}
+@media(max-width:760px){.storyfilm{grid-template-columns:1fr}.sf-frame{max-width:320px;width:100%;margin:0 auto}}
 </style>
 </head>
 <body>
@@ -198,7 +210,7 @@ footer nav a:hover{color:var(--ink)}
   <div class="in">
     <a class="brand" href="/"><img src="assets/brand/logo-light.png" alt="Roon"></a>
     <nav class="pill" aria-label="Page">
-      <a href="#stage">Try Roon</a>
+      <a href="#stage">See for yourself</a>
       <a href="#pricing" class="hideS">Pricing</a>
       <a href="#letters" class="hideS">Letters</a>
       <button class="join" onclick="goSignup()">Join the beta</button>
@@ -236,6 +248,39 @@ footer nav a:hover{color:var(--ink)}
       </div>
     </div>
   </div>
+
+  <!-- ===== ASK HER: prompt chips that drive the stage ===== -->
+  <section id="ask" style="scroll-margin-top:84px">
+    <p class="eyeb">ask her &middot; then watch</p>
+    <h2 class="sec">Ask in plain words — <em>she gathers it, and makes films from it.</em></h2>
+    <p class="lead">An ask becomes a thread. A followed thread can close a film. Every year can play as a film. Roon is a living product that keeps making them &mdash; tap an ask and watch the real product, below, do it.</p>
+    <div class="askchips">
+      <button type="button" class="askchip" onclick="dashAsk(this,'film-garden')">&ldquo;Make a film &mdash; close it with Grandma&rsquo;s garden&rdquo;</button>
+      <button type="button" class="askchip" onclick="dashAsk(this,'thread-birth')">&ldquo;Every birthday, in order&rdquo;</button>
+      <button type="button" class="askchip" onclick="dashAsk(this,'thread-dino')">&ldquo;Dinosaurs &mdash; every summer&rdquo;</button>
+      <button type="button" class="askchip" onclick="dashAsk(this,'film-year')">&ldquo;Our 2025, as a film&rdquo;</button>
+    </div>
+    <p class="askhint" id="dashAskNow" aria-live="polite"></p>
+  </section>
+  <script>
+  function dashAsk(btn,kind){
+    var f=document.getElementById('appFrame');if(!f)return;
+    var chips=document.querySelectorAll('.askchip');for(var i=0;i<chips.length;i++)chips[i].classList.remove('on');if(btn)btn.classList.add('on');
+    if(typeof goStage==='function')goStage();
+    var G='thr_b9e51c83f33adac898',B='thr_fea6feee44751599b9',D='thr_5cd11a25d239b68452';
+    var now=document.getElementById('dashAskNow');
+    function dw(){try{return f.contentWindow;}catch(e){return null;}}
+    function dd(){var w=dw();try{return w&&w.document;}catch(e){return null;}}
+    function setHash(h){var w=dw();if(w){try{w.location.hash=h;}catch(e){}}}
+    function film(tid){setHash('#/film');var n=0;(function poll(){if(n%8===0)setHash('#/film');var d=dd();if(d){var sel=d.querySelector('#film-thread');if(sel){var yr=d.querySelector('#film-year');if(yr)yr.value='2025';sel.value=tid||'';var p=d.querySelector('#film-play');if(p){p.click();return;}}}if(++n<60)setTimeout(poll,300);})();}
+    function goThread(id){var t='#/thread/'+id;setHash(t);[2500,5500].forEach(function(ms){setTimeout(function(){var w=dw();if(w&&w.location.hash!==t)setHash(t);},ms);});}
+    var d0=dd();var ex=d0&&d0.querySelector('#fp-exit');if(ex)ex.click();
+    if(kind==='film-garden'){film(G);if(now)now.innerHTML='<strong>Playing in Roon, below:</strong> the 2025 film — closing with the garden thread, gathered from 2021 to 2025.';}
+    else if(kind==='film-year'){film('');if(now)now.innerHTML='<strong>Playing in Roon, below:</strong> the 2025 film — the year’s photos in date order. There’s one for every year in the archive.';}
+    else if(kind==='thread-birth'){goThread(B);if(now)now.innerHTML='<strong>In Roon, below:</strong> the Birthdays thread — every birthday, photos and video together, in date order.';}
+    else if(kind==='thread-dino'){goThread(D);if(now)now.innerHTML='<strong>In Roon, below:</strong> the Dinosaurs thread — nine moments gathered across the summers.';}
+  }
+  </script>
 
   <!-- ===== THE STAGE: the working product, mounted large ===== -->
   <section id="stage" style="scroll-margin-top:84px">
@@ -306,6 +351,20 @@ footer nav a:hover{color:var(--ink)}
         <div class="gt3">The Same Garden — made for Grandma</div>
         <p>Rooney finished this story from six years of her garden, ending at her table. It is packaged as a gift: she can watch it on any screen — no account, no app.</p>
         <div class="gift-a"><button class="btn grad" onclick="goStage()">Watch it in Roon</button><button class="btn" onclick="goSignup()">Start your family&rsquo;s story</button></div>
+      </div>
+    </div>
+    <div class="storyfilm">
+      <div class="sf-frame">
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/watch/film-frame-poster.jpg" aria-label="A Year Film playing inside the real product">
+          <source src="assets/action/rooney-film-playing.webm" type="video/webm">
+          <source src="assets/action/rooney-film-playing.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="sf-copy">
+        <p class="eyeb">and this is a film</p>
+        <h3>Press play on a year.</h3>
+        <p>Recorded from the product itself: a year of photos playing as one film &mdash; chapter titles as intertitles, the family&rsquo;s own captions as the words, a followed thread as the finale. There isn&rsquo;t one film in Roon &mdash; there&rsquo;s one for every year, every thread, every ask. She keeps making them.</p>
+        <button class="btn grad" onclick="dashAsk(null,'film-garden')">Play it in Roon</button>
       </div>
     </div>
   </section>
@@ -381,7 +440,7 @@ footer nav a:hover{color:var(--ink)}
   <div class="closing">
     <p class="disc2">Roon is in private beta &mdash; a small first group, at founding pricing, locked for as long as you stay.</p>
     <h2>Roon turns your family&rsquo;s photos, video, and voice into written chapters — the story, not just the files.</h2>
-    <button class="btn grad" onclick="goStage()">Try Roon once more</button>
+    <button class="btn grad" onclick="goStage()">See for yourself once more</button>
     <div class="beta" id="signup2">
       <span class="bpill"><i></i>Private beta &middot; now forming</span>
       <h2>Start your family&rsquo;s story.</h2>
@@ -416,7 +475,7 @@ footer nav a:hover{color:var(--ink)}
 <footer>
   <div class="in">
     <a href="/"><img src="assets/brand/logo-light.png" alt="Roon"></a>
-    <nav><a href="#stage">Try Roon</a><a href="#pricing">Pricing</a><a href="#letters">Letters</a><a href="/">Home</a></nav>
+    <nav><a href="#stage">See for yourself</a><a href="#pricing">Pricing</a><a href="#letters">Letters</a><a href="/">Home</a></nav>
   </div>
 </footer>
 

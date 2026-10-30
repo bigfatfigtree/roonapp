@@ -1,11 +1,14 @@
 // Roon interactive demo — baked sample-family data.
 // Captured 2026-10-30 (populate-media + go-live bake): throwaway instances of the
 // current app server on hermetic COPIES of db.json; real app/data/db.json md5
-// f8d8ac401d6ce60045fbccd2a3af48d0 verified unchanged before/after both stages. Sample family
-// fam_b44fd40e9d36256d3b. Keys are "METHOD path?sortedquery" — 251 keys, all HTTP 200.
+// 0ebba7678e251db5fd26291b87828d2d verified unchanged before/after. Sample family
+// fam_b44fd40e9d36256d3b. Keys are "METHOD path?sortedquery" — 256 keys, all HTTP 200.
 // Stage 1 (capture.py): previous-bake key replay + Playwright UI journey.
 // Stage 2 (supplement.py): id-dependent keys re-enumerated from the reseeded
 // store (all thread details, comments, per-person/per-month feeds, film years).
+// Stage 3 (film_thread_supplement.py): film keys with the followed Gardens
+// thread as the closing segment (film/<year>?thread=<id>), captured the
+// same way, for the Rooney-in-action showcase deep links.
 // Bake transforms: "/media/..." URLs rewritten to relative "media/...";
 // capture-origin URLs made relative; prompt replyToken fields stripped;
 // guest-link token + url fields stripped (signed credentials, same class);
@@ -29869,5 +29872,953 @@ window.ROON_DEMO_DATA = {
     "commentCount": 0
    }
   ]
+ },
+ "GET /api/families/fam_b44fd40e9d36256d3b/film/2021?thread=thr_b9e51c83f33adac898": {
+  "year": 2021,
+  "film": [
+   {
+    "memoryId": "mem_54bc7a84815e545002",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_54bc7a84815e545002-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_54bc7a84815e545002-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_54bc7a84815e545002-web.jpg",
+    "takenAt": "2021-06-05T15:00:00.000Z",
+    "caption": "Rooney, three, all curls",
+    "storyText": "",
+    "intertitle": "The Summer of Gardens",
+    "chapterTitle": "The Summer of Gardens"
+   },
+   {
+    "memoryId": "mem_fc2c9720b282443477",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_fc2c9720b282443477-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_fc2c9720b282443477-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_fc2c9720b282443477-web.jpg",
+    "takenAt": "2021-06-05T15:00:00.000Z",
+    "caption": "June shows Rooney how peas climb",
+    "storyText": "",
+    "intertitle": "The Summer of Gardens",
+    "chapterTitle": "The Summer of Gardens"
+   },
+   {
+    "memoryId": "mem_ec56ae9a061e71a5ab",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_ec56ae9a061e71a5ab-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_ec56ae9a061e71a5ab-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_ec56ae9a061e71a5ab-web.jpg",
+    "takenAt": "2021-06-26T15:00:00.000Z",
+    "caption": "Tomato rows in Grandma's garden",
+    "storyText": "",
+    "intertitle": "The Summer of Gardens",
+    "chapterTitle": "The Summer of Gardens"
+   },
+   {
+    "memoryId": "mem_ec56ae9a061e71a5ab",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_ec56ae9a061e71a5ab-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_ec56ae9a061e71a5ab-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_ec56ae9a061e71a5ab-web.jpg",
+    "takenAt": "2021-06-26T15:00:00.000Z",
+    "caption": "Tomato rows in Grandma's garden",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_4b70ed96ef67b29f65",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_4b70ed96ef67b29f65-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_4b70ed96ef67b29f65-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_4b70ed96ef67b29f65-web.jpg",
+    "takenAt": "2023-06-17T15:00:00.000Z",
+    "caption": "The garden gate, painted blue",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_63f222abc7f392d012",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_63f222abc7f392d012-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_63f222abc7f392d012-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_63f222abc7f392d012-web.jpg",
+    "takenAt": "2023-07-08T15:00:00.000Z",
+    "caption": "Grandma June in the garden, gloves on",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_01399d6dba81c181c9",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_01399d6dba81c181c9-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_01399d6dba81c181c9-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_01399d6dba81c181c9-web.jpg",
+    "takenAt": "2024-06-15T15:00:00.000Z",
+    "caption": "Milo waters the garden his own way",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_fb3e71ff2665bb362b",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_fb3e71ff2665bb362b-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_fb3e71ff2665bb362b-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_fb3e71ff2665bb362b-web.jpg",
+    "takenAt": "2024-07-27T15:00:00.000Z",
+    "caption": "The garden, taller than Milo",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_2470198b42e1c9e540",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_2470198b42e1c9e540-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_2470198b42e1c9e540-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_2470198b42e1c9e540-web.jpg",
+    "takenAt": "2025-06-21T15:00:00.000Z",
+    "caption": "Grandma's garden, sixth summer",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   }
+  ],
+  "count": 9
+ },
+ "GET /api/families/fam_b44fd40e9d36256d3b/film/2022?thread=thr_b9e51c83f33adac898": {
+  "year": 2022,
+  "film": [
+   {
+    "memoryId": "mem_a371734fd704a21023",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_a371734fd704a21023-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_a371734fd704a21023-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_a371734fd704a21023-web.jpg",
+    "takenAt": "2022-04-09T15:00:00.000Z",
+    "caption": "Milo, one and a half, all cheeks",
+    "storyText": "",
+    "intertitle": "The Spring of Birthdays",
+    "chapterTitle": "The Spring of Birthdays"
+   },
+   {
+    "memoryId": "mem_2624af56c403e9b350",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_2624af56c403e9b350-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_2624af56c403e9b350-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_2624af56c403e9b350-web.jpg",
+    "takenAt": "2022-04-09T16:00:00.000Z",
+    "caption": "Sharing the good crayons",
+    "storyText": "",
+    "intertitle": "The Spring of Birthdays",
+    "chapterTitle": "The Spring of Birthdays"
+   },
+   {
+    "memoryId": "mem_af4b52e146f5edf5f2",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_af4b52e146f5edf5f2-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_af4b52e146f5edf5f2-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_af4b52e146f5edf5f2-web.jpg",
+    "takenAt": "2022-04-16T15:00:00.000Z",
+    "caption": "Rooney's fourth birthday, the cake with claws",
+    "storyText": "",
+    "intertitle": "The Spring of Birthdays",
+    "chapterTitle": "The Spring of Birthdays"
+   },
+   {
+    "memoryId": "mem_2f6e011eab75e67503",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_2f6e011eab75e67503-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_2f6e011eab75e67503-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_2f6e011eab75e67503-web.jpg",
+    "takenAt": "2022-06-11T15:00:00.000Z",
+    "caption": "Rooney waters the pavement, calls it rain",
+    "storyText": "",
+    "intertitle": "The Summer of Dinosaurs",
+    "chapterTitle": "The Summer of Dinosaurs"
+   },
+   {
+    "memoryId": "mem_cdc89eb41ae2bae21e",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_cdc89eb41ae2bae21e-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_cdc89eb41ae2bae21e-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_cdc89eb41ae2bae21e-web.jpg",
+    "takenAt": "2022-06-11T16:00:00.000Z",
+    "caption": "Grandma June braids his curls, very serious work",
+    "storyText": "",
+    "intertitle": "The Summer of Dinosaurs",
+    "chapterTitle": "The Summer of Dinosaurs"
+   },
+   {
+    "memoryId": "mem_5f2a3fed4908bb1434",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_5f2a3fed4908bb1434-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_5f2a3fed4908bb1434-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_5f2a3fed4908bb1434-web.jpg",
+    "takenAt": "2022-06-18T15:00:00.000Z",
+    "caption": "First bike, bell and all",
+    "storyText": "",
+    "intertitle": "The Summer of Dinosaurs",
+    "chapterTitle": "The Summer of Dinosaurs"
+   },
+   {
+    "memoryId": "mem_ec56ae9a061e71a5ab",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_ec56ae9a061e71a5ab-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_ec56ae9a061e71a5ab-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_ec56ae9a061e71a5ab-web.jpg",
+    "takenAt": "2021-06-26T15:00:00.000Z",
+    "caption": "Tomato rows in Grandma's garden",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_4b70ed96ef67b29f65",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_4b70ed96ef67b29f65-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_4b70ed96ef67b29f65-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_4b70ed96ef67b29f65-web.jpg",
+    "takenAt": "2023-06-17T15:00:00.000Z",
+    "caption": "The garden gate, painted blue",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_63f222abc7f392d012",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_63f222abc7f392d012-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_63f222abc7f392d012-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_63f222abc7f392d012-web.jpg",
+    "takenAt": "2023-07-08T15:00:00.000Z",
+    "caption": "Grandma June in the garden, gloves on",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_01399d6dba81c181c9",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_01399d6dba81c181c9-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_01399d6dba81c181c9-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_01399d6dba81c181c9-web.jpg",
+    "takenAt": "2024-06-15T15:00:00.000Z",
+    "caption": "Milo waters the garden his own way",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_fb3e71ff2665bb362b",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_fb3e71ff2665bb362b-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_fb3e71ff2665bb362b-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_fb3e71ff2665bb362b-web.jpg",
+    "takenAt": "2024-07-27T15:00:00.000Z",
+    "caption": "The garden, taller than Milo",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_2470198b42e1c9e540",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_2470198b42e1c9e540-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_2470198b42e1c9e540-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_2470198b42e1c9e540-web.jpg",
+    "takenAt": "2025-06-21T15:00:00.000Z",
+    "caption": "Grandma's garden, sixth summer",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   }
+  ],
+  "count": 12
+ },
+ "GET /api/families/fam_b44fd40e9d36256d3b/film/2023?thread=thr_b9e51c83f33adac898": {
+  "year": 2023,
+  "film": [
+   {
+    "memoryId": "mem_12c0caecfb0c0da7de",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_12c0caecfb0c0da7de-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_12c0caecfb0c0da7de-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_12c0caecfb0c0da7de-web.jpg",
+    "takenAt": "2023-04-08T15:00:00.000Z",
+    "caption": "Grandma June's porch, waiting on the spring",
+    "storyText": "",
+    "intertitle": "The Spring of Birthdays",
+    "chapterTitle": "The Spring of Birthdays"
+   },
+   {
+    "memoryId": "mem_ca71de709a423445c4",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_ca71de709a423445c4-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_ca71de709a423445c4-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_ca71de709a423445c4-web.jpg",
+    "takenAt": "2023-04-15T15:00:00.000Z",
+    "caption": "Rooney's birthday, five candles",
+    "storyText": "",
+    "intertitle": "The Spring of Birthdays",
+    "chapterTitle": "The Spring of Birthdays"
+   },
+   {
+    "memoryId": "mem_639c875daf7b901106",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_639c875daf7b901106-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_639c875daf7b901106-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_639c875daf7b901106-web.jpg",
+    "takenAt": "2023-06-10T15:00:00.000Z",
+    "caption": "Rooney on the blue bike, no hands (almost)",
+    "storyText": "",
+    "intertitle": "The Summer of Dinosaurs",
+    "chapterTitle": "The Summer of Dinosaurs"
+   },
+   {
+    "memoryId": "mem_4b70ed96ef67b29f65",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_4b70ed96ef67b29f65-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_4b70ed96ef67b29f65-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_4b70ed96ef67b29f65-web.jpg",
+    "takenAt": "2023-06-17T15:00:00.000Z",
+    "caption": "The garden gate, painted blue",
+    "storyText": "",
+    "intertitle": "The Summer of Dinosaurs",
+    "chapterTitle": "The Summer of Dinosaurs"
+   },
+   {
+    "memoryId": "mem_7f07a5581eaf9170f5",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_7f07a5581eaf9170f5-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_7f07a5581eaf9170f5-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_7f07a5581eaf9170f5-web.jpg",
+    "takenAt": "2023-06-24T15:00:00.000Z",
+    "caption": "The dinosaur she drew at four, still up",
+    "storyText": "",
+    "intertitle": "The Summer of Dinosaurs",
+    "chapterTitle": "The Summer of Dinosaurs"
+   },
+   {
+    "memoryId": "mem_408cca4804787ed824",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_408cca4804787ed824-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_408cca4804787ed824-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_408cca4804787ed824-web.jpg",
+    "takenAt": "2023-07-02T15:00:00.000Z",
+    "caption": "Ocean morning, before the crowds",
+    "storyText": "",
+    "intertitle": "The Summer of Dinosaurs",
+    "chapterTitle": "The Summer of Dinosaurs"
+   },
+   {
+    "memoryId": "mem_63f222abc7f392d012",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_63f222abc7f392d012-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_63f222abc7f392d012-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_63f222abc7f392d012-web.jpg",
+    "takenAt": "2023-07-08T15:00:00.000Z",
+    "caption": "Grandma June in the garden, gloves on",
+    "storyText": "",
+    "intertitle": "The Summer of Dinosaurs",
+    "chapterTitle": "The Summer of Dinosaurs"
+   },
+   {
+    "memoryId": "mem_8d8366c4037c349dd7",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_8d8366c4037c349dd7-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_8d8366c4037c349dd7-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_8d8366c4037c349dd7-web.jpg",
+    "takenAt": "2023-07-14T15:00:00.000Z",
+    "caption": "Pool afternoon · sample photo",
+    "storyText": "",
+    "intertitle": "The Summer of Dinosaurs",
+    "chapterTitle": "The Summer of Dinosaurs"
+   },
+   {
+    "memoryId": "mem_d9ce759843bca5c265",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_d9ce759843bca5c265-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_d9ce759843bca5c265-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_d9ce759843bca5c265-web.jpg",
+    "takenAt": "2023-07-16T15:00:00.000Z",
+    "caption": "Toy dinosaurs, lined up by size",
+    "storyText": "",
+    "intertitle": "The Summer of Dinosaurs",
+    "chapterTitle": "The Summer of Dinosaurs"
+   },
+   {
+    "memoryId": "mem_c6dcc84a9709e00e0f",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_c6dcc84a9709e00e0f-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_c6dcc84a9709e00e0f-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_c6dcc84a9709e00e0f-web.jpg",
+    "takenAt": "2023-07-22T15:00:00.000Z",
+    "caption": "Filming in the park · sample photo",
+    "storyText": "",
+    "intertitle": "The Summer of Dinosaurs",
+    "chapterTitle": "The Summer of Dinosaurs"
+   },
+   {
+    "memoryId": "mem_f9cc639af1d983489e",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_f9cc639af1d983489e-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_f9cc639af1d983489e-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_f9cc639af1d983489e-web.jpg",
+    "takenAt": "2023-07-29T15:00:00.000Z",
+    "caption": "Cake, approved · sample photo",
+    "storyText": "",
+    "intertitle": "The Summer of Dinosaurs",
+    "chapterTitle": "The Summer of Dinosaurs"
+   },
+   {
+    "memoryId": "mem_4a762c2bc960377d50",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_4a762c2bc960377d50-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_4a762c2bc960377d50-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_4a762c2bc960377d50-web.jpg",
+    "takenAt": "2023-09-02T15:00:00.000Z",
+    "caption": "Milo and the biggest leaf",
+    "storyText": "",
+    "intertitle": "Fall 2023 with Milo",
+    "chapterTitle": "Fall 2023 with Milo"
+   },
+   {
+    "memoryId": "mem_8d9e6c485794b4baed",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_8d9e6c485794b4baed-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_8d9e6c485794b4baed-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_8d9e6c485794b4baed-web.jpg",
+    "takenAt": "2023-09-09T15:00:00.000Z",
+    "caption": "Milo turns three, cake first",
+    "storyText": "",
+    "intertitle": "Fall 2023 with Milo",
+    "chapterTitle": "Fall 2023 with Milo"
+   },
+   {
+    "memoryId": "mem_71e2c7191a75d606a5",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_71e2c7191a75d606a5-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_71e2c7191a75d606a5-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_71e2c7191a75d606a5-web.jpg",
+    "takenAt": "2023-10-14T15:00:00.000Z",
+    "caption": "Pumpkin carving, Milo supervises",
+    "storyText": "",
+    "intertitle": "Fall 2023 with Milo",
+    "chapterTitle": "Fall 2023 with Milo"
+   },
+   {
+    "memoryId": "mem_4e9bdea78284d98733",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_4e9bdea78284d98733-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_4e9bdea78284d98733-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_4e9bdea78284d98733-web.jpg",
+    "takenAt": "2023-12-16T15:00:00.000Z",
+    "caption": "The tree goes up, Milo directs",
+    "storyText": "",
+    "intertitle": "The Winter of Christmas",
+    "chapterTitle": "The Winter of Christmas"
+   },
+   {
+    "memoryId": "mem_94fab9ff114312377c",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_94fab9ff114312377c-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_94fab9ff114312377c-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_94fab9ff114312377c-web.jpg",
+    "takenAt": "2023-12-25T15:00:00.000Z",
+    "caption": "Christmas morning, matching pajamas",
+    "storyText": "",
+    "intertitle": "The Winter of Christmas",
+    "chapterTitle": "The Winter of Christmas"
+   },
+   {
+    "memoryId": "mem_ec56ae9a061e71a5ab",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_ec56ae9a061e71a5ab-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_ec56ae9a061e71a5ab-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_ec56ae9a061e71a5ab-web.jpg",
+    "takenAt": "2021-06-26T15:00:00.000Z",
+    "caption": "Tomato rows in Grandma's garden",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_4b70ed96ef67b29f65",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_4b70ed96ef67b29f65-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_4b70ed96ef67b29f65-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_4b70ed96ef67b29f65-web.jpg",
+    "takenAt": "2023-06-17T15:00:00.000Z",
+    "caption": "The garden gate, painted blue",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_63f222abc7f392d012",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_63f222abc7f392d012-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_63f222abc7f392d012-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_63f222abc7f392d012-web.jpg",
+    "takenAt": "2023-07-08T15:00:00.000Z",
+    "caption": "Grandma June in the garden, gloves on",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_01399d6dba81c181c9",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_01399d6dba81c181c9-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_01399d6dba81c181c9-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_01399d6dba81c181c9-web.jpg",
+    "takenAt": "2024-06-15T15:00:00.000Z",
+    "caption": "Milo waters the garden his own way",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_fb3e71ff2665bb362b",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_fb3e71ff2665bb362b-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_fb3e71ff2665bb362b-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_fb3e71ff2665bb362b-web.jpg",
+    "takenAt": "2024-07-27T15:00:00.000Z",
+    "caption": "The garden, taller than Milo",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_2470198b42e1c9e540",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_2470198b42e1c9e540-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_2470198b42e1c9e540-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_2470198b42e1c9e540-web.jpg",
+    "takenAt": "2025-06-21T15:00:00.000Z",
+    "caption": "Grandma's garden, sixth summer",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   }
+  ],
+  "count": 22
+ },
+ "GET /api/families/fam_b44fd40e9d36256d3b/film/2024?thread=thr_b9e51c83f33adac898": {
+  "year": 2024,
+  "film": [
+   {
+    "memoryId": "mem_e18ef9b9ba986dc720",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_e18ef9b9ba986dc720-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_e18ef9b9ba986dc720-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_e18ef9b9ba986dc720-web.jpg",
+    "takenAt": "2024-04-06T15:00:00.000Z",
+    "caption": "Planting peas with Grandma June",
+    "storyText": "",
+    "intertitle": "The Spring of Birthdays",
+    "chapterTitle": "The Spring of Birthdays"
+   },
+   {
+    "memoryId": "mem_6fcc2eced27e195091",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_6fcc2eced27e195091-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_6fcc2eced27e195091-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_6fcc2eced27e195091-web.jpg",
+    "takenAt": "2024-04-13T15:00:00.000Z",
+    "caption": "Birthday breakfast in bed for Rooney",
+    "storyText": "",
+    "intertitle": "The Spring of Birthdays",
+    "chapterTitle": "The Spring of Birthdays"
+   },
+   {
+    "memoryId": "mem_70fd69ae3146cad340",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_70fd69ae3146cad340-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_70fd69ae3146cad340-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_70fd69ae3146cad340-web.jpg",
+    "takenAt": "2024-06-08T15:00:00.000Z",
+    "caption": "Rooney's sunflower, taller than her",
+    "storyText": "",
+    "intertitle": "The Summer of Dinosaurs",
+    "chapterTitle": "The Summer of Dinosaurs"
+   },
+   {
+    "memoryId": "mem_01399d6dba81c181c9",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_01399d6dba81c181c9-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_01399d6dba81c181c9-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_01399d6dba81c181c9-web.jpg",
+    "takenAt": "2024-06-15T15:00:00.000Z",
+    "caption": "Milo waters the garden his own way",
+    "storyText": "",
+    "intertitle": "The Summer of Dinosaurs",
+    "chapterTitle": "The Summer of Dinosaurs"
+   },
+   {
+    "memoryId": "mem_54cb15e5afe5f95cb0",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_54cb15e5afe5f95cb0-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_54cb15e5afe5f95cb0-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_54cb15e5afe5f95cb0-web.jpg",
+    "takenAt": "2024-07-06T15:00:00.000Z",
+    "caption": "Face to face with the museum dinosaur",
+    "storyText": "",
+    "intertitle": "The Summer of Dinosaurs",
+    "chapterTitle": "The Summer of Dinosaurs"
+   },
+   {
+    "memoryId": "mem_dd98fca8eabcf0af64",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_dd98fca8eabcf0af64-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_dd98fca8eabcf0af64-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_dd98fca8eabcf0af64-web.jpg",
+    "takenAt": "2024-07-20T15:00:00.000Z",
+    "caption": "First ocean day, straight into the waves",
+    "storyText": "",
+    "intertitle": "The Summer of Dinosaurs",
+    "chapterTitle": "The Summer of Dinosaurs"
+   },
+   {
+    "memoryId": "mem_fb3e71ff2665bb362b",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_fb3e71ff2665bb362b-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_fb3e71ff2665bb362b-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_fb3e71ff2665bb362b-web.jpg",
+    "takenAt": "2024-07-27T15:00:00.000Z",
+    "caption": "The garden, taller than Milo",
+    "storyText": "",
+    "intertitle": "The Summer of Dinosaurs",
+    "chapterTitle": "The Summer of Dinosaurs"
+   },
+   {
+    "memoryId": "mem_202fb58f4798322320",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_202fb58f4798322320-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_202fb58f4798322320-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_202fb58f4798322320-web.jpg",
+    "takenAt": "2024-08-11T15:00:00.000Z",
+    "caption": "Ocean hair, don't care",
+    "storyText": "",
+    "intertitle": "The Summer of Dinosaurs",
+    "chapterTitle": "The Summer of Dinosaurs"
+   },
+   {
+    "memoryId": "mem_4836287c77ee44c79c",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_4836287c77ee44c79c-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_4836287c77ee44c79c-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_4836287c77ee44c79c-web.jpg",
+    "takenAt": "2024-09-01T15:00:00.000Z",
+    "caption": "First day of preschool for Milo",
+    "storyText": "",
+    "intertitle": "Fall 2024 with Milo",
+    "chapterTitle": "Fall 2024 with Milo"
+   },
+   {
+    "memoryId": "mem_74b4de13459ab5e92c",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_74b4de13459ab5e92c-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_74b4de13459ab5e92c-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_74b4de13459ab5e92c-web.jpg",
+    "takenAt": "2024-09-07T15:00:00.000Z",
+    "caption": "Milo's fourth birthday, balloons everywhere",
+    "storyText": "",
+    "intertitle": "Fall 2024 with Milo",
+    "chapterTitle": "Fall 2024 with Milo"
+   },
+   {
+    "memoryId": "mem_f2aab3298ef0e8a8e2",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_f2aab3298ef0e8a8e2-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_f2aab3298ef0e8a8e2-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_f2aab3298ef0e8a8e2-web.jpg",
+    "takenAt": "2024-12-24T15:00:00.000Z",
+    "caption": "Christmas Eve, cookies for Santa",
+    "storyText": "",
+    "intertitle": "Winter 2024 with Rooney",
+    "chapterTitle": "Winter 2024 with Rooney"
+   },
+   {
+    "memoryId": "mem_ec56ae9a061e71a5ab",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_ec56ae9a061e71a5ab-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_ec56ae9a061e71a5ab-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_ec56ae9a061e71a5ab-web.jpg",
+    "takenAt": "2021-06-26T15:00:00.000Z",
+    "caption": "Tomato rows in Grandma's garden",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_4b70ed96ef67b29f65",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_4b70ed96ef67b29f65-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_4b70ed96ef67b29f65-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_4b70ed96ef67b29f65-web.jpg",
+    "takenAt": "2023-06-17T15:00:00.000Z",
+    "caption": "The garden gate, painted blue",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_63f222abc7f392d012",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_63f222abc7f392d012-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_63f222abc7f392d012-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_63f222abc7f392d012-web.jpg",
+    "takenAt": "2023-07-08T15:00:00.000Z",
+    "caption": "Grandma June in the garden, gloves on",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_01399d6dba81c181c9",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_01399d6dba81c181c9-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_01399d6dba81c181c9-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_01399d6dba81c181c9-web.jpg",
+    "takenAt": "2024-06-15T15:00:00.000Z",
+    "caption": "Milo waters the garden his own way",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_fb3e71ff2665bb362b",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_fb3e71ff2665bb362b-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_fb3e71ff2665bb362b-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_fb3e71ff2665bb362b-web.jpg",
+    "takenAt": "2024-07-27T15:00:00.000Z",
+    "caption": "The garden, taller than Milo",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_2470198b42e1c9e540",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_2470198b42e1c9e540-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_2470198b42e1c9e540-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_2470198b42e1c9e540-web.jpg",
+    "takenAt": "2025-06-21T15:00:00.000Z",
+    "caption": "Grandma's garden, sixth summer",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   }
+  ],
+  "count": 17
+ },
+ "GET /api/families/fam_b44fd40e9d36256d3b/film/2025?thread=thr_b9e51c83f33adac898": {
+  "year": 2025,
+  "film": [
+   {
+    "memoryId": "mem_66e690fc8ee0883d1f",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_66e690fc8ee0883d1f-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_66e690fc8ee0883d1f-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_66e690fc8ee0883d1f-web.jpg",
+    "takenAt": "2025-04-05T15:00:00.000Z",
+    "caption": "Rooney reads to the whole class",
+    "storyText": "",
+    "intertitle": "The Spring of Birthdays",
+    "chapterTitle": "The Spring of Birthdays"
+   },
+   {
+    "memoryId": "mem_2a0a0b17b2d2264708",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_2a0a0b17b2d2264708-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_2a0a0b17b2d2264708-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_2a0a0b17b2d2264708-web.jpg",
+    "takenAt": "2025-04-12T15:00:00.000Z",
+    "caption": "Seven: a birthday crown and big plans",
+    "storyText": "",
+    "intertitle": "The Spring of Birthdays",
+    "chapterTitle": "The Spring of Birthdays"
+   },
+   {
+    "memoryId": "mem_903bad6961b6d2995b",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_903bad6961b6d2995b-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_903bad6961b6d2995b-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_903bad6961b6d2995b-web.jpg",
+    "takenAt": "2025-06-14T15:00:00.000Z",
+    "caption": "First splash day of summer",
+    "storyText": "",
+    "intertitle": "Summer 2025 with Rooney",
+    "chapterTitle": "Summer 2025 with Rooney"
+   },
+   {
+    "memoryId": "mem_2470198b42e1c9e540",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_2470198b42e1c9e540-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_2470198b42e1c9e540-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_2470198b42e1c9e540-web.jpg",
+    "takenAt": "2025-06-21T15:00:00.000Z",
+    "caption": "Grandma's garden, sixth summer",
+    "storyText": "",
+    "intertitle": "Summer 2025 with Rooney",
+    "chapterTitle": "Summer 2025 with Rooney"
+   },
+   {
+    "memoryId": "mem_60086cd206cb7bd499",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_60086cd206cb7bd499-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_60086cd206cb7bd499-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_60086cd206cb7bd499-web.jpg",
+    "takenAt": "2025-07-12T15:00:00.000Z",
+    "caption": "Two bikes, one summer",
+    "storyText": "",
+    "intertitle": "Summer 2025 with Rooney",
+    "chapterTitle": "Summer 2025 with Rooney"
+   },
+   {
+    "memoryId": "mem_7807b53986c470156f",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_7807b53986c470156f-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_7807b53986c470156f-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_7807b53986c470156f-web.jpg",
+    "takenAt": "2025-07-19T15:00:00.000Z",
+    "caption": "The ocean, one year on",
+    "storyText": "",
+    "intertitle": "Summer 2025 with Rooney",
+    "chapterTitle": "Summer 2025 with Rooney"
+   },
+   {
+    "memoryId": "mem_f454bc241be340cb79",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_f454bc241be340cb79-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_f454bc241be340cb79-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_f454bc241be340cb79-web.jpg",
+    "takenAt": "2025-08-02T15:00:00.000Z",
+    "caption": "Pool noodles and big jumps",
+    "storyText": "",
+    "intertitle": "Summer 2025 with Rooney",
+    "chapterTitle": "Summer 2025 with Rooney"
+   },
+   {
+    "memoryId": "mem_979e2268db43b1f51b",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_979e2268db43b1f51b-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_979e2268db43b1f51b-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_979e2268db43b1f51b-web.jpg",
+    "takenAt": "2025-08-16T15:00:00.000Z",
+    "caption": "Grandma June teaches Rooney to shell peas",
+    "storyText": "",
+    "intertitle": "Summer 2025 with Rooney",
+    "chapterTitle": "Summer 2025 with Rooney"
+   },
+   {
+    "memoryId": "mem_f328007bb8e20b0224",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_f328007bb8e20b0224-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_f328007bb8e20b0224-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_f328007bb8e20b0224-web.jpg",
+    "takenAt": "2025-09-13T15:00:00.000Z",
+    "caption": "Back to school, second grade",
+    "storyText": "",
+    "intertitle": "Fall 2025 with Rooney",
+    "chapterTitle": "Fall 2025 with Rooney"
+   },
+   {
+    "memoryId": "mem_7f2870e0ccda780dba",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_7f2870e0ccda780dba-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_7f2870e0ccda780dba-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_7f2870e0ccda780dba-web.jpg",
+    "takenAt": "2025-10-05T15:00:00.000Z",
+    "caption": "Grandma June at the head of the table",
+    "storyText": "",
+    "intertitle": "Fall 2025 with Rooney",
+    "chapterTitle": "Fall 2025 with Rooney"
+   },
+   {
+    "memoryId": "mem_9384517751ca8103e4",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_9384517751ca8103e4-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_9384517751ca8103e4-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_9384517751ca8103e4-web.jpg",
+    "takenAt": "2025-11-08T15:00:00.000Z",
+    "caption": "Rooney's first lost tooth",
+    "storyText": "",
+    "intertitle": "Fall 2025 with Rooney",
+    "chapterTitle": "Fall 2025 with Rooney"
+   },
+   {
+    "memoryId": "mem_a91f2e4dd0759b6662",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_a91f2e4dd0759b6662-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_a91f2e4dd0759b6662-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_a91f2e4dd0759b6662-web.jpg",
+    "takenAt": "2025-11-15T15:00:00.000Z",
+    "caption": "Milo, five, missing the same one",
+    "storyText": "",
+    "intertitle": "Fall 2025 with Rooney",
+    "chapterTitle": "Fall 2025 with Rooney"
+   },
+   {
+    "memoryId": "mem_ec56ae9a061e71a5ab",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_ec56ae9a061e71a5ab-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_ec56ae9a061e71a5ab-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_ec56ae9a061e71a5ab-web.jpg",
+    "takenAt": "2021-06-26T15:00:00.000Z",
+    "caption": "Tomato rows in Grandma's garden",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_4b70ed96ef67b29f65",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_4b70ed96ef67b29f65-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_4b70ed96ef67b29f65-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_4b70ed96ef67b29f65-web.jpg",
+    "takenAt": "2023-06-17T15:00:00.000Z",
+    "caption": "The garden gate, painted blue",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_63f222abc7f392d012",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_63f222abc7f392d012-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_63f222abc7f392d012-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_63f222abc7f392d012-web.jpg",
+    "takenAt": "2023-07-08T15:00:00.000Z",
+    "caption": "Grandma June in the garden, gloves on",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_01399d6dba81c181c9",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_01399d6dba81c181c9-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_01399d6dba81c181c9-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_01399d6dba81c181c9-web.jpg",
+    "takenAt": "2024-06-15T15:00:00.000Z",
+    "caption": "Milo waters the garden his own way",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_fb3e71ff2665bb362b",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_fb3e71ff2665bb362b-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_fb3e71ff2665bb362b-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_fb3e71ff2665bb362b-web.jpg",
+    "takenAt": "2024-07-27T15:00:00.000Z",
+    "caption": "The garden, taller than Milo",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   },
+   {
+    "memoryId": "mem_2470198b42e1c9e540",
+    "fileRef": "media/fam_b44fd40e9d36256d3b/mem_2470198b42e1c9e540-web.jpg",
+    "renditionRef": "media/fam_b44fd40e9d36256d3b/mem_2470198b42e1c9e540-web.jpg",
+    "src": "media/fam_b44fd40e9d36256d3b/mem_2470198b42e1c9e540-web.jpg",
+    "takenAt": "2025-06-21T15:00:00.000Z",
+    "caption": "Grandma's garden, sixth summer",
+    "storyText": "",
+    "intertitle": "Gardens, summer after summer",
+    "chapterTitle": "Gardens, summer after summer",
+    "segment": "thread",
+    "threadId": "thr_b9e51c83f33adac898"
+   }
+  ],
+  "count": 18
  }
 };
