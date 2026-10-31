@@ -28,6 +28,7 @@ Families can connect Google Photos or Apple Photos. Roon suggests what looks wor
 - Google Photos and Apple Photos store files and generate automatic slideshows. Roon is not storage — it is the story layer: written chapters, questions asked over time, patterns noticed across years, sealed letters, and a yearly film. Roon is not a backup replacement.
 - StoryWorth and Remento turn one storyteller's answers to a year of weekly prompts into a printed book ($59–$199 per storyteller). Roon tells the whole family's story continuously, starting from the media the family already has, and has no printed book.
 - Later Nugget captures children's memories by text prompt at $99/year per child, starting from zero. Roon is $99/year per family — all children, parents, and grandparents — and starts from the family's existing photo library, including years before signup.
+- Dear Family records NEW video messages from family members into a private library ($99/year, pre-launch). Roon starts from the archive a family already has — including people who are gone — and writes it as chapters, threads, and films.
 
 ## Pricing (per family, USD)
 - Start: $0 — a free test run. Rooney follows 1 person and writes one chapter from your first 150 memories; room to keep 2,500 memories; prompts for the first week only; no Year Film and no letters on the free run. Export always free.
@@ -58,9 +59,12 @@ Roon is named after founder Jeff's daughter Rooney. When she was four, she drew 
 - How to organize family photos (chapters, not folders): https://roonapp.co/how-to-organize-family-photos
 - How to save voicemails from a loved one: https://roonapp.co/how-to-save-voicemails
 - When parents won't write — getting stories without homework: https://roonapp.co/how-to-get-parents-to-share-stories
-- Google Photos alternative: https://roonapp.co/google-photos-alternative
+- Google Photos alternative (extended: families & privacy): https://roonapp.co/google-photos-alternative
 - Apple Photos alternative: https://roonapp.co/apple-photos-alternative
 - Family movie night: https://roonapp.co/family-movie-night
 - Letters to your child: https://roonapp.co/letters-to-your-child
 - Give Roon as a gift: https://roonapp.co/memory-gift
 - Digital legacy: https://roonapp.co/digital-legacy
+- Inherited family photos: https://roonapp.co/inherited-family-photos
+- Pass down family photos: https://roonapp.co/pass-down-family-photos
+- Dear Family alternative: https://roonapp.co/dear-family-alternative
