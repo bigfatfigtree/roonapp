@@ -323,7 +323,7 @@ footer nav a:hover{color:var(--ink)}
       <span class="bpill"><i></i>Private beta &middot; now forming</span>
       <h2>We&rsquo;re building this <em>with</em> a small group of families first.</h2>
       <p class="bl">We&rsquo;re letting in a limited first group &mdash; people who&rsquo;ll help shape it, get in at founding pricing, and keep that price for as long as they stay. Add your email and we&rsquo;ll be in touch as spots open.</p>
-      <form id="bform1" name="roon-beta" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return joinBetaDash(event,'1')">
+      <form id="bform1" name="roon-beta" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return joinBetaDash(event)">
         <input type="hidden" name="form-name" value="roon-beta">
         <input type="hidden" name="source" value="dashboard">
         <input type="hidden" name="keeping_for" id="bfor1" value="">
@@ -460,7 +460,7 @@ footer nav a:hover{color:var(--ink)}
       <span class="bpill"><i></i>Private beta &middot; now forming</span>
       <h2>Start your family&rsquo;s story.</h2>
       <p class="bl">We&rsquo;re letting in a limited first group &mdash; people who&rsquo;ll help shape it, get in at founding pricing, and keep that price for as long as they stay. Add your email and we&rsquo;ll be in touch as spots open.</p>
-      <form id="bform2" name="roon-beta" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return joinBetaDash(event,'2')">
+      <form id="bform2" name="roon-beta" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return joinBetaDash(event)">
         <input type="hidden" name="form-name" value="roon-beta">
         <input type="hidden" name="source" value="dashboard">
         <input type="hidden" name="keeping_for" id="bfor2" value="">
@@ -527,8 +527,10 @@ function toast(m){var t=document.getElementById('toast');t.textContent=m;t.class
 var betaFor={'1':'','2':''};
 function pickFor(n,v,el){betaFor[n]=v;
  document.querySelectorAll('#bopts'+n+' .bopt').forEach(function(b){b.classList.toggle('on',b===el)})}
-function joinBetaDash(e,n){
+function joinBetaDash(e){
  if(e)e.preventDefault();
+ var n=((e&&e.target&&e.target.id)||'bform1').replace('bform','');
+ if(n!=='1'&&n!=='2')n='1';
  var el=document.getElementById('bemail'+n);
  var v=el.value.trim();
  if(!v||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){el.focus();el.style.outline='1px solid #0C7BB3';
